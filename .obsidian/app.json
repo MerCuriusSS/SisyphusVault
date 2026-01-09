@@ -2,5 +2,5 @@
   "promptDelete": false,
   "showLineNumber": false,
   "useMarkdownLinks": true,
-  "newLinkFormat": "absolute"
+  "newLinkFormat": "relative"
 }
