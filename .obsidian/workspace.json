@@ -13,13 +13,50 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Meta/Sisyphus的个人知识库说明书.md",
+                "file": "00_Meta/templates/Template-技术与思维.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Sisyphus的个人知识库说明书"
+              "title": "Template-技术与思维"
             }
+          },
+          {
+            "id": "65f940564d8b8e1d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "00 - Meta/Home.md",
+                "mode": "source",
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "Home"
+            },
+            "group": "ae19ace238098ab8"
+          }
+        ],
+        "currentTab": 1
+      },
+      {
+        "id": "16c358c2742dcc3c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f31a30cefb953aa2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "00 - Meta/Home.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Home"
+            },
+            "group": "ae19ace238098ab8"
           }
         ]
       }
@@ -44,7 +81,7 @@
                 "autoReveal": false
               },
               "icon": "lucide-folder-closed",
-              "title": "Files"
+              "title": "文件列表"
             }
           },
           {
@@ -61,7 +98,7 @@
                 "sortOrder": "alphabetical"
               },
               "icon": "lucide-search",
-              "title": "Search"
+              "title": "搜索"
             }
           },
           {
@@ -72,6 +109,16 @@
               "state": {},
               "icon": "lucide-bookmark",
               "title": "Bookmarks"
+            }
+          },
+          {
+            "id": "abfa528995383edc",
+            "type": "leaf",
+            "state": {
+              "type": "recent-files",
+              "state": {},
+              "icon": "clock",
+              "title": "Recent Files"
             }
           }
         ]
@@ -94,7 +141,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Meta/Sisyphus的个人知识库说明书.md",
+                "file": "03_Areas/技术类.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +151,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Sisyphus的个人知识库说明书"
+              "title": "技术类 的反向链接列表"
             }
           },
           {
@@ -113,12 +160,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Meta/Sisyphus的个人知识库说明书.md",
+                "file": "00 - Meta/Home.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Sisyphus的个人知识库说明书"
+              "title": "Home 的出链列表"
             }
           },
           {
@@ -133,7 +180,7 @@
                 "searchQuery": ""
               },
               "icon": "lucide-tags",
-              "title": "Tags"
+              "title": "标签"
             }
           },
           {
@@ -165,7 +212,8 @@
               "title": "Outline of Sisyphus的个人知识库说明书"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -174,19 +222,48 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:Open quick switcher": false,
-      "graph:Open graph view": false,
-      "canvas:Create new canvas": false,
-      "daily-notes:Open today's daily note": false,
-      "templates:Insert template": false,
-      "command-palette:Open command palette": false,
-      "bases:Create new base": false
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:创建新数据库": false,
+      "templater-obsidian:Templater": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "1345f324c5620c28",
+  "active": "65f940564d8b8e1d",
   "lastOpenFiles": [
-    "Untitled.md",
-    "Meta/Sisyphus的个人知识库说明书.md",
-    "Meta"
+    "05 - Review/DailyNotes/20260109.md",
+    "00 - Meta/Home.md",
+    "05 - Review/未命名.md",
+    "05 - Review/DailyNotes",
+    "00 - Meta/templates/日记.md",
+    "00 - Meta/templates/深度复盘.md",
+    "00 - Meta/templates/情绪与名言.md",
+    "00 - Meta/templates/技术与思维.md",
+    "03 - Areas/技术类.md",
+    "00_Meta/templates/未命名.md",
+    "03 - Areas/技术示例1.md",
+    "03 - Areas/技术示例2.md",
+    "04 - Resources/AI/test1.md",
+    "04_Resources/two/test.md",
+    "04_Resources/two",
+    "areas/ai/技术类.md",
+    "areas/ai",
+    "areas",
+    "04_Resources/AI/rerank2.md",
+    "04_Resources/AI/rerank.md",
+    "04 - Resources/AI",
+    "02 - Projects/AI一人公司.md",
+    "00 - Meta/Sisyphus的个人知识库说明书.md",
+    "06 - Archives/Areas",
+    "06 - Archives/DailyNotes",
+    "06 - Archives/Projects",
+    "04 - Resources",
+    "04_",
+    "README.md",
+    "Untitled.md"
   ]
 }

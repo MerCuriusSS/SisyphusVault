@@ -1,0 +1,56 @@
+{
+  "recentFiles": [
+    {
+      "basename": "Home",
+      "path": "00 - Meta/Home.md"
+    },
+    {
+      "basename": "20260109",
+      "path": "05 - Review/DailyNotes/20260109.md"
+    },
+    {
+      "basename": "未命名",
+      "path": "05 - Review/未命名.md"
+    },
+    {
+      "basename": "日记",
+      "path": "00 - Meta/templates/日记.md"
+    },
+    {
+      "basename": "深度复盘",
+      "path": "00 - Meta/templates/深度复盘.md"
+    },
+    {
+      "basename": "情绪与名言",
+      "path": "00 - Meta/templates/情绪与名言.md"
+    },
+    {
+      "basename": "技术与思维",
+      "path": "00 - Meta/templates/技术与思维.md"
+    },
+    {
+      "basename": "技术类",
+      "path": "03 - Areas/技术类.md"
+    },
+    {
+      "basename": "技术示例1",
+      "path": "03 - Areas/技术示例1.md"
+    },
+    {
+      "basename": "技术示例2",
+      "path": "03 - Areas/技术示例2.md"
+    },
+    {
+      "basename": "test1",
+      "path": "04 - Resources/AI/test1.md"
+    },
+    {
+      "basename": "AI一人公司",
+      "path": "02 - Projects/AI一人公司.md"
+    }
+  ],
+  "omittedPaths": [],
+  "omittedTags": [],
+  "updateOn": "file-open",
+  "omitBookmarks": false
+}
