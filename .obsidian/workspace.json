@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00 - Meta/Home.md",
+                "file": "02 - Projects/AI一人公司.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Home"
+              "title": "AI一人公司"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "00 - Meta/Home.md",
+                "file": "02 - Projects/AI一人公司.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Home"
+              "title": "Backlinks for AI一人公司"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "00 - Meta/Home.md",
+                "file": "02 - Projects/AI一人公司.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Home"
+              "title": "Outgoing links from AI一人公司"
             }
           },
           {
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "00 - Meta/Home.md",
+                "file": "02 - Projects/AI一人公司.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Home"
+              "title": "Outline of AI一人公司"
             }
           }
         ]
@@ -187,6 +187,13 @@
   },
   "active": "1345f324c5620c28",
   "lastOpenFiles": [
+    "02 - Projects/assets/AI一人公司/file-20260110075529488.png",
+    "02 - Projects/assets/AI一人公司",
+    "02 - Projects/assets",
+    "00 - Meta/Home.md",
+    "00 - Meta/assets/Home/file-20260110075518909.png",
+    "00 - Meta/assets/Home",
+    "00 - Meta/assets",
     "Meta/Sisyphus的个人知识库说明书.md",
     "05 - Review/DailyNotes/20260109.md",
     "05 - Review/未命名.md",
@@ -205,11 +212,7 @@
     "00 - Meta/templates/日记.md",
     "00 - Meta/templates/技术与思维.md",
     "00 - Meta/templates/情绪与名言.md",
-    "00 - Meta/templates",
     "00 - Meta/Sisyphus的个人知识库说明书.md",
-    "00 - Meta/Home.md",
-    "00 - Meta",
-    "Untitled.md",
-    "Meta"
+    "Untitled.md"
   ]
 }
