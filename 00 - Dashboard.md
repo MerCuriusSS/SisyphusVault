@@ -7,7 +7,7 @@ cssclasses: cards, cards-cols-3, max
 > [!multi-column]
 >
 > > [!todo] ### 📥 1. Inbox 待分流
-> > **待处理：** `$=dv.pages('"Inbox"').length` 个
+> > **待处理：** `$=dv.pages('"01 - Inbox"').length` 个
 > > ```dataview
 > > LIST FROM "01 - Inbox" 
 > > LIMIT 5
