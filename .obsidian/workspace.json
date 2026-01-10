@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "52be00f31661f882",
+        "id": "68d59f5f0bf4169e",
         "type": "tabs",
         "children": [
           {
-            "id": "a15208ea7c632029",
+            "id": "8799946034378a56",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -182,13 +182,14 @@
       "command-palette:打开命令面板": false,
       "bases:创建新数据库": false,
       "obsidian-excalidraw-plugin:新建绘图文件": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "templater-obsidian:Templater": false
     }
   },
-  "active": "a15208ea7c632029",
+  "active": "8799946034378a56",
   "lastOpenFiles": [
-    "00 - Meta/templates/content/日记.md",
     "00 - Dashboard.md",
+    "00 - Meta/templates/content/日记.md",
     "01 - Inbox/待处理1.md",
     "05 - Review/复盘1.md",
     "05 - Review/DailyNotes/20260109.md",
