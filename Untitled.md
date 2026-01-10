@@ -1,7 +1,7 @@
 # 🚀 个人知识指挥中心
 
 --- start-multi-column: ID_dashboard_1
-search: [column: 1]
+search: [column: 2]
 
 > [!abstract] 📥 入口与状态
 > `$= dv.pages('"01 - Inbox"').length` 个待分流
