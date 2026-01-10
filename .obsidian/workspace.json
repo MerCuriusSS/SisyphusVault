@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "03 - Areas/技术类.md",
+                "file": "00 - Meta/Home.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "技术类"
+              "title": "Home"
             },
             "group": "aaa594e7f54a19b6"
           }
@@ -34,12 +34,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "03 - Areas/技术类.md",
+                "file": "00 - Meta/Home.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "技术类"
+              "title": "Home"
             },
             "group": "aaa594e7f54a19b6"
           }
@@ -116,7 +116,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "03 - Areas/技术类.md",
+                "file": "00 - Meta/Home.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -126,7 +126,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for 技术类"
+              "title": "Backlinks for Home"
             }
           },
           {
@@ -135,12 +135,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "03 - Areas/技术类.md",
+                "file": "00 - Meta/Home.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from 技术类"
+              "title": "Outgoing links from Home"
             }
           },
           {
@@ -178,13 +178,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "03 - Areas/技术类.md",
+                "file": "00 - Meta/Home.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 技术类"
+              "title": "Outline of Home"
             }
           }
         ]
@@ -207,8 +207,13 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "cfae8a3f4a7feb2f",
+  "active": "1345f324c5620c28",
   "lastOpenFiles": [
+    "02 - Projects/AI一人公司.md",
+    "05 - Review/DailyNotes/20260109.md",
+    "04 - Resources/AI/test1.md",
+    "05 - Review/未命名.md",
+    "03 - Areas/技术类.md",
     "03 - Areas/assets/技术类/file-20260110075814599.png",
     "03 - Areas/assets/技术类",
     "03 - Areas/assets",
@@ -216,21 +221,16 @@
     "00 - Meta/assets/Home/file-20260110075713274.png",
     "00 - Meta/assets/Home",
     "00 - Meta/assets",
-    "02 - Projects/AI一人公司.md",
     "02 - Projects/assets/AI一人公司/file-20260110075647801.png",
     "02 - Projects/assets/AI一人公司/file-20260110075529488.png",
     "02 - Projects/assets/AI一人公司",
     "02 - Projects/assets",
     "00 - Meta/assets/Home/file-20260110075518909.png",
     "Meta/Sisyphus的个人知识库说明书.md",
-    "05 - Review/DailyNotes/20260109.md",
-    "05 - Review/未命名.md",
     "05 - Review/DailyNotes",
     "05 - Review",
-    "04 - Resources/AI/test1.md",
     "04 - Resources/AI",
     "04 - Resources",
-    "03 - Areas/技术类.md",
     "03 - Areas/技术示例2.md",
     "03 - Areas/技术示例1.md",
     "00 - Meta/templates/深度复盘.md",
