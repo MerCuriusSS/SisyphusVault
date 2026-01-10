@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00 - Meta/Home.md",
+                "file": "02 - Projects/AI一人公司.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Home"
+              "title": "AI一人公司"
             },
             "group": "aaa594e7f54a19b6"
           }
@@ -34,12 +34,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00 - Meta/Home.md",
+                "file": "02 - Projects/AI一人公司.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Home"
+              "title": "AI一人公司"
             },
             "group": "aaa594e7f54a19b6"
           }
@@ -116,7 +116,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "00 - Meta/Home.md",
+                "file": "02 - Projects/AI一人公司.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -126,7 +126,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Home"
+              "title": "Backlinks for AI一人公司"
             }
           },
           {
@@ -135,12 +135,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "00 - Meta/Home.md",
+                "file": "02 - Projects/AI一人公司.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Home"
+              "title": "Outgoing links from AI一人公司"
             }
           },
           {
@@ -178,13 +178,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "00 - Meta/Home.md",
+                "file": "02 - Projects/AI一人公司.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Home"
+              "title": "Outline of AI一人公司"
             }
           }
         ]
@@ -209,6 +209,7 @@
   },
   "active": "1345f324c5620c28",
   "lastOpenFiles": [
+    "00 - Meta/Home.md",
     "02 - Projects/AI一人公司.md",
     "05 - Review/DailyNotes/20260109.md",
     "04 - Resources/AI/test1.md",
@@ -217,7 +218,6 @@
     "03 - Areas/assets/技术类/file-20260110075814599.png",
     "03 - Areas/assets/技术类",
     "03 - Areas/assets",
-    "00 - Meta/Home.md",
     "00 - Meta/assets/Home/file-20260110075713274.png",
     "00 - Meta/assets/Home",
     "00 - Meta/assets",
