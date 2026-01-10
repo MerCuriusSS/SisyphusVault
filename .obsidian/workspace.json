@@ -15,11 +15,33 @@
               "state": {
                 "file": "00 - Dashboard.md",
                 "mode": "source",
-                "source": false
+                "source": true
               },
               "icon": "lucide-file",
               "title": "00 - Dashboard"
-            }
+            },
+            "group": "15b95356affaf6d8"
+          }
+        ]
+      },
+      {
+        "id": "21dff27f43e748f6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "86286312eb39eb47",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "00 - Dashboard.md",
+                "mode": "preview",
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "00 - Dashboard"
+            },
+            "group": "15b95356affaf6d8"
           }
         ]
       }
@@ -186,7 +208,7 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "8799946034378a56",
+  "active": "86286312eb39eb47",
   "lastOpenFiles": [
     "00 - Dashboard.md",
     "00 - Meta/templates/content/日记.md",
