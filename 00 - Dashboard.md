@@ -33,7 +33,7 @@ WHERE status != "沉淀"
 
 ## 当周任务待办事项
 
-```tasks
+```dataview
 TASK
 WHERE !completed 
 AND (due <= date(today) + dur(7 days) OR !due)
