@@ -19,7 +19,29 @@
               },
               "icon": "lucide-file",
               "title": "dashboard1"
-            }
+            },
+            "group": "2457d5a584e07f52"
+          }
+        ]
+      },
+      {
+        "id": "2eebeaaba1d611f5",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "82297449724ce467",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "dashboard1.md",
+                "mode": "preview",
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "dashboard1"
+            },
+            "group": "2457d5a584e07f52"
           }
         ]
       }
@@ -94,7 +116,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "05 - Review/复盘1.md",
+                "file": "dashboard1.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +126,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for 复盘1"
+              "title": "Backlinks for dashboard1"
             }
           },
           {
