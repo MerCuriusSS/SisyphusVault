@@ -39,3 +39,4 @@ WHERE !completed
 AND (due <= date(today) + dur(7 days) OR !due)
 WHERE !contains(section, "Template") -- 排除模板里的待办
 ```
+
