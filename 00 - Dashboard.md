@@ -1,5 +1,5 @@
 ---
-cssclasses: cards, cards-cols-3, max
+cssclasses:
 ---
 
 # 🛰️ 系统监控中心
