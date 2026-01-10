@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Untitled.md",
+                "file": "03 - Areas/技术类.md",
                 "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Untitled"
+              "title": "技术类"
             }
           }
         ]
@@ -186,12 +186,18 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "8799946034378a56",
+  "active": "0f853221f0c8a461",
   "lastOpenFiles": [
-    "00 - Dashboard.md",
-    "Untitled.md",
-    "05 - Inbox.md",
+    "03 - Areas/技术类.md",
+    "02 - Projects/AI一人公司.md",
+    "00 - Meta/templates/content/技术与思维.md",
+    "00 - Meta/templates/content/情绪与名言.md",
     "00 - Meta/templates/content/日记.md",
+    "00 - Meta/templates/content/深度复盘.md",
+    "00 - Meta/templates/dataView/项目.md",
+    "Untitled.md",
+    "00 - Dashboard.md",
+    "05 - Inbox.md",
     "01 - Inbox/待处理1.md",
     "05 - Review/复盘1.md",
     "05 - Review/DailyNotes/20260109.md",
@@ -202,16 +208,10 @@
     "04 - Resources/资源3.md",
     "04 - Resources/资源2.md",
     "04 - Resources/资源1.md",
-    "00 - Meta/templates/content/深度复盘.md",
-    "00 - Meta/templates/content/情绪与名言.md",
-    "00 - Meta/templates/content/技术与思维.md",
-    "00 - Meta/templates/dataView/项目.md",
     "00 - Meta/templates/content",
     "00 - Meta/templates/dataView",
-    "02 - Projects/AI一人公司.md",
     "00 - Meta/Home.md",
     "04 - Resources/AI/test1.md",
-    "03 - Areas/技术类.md",
     "03 - Areas/assets/技术类/file-20260110075814599.png",
     "03 - Areas/assets/技术类",
     "03 - Areas/assets",
