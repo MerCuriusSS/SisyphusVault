@@ -9,7 +9,7 @@ cssclasses: cards, cards-cols-3, max
 > > [!todo] ### 📥 1. Inbox 待分流
 > > **待处理：** `$=dv.pages('"Inbox"').length` 个
 > > ```dataview
-> > LIST FROM "Inbox" 
+> > LIST FROM "01 - Inbox" 
 > > LIMIT 5
 > > ```
 > 
