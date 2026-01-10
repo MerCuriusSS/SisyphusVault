@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "03 - Areas/技术类.md",
+                "file": "Untitled.md",
                 "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "技术类"
+              "title": "Untitled"
             }
           }
         ]
@@ -186,8 +186,10 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "0f853221f0c8a461",
+  "active": "8799946034378a56",
   "lastOpenFiles": [
+    "03 - Areas/技术示例1.md",
+    "03 - Areas/技术示例2.md",
     "03 - Areas/技术类.md",
     "02 - Projects/AI一人公司.md",
     "00 - Meta/templates/content/技术与思维.md",
@@ -224,8 +226,6 @@
     "02 - Projects/assets",
     "00 - Meta/assets/Home/file-20260110075518909.png",
     "Meta/Sisyphus的个人知识库说明书.md",
-    "05 - Review/DailyNotes",
-    "03 - Areas/技术示例2.md",
-    "03 - Areas/技术示例1.md"
+    "05 - Review/DailyNotes"
   ]
 }
