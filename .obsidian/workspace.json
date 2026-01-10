@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "Untitled.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
@@ -188,6 +188,9 @@
   },
   "active": "8799946034378a56",
   "lastOpenFiles": [
+    "04 - Resources/资源2.md",
+    "04 - Resources/资源1.md",
+    "Untitled.md",
     "03 - Areas/技术示例1.md",
     "03 - Areas/技术示例2.md",
     "03 - Areas/技术类.md",
@@ -197,7 +200,6 @@
     "00 - Meta/templates/content/日记.md",
     "00 - Meta/templates/content/深度复盘.md",
     "00 - Meta/templates/dataView/项目.md",
-    "Untitled.md",
     "00 - Dashboard.md",
     "05 - Inbox.md",
     "01 - Inbox/待处理1.md",
@@ -208,8 +210,6 @@
     "01 - Inbox/待处理2.md",
     "01 - Inbox",
     "04 - Resources/资源3.md",
-    "04 - Resources/资源2.md",
-    "04 - Resources/资源1.md",
     "00 - Meta/templates/content",
     "00 - Meta/templates/dataView",
     "00 - Meta/Home.md",
