@@ -4,11 +4,19 @@
 search: [column: 1]
 
 > [!abstract] 📥 入口与状态
-> `$= dv.pages('"05 - Inbox"').length` 个待分流
+> `$= dv.pages('"01 - Inbox"').length` 个待分流
 >
 > **快速链接**
 > - [[05 - Inbox|📂 打开收件箱]]
 > - [[Daily Notes/2026-01-10|📅 今日日记]]
+>**随机回顾 (灵感)**
+>
+>```dataview
+>LIST FROM "03 - Areas"
+>WHERE status = "沉淀"
+>LIMIT 1
+>```
+
 
 --- column-break ---
 
@@ -18,6 +26,7 @@ search: [column: 1]
 > due before next monday
 > group by priority
 > ```
+>[!info] **重点提醒** 请优先处理高优先级 (⏫) 任务。
 
 --- column-break ---
 
