@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Untitled.md",
+                "file": "dashboard1.md",
                 "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Untitled"
+              "title": "dashboard1"
             }
           }
         ]
@@ -188,19 +188,22 @@
   },
   "active": "8799946034378a56",
   "lastOpenFiles": [
+    "00 - Dashboard.md",
+    "dashboard1.md",
+    "00 - Meta/templates/dataView/项目.md",
+    "00 - Meta/templates/dataView/assets/项目/file-20260110115446747.png",
+    "00 - Meta/templates/dataView/assets/项目",
+    "00 - Meta/templates/dataView/assets",
+    "00 - Meta/templates/content/技术与思维.md",
     "03 - Areas/技术类.md",
-    "Untitled.md",
     "04 - Resources/资源2.md",
     "04 - Resources/资源1.md",
     "03 - Areas/技术示例1.md",
     "03 - Areas/技术示例2.md",
     "02 - Projects/AI一人公司.md",
-    "00 - Meta/templates/content/技术与思维.md",
     "00 - Meta/templates/content/情绪与名言.md",
     "00 - Meta/templates/content/日记.md",
     "00 - Meta/templates/content/深度复盘.md",
-    "00 - Meta/templates/dataView/项目.md",
-    "00 - Dashboard.md",
     "05 - Inbox.md",
     "01 - Inbox/待处理1.md",
     "05 - Review/复盘1.md",
@@ -223,9 +226,7 @@
     "02 - Projects/assets/AI一人公司/file-20260110075647801.png",
     "02 - Projects/assets/AI一人公司/file-20260110075529488.png",
     "02 - Projects/assets/AI一人公司",
-    "02 - Projects/assets",
     "00 - Meta/assets/Home/file-20260110075518909.png",
-    "Meta/Sisyphus的个人知识库说明书.md",
-    "05 - Review/DailyNotes"
+    "Meta/Sisyphus的个人知识库说明书.md"
   ]
 }
