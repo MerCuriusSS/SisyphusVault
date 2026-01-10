@@ -1,42 +1,36 @@
-## 资料库
+---
+cssclasses: cards, cards-1-1, cards-cols-3
+---
 
-```dataview
-LIST
-FROM "04 - Resources"
-LIMIT 10
-```
+# 🚀 个人调度中心
 
-## 项目处理情况
+> [!multi-column]
+>
+> > ### 📥 1. 收件箱 (Inbox)
+> > ```dataview
+> > LIST FROM "Inbox" LIMIT 5
+> > ```
+>
+> > ### ⛏️ 2. 知识矿 (Resources)
+> > ```dataview
+> > LIST FROM "Resources" WHERE !processed LIMIT 5
+> > ```
+>
+> > ### 🏗️ 3. 活跃项目 (Projects)
+> > ```dataview
+> > TABLE status AS "状态" FROM "Projects" WHERE status = "active"
+> > ```
 
-```dataview
-TABLE status AS "状态", deadline AS "截止日期"
-FROM "02 - Projects"
-WHERE status = "active" OR status = "进行中"
-```
+---
 
-
-## Inbox数量
-```dataview
-LIST
-FROM "01 - Inbox"
-LIMIT 10
-```
-
-## Area区域笔记
-
-```dataview
-TABLE status AS "当前状态", area_type AS "分类"
-FROM "03 - Areas"
-WHERE status != "沉淀" 
-```
-
-
-## 当周任务待办事项
-
-```dataview
-TASK
-WHERE !completed 
-AND (due <= date(today) + dur(7 days) OR !due)
-WHERE !contains(section, "Template") -- 排除模板里的待办
-```
-
+> [!multi-column]
+>
+> > ### 📂 4. 领域异常检查 (Areas)
+> > ```dataview
+> > LIST FROM "Areas" WHERE status != "沉淀"
+> > ```
+>
+> > ### ✅ 5. 本周待办事项
+> > ```dataview
+> > TASK WHERE !completed AND (due <= date(today) + dur(7 days) OR !due)
+> > ```
