@@ -17,6 +17,16 @@ search: [column: 1]
 
 --- column-break ---
 
+> [!success] ✅ 执行中心 (本周)
+> ```tasks
+> not done
+> due before next monday
+> group by priority
+> ```
+> > [!info] **重点提醒** > > 请优先处理高优先级 (⏫) 任务。
+
+--- column-break ---
+
 > [!activity] 🏗️ 活跃监控
 > **当前项目**
 > ```dataview
