@@ -1,9 +1,10 @@
+# 🚀 个人知识指挥中心
 
 --- start-multi-column: dashboard_01
 ```column-settings
 Number of Columns: 3
-Largest Column: standard
-border:on
+Largest Column: center
+border:off
 ```
 
 > [!abstract] 📥 入口与状态
