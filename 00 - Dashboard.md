@@ -23,7 +23,8 @@
 
 > [!activity] 🎃 项目监控
 > ```dataview
-> LIST FROM "02 - Projects"
+> 
+> TABLE file.mtime AS "最后修改时间", file.tags AS "标签" FROM "02 - Projects" SORT file.mtime DESC
 > ```
 
 > [!example]- 🏗️ 领域加工
