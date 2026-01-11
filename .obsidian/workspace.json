@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00 - Meta/templates/content/情绪与名言.md",
+                "file": "00 - Meta/templates/content/深度复盘.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "情绪与名言"
+              "title": "深度复盘"
             }
           }
         ]
@@ -48,6 +48,21 @@
             }
           },
           {
+            "id": "9b0da75d3f84d55e",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
             "id": "186215c3ad0c9b11",
             "type": "leaf",
             "state": {
@@ -73,23 +88,9 @@
               "icon": "lucide-bookmark",
               "title": "Bookmarks"
             }
-          },
-          {
-            "id": "9b0da75d3f84d55e",
-            "type": "leaf",
-            "state": {
-              "type": "tag",
-              "state": {
-                "sortOrder": "frequency",
-                "useHierarchy": false,
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-tags",
-              "title": "Tags"
-            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -109,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "00 - Meta/templates/content/情绪与名言.md",
+                "file": "00 - Meta/templates/content/深度复盘.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -119,7 +120,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for 情绪与名言"
+              "title": "Backlinks for 深度复盘"
             }
           },
           {
@@ -128,12 +129,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "00 - Meta/templates/content/情绪与名言.md",
+                "file": "00 - Meta/templates/content/深度复盘.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from 情绪与名言"
+              "title": "Outgoing links from 深度复盘"
             }
           },
           {
@@ -156,13 +157,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "00 - Meta/templates/content/情绪与名言.md",
+                "file": "00 - Meta/templates/content/深度复盘.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 情绪与名言"
+              "title": "Outline of 深度复盘"
             }
           }
         ],
@@ -186,12 +187,13 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "47ab0d2a4937fde1",
+  "active": "9b0da75d3f84d55e",
   "lastOpenFiles": [
+    "00 - Meta/templates/content/日记.md",
+    "00 - Meta/templates/content/情绪与名言.md",
     "00 - Meta/templates/content/技术与思维.md",
     "00 - Meta/templates/dataView/项目模板.md",
     "02 - Projects/AI一人公司.md",
-    "00 - Meta/templates/content/日记.md",
     "04 - Resources/资源2.md",
     "00 - Dashboard/00 - Dashboard.md",
     "01 - Inbox/待处理1.md",
@@ -206,7 +208,6 @@
     "00 - Meta/templates/syntax",
     "05 - Inbox.md",
     "Daily Notes",
-    "00 - Meta/templates/content/情绪与名言.md",
     "00 - Meta/templates/content/深度复盘.md",
     "01 - Inbox/待处理2.md",
     "00 - Meta/templates/dataView/assets/项目/file-20260110115446747.png",
