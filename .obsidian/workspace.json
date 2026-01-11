@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00 - Meta/templates/content/日记.md",
+                "file": "00 - Meta/templates/content/技术与思维.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "日记"
+              "title": "技术与思维"
             }
           }
         ]
@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#task2",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -73,9 +73,23 @@
               "icon": "lucide-bookmark",
               "title": "Bookmarks"
             }
+          },
+          {
+            "id": "9b0da75d3f84d55e",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -95,7 +109,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "00 - Meta/templates/content/日记.md",
+                "file": "00 - Meta/templates/content/技术与思维.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,7 +119,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for 日记"
+              "title": "Backlinks for 技术与思维"
             }
           },
           {
@@ -114,12 +128,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "00 - Meta/templates/content/日记.md",
+                "file": "00 - Meta/templates/content/技术与思维.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from 日记"
+              "title": "Outgoing links from 技术与思维"
             }
           },
           {
@@ -142,36 +156,21 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "00 - Meta/templates/content/日记.md",
-                "followCursor": false,
+                "file": "00 - Meta/templates/content/技术与思维.md",
+                "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 日记"
-            }
-          },
-          {
-            "id": "9b0da75d3f84d55e",
-            "type": "leaf",
-            "state": {
-              "type": "tag",
-              "state": {
-                "sortOrder": "frequency",
-                "useHierarchy": false,
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-tags",
-              "title": "Tags"
+              "title": "Outline of 技术与思维"
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 291.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -187,20 +186,20 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "47ab0d2a4937fde1",
+  "active": "d6a95f496f03ea32",
   "lastOpenFiles": [
+    "00 - Meta/templates/dataView/项目模板.md",
+    "02 - Projects/AI一人公司.md",
+    "00 - Meta/templates/content/日记.md",
     "04 - Resources/资源2.md",
     "00 - Dashboard/00 - Dashboard.md",
     "01 - Inbox/待处理1.md",
     "00 - Dashboard",
-    "02 - Projects/AI一人公司.md",
     "Untitled.canvas",
     "00 - Meta/Sisyphus的个人知识库说明书.md",
     "2026-01-11.md",
     "dashboard1.md",
-    "00 - Meta/templates/content/日记.md",
     "05 - Review/DailyNotes/20260111.md",
-    "00 - Meta/templates/dataView/项目模板.md",
     "Daily Notes/2026-01-10.md",
     "03 - Areas/技术示例1.md",
     "00 - Meta/templates/content/技术与思维.md",
