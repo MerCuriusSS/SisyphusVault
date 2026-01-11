@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "03 - Areas/技术示例1.md",
+                "file": "00 - Meta/templates/content/技术与思维.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "技术示例1"
+              "title": "技术与思维"
             }
           }
         ]
@@ -189,6 +189,7 @@
   "active": "5cf8c613ddff4175",
   "lastOpenFiles": [
     "02 - Projects/AI一人公司.md",
+    "03 - Areas/技术示例1.md",
     "00 - Dashboard.md",
     "00 - Meta/templates/syntax",
     "dashboard1.md",
@@ -207,7 +208,6 @@
     "03 - Areas/技术类.md",
     "04 - Resources/资源2.md",
     "04 - Resources/资源1.md",
-    "03 - Areas/技术示例1.md",
     "03 - Areas/技术示例2.md",
     "00 - Meta/templates/content/日记.md",
     "05 - Review/复盘1.md",
