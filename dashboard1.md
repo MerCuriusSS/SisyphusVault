@@ -10,6 +10,9 @@
 
 > [!abstract] 📥 入口与状态
 > `$= dv.pages('"01 - Inbox"').length` 个待分流
+> ```dataview
+> LIST FROM "01 - Inbox" LIMIT 5
+> ```
 > 
 > **快速链接**
 > - [[05 - Inbox|📂 打开收件箱]]
@@ -23,7 +26,7 @@
 > [!activity] 🏗️ 活跃监控
 > **当前项目**
 > ```dataview
-> LIST FROM "01 - Projects" WHERE status = "运行中" LIMIT 3
+> LIST FROM "01 - Projects" WHERE status = "运行" LIMIT 3
 > ```
 > 
 > 
