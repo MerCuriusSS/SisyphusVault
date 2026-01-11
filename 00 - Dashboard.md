@@ -14,6 +14,11 @@
 > LIST FROM "03 - Areas" WHERE status = "沉淀" LIMIT 1
 > ```
 
+> [!tip]- 快捷键推荐
+> Ctrl+P/Cmd+P 打开命令面板
+> Ctrl+N/Cmd+N 新建笔记
+> Ctrl+L/Cmd+L 打开链接
+
 
 
 > [!success] ✅ 执行中心 (本周)
