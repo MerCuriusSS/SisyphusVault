@@ -6,7 +6,7 @@
 > ```
 
 
-> [!todo] 📥 收件箱状态（`$= dv.pages('"01 - Inbox"').length`） 
+> [!todo] 📂 [[01 - Inbox]|收件箱]]（`$= dv.pages('"01 - Inbox"').length`） 
 > > [!note]- 最近5个
 > >```dataview
 > >LIST FROM "01 - Inbox" LIMIT 5

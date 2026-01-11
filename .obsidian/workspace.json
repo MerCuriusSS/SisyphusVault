@@ -14,8 +14,8 @@
               "type": "markdown",
               "state": {
                 "file": "00 - Dashboard.md",
-                "mode": "source",
-                "source": false
+                "mode": "preview",
+                "source": true
               },
               "icon": "lucide-file",
               "title": "00 - Dashboard"
@@ -188,10 +188,11 @@
   },
   "active": "5cf8c613ddff4175",
   "lastOpenFiles": [
-    "Daily Notes/2026-01-10.md",
     "dashboard1.md",
-    "Daily Notes",
     "00 - Dashboard.md",
+    "05 - Inbox.md",
+    "Daily Notes/2026-01-10.md",
+    "Daily Notes",
     "00 - Meta/templates/content/技术与思维.md",
     "00 - Meta/templates/content/情绪与名言.md",
     "00 - Meta/templates/content/深度复盘.md",
@@ -199,7 +200,6 @@
     "02 - Projects/AI一人公司.md",
     "01 - Inbox/待处理1.md",
     "01 - Inbox/待处理2.md",
-    "05 - Inbox.md",
     "00 - Meta/templates/dataView/assets/项目/file-20260110115446747.png",
     "00 - Meta/templates/dataView/assets/项目",
     "00 - Meta/templates/dataView/assets",
