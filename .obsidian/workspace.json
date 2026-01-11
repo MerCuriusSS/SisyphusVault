@@ -27,16 +27,15 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00 - Meta/templates/dataView/项目模板.md",
+                "file": "02 - Projects/AI一人公司.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "项目模板"
+              "title": "AI一人公司"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -201,13 +200,13 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "47ab0d2a4937fde1",
+  "active": "5cf8c613ddff4175",
   "lastOpenFiles": [
-    "00 - Meta/templates/content/技术与思维.md",
+    "02 - Projects/AI一人公司.md",
     "00 - Meta/templates/dataView/项目模板.md",
+    "00 - Meta/templates/content/技术与思维.md",
     "00 - Dashboard.md",
     "dashboard1.md",
-    "02 - Projects/AI一人公司.md",
     "03 - Areas/技术示例1.md",
     "00 - Meta/templates/syntax",
     "05 - Inbox.md",
