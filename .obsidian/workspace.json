@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00 - Dashboard.md",
+                "file": "03 - Areas/技术示例1.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "00 - Dashboard"
+              "title": "技术示例1"
             }
           }
         ]
@@ -186,13 +186,13 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "0f853221f0c8a461",
+  "active": "5cf8c613ddff4175",
   "lastOpenFiles": [
+    "02 - Projects/AI一人公司.md",
+    "00 - Dashboard.md",
     "00 - Meta/templates/syntax",
     "dashboard1.md",
     "00 - Meta/templates/dataView/项目.md",
-    "02 - Projects/AI一人公司.md",
-    "00 - Dashboard.md",
     "05 - Inbox.md",
     "Daily Notes/2026-01-10.md",
     "Daily Notes",
@@ -225,7 +225,6 @@
     "03 - Areas/assets",
     "00 - Meta/assets/Home/file-20260110075713274.png",
     "00 - Meta/assets/Home",
-    "00 - Meta/assets",
     "02 - Projects/assets/AI一人公司/file-20260110075647801.png",
     "02 - Projects/assets/AI一人公司/file-20260110075529488.png",
     "00 - Meta/assets/Home/file-20260110075518909.png",
