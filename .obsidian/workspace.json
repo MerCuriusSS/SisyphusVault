@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00 - Meta/templates/content/技术与思维.md",
+                "file": "05 - Review/复盘1.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "技术与思维"
+              "title": "复盘1"
             }
           }
         ]
@@ -89,8 +89,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -110,7 +109,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "00 - Meta/templates/content/技术与思维.md",
+                "file": "05 - Review/复盘1.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -120,7 +119,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for 技术与思维"
+              "title": "Backlinks for 复盘1"
             }
           },
           {
@@ -129,12 +128,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "00 - Meta/templates/content/技术与思维.md",
+                "file": "05 - Review/复盘1.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from 技术与思维"
+              "title": "Outgoing links from 复盘1"
             }
           },
           {
@@ -157,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "00 - Meta/templates/content/技术与思维.md",
+                "file": "05 - Review/复盘1.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 技术与思维"
+              "title": "Outline of 复盘1"
             }
           }
         ],
@@ -187,12 +186,16 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "9b0da75d3f84d55e",
+  "active": "47ab0d2a4937fde1",
   "lastOpenFiles": [
+    "05 - Review/复盘2.md",
+    "05 - Review/复盘1.md",
+    "00 - Meta/Sisyphus的个人知识库说明书.md",
+    "03 - Areas/技术示例1.md",
+    "00 - Meta/templates/content/技术与思维.md",
     "00 - Meta/templates/content/深度复盘.md",
     "00 - Meta/templates/content/日记.md",
     "00 - Meta/templates/content/情绪与名言.md",
-    "00 - Meta/templates/content/技术与思维.md",
     "00 - Meta/templates/dataView/项目模板.md",
     "02 - Projects/AI一人公司.md",
     "04 - Resources/资源2.md",
@@ -200,12 +203,10 @@
     "01 - Inbox/待处理1.md",
     "00 - Dashboard",
     "Untitled.canvas",
-    "00 - Meta/Sisyphus的个人知识库说明书.md",
     "2026-01-11.md",
     "dashboard1.md",
     "05 - Review/DailyNotes/20260111.md",
     "Daily Notes/2026-01-10.md",
-    "03 - Areas/技术示例1.md",
     "00 - Meta/templates/syntax",
     "05 - Inbox.md",
     "Daily Notes",
@@ -216,8 +217,6 @@
     "03 - Areas/技术类.md",
     "04 - Resources/资源1.md",
     "03 - Areas/技术示例2.md",
-    "05 - Review/复盘1.md",
-    "05 - Review/复盘2.md",
     "01 - Inbox",
     "04 - Resources/资源3.md",
     "00 - Meta/templates/content",
