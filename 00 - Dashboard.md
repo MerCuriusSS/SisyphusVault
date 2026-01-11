@@ -6,20 +6,12 @@
 > ```
 
 
---- start-multi-column: ID_sy03
-```column-settings
-Number of Columns: 2
-Largest Column: standard
-border: off
-```
-
 > [!todo] 📥 收件箱状态（`$= dv.pages('"01 - Inbox"').length`） 
 > > [!note]- 最近5个
 > >```dataview
 > >LIST FROM "01 - Inbox" LIMIT 5
 > >```
 
---- column-break ---
 
 > [!warning] ✅ 执行中心 (本周)
 > ```tasks
@@ -28,9 +20,6 @@ border: off
 > group by priority
 > ```
 > > [!info] **重点提醒** > > 请优先处理高优先级 (⏫) 任务。
-
---- end-multi-column
-
 
 
 > [!example]- 🏗️ 领域加工
