@@ -23,7 +23,7 @@
 
 > [!activity] 🎃 项目监控
 > ```dataview
-> LIST FROM "02 - Projects" WHERE status = "运行中"
+> LIST FROM "02 - Projects"
 > ```
 
 > [!example]- 🏗️ 领域加工
