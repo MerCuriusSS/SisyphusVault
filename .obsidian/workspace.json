@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "04 - Resources/资源2.md",
+                "file": "00 - Meta/templates/content/日记.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "资源2"
+              "title": "日记"
             }
           }
         ]
@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "05",
+                "query": "tag:#task2",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -74,7 +74,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -94,7 +95,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "dashboard1.md",
+                "file": "00 - Meta/templates/content/日记.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +105,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for dashboard1"
+              "title": "Backlinks for 日记"
             }
           },
           {
@@ -113,27 +114,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "05 - Review/复盘1.md",
+                "file": "00 - Meta/templates/content/日记.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from 复盘1"
-            }
-          },
-          {
-            "id": "652ea797055e4c93",
-            "type": "leaf",
-            "state": {
-              "type": "tag",
-              "state": {
-                "sortOrder": "frequency",
-                "useHierarchy": true,
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-tags",
-              "title": "Tags"
+              "title": "Outgoing links from 日记"
             }
           },
           {
@@ -156,21 +142,36 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "05 - Review/复盘1.md",
+                "file": "00 - Meta/templates/content/日记.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 复盘1"
+              "title": "Outline of 日记"
+            }
+          },
+          {
+            "id": "9b0da75d3f84d55e",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
             }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -188,6 +189,7 @@
   },
   "active": "47ab0d2a4937fde1",
   "lastOpenFiles": [
+    "04 - Resources/资源2.md",
     "00 - Dashboard/00 - Dashboard.md",
     "01 - Inbox/待处理1.md",
     "00 - Dashboard",
@@ -212,7 +214,6 @@
     "00 - Meta/templates/dataView/assets/项目",
     "00 - Meta/templates/dataView/assets",
     "03 - Areas/技术类.md",
-    "04 - Resources/资源2.md",
     "04 - Resources/资源1.md",
     "03 - Areas/技术示例2.md",
     "05 - Review/复盘1.md",
