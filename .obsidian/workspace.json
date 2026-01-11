@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00 - Dashboard/00 - Dashboard.md",
-                "mode": "preview",
+                "file": "04 - Resources/资源2.md",
+                "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "00 - Dashboard"
+              "title": "资源2"
             }
           }
         ]
@@ -41,7 +41,7 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": true
+                "autoReveal": false
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -186,10 +186,10 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "0f853221f0c8a461",
+  "active": "47ab0d2a4937fde1",
   "lastOpenFiles": [
-    "01 - Inbox/待处理1.md",
     "00 - Dashboard/00 - Dashboard.md",
+    "01 - Inbox/待处理1.md",
     "00 - Dashboard",
     "02 - Projects/AI一人公司.md",
     "Untitled.canvas",
