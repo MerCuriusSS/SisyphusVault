@@ -1,11 +1,12 @@
 # 🚀 个人知识指挥中心
 
---- start-multi-column: dashboard_01
-```column-settings
-Number of Columns: 3
-Largest Column: center
-border:off
-```
+> [!success] ✅ 执行中心 (本周)
+> ```tasks
+> not done
+> due before next monday
+> group by priority
+> ```
+> > [!info] **重点提醒** > > 请优先处理高优先级 (⏫) 任务。
 
 > [!abstract] 📥 入口与状态
 > `$= dv.pages('"01 - Inbox"').length` 个待分流
@@ -19,18 +20,6 @@ border:off
 > LIST FROM "03 - Areas" WHERE status = "沉淀" LIMIT 1
 > ```
 
---- column-break ---
-
-> [!success] ✅ 执行中心 (本周)
-> ```tasks
-> not done
-> due before next monday
-> group by priority
-> ```
-> > [!info] **重点提醒** > > 请优先处理高优先级 (⏫) 任务。
-
---- column-break ---
-
 > [!activity] 🏗️ 活跃监控
 > **当前项目**
 > ```dataview
@@ -43,5 +32,5 @@ border:off
 > LIST FROM "03 - Resources" SORT file.ctime DESC LIMIT 3
 > ```
 
---- end-multi-column
+
 
