@@ -6,7 +6,7 @@
 > ```
 
 
-> [!todo] 📂 [[01 - Inbox]|收件箱]]（`$= dv.pages('"01 - Inbox"').length`） 
+> [!todo] 📂 [[01 - Inbox|收件箱]]（`$= dv.pages('"01 - Inbox"').length`） 
 > > [!note]- 最近5个
 > >```dataview
 > >LIST FROM "01 - Inbox" LIMIT 5
@@ -21,8 +21,7 @@
 > ```
 > > [!info] **重点提醒** > > 请优先处理高优先级 (⏫) 任务。
 
-> [!activity] 🎃 活跃监控
-> **当前项目**
+> [!activity] 🎃 项目监控
 > ```dataview
 > LIST FROM "02 - Projects" WHERE status = "运行中"
 > ```
