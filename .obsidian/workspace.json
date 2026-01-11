@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "01 - Inbox/待处理1.md",
+                "file": "00 - Dashboard/00 - Dashboard.md",
                 "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "待处理1"
+              "title": "00 - Dashboard"
             }
           }
         ]
@@ -109,7 +109,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "01 - Inbox/待处理1.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -119,7 +118,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for 待处理1"
+              "title": "Backlinks"
             }
           },
           {
@@ -128,12 +127,11 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "01 - Inbox/待处理1.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from 待处理1"
+              "title": "Outgoing links"
             }
           },
           {
@@ -186,11 +184,11 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "47ab0d2a4937fde1",
+  "active": "0f853221f0c8a461",
   "lastOpenFiles": [
-    "00 - Dashboard/00 - Dashboard.md",
     "01 - Inbox/待处理2.md",
     "01 - Inbox/待处理1.md",
+    "00 - Dashboard/00 - Dashboard.md",
     "03 - Areas/技术示例1.md",
     "02 - Projects/AI一人公司.md",
     "00 - Meta/templates/dataView/项目模板.md",
