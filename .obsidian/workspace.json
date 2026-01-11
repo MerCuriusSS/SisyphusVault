@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "05 - Review/DailyNotes/20260109.md",
+                "file": "00 - Dashboard.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "20260109"
+              "title": "00 - Dashboard"
             }
           },
           {
@@ -81,7 +81,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#语法",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -102,7 +102,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -214,17 +215,17 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "5cf8c613ddff4175",
+  "active": "186215c3ad0c9b11",
   "lastOpenFiles": [
-    "00 - Dashboard.md",
+    "dashboard1.md",
+    "05 - Review/DailyNotes/20260111.md",
     "00 - Meta/templates/content/日记.md",
-    "05 - Review/DailyNotes/20260109.md",
+    "02 - Projects/AI一人公司.md",
+    "00 - Dashboard.md",
     "00 - Meta/templates/dataView/项目模板.md",
     "Daily Notes/2026-01-10.md",
     "03 - Areas/技术示例1.md",
-    "02 - Projects/AI一人公司.md",
     "00 - Meta/templates/content/技术与思维.md",
-    "dashboard1.md",
     "00 - Meta/templates/syntax",
     "05 - Inbox.md",
     "Daily Notes",
