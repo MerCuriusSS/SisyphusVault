@@ -6,9 +6,11 @@ layout: columns
 
 ***
 # [!abstract] 📥 入口与状态
-> [!todo] **收件箱计数**
-> `$= dv.pages('"01 - Inbox"').length` 个待分流
-
+> [!todo] **收件箱**有    「`$= dv.pages('"01 - Inbox"').length` 」个待分流
+> ```dataview
+> LIST FROM "01 - Inbox"
+> limit 5
+> ```
 **快速链接**
 - [[05 - Inbox|📂 打开收件箱]]
 - [[Daily Notes/2026-01-10|📅 今日日记]]
