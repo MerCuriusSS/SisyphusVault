@@ -7,18 +7,19 @@
 
 
 > [!todo] 📂 **[[01 - Inbox|收件箱]]**（`$= dv.pages('"01 - Inbox"').length`） 
-> > [!note]- 最近5个
+> > [!example]- 最近5个
 > >```dataview
 > >LIST FROM "01 - Inbox" LIMIT 5
 > >```
 
 
-> [!warning] ✅ 执行中心 (本周)
-> ```tasks
-> not done
-> due before next monday
-> group by priority
-> ```
+> [!warning] ✅ 执行中心 
+> >[!example]- 本周
+> >```tasks
+> >not done
+> >due before next monday
+> >group by priority
+> >```
 > > [!info] **重点提醒** > > 请优先处理高优先级 (⏫) 任务。
 
 > [!activity] 🎃 项目监控
