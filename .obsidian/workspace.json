@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00 - Dashboard.md",
+                "file": "2026-01-11.md",
                 "mode": "source",
-                "source": false
+                "source": true
               },
               "icon": "lucide-file",
-              "title": "00 - Dashboard"
+              "title": "2026-01-11"
             }
           },
           {
@@ -33,20 +33,6 @@
               },
               "icon": "lucide-file",
               "title": "AI一人公司"
-            }
-          },
-          {
-            "id": "5030cff24f978956",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "00 - Meta/templates/content/日记.md",
-                "mode": "source",
-                "source": true
-              },
-              "icon": "lucide-file",
-              "title": "日记"
             }
           }
         ]
@@ -81,7 +67,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#语法",
+                "query": "05",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -217,11 +203,12 @@
   },
   "active": "186215c3ad0c9b11",
   "lastOpenFiles": [
+    "02 - Projects/AI一人公司.md",
+    "00 - Meta/templates/content/日记.md",
+    "2026-01-11.md",
+    "00 - Dashboard.md",
     "dashboard1.md",
     "05 - Review/DailyNotes/20260111.md",
-    "00 - Meta/templates/content/日记.md",
-    "02 - Projects/AI一人公司.md",
-    "00 - Dashboard.md",
     "00 - Meta/templates/dataView/项目模板.md",
     "Daily Notes/2026-01-10.md",
     "03 - Areas/技术示例1.md",
