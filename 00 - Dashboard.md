@@ -5,10 +5,11 @@
 > LIST FROM "03 - Areas" WHERE status = "沉淀" LIMIT 1
 > ```
 
-> [!abstract]- 📥 收件箱状态（`$= dv.pages('"01 - Inbox"').length`） 
-> ```dataview
-> LIST FROM "01 - Inbox" LIMIT 5
-> ```
+> [!abstract] 📥 收件箱状态（`$= dv.pages('"01 - Inbox"').length`） 
+> > [!note]- 最近5个
+> >```dataview
+> >LIST FROM "01 - Inbox" LIMIT 5
+> >```
 
 > [!success] ✅ 执行中心 (本周)
 > ```tasks
