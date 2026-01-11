@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00 - Meta/templates/content/技术与思维.md",
+                "file": "00 - Meta/templates/content/情绪与名言.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "技术与思维"
+              "title": "情绪与名言"
             }
           }
         ]
@@ -109,7 +109,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "00 - Meta/templates/content/技术与思维.md",
+                "file": "00 - Meta/templates/content/情绪与名言.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -119,7 +119,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for 技术与思维"
+              "title": "Backlinks for 情绪与名言"
             }
           },
           {
@@ -128,12 +128,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "00 - Meta/templates/content/技术与思维.md",
+                "file": "00 - Meta/templates/content/情绪与名言.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from 技术与思维"
+              "title": "Outgoing links from 情绪与名言"
             }
           },
           {
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "00 - Meta/templates/content/技术与思维.md",
+                "file": "00 - Meta/templates/content/情绪与名言.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 技术与思维"
+              "title": "Outline of 情绪与名言"
             }
           }
         ],
@@ -186,8 +186,9 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "d6a95f496f03ea32",
+  "active": "47ab0d2a4937fde1",
   "lastOpenFiles": [
+    "00 - Meta/templates/content/技术与思维.md",
     "00 - Meta/templates/dataView/项目模板.md",
     "02 - Projects/AI一人公司.md",
     "00 - Meta/templates/content/日记.md",
@@ -202,7 +203,6 @@
     "05 - Review/DailyNotes/20260111.md",
     "Daily Notes/2026-01-10.md",
     "03 - Areas/技术示例1.md",
-    "00 - Meta/templates/content/技术与思维.md",
     "00 - Meta/templates/syntax",
     "05 - Inbox.md",
     "Daily Notes",
