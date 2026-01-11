@@ -21,6 +21,11 @@
 > ```
 > > [!info] **重点提醒** > > 请优先处理高优先级 (⏫) 任务。
 
+> [!activity] 🎃 活跃监控
+> **当前项目**
+> ```dataview
+> LIST FROM "02 - Projects" WHERE status = "运行中"
+> ```
 
 > [!example]- 🏗️ 领域加工
 > **🍬 进度**
@@ -28,8 +33,3 @@
 > LIST FROM "03 - Areas" WHERE status != "沉淀"
 > ```
 
-> [!activity] 🎃 活跃监控
-> **当前项目**
-> ```dataview
-> LIST FROM "02 - Projects" WHERE status = "运行中"
-> ```
