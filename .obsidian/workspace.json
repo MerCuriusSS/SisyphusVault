@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "dashboard1.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
@@ -188,8 +188,9 @@
   },
   "active": "8799946034378a56",
   "lastOpenFiles": [
-    "00 - Meta/templates/dataView/项目.md",
+    "05 - Inbox.md",
     "dashboard1.md",
+    "00 - Meta/templates/dataView/项目.md",
     "00 - Dashboard.md",
     "00 - Meta/templates/dataView/assets/项目/file-20260110115446747.png",
     "00 - Meta/templates/dataView/assets/项目",
@@ -204,7 +205,6 @@
     "00 - Meta/templates/content/情绪与名言.md",
     "00 - Meta/templates/content/日记.md",
     "00 - Meta/templates/content/深度复盘.md",
-    "05 - Inbox.md",
     "01 - Inbox/待处理1.md",
     "05 - Review/复盘1.md",
     "05 - Review/DailyNotes/20260109.md",
