@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "04 - Resources/AI/提示词/采访式交互.md",
+                "file": "05 - Review/DailyNotes/2026-01-12.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "采访式交互"
+              "title": "2026-01-12"
             }
           },
           {
@@ -89,8 +89,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       },
       {
         "id": "1f65c302d689417a",
@@ -132,7 +131,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "04 - Resources/AI/提示词/采访式交互.md",
+                "file": "05 - Review/DailyNotes/2026-01-12.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -142,7 +141,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for 采访式交互"
+              "title": "Backlinks for 2026-01-12"
             }
           },
           {
@@ -178,13 +177,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "04 - Resources/AI/提示词/采访式交互.md",
+                "file": "05 - Review/DailyNotes/2026-01-12.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 采访式交互"
+              "title": "Outline of 2026-01-12"
             }
           }
         ]
@@ -208,12 +207,12 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "186215c3ad0c9b11",
+  "active": "5c0071ecbe160b52",
   "lastOpenFiles": [
-    "05 - Review/DailyNotes/2026-01-12.md",
-    "04 - Resources/AI/提示词/提示词生成专家.md",
-    "00 - Dashboard/🚀 个人知识指挥中心.md",
     "04 - Resources/AI/提示词/采访式交互.md",
+    "04 - Resources/AI/提示词/提示词生成专家.md",
+    "05 - Review/DailyNotes/2026-01-12.md",
+    "00 - Dashboard/🚀 个人知识指挥中心.md",
     "04 - Resources/AI",
     "01 - Inbox/未命名.md",
     "02 - Projects/未命名.md",
