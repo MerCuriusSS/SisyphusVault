@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "04 - Resources/提示词工程/AI角色生成元提示词.md",
+                "file": "04 - Resources/提示词工程/AI角色生成“元提示词”.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "AI角色生成元提示词"
+              "title": "AI角色生成“元提示词”"
             }
           }
         ]
@@ -162,13 +162,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "04 - Resources/提示词工程/AI角色生成元提示词.md",
+                "file": "04 - Resources/提示词工程/AI角色生成“元提示词”.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "AI角色生成元提示词 的大纲"
+              "title": "AI角色生成“元提示词” 的大纲"
             }
           },
           {
@@ -210,7 +210,7 @@
     "Resources/提示词工程",
     "Resources",
     "03 - Areas/未命名.md",
-    "04 - Resources/提示词工程/AI角色生成元提示词.md",
+    "04 - Resources/提示词工程/AI角色生成“元提示词”.md",
     "02 - Projects/未命名.md",
     "01 - Inbox/未命名.md",
     "05 - Review/DailyNote/2026-01-12.md",
