@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "04 - Resources/领域AI专家.md",
+                "file": "resouce/领域AI专家.md",
                 "mode": "source",
                 "source": false
               },
@@ -162,7 +162,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "04 - Resources/领域AI专家.md",
+                "file": "resouce/领域AI专家.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
@@ -205,8 +205,11 @@
   },
   "active": "4da0e42c0fd852f2",
   "lastOpenFiles": [
+    "resouce",
+    "Resources/提示词工程",
+    "Resources",
     "03 - Areas/未命名.md",
-    "04 - Resources/领域AI专家.md",
+    "resouce/领域AI专家.md",
     "02 - Projects/未命名.md",
     "01 - Inbox/未命名.md",
     "05 - Review/DailyNote/2026-01-12.md",
@@ -238,11 +241,8 @@
     "Untitled.canvas",
     "dashboard1.md",
     "Daily Notes/2026-01-10.md",
-    "00 - Meta/templates/syntax",
     "05 - Inbox.md",
-    "Daily Notes",
     "00 - Meta/templates/dataView/assets/项目/file-20260110115446747.png",
-    "03 - Areas/技术类.md",
     "03 - Areas/assets/技术类/file-20260110075814599.png",
     "00 - Meta/assets/Home/file-20260110075713274.png",
     "02 - Projects/assets/AI一人公司/file-20260110075647801.png",
