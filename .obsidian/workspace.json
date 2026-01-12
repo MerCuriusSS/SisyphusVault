@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "8a358786e416f6fe",
+        "id": "3448209007b79b7d",
         "type": "tabs",
         "children": [
           {
-            "id": "4da0e42c0fd852f2",
+            "id": "5c0071ecbe160b52",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -33,7 +33,7 @@
       {
         "id": "4163877a287b2415",
         "type": "tabs",
-        "dimension": 63.48837209302326,
+        "dimension": 67.28395061728395,
         "children": [
           {
             "id": "0f853221f0c8a461",
@@ -45,7 +45,7 @@
                 "autoReveal": false
               },
               "icon": "lucide-folder-closed",
-              "title": "文件列表"
+              "title": "Files"
             }
           },
           {
@@ -54,7 +54,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#语法",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -62,7 +62,7 @@
                 "sortOrder": "alphabetical"
               },
               "icon": "lucide-search",
-              "title": "搜索"
+              "title": "Search"
             }
           },
           {
@@ -78,9 +78,9 @@
         ]
       },
       {
-        "id": "2f6b53f08bb70d24",
+        "id": "1f65c302d689417a",
         "type": "tabs",
-        "dimension": 36.51162790697675,
+        "dimension": 32.71604938271605,
         "children": [
           {
             "id": "9b0da75d3f84d55e",
@@ -94,7 +94,7 @@
                 "searchQuery": ""
               },
               "icon": "lucide-tags",
-              "title": "标签"
+              "title": "Tags"
             }
           }
         ]
@@ -168,17 +168,7 @@
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "2026-01-12 的大纲"
-            }
-          },
-          {
-            "id": "e6fa5fce56058f1e",
-            "type": "leaf",
-            "state": {
-              "type": "git-view",
-              "state": {},
-              "icon": "git-pull-request",
-              "title": "Source Control"
+              "title": "Outline of 2026-01-12"
             }
           }
         ],
@@ -190,42 +180,31 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:打开快速切换": false,
-      "graph:查看关系图谱": false,
-      "canvas:新建白板": false,
-      "daily-notes:打开/创建今天的日记": false,
-      "templates:插入模板": false,
-      "command-palette:打开命令面板": false,
-      "bases:创建新数据库": false,
-      "obsidian-excalidraw-plugin:新建绘图文件": false,
       "homepage:Open homepage": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false,
+      "obsidian-excalidraw-plugin:New drawing": false,
       "obsidian-git:Open Git source control": false,
       "templater-obsidian:Templater": false
     }
   },
-  "active": "4da0e42c0fd852f2",
+  "active": "5c0071ecbe160b52",
   "lastOpenFiles": [
-    "03 - Areas/未命名.md",
+    "00 - Meta/templates/项目.md",
+    "05 - Review/DailyNote/2026-01-12.md",
+    "05 - Review/DailyNote",
     "04 - Resources/提示词工程/提示词生成专家.md",
     "04 - Resources/提示词工程",
-    "resouce",
-    "Resources/提示词工程",
-    "Resources",
+    "03 - Areas/未命名.md",
     "02 - Projects/未命名.md",
     "01 - Inbox/未命名.md",
-    "05 - Review/DailyNote/2026-01-12.md",
-    "00 - Meta/templates/日记.md",
-    "00 - Meta/templates/项目.md",
-    "00 - Meta/templates/技术与思维.md",
-    "00 - Dashboard/🚀 个人知识指挥中心.md",
-    "05 - Review/DailyNote",
-    "05 - Review",
-    "04 - Resources",
-    "03 - Areas",
-    "未命名/未命名",
-    "02 - Projects",
-    "00 - Dashboard/00 - Dashboard.md",
     "03 - Areas/技术示例1.md",
+    "00 - Dashboard/🚀 个人知识指挥中心.md",
     "05 - Review/DailyNotes/20260111.md",
     "2026-01-11.md",
     "01 - Inbox/待处理2.md",
@@ -235,13 +214,25 @@
     "00 - Meta/templates/深度复盘.md",
     "05 - Review/复盘1.md",
     "05 - Review/复盘2.md",
+    "00 - Meta/templates/技术与思维.md",
+    "00 - Meta/templates/日记.md",
     "00 - Meta/templates/情绪与名言.md",
     "04 - Resources/资源2.md",
+    "00 - Dashboard",
     "Untitled.canvas",
     "dashboard1.md",
     "Daily Notes/2026-01-10.md",
+    "00 - Meta/templates/syntax",
     "05 - Inbox.md",
+    "Daily Notes",
     "00 - Meta/templates/dataView/assets/项目/file-20260110115446747.png",
+    "00 - Meta/templates/dataView/assets/项目",
+    "00 - Meta/templates/dataView/assets",
+    "03 - Areas/技术类.md",
+    "04 - Resources/资源1.md",
+    "01 - Inbox",
+    "00 - Meta/templates/content",
+    "00 - Meta/templates/dataView",
     "03 - Areas/assets/技术类/file-20260110075814599.png",
     "00 - Meta/assets/Home/file-20260110075713274.png",
     "02 - Projects/assets/AI一人公司/file-20260110075647801.png",
