@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00 - Dashboard/🚀 个人知识指挥中心.md",
+                "file": "05 - Review/DailyNotes/2026-01-12.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "🚀 个人知识指挥中心"
+              "title": "2026-01-12"
             }
           },
           {
@@ -35,8 +35,7 @@
               "title": "提示词生成专家"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -69,7 +68,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#语法",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -177,13 +176,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "04 - Resources/AI/提示词工程/提示词生成专家.md",
+                "file": "05 - Review/DailyNotes/2026-01-12.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 提示词生成专家"
+              "title": "Outline of 2026-01-12"
             }
           }
         ],
@@ -208,15 +207,15 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "983943a56f9d520a",
+  "active": "5c0071ecbe160b52",
   "lastOpenFiles": [
+    "00 - Dashboard/🚀 个人知识指挥中心.md",
+    "04 - Resources/AI/提示词工程/提示词生成专家.md",
     "Untitled.md",
     "04 - Resources/AI",
-    "00 - Dashboard/🚀 个人知识指挥中心.md",
     "01 - Inbox/未命名.md",
     "02 - Projects/未命名.md",
     "03 - Areas/未命名.md",
-    "04 - Resources/AI/提示词工程/提示词生成专家.md",
     "05 - Review/DailyNotes/2026-01-12.md",
     "00 - Meta/templates/项目.md",
     "05 - Review/DailyNotes",
