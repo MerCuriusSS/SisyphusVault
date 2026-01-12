@@ -11,10 +11,14 @@
             "id": "5c0071ecbe160b52",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "00 - Dashboard/🚀 个人知识指挥中心.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "🚀 个人知识指挥中心"
             }
           },
           {
@@ -127,6 +131,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "00 - Dashboard/🚀 个人知识指挥中心.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -136,7 +141,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for 🚀 个人知识指挥中心"
             }
           },
           {
@@ -172,12 +177,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "00 - Dashboard/🚀 个人知识指挥中心.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of 🚀 个人知识指挥中心"
             }
           }
         ]
@@ -203,11 +209,12 @@
   },
   "active": "5c0071ecbe160b52",
   "lastOpenFiles": [
+    "01 - Inbox.md",
+    "00 - Dashboard/🚀 个人知识指挥中心.md",
     "01 - Inbox/AI工具与学习、目标的思考.md",
     "05 - Review/DailyNotes/2026-01-12.md",
     "04 - Resources/AI/提示词/采访式交互.md",
     "04 - Resources/AI/提示词/提示词生成专家.md",
-    "00 - Dashboard/🚀 个人知识指挥中心.md",
     "04 - Resources/AI",
     "02 - Projects/未命名.md",
     "03 - Areas/未命名.md",
