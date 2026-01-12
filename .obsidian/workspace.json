@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00 - Meta/templates/日记.md",
+                "file": "2026-01-12.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "日记"
+              "title": "2026-01-12"
             }
           }
         ]
@@ -162,13 +162,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "00 - Meta/templates/日记.md",
+                "file": "2026-01-12.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "日记 的大纲"
+              "title": "2026-01-12 的大纲"
             }
           }
         ],
@@ -193,8 +193,10 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "9b0da75d3f84d55e",
+  "active": "4da0e42c0fd852f2",
   "lastOpenFiles": [
+    "00 - Meta/templates/日记.md",
+    "2026-01-12.md",
     "00 - Meta/templates/项目.md",
     "00 - Meta/templates/技术与思维.md",
     "00 - Dashboard/🚀 个人知识指挥中心.md",
@@ -217,7 +219,6 @@
     "00 - Meta/templates/深度复盘.md",
     "05 - Review/复盘1.md",
     "05 - Review/复盘2.md",
-    "00 - Meta/templates/日记.md",
     "00 - Meta/templates/情绪与名言.md",
     "04 - Resources/资源2.md",
     "00 - Dashboard",
@@ -232,7 +233,6 @@
     "04 - Resources/资源1.md",
     "03 - Areas/技术示例2.md",
     "04 - Resources/资源3.md",
-    "00 - Meta/Home.md",
     "03 - Areas/assets/技术类/file-20260110075814599.png",
     "00 - Meta/assets/Home/file-20260110075713274.png",
     "02 - Projects/assets/AI一人公司/file-20260110075647801.png",
