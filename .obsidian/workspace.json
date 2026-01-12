@@ -68,7 +68,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#Resources/AI",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -89,7 +89,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       },
       {
         "id": "1f65c302d689417a",
@@ -207,7 +208,7 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "5c0071ecbe160b52",
+  "active": "186215c3ad0c9b11",
   "lastOpenFiles": [
     "05 - Review/DailyNotes/2026-01-12.md",
     "04 - Resources/AI/提示词/提示词生成专家.md",
