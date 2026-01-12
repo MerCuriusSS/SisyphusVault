@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00 - Dashboard/00 - Dashboard.md",
+                "file": "00 - Dashboard/🚀 个人知识指挥中心.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "00 - Dashboard"
+              "title": "🚀 个人知识指挥中心"
             }
           }
         ]
@@ -154,13 +154,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "00 - Dashboard/00 - Dashboard.md",
+                "file": "00 - Dashboard/🚀 个人知识指挥中心.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "00 - Dashboard 的大纲"
+              "title": "🚀 个人知识指挥中心 的大纲"
             }
           }
         ],
@@ -187,8 +187,8 @@
   },
   "active": "4da0e42c0fd852f2",
   "lastOpenFiles": [
-    "00 - Dashboard/🚀 个人知识指挥中心.md",
     "00 - Dashboard/00 - Dashboard.md",
+    "00 - Dashboard/🚀 个人知识指挥中心.md",
     "00 - Meta/templates/项目.md",
     "03 - Areas/技术示例1.md",
     "05 - Review/DailyNotes/20260111.md",
