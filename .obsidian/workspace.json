@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00 - Meta/templates/test.md",
+                "file": "未命名.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "test"
+              "title": "未命名"
             }
           }
         ],
@@ -177,13 +177,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "00 - Meta/templates/test.md",
+                "file": "未命名.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "test 的大纲"
+              "title": "未命名 的大纲"
             }
           },
           {
@@ -220,8 +220,9 @@
   },
   "active": "8b99e0d4f9f977ae",
   "lastOpenFiles": [
-    "未命名.md",
     "00 - Meta/templates/test.md",
+    "02 - Projects/未命名.md",
+    "未命名.md",
     "templateTest/test1.md",
     "templateTest",
     "00 - Dashboard/🚀 个人知识指挥中心.md",
@@ -252,7 +253,6 @@
     "resouce",
     "Resources/提示词工程",
     "Resources",
-    "02 - Projects/未命名.md",
     "01 - Inbox/未命名.md",
     "05 - Review/DailyNote",
     "03 - Areas/技术示例1.md",
