@@ -8,20 +8,35 @@
         "type": "tabs",
         "children": [
           {
-            "id": "568aeaf4467ccfb5",
+            "id": "d3bb7e312f9a26f6",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00 - Dashboard/00 - Dashboard.md",
+                "file": "01 - Inbox/AI工具与学习、目标的思考.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "00 - Dashboard"
+              "title": "AI工具与学习、目标的思考"
+            }
+          },
+          {
+            "id": "f3d9568acbc4d091",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "conflict-files-obsidian-git.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "conflict-files-obsidian-git"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -162,13 +177,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "00 - Dashboard/00 - Dashboard.md",
+                "file": "conflict-files-obsidian-git.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "00 - Dashboard 的大纲"
+              "title": "conflict-files-obsidian-git 的大纲"
             }
           },
           {
@@ -203,9 +218,26 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "568aeaf4467ccfb5",
+  "active": "f3d9568acbc4d091",
   "lastOpenFiles": [
+    "01 - Inbox/AI工具与学习、目标的思考.md",
+    "conflict-files-obsidian-git.md",
+    "00 - Meta/Sisyphus的个人知识库说明书.md",
+    "00 - Meta/templates/项目.md",
+    "00 - Meta/MOC.md",
+    "00 - Meta/templates/深度复盘.md",
+    "00 - Meta/templates/日记.md",
+    "00 - Meta/templates/情绪与名言.md",
+    "00 - Meta/templates/技术与思维.md",
+    "00 - Dashboard/🚀 个人知识指挥中心.md",
     "00 - Dashboard/00 - Dashboard.md",
+    "学习效率 x10.md",
+    "05 - Review/DailyNotes/2026-01-12.md",
+    "05 - Review/DailyNotes",
+    "04 - Resources/AI/提示词/采访式交互.md",
+    "04 - Resources/AI/提示词/提示词生成专家.md",
+    "04 - Resources/AI/提示词",
+    "04 - Resources/AI",
     "05 - Review/DailyNote/2026-01-12.md",
     "03 - Areas/未命名.md",
     "04 - Resources/提示词工程/提示词生成专家.md",
@@ -215,32 +247,16 @@
     "Resources",
     "02 - Projects/未命名.md",
     "01 - Inbox/未命名.md",
-    "00 - Meta/templates/日记.md",
-    "00 - Meta/templates/项目.md",
-    "00 - Meta/templates/技术与思维.md",
-    "00 - Dashboard/🚀 个人知识指挥中心.md",
     "05 - Review/DailyNote",
     "05 - Review",
     "04 - Resources",
-    "03 - Areas",
-    "未命名/未命名",
-    "02 - Projects",
     "03 - Areas/技术示例1.md",
     "05 - Review/DailyNotes/20260111.md",
     "2026-01-11.md",
     "01 - Inbox/待处理2.md",
     "01 - Inbox/待处理1.md",
     "02 - Projects/AI一人公司.md",
-    "00 - Meta/Sisyphus的个人知识库说明书.md",
-    "00 - Meta/templates/深度复盘.md",
-    "05 - Review/复盘1.md",
-    "05 - Review/复盘2.md",
-    "00 - Meta/templates/情绪与名言.md",
-    "04 - Resources/资源2.md",
     "Untitled.canvas",
-    "dashboard1.md",
-    "Daily Notes/2026-01-10.md",
-    "05 - Inbox.md",
     "00 - Meta/templates/dataView/assets/项目/file-20260110115446747.png",
     "03 - Areas/assets/技术类/file-20260110075814599.png",
     "00 - Meta/assets/Home/file-20260110075713274.png",
