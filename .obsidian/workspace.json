@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "ffa294ee8dc8baa6",
+        "id": "9325555ae7e547fc",
         "type": "tabs",
         "children": [
           {
-            "id": "d3bb7e312f9a26f6",
+            "id": "0a2b7d1672dd6b67",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "01 - Inbox/AI工具与学习、目标的思考.md",
+                "file": "00 - Dashboard/00 - Dashboard.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "AI工具与学习、目标的思考"
+              "title": "00 - Dashboard"
             }
           }
         ]
@@ -162,13 +162,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "01 - Inbox/AI工具与学习、目标的思考.md",
+                "file": "00 - Dashboard/00 - Dashboard.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "AI工具与学习、目标的思考 的大纲"
+              "title": "00 - Dashboard 的大纲"
             }
           },
           {
@@ -203,11 +203,13 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "d3bb7e312f9a26f6",
+  "active": "0a2b7d1672dd6b67",
   "lastOpenFiles": [
+    "00 - Dashboard/00 - Dashboard.md",
+    "00 - Dashboard/🚀 个人知识指挥中心.md",
+    "01 - Inbox/AI工具与学习、目标的思考.md",
     "新建 DOC 文档.doc",
     "conflict-files-obsidian-git.md",
-    "01 - Inbox/AI工具与学习、目标的思考.md",
     "00 - Meta/Sisyphus的个人知识库说明书.md",
     "00 - Meta/templates/项目.md",
     "00 - Meta/MOC.md",
@@ -215,8 +217,6 @@
     "00 - Meta/templates/日记.md",
     "00 - Meta/templates/情绪与名言.md",
     "00 - Meta/templates/技术与思维.md",
-    "00 - Dashboard/🚀 个人知识指挥中心.md",
-    "00 - Dashboard/00 - Dashboard.md",
     "学习效率 x10.md",
     "05 - Review/DailyNotes/2026-01-12.md",
     "05 - Review/DailyNotes",
@@ -235,7 +235,6 @@
     "01 - Inbox/未命名.md",
     "05 - Review/DailyNote",
     "05 - Review",
-    "04 - Resources",
     "03 - Areas/技术示例1.md",
     "05 - Review/DailyNotes/20260111.md",
     "2026-01-11.md",
