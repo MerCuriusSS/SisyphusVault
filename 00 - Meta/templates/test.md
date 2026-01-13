@@ -1,4 +1,3 @@
-
 <%*
 // 核心：用 Templater 内置变量自动生成内容
 const today = tp.date.now("YYYY-MM-DD"); // 当前日期
