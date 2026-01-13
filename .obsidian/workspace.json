@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "05 - Review/DailyNotes/2026-01-13.md",
+                "file": "04 - Resources/Chrome账号/未命名.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-01-13"
+              "title": "未命名"
             }
           }
         ],
@@ -163,13 +163,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "05 - Review/DailyNotes/2026-01-13.md",
+                "file": "04 - Resources/Chrome账号/未命名.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "2026-01-13 的大纲"
+              "title": "未命名 的大纲"
             }
           },
           {
@@ -204,8 +204,11 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "e7a7b303c61786dc",
+  "active": "0f853221f0c8a461",
   "lastOpenFiles": [
+    "04 - Resources/Chrome账号",
+    "05 - Review/DailyNotes/2026-01-13.md",
+    "04 - Resources/Chrome账号/未命名.md",
     "00 - Meta/templates/项目模板.md",
     "00 - Meta/templates/test.md",
     "00 - Meta/templates/深度复盘模板.md",
@@ -216,7 +219,6 @@
     "学习效率 x10.md",
     "04 - Resources/Master-notebook",
     "02 - Projects/人生规划.md",
-    "05 - Review/DailyNotes/2026-01-13.md",
     "04 - Resources/AI/工具/notebook的九大技巧.md",
     "04 - Resources/AI/工具",
     "03 - Areas/未命名.md",
@@ -240,8 +242,6 @@
     "04 - Resources/AI/提示词/采访式交互.md",
     "04 - Resources/AI/提示词/提示词生成专家.md",
     "04 - Resources/AI/提示词",
-    "05 - Review/DailyNote/2026-01-12.md",
-    "04 - Resources/提示词工程/提示词生成专家.md",
     "Untitled.canvas",
     "00 - Meta/templates/dataView/assets/项目/file-20260110115446747.png",
     "03 - Areas/assets/技术类/file-20260110075814599.png",
