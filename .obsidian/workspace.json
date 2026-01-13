@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "04 - Resources/Master-notebook/生活剖析.md",
+                "file": "04 - Resources/Master-notebook/破局成长：从困顿现实走向重塑之路.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "生活剖析"
+              "title": "破局成长：从困顿现实走向重塑之路"
             }
           }
         ],
@@ -163,13 +163,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "04 - Resources/Master-notebook/生活剖析.md",
+                "file": "04 - Resources/Master-notebook/破局成长：从困顿现实走向重塑之路.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "生活剖析 的大纲"
+              "title": "破局成长：从困顿现实走向重塑之路 的大纲"
             }
           },
           {
@@ -206,8 +206,9 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
-    "学习效率 x10.md",
     "04 - Resources/Master-notebook/生活剖析.md",
+    "04 - Resources/Master-notebook/破局成长：从困顿现实走向重塑之路.md",
+    "学习效率 x10.md",
     "04 - Resources/Master-notebook",
     "02 - Projects/人生规划.md",
     "05 - Review/DailyNotes/2026-01-13.md",
@@ -241,7 +242,6 @@
     "04 - Resources/AI/提示词",
     "05 - Review/DailyNote/2026-01-12.md",
     "04 - Resources/提示词工程/提示词生成专家.md",
-    "01 - Inbox/未命名.md",
     "Untitled.canvas",
     "00 - Meta/templates/dataView/assets/项目/file-20260110115446747.png",
     "03 - Areas/assets/技术类/file-20260110075814599.png",
