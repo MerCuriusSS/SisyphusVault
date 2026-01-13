@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00 - Meta/templates/项目模板.md",
+                "file": "05 - Review/DailyNotes/2026-01-13.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "项目模板"
+              "title": "2026-01-13"
             }
           }
         ],
@@ -163,13 +163,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "00 - Meta/templates/项目模板.md",
+                "file": "05 - Review/DailyNotes/2026-01-13.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "项目模板 的大纲"
+              "title": "2026-01-13 的大纲"
             }
           },
           {
@@ -183,7 +183,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -206,8 +206,8 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
-    "00 - Meta/templates/test.md",
     "00 - Meta/templates/项目模板.md",
+    "00 - Meta/templates/test.md",
     "00 - Meta/templates/深度复盘模板.md",
     "00 - Meta/templates/日记模板.md",
     "00 - Meta/templates/情绪与名言模板.md",
