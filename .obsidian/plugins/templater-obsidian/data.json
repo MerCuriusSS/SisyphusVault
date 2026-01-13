@@ -1,6 +1,6 @@
 {
   "command_timeout": 5,
-  "templates_folder": "templateTest",
+  "templates_folder": "00 - Meta/templates",
   "templates_pairs": [
     [
       "",

@@ -1,17 +1,14 @@
 <%*
-// 核心：用 Templater 内置变量自动生成内容
-const today = tp.date.now("YYYY-MM-DD"); // 当前日期
-const time = tp.date.now("HH:mm"); // 当前时间
-const noteName = tp.file.title; // 当前笔记文件名
-// 渲染内容到笔记中
-tR.set(`
-# 【日记】${today} ${time}
-## 笔记文件名：${noteName}
-## 今日完成
-- 
-## 待办
-- 
-## 感想
-- 
-`);
+const videoUrl = await tp.system.prompt("输入B站视频链接");
+const bvId = videoUrl.match(/BV[0-9A-Za-z]+/)[0];
+const apiUrl = `https://api.bilibili.com/x/web-interface/view?bvid=${bvId}`;
+const res = await tp.obsidian.requestUrl({ url: apiUrl });
+const data = res.json.data;
 %>
+# <% data.title %>
+- 作者：<% data.owner.name %>
+- 链接：<% videoUrl %>
+- 发布时间：<% new Date(data.pubdate*1000).toLocaleString() %>
+
+## 时间戳笔记
+- [00:00:00](<% videoUrl %>#t=0)  此处记录笔记内容
