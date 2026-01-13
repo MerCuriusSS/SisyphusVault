@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "04 - Resources/Chrome账号/未命名.md",
+                "file": "04 - Resources/Chrome账号.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "未命名"
+              "title": "Chrome账号"
             }
           }
         ],
@@ -163,13 +163,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "04 - Resources/Chrome账号/未命名.md",
+                "file": "04 - Resources/Chrome账号.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "未命名 的大纲"
+              "title": "Chrome账号 的大纲"
             }
           },
           {
@@ -204,11 +204,12 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "0f853221f0c8a461",
+  "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
-    "04 - Resources/Chrome账号",
     "05 - Review/DailyNotes/2026-01-13.md",
+    "04 - Resources/Chrome账号.md",
     "04 - Resources/Chrome账号/未命名.md",
+    "04 - Resources/Chrome账号",
     "00 - Meta/templates/项目模板.md",
     "00 - Meta/templates/test.md",
     "00 - Meta/templates/深度复盘模板.md",
@@ -241,7 +242,6 @@
     "05 - Review/DailyNotes",
     "04 - Resources/AI/提示词/采访式交互.md",
     "04 - Resources/AI/提示词/提示词生成专家.md",
-    "04 - Resources/AI/提示词",
     "Untitled.canvas",
     "00 - Meta/templates/dataView/assets/项目/file-20260110115446747.png",
     "03 - Areas/assets/技术类/file-20260110075814599.png",
