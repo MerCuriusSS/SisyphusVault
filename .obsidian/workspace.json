@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00 - Dashboard/🚀 个人知识指挥中心.md",
+                "file": "05 - Review/DailyNotes/2026-01-13.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "🚀 个人知识指挥中心"
+              "title": "2026-01-13"
             }
           }
         ]
@@ -162,13 +162,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "00 - Dashboard/🚀 个人知识指挥中心.md",
+                "file": "05 - Review/DailyNotes/2026-01-13.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "🚀 个人知识指挥中心 的大纲"
+              "title": "2026-01-13 的大纲"
             }
           },
           {
@@ -205,8 +205,11 @@
   },
   "active": "f015f93e910e4d2c",
   "lastOpenFiles": [
-    "00 - Dashboard/00 - Dashboard.md",
+    "05 - Review/DailyNotes/2026-01-12.md",
+    "05 - Review/DailyNotes/2026-01-13.md",
+    "00 - Meta/templates/日记.md",
     "00 - Dashboard/🚀 个人知识指挥中心.md",
+    "00 - Dashboard/00 - Dashboard.md",
     "01 - Inbox/AI工具与学习、目标的思考.md",
     "新建 DOC 文档.doc",
     "conflict-files-obsidian-git.md",
@@ -214,11 +217,9 @@
     "00 - Meta/templates/项目.md",
     "00 - Meta/MOC.md",
     "00 - Meta/templates/深度复盘.md",
-    "00 - Meta/templates/日记.md",
     "00 - Meta/templates/情绪与名言.md",
     "00 - Meta/templates/技术与思维.md",
     "学习效率 x10.md",
-    "05 - Review/DailyNotes/2026-01-12.md",
     "05 - Review/DailyNotes",
     "04 - Resources/AI/提示词/采访式交互.md",
     "04 - Resources/AI/提示词/提示词生成专家.md",
