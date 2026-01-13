@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "04 - Resources/Master-notebook/破局成长：从困顿现实走向重塑之路.md",
+                "file": "00 - Meta/templates/项目模板.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "破局成长：从困顿现实走向重塑之路"
+              "title": "项目模板"
             }
           }
         ],
@@ -163,13 +163,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "04 - Resources/Master-notebook/破局成长：从困顿现实走向重塑之路.md",
+                "file": "00 - Meta/templates/项目模板.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "破局成长：从困顿现实走向重塑之路 的大纲"
+              "title": "项目模板 的大纲"
             }
           },
           {
@@ -206,8 +206,13 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "00 - Meta/templates/test.md",
+    "00 - Meta/templates/项目模板.md",
+    "00 - Meta/templates/深度复盘模板.md",
+    "00 - Meta/templates/日记模板.md",
+    "00 - Meta/templates/情绪与名言模板.md",
     "04 - Resources/Master-notebook/生活剖析.md",
-    "04 - Resources/Master-notebook/破局成长：从困顿现实走向重塑之路.md",
+    "04 - Resources/Master-notebook/目标产出与残酷挑战.md",
     "学习效率 x10.md",
     "04 - Resources/Master-notebook",
     "02 - Projects/人生规划.md",
@@ -215,7 +220,6 @@
     "04 - Resources/AI/工具/notebook的九大技巧.md",
     "04 - Resources/AI/工具",
     "03 - Areas/未命名.md",
-    "00 - Meta/templates/test.md",
     "00 - Meta/video/notebookLM-skills.mp4",
     "00 - Meta/video/35143487300-1-192.mp4",
     "00 - Meta/video",
@@ -224,18 +228,14 @@
     "templateTest",
     "00 - Dashboard/🚀 个人知识指挥中心.md",
     "00 - Meta/templates/video.md",
-    "00 - Meta/templates/项目.md",
     "05 - Review/DailyNotes/2026-01-12.md",
-    "00 - Meta/templates/日记.md",
     "00 - Dashboard/00 - Dashboard.md",
     "01 - Inbox/AI工具与学习、目标的思考.md",
     "新建 DOC 文档.doc",
     "conflict-files-obsidian-git.md",
     "00 - Meta/Sisyphus的个人知识库说明书.md",
     "00 - Meta/MOC.md",
-    "00 - Meta/templates/深度复盘.md",
-    "00 - Meta/templates/情绪与名言.md",
-    "00 - Meta/templates/技术与思维.md",
+    "00 - Meta/templates/技术与思维模板.md",
     "05 - Review/DailyNotes",
     "04 - Resources/AI/提示词/采访式交互.md",
     "04 - Resources/AI/提示词/提示词生成专家.md",
