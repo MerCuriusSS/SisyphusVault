@@ -1,4 +1,4 @@
-#Resources/Chrome账号
+#Resources/备忘 
 
 账号
 ngockhanhngo224@gmail.com
