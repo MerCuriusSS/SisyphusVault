@@ -1,0 +1,15 @@
+---
+title:
+status: 运行
+deadline:
+tags: project
+---
+>[!example] 🏗️ Areas
+> ```dataview
+> LIST 
+> FROM "03 - Areas"
+> WHERE project=this.file.link
+> ```
+
+
+
