@@ -1,22 +1,44 @@
 {
-  "collapse-filter": true,
+  "collapse-filter": false,
   "search": "",
-  "showTags": false,
+  "showTags": true,
   "showAttachments": false,
   "hideUnresolved": false,
   "showOrphans": true,
   "collapse-color-groups": true,
-  "colorGroups": [],
+  "colorGroups": [
+    {
+      "query": "tag:#Resources/master-notebook  ",
+      "color": {
+        "a": 1,
+        "rgb": 15744472
+      }
+    },
+    {
+      "query": "tag:#Resources/思维框架  ",
+      "color": {
+        "a": 1,
+        "rgb": 16594194
+      }
+    },
+    {
+      "query": "tag:#Resources/AI/工具  ",
+      "color": {
+        "a": 1,
+        "rgb": 1114607
+      }
+    }
+  ],
   "collapse-display": true,
-  "showArrow": false,
+  "showArrow": true,
   "textFadeMultiplier": 0,
   "nodeSizeMultiplier": 1,
   "lineSizeMultiplier": 1,
-  "collapse-forces": true,
+  "collapse-forces": false,
   "centerStrength": 0.518713248970312,
   "repelStrength": 10,
   "linkStrength": 1,
   "linkDistance": 250,
   "scale": 1,
-  "close": false
+  "close": true
 }
