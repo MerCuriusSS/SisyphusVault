@@ -5,27 +5,13 @@
   "showAttachments": false,
   "hideUnresolved": false,
   "showOrphans": true,
-  "collapse-color-groups": true,
+  "collapse-color-groups": false,
   "colorGroups": [
     {
-      "query": "tag:#Resources/master-notebook  ",
+      "query": "tag:",
       "color": {
         "a": 1,
-        "rgb": 15744472
-      }
-    },
-    {
-      "query": "tag:#Resources/思维框架  ",
-      "color": {
-        "a": 1,
-        "rgb": 16594194
-      }
-    },
-    {
-      "query": "tag:#Resources/AI/工具  ",
-      "color": {
-        "a": 1,
-        "rgb": 1114607
+        "rgb": 14048348
       }
     }
   ],
@@ -39,6 +25,6 @@
   "repelStrength": 10,
   "linkStrength": 1,
   "linkDistance": 250,
-  "scale": 1,
-  "close": true
+  "scale": 0.9999999999999998,
+  "close": false
 }
