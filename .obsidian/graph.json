@@ -8,23 +8,44 @@
   "collapse-color-groups": false,
   "colorGroups": [
     {
-      "query": "tag:",
+      "query": "tag:#Areas/模式库  ",
       "color": {
         "a": 1,
         "rgb": 14048348
+      }
+    },
+    {
+      "query": "tag:#Areas/思维框架  ",
+      "color": {
+        "a": 1,
+        "rgb": 14069084
+      }
+    },
+    {
+      "query": "tag:#project  ",
+      "color": {
+        "a": 1,
+        "rgb": 11392604
+      }
+    },
+    {
+      "query": "tag:#Resources/master-notebook  ",
+      "color": {
+        "a": 1,
+        "rgb": 13700089
       }
     }
   ],
   "collapse-display": true,
   "showArrow": true,
   "textFadeMultiplier": 0,
-  "nodeSizeMultiplier": 1,
-  "lineSizeMultiplier": 1,
-  "collapse-forces": false,
-  "centerStrength": 0.518713248970312,
-  "repelStrength": 10,
+  "nodeSizeMultiplier": 1.19850354609929,
+  "lineSizeMultiplier": 0.820751773049645,
+  "collapse-forces": true,
+  "centerStrength": 0.482978723404255,
+  "repelStrength": 8.75035460992908,
   "linkStrength": 1,
   "linkDistance": 250,
-  "scale": 0.9999999999999998,
-  "close": false
+  "scale": 0.9999999999999996,
+  "close": true
 }
