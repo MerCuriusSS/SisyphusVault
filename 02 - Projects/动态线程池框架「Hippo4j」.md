@@ -24,7 +24,6 @@ address: https://github.com/opengoofy/hippo4j
 ---
 
 
-阶段二：底层资源治理与性能调优——Hippo4j
 
 **核心目标**：突破并发编程的“经验主义”，建立“感知-反馈-调节”的闭环治理思维。
 
