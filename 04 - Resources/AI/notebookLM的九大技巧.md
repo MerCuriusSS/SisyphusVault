@@ -3,7 +3,16 @@
 
 <video controls width="100%" height="400"> <source src="00 - Meta/video/notebookLM9大技巧.mp4" type="video/mp4"> 你的浏览器不支持HTML5视频播放 </video>
 
-# 9大技巧：
+>[!warning] 总括：
+>1. **建主脑**：先创建“Everything Notebook”，汇集所有核心资料，训练AI成为懂你的数字分身。
+2. **联动Gemini**：用Gemini调用NotebookLM，实现联网搜索、跨本分析与多模态输出（画图/写代码）。
+3. **精设提示词**：在系统设置中自定义角色、任务、引用规则与输出格式，杜绝废话与幻觉。
+4. **微调六大功能**：为语音摘要、测验、简报等模块单独写提示词，控制受众、深度与风格。
+5. **补全+扩容**：用Deep Research补充高质量信源；超大音视频传YouTube非公开链接；批量文件合并后导入，突破50文档限制。
+6. **善用Google Drive**：作为中转枢纽，打通Gmail、本地文件、Obsidian等生态，一键导入。
+
+---
+
 
 ## 1. 核心理念：Everything Notebook 
 
