@@ -338,7 +338,8 @@ address: https://gitee.com/dromara/RuoYi-Vue-Plus
 
   ② Excel 动态选项接口
 
-  // common-excel/src/.../ExcelOptionsProvider.java
+```java
+// common-excel/src/.../ExcelOptionsProvider.java
   public interface ExcelOptionsProvider {
       /**
        * 获取下拉选项数据
@@ -364,11 +365,13 @@ address: https://gitee.com/dromara/RuoYi-Vue-Plus
   // ExcelDownHandler.java:125
   ExcelOptionsProvider provider = SpringUtils.getBean(dynamicOptions.providerClass());
   Set<String> options = provider.getOptions();
+```
+  
 
   ---
   5️⃣ 核心业务服务接口
-
-  // common-core/src/.../service/OssService.java
+```java
+// common-core/src/.../service/OssService.java
   public interface OssService {
       String selectUrlByIds(String ossIds);
       List<OssDTO> selectByIds(String ossIds);
@@ -387,6 +390,8 @@ address: https://gitee.com/dromara/RuoYi-Vue-Plus
       Set<String> getRolePermission(Long userId);
       Set<String> getMenuPermission(Long userId);
   }
+```
+  
 
   🎯 扩展点：
   - common-core 定义业务服务接口
