@@ -137,80 +137,6 @@ address: https://gitee.com/dromara/RuoYi-Vue-Plus
 
   1️⃣ Maven 依赖路径
 
-  graph TB
-      subgraph "应用层"
-          Admin[ruoyi-admin<br/>应用入口模块]
-      end
-
-      subgraph "业务层"
-          System[ruoyi-system<br/>系统管理模块]
-          Job[ruoyi-job<br/>任务调度]
-          Generator[ruoyi-generator<br/>代码生成]
-          Demo[ruoyi-demo<br/>演示模块]
-          Workflow[ruoyi-workflow<br/>工作流]
-      end
-
-      subgraph "通用层"
-          Core[ruoyi-common-core<br/>核心]
-          Web[ruoyi-common-web<br/>Web服务]
-          MyBatis[ruoyi-common-mybatis<br/>数据库]
-          Redis[ruoyi-common-redis<br/>缓存]
-          SaToken[ruoyi-common-satoken<br/>认证]
-          Security[ruoyi-common-security<br/>安全]
-          Tenant[ruoyi-common-tenant<br/>多租户]
-          Log[ruoyi-common-log<br/>日志]
-          Excel[ruoyi-common-excel<br/>Excel]
-          SMS[ruoyi-common-sms<br/>短信]
-          OSS[ruoyi-common-oss<br/>对象存储]
-          Doc[ruoyi-common-doc<br/>接口文档]
-          Social[ruoyi-common-social<br/>社交登录]
-          Mail[ruoyi-common-mail<br/>邮件]
-          RateLimiter[ruoyi-common-ratelimiter<br/>限流]
-          Other1[... 其他 11 个模块]
-      end
-
-      %% Admin 的依赖
-      Admin -->|直接依赖| System
-      Admin -->|直接依赖| Job
-      Admin -->|直接依赖| Generator
-      Admin -->|直接依赖| Demo
-      Admin -->|直接依赖| Workflow
-      Admin -.->|运行时注入| Doc
-      Admin -.->|运行时注入| Social
-      Admin -.->|运行时注入| RateLimiter
-      Admin -.->|运行时注入| Mail
-
-      %% System 的依赖
-      System -->|直接依赖| Core
-      System -->|直接依赖| MyBatis
-      System -->|直接依赖| Web
-      System -->|直接依赖| Security
-      System -->|直接依赖| Tenant
-      System -->|直接依赖| Log
-      System -->|直接依赖| Excel
-      System -->|直接依赖| SMS
-      System -->|直接依赖| OSS
-      System -->|直接依赖| Doc
-
-      %% Common 内部依赖
-      Core --> Core
-      Web --> Core
-      Redis --> Core
-      SaToken --> Core
-      SaToken --> Redis
-      MyBatis --> Core
-      MyBatis --> SaToken
-      Tenant --> MyBatis
-      Tenant --> Redis
-      Security --> SaToken
-
-      classDef appLayer fill:#ff6b6b,stroke:#c92a2a,stroke-width:3px
-      classDef businessLayer fill:#4ecdc4,stroke:#0ca678,stroke-width:2px
-      classDef commonLayer fill:#ffe66d,stroke:#f59f00,stroke-width:1px
-
-      class Admin appLayer
-      class System,Job,Generator,Demo,Workflow businessLayer
-      class Core,Web,MyBatis,Redis,SaToken,Security,Tenant,Log,Excel,SMS,OSS,Doc,Social,Mail,RateLimiter,Other1 commonLayer
 
   2️⃣ 依赖路径清单
 
@@ -256,8 +182,8 @@ address: https://gitee.com/dromara/RuoYi-Vue-Plus
   org.dromara.common.satoken.config.SaTokenConfig
 
   核心配置类：SaTokenConfig.java
-
-  @AutoConfiguration
+ ```java
+ @AutoConfiguration
   @PropertySource(value = "classpath:common-satoken.yml", factory = YmlPropertySourceFactory.class)
   public class SaTokenConfig {
 
@@ -277,6 +203,8 @@ address: https://gitee.com/dromara/RuoYi-Vue-Plus
           return new PlusSaTokenDao();  // ← 默认实现（绑定 Redis）
       }
   }
+ ```
+  
 
   🎯 扩展点：
   - 用户可以在自己的模块中创建 @Primary 标注的 Bean 来覆盖默认实现
@@ -286,21 +214,23 @@ address: https://gitee.com/dromara/RuoYi-Vue-Plus
   2️⃣ 条件装配机制
 
   ① @ConditionalOnMissingBean - 防止重复定义
-
-  // SpringDocConfig.java:46
+```java
+// SpringDocConfig.java:46
   @Bean
   @ConditionalOnMissingBean(OpenAPI.class)  // ← 只有当容器中没有 OpenAPI Bean 时才创建
   public OpenAPI openApi(SpringDocProperties properties) {
       // ... 创建 OpenAPI Bean
   }
+```
+  
 
   🎯 扩展点：
   - 如果用户自定义了 OpenAPI Bean，系统将使用用户的实现
   - 无需修改 common 模块代码
 
   ② @ConditionalOnProperty - 配置驱动
-
-  // TenantConfig.java:32
+```java
+// TenantConfig.java:32
   @AutoConfiguration(after = {RedisConfig.class})
   @ConditionalOnProperty(value = "tenant.enable", havingValue = "true")
   public class TenantConfig {
@@ -321,12 +251,14 @@ address: https://gitee.com/dromara/RuoYi-Vue-Plus
   static class MybatisPlusConfiguration {
       // 只有当类路径中存在 MyBatis-Plus 时才生效
   }
+```
+  
 
   ---
   3️⃣ @Primary 覆盖机制
 
   示例：多租户覆盖默认 Bean
-
+```java
   // TenantConfig.java:71-84
   /**
    * 多租户缓存管理器
@@ -345,6 +277,8 @@ address: https://gitee.com/dromara/RuoYi-Vue-Plus
   public SaTokenDao tenantSaTokenDao() {
       return new TenantSaTokenDao();  // 包装了原始的 PlusSaTokenDao，增加租户隔离
   }
+```
+
 
   🎯 扩展点：
   - 多租户模块通过 @Primary 覆盖了默认的 SaTokenDao 和 CacheManager
@@ -354,8 +288,8 @@ address: https://gitee.com/dromara/RuoYi-Vue-Plus
   4️⃣ 接口抽象 + Bean 注入机制
 
   ① 敏感数据脱敏接口
-
-  // common-sensitive/src/.../SensitiveService.java
+```java
+ // common-sensitive/src/.../SensitiveService.java
   public interface SensitiveService {
       /**
        * 是否脱敏
@@ -392,6 +326,8 @@ address: https://gitee.com/dromara/RuoYi-Vue-Plus
       }
       return data;
   }
+```
+ 
 
   🎯 扩展点：
   - common 模块定义接口，不提供实现
