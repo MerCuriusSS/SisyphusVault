@@ -610,8 +610,9 @@ package org.dromara.custom.satoken;
   
 
   步骤 3：配置文件切换
+  # 开发环境：使用内存
 ```yaml
-# 开发环境：使用内存
+
   custom:
     store:
       type: memory
