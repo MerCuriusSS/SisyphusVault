@@ -128,3 +128,604 @@ address: https://gitee.com/dromara/RuoYi-Vue-Plus
   3. 低耦合：通过依赖管理避免循环依赖
   4. 易扩展：新模块可以按需引入依赖
   5. 易维护：修改某个功能只需更新对应的 common 模块
+
+---
+
+● 基于深入分析，我将为你详细解析 admin、common、system 三个模块的隔离逻辑和扩展机制。
+
+  📊 一、显式依赖路径图
+
+  1️⃣ Maven 依赖路径
+
+  graph TB
+      subgraph "应用层"
+          Admin[ruoyi-admin<br/>应用入口模块]
+      end
+
+      subgraph "业务层"
+          System[ruoyi-system<br/>系统管理模块]
+          Job[ruoyi-job<br/>任务调度]
+          Generator[ruoyi-generator<br/>代码生成]
+          Demo[ruoyi-demo<br/>演示模块]
+          Workflow[ruoyi-workflow<br/>工作流]
+      end
+
+      subgraph "通用层"
+          Core[ruoyi-common-core<br/>核心]
+          Web[ruoyi-common-web<br/>Web服务]
+          MyBatis[ruoyi-common-mybatis<br/>数据库]
+          Redis[ruoyi-common-redis<br/>缓存]
+          SaToken[ruoyi-common-satoken<br/>认证]
+          Security[ruoyi-common-security<br/>安全]
+          Tenant[ruoyi-common-tenant<br/>多租户]
+          Log[ruoyi-common-log<br/>日志]
+          Excel[ruoyi-common-excel<br/>Excel]
+          SMS[ruoyi-common-sms<br/>短信]
+          OSS[ruoyi-common-oss<br/>对象存储]
+          Doc[ruoyi-common-doc<br/>接口文档]
+          Social[ruoyi-common-social<br/>社交登录]
+          Mail[ruoyi-common-mail<br/>邮件]
+          RateLimiter[ruoyi-common-ratelimiter<br/>限流]
+          Other1[... 其他 11 个模块]
+      end
+
+      %% Admin 的依赖
+      Admin -->|直接依赖| System
+      Admin -->|直接依赖| Job
+      Admin -->|直接依赖| Generator
+      Admin -->|直接依赖| Demo
+      Admin -->|直接依赖| Workflow
+      Admin -.->|运行时注入| Doc
+      Admin -.->|运行时注入| Social
+      Admin -.->|运行时注入| RateLimiter
+      Admin -.->|运行时注入| Mail
+
+      %% System 的依赖
+      System -->|直接依赖| Core
+      System -->|直接依赖| MyBatis
+      System -->|直接依赖| Web
+      System -->|直接依赖| Security
+      System -->|直接依赖| Tenant
+      System -->|直接依赖| Log
+      System -->|直接依赖| Excel
+      System -->|直接依赖| SMS
+      System -->|直接依赖| OSS
+      System -->|直接依赖| Doc
+
+      %% Common 内部依赖
+      Core --> Core
+      Web --> Core
+      Redis --> Core
+      SaToken --> Core
+      SaToken --> Redis
+      MyBatis --> Core
+      MyBatis --> SaToken
+      Tenant --> MyBatis
+      Tenant --> Redis
+      Security --> SaToken
+
+      classDef appLayer fill:#ff6b6b,stroke:#c92a2a,stroke-width:3px
+      classDef businessLayer fill:#4ecdc4,stroke:#0ca678,stroke-width:2px
+      classDef commonLayer fill:#ffe66d,stroke:#f59f00,stroke-width:1px
+
+      class Admin appLayer
+      class System,Job,Generator,Demo,Workflow businessLayer
+      class Core,Web,MyBatis,Redis,SaToken,Security,Tenant,Log,Excel,SMS,OSS,Doc,Social,Mail,RateLimiter,Other1 commonLayer
+
+  2️⃣ 依赖路径清单
+
+  | 源模块                         | 目标模块           | 依赖类型 | 依赖方式        |
+  |--------------------------------|--------------------|----------|-----------------|
+  | admin                          | system             | 强依赖   | pom.xml         |
+  | admin                          | job                | 强依赖   | pom.xml         |
+  | admin                          | generator          | 强依赖   | pom.xml         |
+  | admin                          | demo               | 强依赖   | pom.xml         |
+  | admin                          | workflow           | 强依赖   | pom.xml         |
+  | admin                          | common-doc         | 弱依赖   | Spring 自动注入 |
+  | admin                          | common-social      | 弱依赖   | Spring 自动注入 |
+  | admin                          | common-ratelimiter | 弱依赖   | Spring 自动注入 |
+  | admin                          | common-mail        | 弱依赖   | Spring 自动注入 |
+  | system                         | common-core        | 强依赖   | pom.xml         |
+  | system                         | common-mybatis     | 强依赖   | pom.xml         |
+  | system                         | common-web         | 强依赖   | pom.xml         |
+  | system                         | common-security    | 强依赖   | pom.xml         |
+  | system                         | common-tenant      | 强依赖   | pom.xml         |
+  | system → common-* (其他 11 个) | 强依赖             | pom.xml  |                 |
+
+  ---
+  🔧 二、核心扩展机制分析
+
+  1️⃣ Spring Boot 3.x 自动配置机制
+
+  配置文件位置
+
+  ruoyi-common-xxx/src/main/resources/META-INF/spring/
+  └── org.springframework.boot.autoconfigure.AutoConfiguration.imports
+
+  示例：common-core 的自动配置
+
+  # ruoyi-common-core/.../AutoConfiguration.imports
+  org.dromara.common.core.config.ApplicationConfig
+  org.dromara.common.core.config.ThreadPoolConfig
+  org.dromara.common.core.config.ValidatorConfig
+  org.dromara.common.core.utils.SpringUtils
+
+  示例：common-satoken 的自动配置
+
+  # ruoyi-common-satoken/.../AutoConfiguration.imports
+  org.dromara.common.satoken.config.SaTokenConfig
+
+  核心配置类：SaTokenConfig.java
+
+  @AutoConfiguration
+  @PropertySource(value = "classpath:common-satoken.yml", factory = YmlPropertySourceFactory.class)
+  public class SaTokenConfig {
+
+      /**
+       * 权限接口实现(使用bean注入方便用户替换)
+       */
+      @Bean
+      public StpInterface stpInterface() {
+          return new SaPermissionImpl();  // ← 默认实现
+      }
+
+      /**
+       * 自定义dao层存储
+       */
+      @Bean
+      public SaTokenDao saTokenDao() {
+          return new PlusSaTokenDao();  // ← 默认实现（绑定 Redis）
+      }
+  }
+
+  🎯 扩展点：
+  - 用户可以在自己的模块中创建 @Primary 标注的 Bean 来覆盖默认实现
+  - 例如：实现 SaTokenDao 接口，使用内存存储而非 Redis
+
+  ---
+  2️⃣ 条件装配机制
+
+  ① @ConditionalOnMissingBean - 防止重复定义
+
+  // SpringDocConfig.java:46
+  @Bean
+  @ConditionalOnMissingBean(OpenAPI.class)  // ← 只有当容器中没有 OpenAPI Bean 时才创建
+  public OpenAPI openApi(SpringDocProperties properties) {
+      // ... 创建 OpenAPI Bean
+  }
+
+  🎯 扩展点：
+  - 如果用户自定义了 OpenAPI Bean，系统将使用用户的实现
+  - 无需修改 common 模块代码
+
+  ② @ConditionalOnProperty - 配置驱动
+
+  // TenantConfig.java:32
+  @AutoConfiguration(after = {RedisConfig.class})
+  @ConditionalOnProperty(value = "tenant.enable", havingValue = "true")
+  public class TenantConfig {
+      // 只有当配置文件中 tenant.enable=true 时才会启用
+  }
+
+  // EncryptorAutoConfiguration.java:24
+  @ConditionalOnProperty(value = "mybatis-encryptor.enable", havingValue = "true")
+  public class EncryptorAutoConfiguration {
+      // 只有配置了加密功能才启用
+  }
+
+  ③ @ConditionalOnClass - 类路径检测
+
+  // TenantConfig.java:35
+  @ConditionalOnClass(TenantLineInnerInterceptor.class)
+  @AutoConfiguration
+  static class MybatisPlusConfiguration {
+      // 只有当类路径中存在 MyBatis-Plus 时才生效
+  }
+
+  ---
+  3️⃣ @Primary 覆盖机制
+
+  示例：多租户覆盖默认 Bean
+
+  // TenantConfig.java:71-84
+  /**
+   * 多租户缓存管理器
+   */
+  @Primary  // ← 标记为主要 Bean，覆盖默认实现
+  @Bean
+  public CacheManager tenantCacheManager() {
+      return new TenantSpringCacheManager();
+  }
+
+  /**
+   * 多租户鉴权dao实现
+   */
+  @Primary  // ← 覆盖 SaTokenConfig 中的 saTokenDao()
+  @Bean
+  public SaTokenDao tenantSaTokenDao() {
+      return new TenantSaTokenDao();  // 包装了原始的 PlusSaTokenDao，增加租户隔离
+  }
+
+  🎯 扩展点：
+  - 多租户模块通过 @Primary 覆盖了默认的 SaTokenDao 和 CacheManager
+  - 实现了自动的租户隔离，无需修改底层代码
+
+  ---
+  4️⃣ 接口抽象 + Bean 注入机制
+
+  ① 敏感数据脱敏接口
+
+  // common-sensitive/src/.../SensitiveService.java
+  public interface SensitiveService {
+      /**
+       * 是否脱敏
+       * @param roleKey 角色标识
+       * @param perms 权限标识
+       * @return true-需要脱敏 false-不需要脱敏
+       */
+      boolean isSensitive(String[] roleKey, String[] perms);
+  }
+
+  system 模块实现：
+  // ruoyi-system/.../SysSensitiveServiceImpl.java
+  @Service
+  public class SysSensitiveServiceImpl implements SensitiveService {
+      @Override
+      public boolean isSensitive(String[] roleKey, String[] perms) {
+          // 超级管理员、租户管理员不脱敏
+          if (TenantHelper.isEnable()) {
+              return !LoginHelper.isSuperAdmin() && !LoginHelper.isTenantAdmin();
+          }
+          return !LoginHelper.isSuperAdmin();
+      }
+  }
+
+  common 模块使用：
+  // common 模块通过 Spring 注入 SensitiveService
+  @Autowired(required = false)  // ← 允许不存在
+  private SensitiveService sensitiveService;
+
+  // 使用时判断
+  public String desensitize(String data, String[] roleKey, String[] perms) {
+      if (sensitiveService != null && sensitiveService.isSensitive(roleKey, perms)) {
+          return SensitiveUtil.desensitize(data);
+      }
+      return data;
+  }
+
+  🎯 扩展点：
+  - common 模块定义接口，不提供实现
+  - system 模块提供默认实现
+  - 第三方开发者可以：
+    a. 实现自己的 SensitiveService
+    b. 使用 @Primary 或 @Component 覆盖默认实现
+
+  ② Excel 动态选项接口
+
+  // common-excel/src/.../ExcelOptionsProvider.java
+  public interface ExcelOptionsProvider {
+      /**
+       * 获取下拉选项数据
+       */
+      Set<String> getOptions();
+  }
+
+  使用方式：
+  // Excel 导出注解
+  @ExcelDynamicOptions(providerClass = MyOptionsProvider.class)
+  private String status;
+
+  // 用户实现
+  @Component
+  public class MyOptionsProvider implements ExcelOptionsProvider {
+      @Override
+      public Set<String> getOptions() {
+          return Set.of("启用", "禁用");
+      }
+  }
+
+  运行时动态加载：
+  // ExcelDownHandler.java:125
+  ExcelOptionsProvider provider = SpringUtils.getBean(dynamicOptions.providerClass());
+  Set<String> options = provider.getOptions();
+
+  ---
+  5️⃣ 核心业务服务接口
+
+  // common-core/src/.../service/OssService.java
+  public interface OssService {
+      String selectUrlByIds(String ossIds);
+      List<OssDTO> selectByIds(String ossIds);
+  }
+
+  // common-core/src/.../service/UserService.java
+  public interface UserService {
+      String selectUserNameById(Long userId);
+      String selectNicknameById(Long userId);
+      List<UserDTO> selectListByIds(List<Long> userIds);
+      // ... 更多方法
+  }
+
+  // common-core/src/.../service/PermissionService.java
+  public interface PermissionService {
+      Set<String> getRolePermission(Long userId);
+      Set<String> getMenuPermission(Long userId);
+  }
+
+  🎯 扩展点：
+  - common-core 定义业务服务接口
+  - common 模块通过接口调用业务服务
+  - system 模块提供实现（通过 @Service 注入）
+  - 第三方开发者可以实现新的存储方式（如 MongoDB、Elasticsearch）
+
+  ---
+  💡 三、如何添加新的存储实现（实战案例）
+
+  场景：在不修改 common 核心代码的前提下，增加一个基于 Elasticsearch 的用户查询实现
+
+  方案 1：实现接口 + Bean 覆盖
+
+  步骤 1：创建新模块
+
+  ruoyi-store-elastic/         # 新模块
+  ├── pom.xml
+  └── src/main/java/
+      └── org/dromara/store/elastic/
+          ├── config/
+          │   └── ElasticAutoConfiguration.java
+          └── service/
+              └── ElasticUserServiceImpl.java
+
+  步骤 2：实现 UserService 接口
+
+  package org.dromara.store.elastic.service;
+
+  import org.dromara.common.core.domain.dto.UserDTO;
+  import org.dromara.common.core.service.UserService;
+  import org.springframework.stereotype.Service;
+
+  import java.util.List;
+  import java.util.Map;
+
+  @Service  // ← 注册为 Spring Bean
+  public class ElasticUserServiceImpl implements UserService {
+
+      @Autowired
+      private ElasticsearchRestTemplate esTemplate;
+
+      @Override
+      public String selectUserNameById(Long userId) {
+          // 从 Elasticsearch 查询
+          UserDoc doc = esTemplate.get(
+              String.valueOf(userId),
+              UserDoc.class,
+              "users"
+          );
+          return doc != null ? doc.getUserName() : null;
+      }
+
+      @Override
+      public String selectNicknameById(Long userId) {
+          // Elasticsearch 实现
+      }
+
+      @Override
+      public String selectNicknameByIds(String userIds) {
+          // 批量查询
+      }
+
+      // ... 实现其他方法
+  }
+
+  步骤 3：创建自动配置类
+
+  package org.dromara.store.elastic.config;
+
+  import org.springframework.boot.autoconfigure.AutoConfiguration;
+  import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+  import org.springframework.data.elasticsearch.client.elc.ElasticsearchRestTemplate;
+
+  @AutoConfiguration(after = UserServiceAutoConfiguration.class)
+  @ConditionalOnClass(ElasticsearchRestTemplate.class)  // ← 只有引入 Elasticsearch 才生效
+  public class ElasticAutoConfiguration {
+      // 配置 Elasticsearch 相关 Bean
+  }
+
+  步骤 4：添加自动配置文件
+
+  # ruoyi-store-elastic/src/main/resources/META-INF/spring/
+  # org.springframework.boot.autoconfigure.AutoConfiguration.imports
+  org.dromara.store.elastic.config.ElasticAutoConfiguration
+
+  步骤 5：在 admin 模块引入依赖
+
+  <!-- ruoyi-admin/pom.xml -->
+  <dependency>
+      <groupId>org.dromara</groupId>
+      <artifactId>ruoyi-store-elastic</artifactId>
+      <version>${revision}</version>
+  </dependency>
+
+  <!-- Elasticsearch 客户端 -->
+  <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+  </dependency>
+
+  步骤 6：配置文件启用
+
+  # application.yml
+  spring:
+    elasticsearch:
+      uris: http://localhost:9200
+
+  ✅ 结果：
+  - common 核心代码完全不需要修改
+  - 运行时 Spring 会自动注入 ElasticUserServiceImpl
+  - 所有调用 UserService 的地方都会使用 Elasticsearch 实现
+
+  ---
+  方案 2：使用 @Primary 覆盖（适合替换默认实现）
+
+  场景：将 Sa-Token 的 Redis 存储改为 内存存储
+
+  package org.dromara.custom.satoken;
+
+  import cn.dev33.satoken.dao.SaTokenDao;
+  import org.dromara.common.satoken.core.dao.PlusSaTokenDao;
+  import org.springframework.context.annotation.Primary;
+  import org.springframework.stereotype.Component;
+
+  import java.util.concurrent.ConcurrentHashMap;
+
+  /**
+   * 内存存储实现（开发环境使用）
+   */
+  @Primary  // ← 覆盖 PlusSaTokenDao
+  @Component
+  public class MemorySaTokenDao implements SaTokenDao {
+
+      private final ConcurrentHashMap<String, String> cache = new ConcurrentHashMap<>();
+
+      @Override
+      public String get(String key) {
+          return cache.get(key);
+      }
+
+      @Override
+      public void set(String key, String value, long timeout) {
+          cache.put(key, value);
+      }
+
+      @Override
+      public void delete(String key) {
+          cache.remove(key);
+      }
+
+      // ... 实现其他方法
+  }
+
+  ✅ 结果：
+  - 无需 Redis 环境
+  - 所有 Sa-Token 的会话数据存储在内存中
+  - 适合开发测试环境
+
+  ---
+  方案 3：条件配置切换（适合多环境）
+
+  步骤 1：定义配置属性
+
+  @ConfigurationProperties(prefix = "custom.store")
+  public class CustomStoreProperties {
+      /**
+       * 存储类型：redis/mysql/elasticsearch/memory
+       */
+      private String type = "redis";
+  }
+
+  步骤 2：条件配置类
+
+  @AutoConfiguration
+  @EnableConfigurationProperties(CustomStoreProperties.class)
+  public class CustomStoreAutoConfiguration {
+
+      @Bean
+      @ConditionalOnProperty(name = "custom.store.type", havingValue = "elasticsearch")
+      public UserService elasticsearchUserService() {
+          return new ElasticUserServiceImpl();
+      }
+
+      @Bean
+      @ConditionalOnProperty(name = "custom.store.type", havingValue = "mysql")
+      public UserService mysqlUserService() {
+          return new MysqlUserServiceImpl();
+      }
+
+      @Bean
+      @ConditionalOnProperty(name = "custom.store.type", havingValue = "redis", matchIfMissing = true)
+      @Primary  // 默认实现
+      public UserService redisUserService() {
+          return new RedisUserServiceImpl();
+      }
+  }
+
+  步骤 3：配置文件切换
+
+  # 开发环境：使用内存
+  custom:
+    store:
+      type: memory
+
+  # 测试环境：使用 MySQL
+  ---
+  spring:
+    profiles: test
+  custom:
+    store:
+      type: mysql
+
+  # 生产环境：使用 Redis
+  ---
+  spring:
+    profiles: prod
+  custom:
+    store:
+      type: redis
+
+  ---
+  🎯 四、扩展机制总结表
+
+  | 扩展机制   | 核心注解/接口             | 适用场景     | 是否需要修改 common | 示例                    |
+  |------------|---------------------------|--------------|---------------------|-------------------------|
+  | 接口抽象   | interface UserService     | 业务服务扩展 | ❌ 不需要           | ElasticUserServiceImpl  |
+  | Bean 覆盖  | @Primary                  | 替换默认实现 | ❌ 不需要           | 内存存储覆盖 Redis 存储 |
+  | 条件装配   | @ConditionalOnMissingBean | 防止重复定义 | ❌ 不需要           | 自定义 OpenAPI          |
+  | 配置驱动   | @ConditionalOnProperty    | 功能开关     | ❌ 不需要           | 多租户开关              |
+  | 类路径检测 | @ConditionalOnClass       | 依赖检测     | ❌ 不需要           | 只有引入 ES 才启用      |
+  | 自动配置   | AutoConfiguration.imports | 模块自动启用 | ❌ 不需要           | Spring Boot 3.x 机制    |
+  | 动态接口   | ExcelOptionsProvider      | 运行时扩展   | ❌ 不需要           | Excel 动态选项          |
+  | 工厂模式   | OssFactory.instance()     | 多实现切换   | ❌ 不需要           | 动态 OSS 客户端         |
+
+  ---
+  📌 五、关键设计原则
+
+  1. 单向依赖原则
+
+  common (核心) ← system (业务) ← admin (应用)
+     ↑              ↑                ↑
+   定义接口      实现接口          聚合模块
+
+  2. 开闭原则
+
+  - 对扩展开放：通过接口和条件装配支持扩展
+  - 对修改封闭：无需修改 common 核心代码
+
+  3. 依赖倒置原则
+
+  - common 模块依赖接口抽象
+  - system 模块依赖接口 + 提供实现
+  - 两者都依赖抽象，不依赖具体实现
+
+  4. 配置外部化
+
+  - 通过 application.yml 控制功能开关
+  - 通过 @ConditionalOnProperty 响应配置
+
+  ---
+  ✅ 总结
+
+  RuoYi-Vue-Plus 通过以下机制实现了高度的灵活性和可扩展性：
+
+  1. Spring Boot 3.x 自动配置：零配置自动启用模块
+  2. 接口抽象：common 定义接口，system 提供实现
+  3. 条件装配：智能判断是否启用功能
+  4. Bean 覆盖：通过 @Primary 替换默认实现
+  5. 工厂模式：运行时动态选择实现
+
+  第三方开发者无需修改 common 核心代码，只需：
+  6. 实现接口
+  7. 创建 @Service 或 @Primary Bean
+  8. 添加 AutoConfiguration.imports 文件
+  9. 引入模块依赖
+
+  这种设计保证了核心模块的稳定性，同时提供了强大的扩展能力！ 🚀
