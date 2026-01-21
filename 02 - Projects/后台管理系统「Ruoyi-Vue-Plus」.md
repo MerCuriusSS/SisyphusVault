@@ -418,8 +418,8 @@ address: https://gitee.com/dromara/RuoYi-Vue-Plus
               └── ElasticUserServiceImpl.java
 
   步骤 2：实现 UserService 接口
-
-  package org.dromara.store.elastic.service;
+```java
+package org.dromara.store.elastic.service;
 
   import org.dromara.common.core.domain.dto.UserDTO;
   import org.dromara.common.core.service.UserService;
@@ -457,10 +457,12 @@ address: https://gitee.com/dromara/RuoYi-Vue-Plus
 
       // ... 实现其他方法
   }
+```
+  
 
   步骤 3：创建自动配置类
-
-  package org.dromara.store.elastic.config;
+```java
+ package org.dromara.store.elastic.config;
 
   import org.springframework.boot.autoconfigure.AutoConfiguration;
   import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
@@ -471,16 +473,20 @@ address: https://gitee.com/dromara/RuoYi-Vue-Plus
   public class ElasticAutoConfiguration {
       // 配置 Elasticsearch 相关 Bean
   }
+```
+ 
 
   步骤 4：添加自动配置文件
-
-  # ruoyi-store-elastic/src/main/resources/META-INF/spring/
+```yaml
+# ruoyi-store-elastic/src/main/resources/META-INF/spring/
   # org.springframework.boot.autoconfigure.AutoConfiguration.imports
   org.dromara.store.elastic.config.ElasticAutoConfiguration
+```
+  
 
   步骤 5：在 admin 模块引入依赖
-
-  <!-- ruoyi-admin/pom.xml -->
+  ```maven
+   <!-- ruoyi-admin/pom.xml -->
   <dependency>
       <groupId>org.dromara</groupId>
       <artifactId>ruoyi-store-elastic</artifactId>
@@ -492,13 +498,18 @@ address: https://gitee.com/dromara/RuoYi-Vue-Plus
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
   </dependency>
+  ```
+
+ 
 
   步骤 6：配置文件启用
-
-  # application.yml
+```yaml
+# application.yml
   spring:
     elasticsearch:
       uris: http://localhost:9200
+```
+  
 
   ✅ 结果：
   - common 核心代码完全不需要修改
@@ -510,7 +521,8 @@ address: https://gitee.com/dromara/RuoYi-Vue-Plus
 
   场景：将 Sa-Token 的 Redis 存储改为 内存存储
 
-  package org.dromara.custom.satoken;
+```java
+package org.dromara.custom.satoken;
 
   import cn.dev33.satoken.dao.SaTokenDao;
   import org.dromara.common.satoken.core.dao.PlusSaTokenDao;
@@ -545,6 +557,9 @@ address: https://gitee.com/dromara/RuoYi-Vue-Plus
 
       // ... 实现其他方法
   }
+```
+
+  
 
   ✅ 结果：
   - 无需 Redis 环境
@@ -555,18 +570,20 @@ address: https://gitee.com/dromara/RuoYi-Vue-Plus
   方案 3：条件配置切换（适合多环境）
 
   步骤 1：定义配置属性
-
-  @ConfigurationProperties(prefix = "custom.store")
+```java
+@ConfigurationProperties(prefix = "custom.store")
   public class CustomStoreProperties {
       /**
        * 存储类型：redis/mysql/elasticsearch/memory
        */
       private String type = "redis";
   }
+```
+  
 
   步骤 2：条件配置类
-
-  @AutoConfiguration
+```java
+@AutoConfiguration
   @EnableConfigurationProperties(CustomStoreProperties.class)
   public class CustomStoreAutoConfiguration {
 
@@ -589,29 +606,37 @@ address: https://gitee.com/dromara/RuoYi-Vue-Plus
           return new RedisUserServiceImpl();
       }
   }
+```
+  
 
   步骤 3：配置文件切换
-
-  # 开发环境：使用内存
+```yaml
+# 开发环境：使用内存
   custom:
     store:
       type: memory
+```
+  
 
   # 测试环境：使用 MySQL
-  ---
+```yaml
   spring:
     profiles: test
   custom:
     store:
       type: mysql
+```
+
 
   # 生产环境：使用 Redis
-  ---
+ ```yaml
   spring:
     profiles: prod
   custom:
     store:
       type: redis
+ ```
+ 
 
   ---
   🎯 四、扩展机制总结表
