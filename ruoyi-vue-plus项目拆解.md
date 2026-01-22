@@ -34,7 +34,8 @@
 ## 二、业务模块（system）
 >[!warning] 拦截器的应用
 > **概念厘清**——「拦截器」VS 「过滤器」
-> 1.过滤器（filter）
+> 过滤器（filter）是servlet组件；拦截器（interceptor）是spring容器组件。
+> 过滤器是
 > 
 🔵 🟣 🟤 ⚫ ⚪ 
 
