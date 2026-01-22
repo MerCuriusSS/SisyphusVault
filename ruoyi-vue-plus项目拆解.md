@@ -35,7 +35,8 @@
 >[!warning] 拦截器的应用
 > **概念厘清**——「拦截器」VS 「过滤器」
 > 过滤器（filter）是servlet组件；拦截器（interceptor）是spring容器组件。
-> 过滤器是规则控制是「URL」级别，无法感知业务方法，拿不到Spring中的service；拦截器是「Method」级别，通过``
+> 过滤器是规则控制是「URL」级别，无法感知业务方法，拿不到Spring中的service；拦截器是「Method」级别，通过`handler`感知controller方法注解，并能与注入Spring Bean协同工作。
+> 
 > 
 🔵 🟣 🟤 ⚫ ⚪ 
 
