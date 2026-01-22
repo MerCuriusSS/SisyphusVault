@@ -700,8 +700,8 @@ package org.dromara.custom.satoken;
 
 ---
 # 新增用户请求至 SysUserService.save() 完整执行链
-## 完整执行顺序流程
-### 第一层：Servlet Filter 链
+## 第一层：Servlet Filter 链
+
 1. **CryptoFilter**（order = HIGHEST_PRECEDENCE = -2147483648）
    位置：ApiDecryptAutoConfiguration.java:27
    功能：请求/响应加密解密
@@ -714,7 +714,8 @@ package org.dromara.custom.satoken;
    
 → 进入 DispatcherServlet
 
-### 第二层：Spring MVC 拦截器链
+## 第二层：Spring MVC 拦截器链
+
 4. **PlusWebInvokeTimeInterceptor**
    位置：ResourcesConfig.java:31
    功能：记录请求开始时间和参数，输出日志
@@ -729,8 +730,10 @@ package org.dromara.custom.satoken;
    
 → 进入 SysUserController.add()
 
-### 第三层：AOP 切面链
+## 第三层：AOP 切面链
+
 **执行入口**：SysUserController.add(@RequestBody SysUserBo user)
+
 6. **DataPermissionAdvice**（数据权限切面）
    位置：DataPermissionPointcutAdvisor.java
    条件：Mapper 方法有 @DataPermission 注解时触发
@@ -751,7 +754,7 @@ package org.dromara.custom.satoken;
    - 存储到 ThreadLocal.KEY_CACHE
    
 → 执行 Controller 方法体
-```
+```java
 deptService.checkDeptDataScope(user.getdeptId())
         ↓
 userService.insertUser(user)
@@ -759,8 +762,10 @@ userService.insertUser(user)
 进入 SysUserService.insertUser()
 ```
 
-### 第四层：MyBatis-Plus 拦截器链（执行 SQL 时）
+## 第四层：MyBatis-Plus 拦截器链（执行 SQL 时）
+
 **执行入口**：SysUserMapper.insert(user) → 执行 INSERT 语句
+
 9. **TenantLineInnerInterceptor**（多租户插件）
    位置：MybatisPlusConfig.java:42-46
    功能：
@@ -781,7 +786,8 @@ userService.insertUser(user)
     
 → 执行原生 SQL
 
-### 第五层：返回时的处理
+## 第五层：返回时的处理
+
 **执行入口**：SQL 执行成功，返回结果
 13. **LogAspect** (@AfterReturning)
     位置：LogAspect.java:63
@@ -793,7 +799,7 @@ userService.insertUser(user)
 14. **RepeatSubmitAspect** (@AfterReturning)
     位置：RepeatSubmitAspect.java:77
     功能：
-    - 检查返回值 R<Void>.getCode()
+   - 检查返回值 R<Void>.getCode()
     - 成功 (code == 0): 保留 Redis key 防止重复
     - 失败: 删除 Redis key 允许重试
 15. **PlusWebInvokeTimeInterceptor** (afterCompletion)
