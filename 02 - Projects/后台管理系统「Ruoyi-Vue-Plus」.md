@@ -699,3 +699,137 @@ package org.dromara.custom.satoken;
 
 
 ---
+# 新增用户请求至 SysUserService.save() 完整执行链
+## 完整执行顺序流程
+### 第一层：Servlet Filter 链
+1. **CryptoFilter**（order = HIGHEST_PRECEDENCE = -2147483648）
+   位置：ApiDecryptAutoConfiguration.java:27
+   功能：请求/响应加密解密
+2. **XssFilter**（order = HIGHEST_PRECEDENCE + 1 = -2147483647）
+   位置：FilterConfig.java:28
+   功能：XSS 攻击过滤，清理危险字符
+3. **RepeatableFilter**（默认 order = 0）
+   位置：FilterConfig.java:36
+   功能：包装 HttpServletRequest，支持重复读取请求体
+   
+→ 进入 DispatcherServlet
+
+### 第二层：Spring MVC 拦截器链
+4. **PlusWebInvokeTimeInterceptor**
+   位置：ResourcesConfig.java:31
+   功能：记录请求开始时间和参数，输出日志
+   preHandle: 打印 "[PLUS]开始请求 => URL[POST /system/user]"
+5. **SaInterceptor**（Sa-Token 核心拦截器）
+   位置：SecurityConfig.java:51
+   功能：
+   - StpUtil.checkLogin() 检查登录状态
+   - 验证 clientId 与 Token 是否匹配
+   - 触发 @SaCheckPermission 注解的权限校验
+   ⚠️ 校验 @SaCheckPermission("system:user:add")，权限不足直接抛出异常终止请求
+   
+→ 进入 SysUserController.add()
+
+### 第三层：AOP 切面链
+**执行入口**：SysUserController.add(@RequestBody SysUserBo user)
+6. **DataPermissionAdvice**（数据权限切面）
+   位置：DataPermissionPointcutAdvisor.java
+   条件：Mapper 方法有 @DataPermission 注解时触发
+   功能：在 ThreadLocal 中设置数据权限注解信息
+   注意：Controller 层通常不触发此切面
+7. **RepeatSubmitAspect** (@Before)
+   位置：RepeatSubmitAspect.java:41
+   触发条件：@RepeatSubmit() 注解
+   功能：
+   - 生成唯一 key: MD5(token + 请求参数)
+   - Redis.setObjectIfAbsent() 防重复提交
+   - key 已存在则抛出 ServiceException
+8. **LogAspect** (@Before)
+   位置：LogAspect.java:51
+   触发条件：@Log(title = "用户管理", businessType = INSERT)
+   功能：
+   - 创建 StopWatch 开始计时
+   - 存储到 ThreadLocal.KEY_CACHE
+   
+→ 执行 Controller 方法体
+```
+deptService.checkDeptDataScope(user.getdeptId())
+        ↓
+userService.insertUser(user)
+        ↓
+进入 SysUserService.insertUser()
+```
+
+### 第四层：MyBatis-Plus 拦截器链（执行 SQL 时）
+**执行入口**：SysUserMapper.insert(user) → 执行 INSERT 语句
+9. **TenantLineInnerInterceptor**（多租户插件）
+   位置：MybatisPlusConfig.java:42-46
+   功能：
+   - 自动在 SQL 中插入 tenant_id 字段
+   - INSERT 时: SET tenant_id = 当前租户ID
+   - SELECT/UPDATE/DELETE: WHERE tenant_id = 当前租户ID
+   ⚠️ 必须放在第一位（注释明确说明）
+10. **PlusDataPermissionInterceptor**（数据权限拦截器）
+    位置：MybatisPlusConfig.java:48
+    功能：修改 WHERE 条件，添加数据权限过滤；beforeQuery/beforePrepare 解析并重写 SQL
+    注意：INSERT 操作通常不触发此拦截器
+11. **PaginationInnerInterceptor**（分页插件）
+    位置：MybatisPlusConfig.java:50
+    功能：查询时自动添加 LIMIT 语句；INSERT/UPDATE/DELETE 不触发
+12. **OptimisticLockerInnerInterceptor**（乐观锁插件）
+    位置：MybatisPlusConfig.java:52
+    功能：UPDATE 时检查 version 字段；INSERT 不触发
+    
+→ 执行原生 SQL
+
+### 第五层：返回时的处理
+**执行入口**：SQL 执行成功，返回结果
+13. **LogAspect** (@AfterReturning)
+    位置：LogAspect.java:63
+    功能：
+    - stopWatch.stop() 计算耗时
+    - 构建 OperLogEvent 事件
+    - SpringUtils.context().publishEvent(operLog)
+    - 异步保存操作日志到数据库
+14. **RepeatSubmitAspect** (@AfterReturning)
+    位置：RepeatSubmitAspect.java:77
+    功能：
+    - 检查返回值 R<Void>.getCode()
+    - 成功 (code == 0): 保留 Redis key 防止重复
+    - 失败: 删除 Redis key 允许重试
+15. **PlusWebInvokeTimeInterceptor** (afterCompletion)
+    位置：PlusWebInvokeTimeInterceptor.java:104
+    功能：
+    - stopWatch.stop()
+    - 输出 "[PLUS]结束请求 => 耗时: XXX毫秒"
+    
+→ 返回 HTTP 响应
+
+## 总结：执行顺序
+Filter 链 → MVC 拦截器 → AOP 切面 → Controller → Service → MyBatis 拦截器 → SQL
+
+### 关键点
+1. Filter 最早执行，按 order 值从小到大排序
+2. Sa-Token 权限校验在 MVC 拦截器阶段，早于 AOP 切面
+3. @RepeatSubmit 防重复提交在 AOP 切面阶段触发
+4. @Log 日志记录跨越 Controller 方法整个执行周期
+5. MyBatis 拦截器仅在执行 SQL 时触发，非 SQL 操作不生效
+6. 多租户拦截器必须放在 MyBatis 拦截器链第一位
+
+## 关键代码位置速查
+| 组件                          | 文件位置                         | 行号 | 关键代码                                                     |
+|-------------------------------|----------------------------------|------|--------------------------------------------------------------|
+| CryptoFilter                  | ApiDecryptAutoConfiguration.java | 27   | order = HIGHEST_PRECEDENCE                                    |
+| XssFilter                     | FilterConfig.java                | 28   | order = HIGHEST_PRECEDENCE + 1                                |
+| SaInterceptor                 | SecurityConfig.java              | 51   | registry.addInterceptor(new SaInterceptor(...))               |
+| PlusWebInvokeTimeInterceptor  | ResourcesConfig.java             | 31   | registry.addInterceptor(new PlusWebInvokeTimeInterceptor())   |
+| RepeatSubmitAspect            | RepeatSubmitAspect.java          | 41   | @Before("@annotation(repeatSubmit)")                          |
+| LogAspect                     | LogAspect.java                   | 51   | @Before(value = "@annotation(controllerLog)")                 |
+| TenantLineInnerInterceptor    | MybatisPlusConfig.java           | 42   | // 多租户插件 必须放到第一位                                  |
+| PlusDataPermissionInterceptor | MybatisPlusConfig.java           | 48   | interceptor.addInnerInterceptor(dataPermissionInterceptor())  |
+| SysUserController.add         | SysUserController.java           | 158  | @SaCheckPermission("system:user:add")                         |
+
+## 需要特别注意的设计细节
+1. Filter 无明确 @Order：通过 @FilterRegistration 注解的 order 属性控制，order 值越小优先级越高
+2. Spring MVC 拦截器按注册顺序执行：ResourcesConfig 先注册性能拦截器，SecurityConfig 后注册 Sa-Token 拦截器
+3. AOP 切面无显式 @Order：Spring 按切面类的类名或 Bean 注册顺序决定，可通过 @Order 注解手动调整
+4. MyBatis 拦截器链必须严格控制顺序：多租户 → 数据权限 → 分页 → 乐观锁
