@@ -32,14 +32,16 @@
 
 
 ## 二、业务模块（system）
->[!warning] 拦截器的应用
-> **概念厘清**——「拦截器」VS 「过滤器」
+>[!warning] **概念厘清**：「拦截器」VS 「过滤器」
 > **身份**：过滤器（filter）是**servlet**组件；拦截器（interceptor）是**spring容器**组件。
 > 
 > **范围**：过滤器（filter）是规则控制是「**URL**」级别，无法感知业务方法，拿不到Spring中的service；拦截器（interceptor）是「**Method**」级别，通过`handler`感知controller方法**注解**，并能与注入**Spring Bean**协同工作；控制更精细——涵盖`preHandle`（拦截）、`postHandle`（结果加工）、`afterCompletion`（清理）**三阶段。**
 > 
 > **应用场景**：过滤器（filter）控制“**通用规则**”（跨域、解密、XSS）；拦截器（interceptor）控制“**业务规则**”（权限、日志等）
 
+
+>[!bug] 拦截器&过滤器应用——业务执行链
+>
 
 
 🔵 🟣 🟤 ⚫ ⚪ 
