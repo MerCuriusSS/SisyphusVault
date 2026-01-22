@@ -30,7 +30,12 @@
 >
 >**规则**：没有加@AutoConfiguration注解的类会被跳过，不报错，不影响启动；@AutoConfiguration默认优先级低于用户自定义配置类；使用@AutoConfigureBefore/After可强制控制加载顺序，优先级高于容器默认（无规则随机）顺序；
 
->[!info] 
+
+## 二、业务模块（system）
+>[!warning] 拦截器的应用
+> **概念厘清**——「拦截器」VS 「过滤器」
+> 1.过滤器（filter）
+> 
 🔵 🟣 🟤 ⚫ ⚪ 
 
 
