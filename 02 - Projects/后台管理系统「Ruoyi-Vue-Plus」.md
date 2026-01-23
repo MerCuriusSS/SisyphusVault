@@ -881,6 +881,6 @@ Filter 链 → MVC 拦截器 → AOP 切面 → Controller → Service → MyBat
 ├─ ==***执行原生 SQL，SQL执行成功返回结果***==
 │
 ├─ ==***第五层：返回时的后置处理链（结果返回/资源清理/日志记录）***==
-│  ├─ 🟣 **LogAspect**（@AfterReturning，LogAspect.java:63）：停止计时，构建OperLogEvent事件，异步发布并保存操作日志到数据库
-│  ├─ 🟣 **RepeatSubmitAspect**（@AfterReturning，RepeatSubmitAspect.java:77）：根据返回码处理Redis key（成功保留/失败删除）
-│  └─ 🟣 **PlusWebInvokeTimeInterceptor**（afterCompletion，PlusWebInvokeTimeInterceptor.java:104）：停止计时，输出请求结束及耗时日志
+│  ├─ 🟢 **LogAspect**（@AfterReturning，LogAspect.java:63）：停止计时，构建OperLogEvent事件，异步发布并保存操作日志到数据库
+│  ├─ 🟢 **RepeatSubmitAspect**（@AfterReturning，RepeatSubmitAspect.java:77）：根据返回码处理Redis key（成功保留/失败删除）
+│  └─ 🟡 **PlusWebInvokeTimeInterceptor**（afterCompletion，PlusWebInvokeTimeInterceptor.java:104）：停止计时，输出请求结束及耗时日志
