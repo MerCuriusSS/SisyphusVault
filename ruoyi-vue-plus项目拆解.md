@@ -84,7 +84,6 @@
 │  ├─ 🟢 **RepeatSubmitAspect**（@AfterReturning，RepeatSubmitAspect.java:77）：根据返回码处理Redis key（成功保留/失败删除）
 │  └─ 🟡 **PlusWebInvokeTimeInterceptor**（afterCompletion，PlusWebInvokeTimeInterceptor.java:104）：停止计时，输出请求结束及耗时日志
 
-![](assets/ruoyi-vue-plus项目拆解/业务执行链.png)
 
 知识点：
 - Filter知识体系
