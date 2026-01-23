@@ -46,6 +46,9 @@
 >
 >3.**springboot应用**中启动顺序是**spring容器->servlet**，spring容器控制范围增大，允许将filter**硬塞**到servlet中，能与spring容器的其他ServiceBean**协同**工作，更好完成“通用业务”建设。
 
+>[!example] 过滤器机制与应用
+>
+
 >[!bug] 拦截器&过滤器应用——业务执行链
 >
 ├─ ==***第一层：Servlet Filter 链（请求前置过滤）***==
@@ -85,9 +88,12 @@
 │  └─ 🟡 **PlusWebInvokeTimeInterceptor**（afterCompletion，PlusWebInvokeTimeInterceptor.java:104）：停止计时，输出请求结束及耗时日志
 
 
+
 知识点：
 - Filter知识
-	- 
+	- 创建和管理
+	- 应用场景与底层逻辑
+	- 重新认识Request请求体的处理
 - 拦截器知识体系
 - AOP知识体系
 
