@@ -4,16 +4,16 @@ tags:
   - Areas/开发/基础原理
 category: 基础原理
 status: 加工
-project: 后台管理系统「Ruoyi-Vue-Plus」
+project: "[[../../02 - Projects/后台管理系统「Ruoyi-Vue-Plus」|后台管理系统「Ruoyi-Vue-Plus」]]"
 application: 通用规则、基础业务控制
 source:
 ---
 >[!question] 基本概念：
-> 🟡 **身份**：是**servlet**组件；
+> 🔴 **身份**：是**servlet**组件；
 > 
-> 🟡 **范围**：规则控制范围是「**URL**」级别；
+> 🔴 **范围**：规则控制范围是「**URL**」级别；
 > 
-> 🟡 **应用场景**：“通用规则”控制（跨域、解密、XSS）
+> 🔴 **应用场景**：“通用规则”控制（跨域、解密、XSS）
 
 
 >[!important] 控制权演变——「传统web应用」 VS 「Springboot应用」
@@ -25,11 +25,45 @@ source:
 
 
 >[!example] 基本原理
->1）Bean管理机制：
->2）运行：
->3）执行顺序
+>🔴 ***Bean管理机制:***
+>- 先创建连接servlet与spring容器之间的「**适配器**」：
+>- 再创建具体功能的**过滤器**
+>```java
+>@Configuration
+>public class SpringBootFilterConfig {
 >
-
+>    @Bean
+>    public CustomFilter customFilter() {
+>        return new CustomFilter();
+>    }
+>
+>    // Spring Boot推荐的注册方式
+>    @Bean
+>    public FilterRegistrationBean<CustomFilter> customFilterRegistration(CustomFilter customFilter) {
+>        FilterRegistrationBean<CustomFilter> registrationBean = new FilterRegistrationBean<>();
+>        registrationBean.setFilter(customFilter);
+>        registrationBean.addUrlPatterns("/*"); // 拦截URL
+>        registrationBean.setName("customFilter"); // Filter名称
+>        registrationBean.setOrder(FilterRegistrationBean.HIGHEST_PRECEDENCE + 1); // 执行顺序（数值越低，优先值越高）
+>        return registrationBean;
+>    }
+>}
+>```
+>
+>🔴 ***运行机制***
+> - 本质：**递归调用**
+> - doFilter之前：「**前序执行**」——处理未抵达controller**之前**的请求（日志记录、解密等）
+>- doFilter()：「**放行动作**」——请求递交给后一个**过滤器/dispatchServlet**
+>- doFilter之后：「**后序执行**」——执行响应**之后**的操作（日志记录、资源清理、加密等）
+>
+>```java
+>    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) 
+>            throws IOException, ServletException {
+>        // 拦截逻辑
+>        chain.doFilter(request, response);
+>    }
+>```
+>
 
 >[!success] 应用场景
 >🔴 加解密：（CryptoFilter）
