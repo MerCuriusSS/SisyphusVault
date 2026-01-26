@@ -847,41 +847,5 @@ Filter 链 → MVC 拦截器 → AOP 切面 → Controller → Service → MyBat
 
 
 
->[!example] 调用链
->
-├─ ==***第一层：Servlet Filter 链（请求前置过滤）***==
-│  ├─ 🔴 **CryptoFilter**（order=-2147483648，ApiDecryptAutoConfiguration.java:27）：请求/响应加密解密
-│  ├─ 🔴 **XssFilter**（order=-2147483647，FilterConfig.java:28）：XSS攻击过滤，清理危险字符
-│  └─ 🔴 **RepeatableFilter**（默认order=0，FilterConfig.java:36）：包装HttpServletRequest，支持重复读取请求体
-│
-├─ ==***进入 DispatcherServlet 分发请求***==
-│
-├─ ==***第二层：Spring MVC 拦截器链（请求前置校验）***==
-│  ├─ 🟡 **PlusWebInvokeTimeInterceptor**（ResourcesConfig.java:31）：记录请求开始时间和参数，preHandle打印请求开始日志
-│  └─ 🟡 **SaInterceptor**（SecurityConfig.java:51）：Sa-Token核心拦截，校验登录/ClientId/接口权限（@SaCheckPermission），权限不足终止请求
-│
-├─==*** 进入 SysUserController.add() 控制器方法***==
-│
-├─ ==***第三层：AOP 切面链（控制器方法执行前后增强）***==
-│  ├─ 执行入口：SysUserController.add(@RequestBody SysUserBo user)
-│  ├─🟢 **DataPermissionAdvice**（DataPermissionPointcutAdvisor.java）：Mapper层@DataPermission注解触发，ThreadLocal设置数据权限信息（Controller层通常不触发）
-│  ├─🟢 **RepeatSubmitAspect**（@Before，RepeatSubmitAspect.java:41）：@RepeatSubmit注解触发，MD5生成唯一key，Redis防重复提交，已存在则抛异常
-│  ├─🟢 **LogAspect**（@Before，LogAspect.java:51）：@Log注解触发，创建StopWatch计时并存入ThreadLocal
-│  │
-│  ├─ 执行 Controller 方法体
-│  │  └─ deptService.checkDeptDataScope() → userService.insertUser() → 进入SysUserService.insertUser()
-│  │
-├─==*** 第四层：MyBatis-Plus 拦截器链（SQL执行时动态处理）***==
-│  ├─ 执行入口：SysUserMapper.insert(user) 执行INSERT语句
-│  ├─ 🔵 **TenantLineInnerInterceptor**（MybatisPlusConfig.java:42-46）：多租户插件，SQL自动拼接tenant_id（必须首位），INSERT赋值/查询类语句加WHERE条件
-│  ├─ 🔵 **PlusDataPermissionInterceptor**（MybatisPlusConfig.java:48）：数据权限拦截，重写SQLWHERE条件（INSERT通常不触发）
-│  ├─ 🔵 **PaginationInnerInterceptor**（MybatisPlusConfig.java:50）：分页插件，查询自动加LIMIT（仅查询触发）
-│  └─ 🔵 **OptimisticLockerInnerInterceptor**（MybatisPlusConfig.java:52）：乐观锁插件，UPDATE校验version字段（仅更新触发）
-│
-├─ ==***执行原生 SQL，SQL执行成功返回结果***==
-│
-├─ ==***第五层：返回时的后置处理链（结果返回/资源清理/日志记录）***==
-│  ├─ 🟢 **LogAspect**（@AfterReturning，LogAspect.java:63）：停止计时，构建OperLogEvent事件，异步发布并保存操作日志到数据库
-│  ├─ 🟢 **RepeatSubmitAspect**（@AfterReturning，RepeatSubmitAspect.java:77）：根据返回码处理Redis key（成功保留/失败删除）
-│  └─ 🟡 **PlusWebInvokeTimeInterceptor**（afterCompletion，PlusWebInvokeTimeInterceptor.java:104）：停止计时，输出请求结束及耗时日志
+
 
