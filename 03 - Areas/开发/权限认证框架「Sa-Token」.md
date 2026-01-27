@@ -1,7 +1,7 @@
 1.整合准备：
 🔴 依赖引入（pom文件）与资源文件（yml）配置：提供环境准备
 🔴 自动装配注入（Config）：
-	- Token「StpLogic」：定义Token类型（Session、纯JWT、session&jwt折中）
+	- Token「StpLogic」：定义Token类型（Session、纯JWT、session&jwt混合）
 	- 自定义权限接口「StpInterface」：定义角色、权限的存取
 	- SaTokenDao：Token如何存取（redis or redis+Caffeine本地缓存）
 	- 自定义异常：封装框架各类异常，统一异常管理
