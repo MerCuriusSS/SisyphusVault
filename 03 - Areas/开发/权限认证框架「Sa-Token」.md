@@ -17,8 +17,7 @@
 - 调用SaTokenDao层：触发保存逻辑（写入Redis、同步写入redis&本地缓存）
 
 🔴 阶段二：认证
-- 拦截器「SaInterceptor」拦截请求：
-- 捕获请求头「header」：提取令牌（Authorization：Bearer XXXX）
+- 拦截器「SaInterceptor」拦截请求：捕获请求头「header」并提取令牌（Authorization：Bearer XXXX）
 - 拦截器调用「StpUtil.checkLogin() 」& 「PlusSaTokenDao」：检查登录是否有效、能否放行controller
 
 🔴 阶段三：鉴权
