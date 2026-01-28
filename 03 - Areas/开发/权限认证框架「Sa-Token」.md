@@ -8,8 +8,10 @@ project: "[[../../02 - Projects/后台管理系统「Ruoyi-Vue-Plus」|后台管
 application: 权限验证
 source:
 ---
+## 一、基础概念：
 
-## 一、整合准备：
+
+## 二、整合准备：
 
 🔴 依赖引入（pom文件）与资源文件（yml）配置：提供环境准备
 🔴 自动装配注入（Config）：
@@ -20,8 +22,10 @@ source:
 🔴 拦截器配置（WebMvcConfigurer）：
 - SaInterceptor：拦截所有请求，匹配controller路径
 
-[SaToken组件极简流程图](../../excalidraw/SaToken组件极简流程图.md)
-## 二、流程应用：
+>[!success]
+>[SaToken组件极简流程图](../../excalidraw/SaToken组件极简流程图.md)
+
+## 三、流程应用：
 
 🔴 阶段一：登录
 - 构建用户信息
@@ -40,9 +44,10 @@ source:
 🔴 阶段四：权限异常处理
 - 封装NotPermissionException、NotRoleException、NotLoginException：统一捕获输出异常信息「403」
 
+>[!note] 
 [SaToken业务流程图](../../excalidraw/SaToken业务流程图.md)
 
-## 三、底层工具与思想：
+## 四、底层工具与思想：
 
 🔴 StpUtil：与redis交互的工具
 - 功能：
