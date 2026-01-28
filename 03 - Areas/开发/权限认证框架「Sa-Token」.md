@@ -1,3 +1,12 @@
+---
+tags:
+  - Areas/开发/基础原理
+category: 技术或思维
+status: 加工
+project:
+application:
+source:
+---
 
 ## 一、整合准备：
 
