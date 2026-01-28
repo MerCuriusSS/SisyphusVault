@@ -1,3 +1,4 @@
+
 ## 一、整合准备：
 
 🔴 依赖引入（pom文件）与资源文件（yml）配置：提供环境准备
@@ -9,6 +10,7 @@
 🔴 拦截器配置（WebMvcConfigurer）：
 - SaInterceptor：拦截所有请求，匹配controller路径
 
+[SaToken组件极简流程图](../../excalidraw/SaToken组件极简流程图.md)
 ## 二、流程应用：
 
 🔴 阶段一：登录
