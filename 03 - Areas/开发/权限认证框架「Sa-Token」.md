@@ -11,8 +11,10 @@ source:
 ## 一、基础概念：
 
 🔴 是一个轻量级权限认证框架
-🔴 「Sa-Token」 VS 「Spring-Security」
-	- Sa-Token的优势汇总：
+🔴 「Sa-Token」 VS 「Spring-Security」的优势汇总：
+- 1.**配置方便，组件简单，代码实现量少**，聚焦于核心登录认证、权限校验的高频需求；SpringSecurity配置繁杂，组件众多，涵盖从认证到CSRF、CORS等功能，代码实现量多
+- **2.单拦截器实现拦截逻辑，直观易修改**；SpringSecurity需认识涵盖15个过滤器的过滤器链，还要了解执行顺序和逻辑，上手难。
+- 3.受spring容器管理，**协同注入方便**，全局异常轻松替换；springSecurity有特定的异常处理过滤器，需要理解逻辑。
 
 ## 二、整合准备：
 
@@ -105,4 +107,4 @@ satoken (Root Prefix)
 
 ## 五、应用场景：
 
-- Ruoyi-Vue-Plus后台管理系统：
+- Ruoyi-Vue-Plus后台管理系统：可替换SpringSecurity繁琐的认证过程——单拦截器「SaInterceptor」替换冗长过滤器链「DefaultSecurityFilterChain」；全局异常捕获「@RestControllerAdvice」替换专门的「AuthenticationEntryPoint」、「AccessDeniedHandler」对象；S
