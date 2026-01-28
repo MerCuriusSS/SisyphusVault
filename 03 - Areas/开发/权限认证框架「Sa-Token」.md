@@ -107,4 +107,4 @@ satoken (Root Prefix)
 
 ## 五、应用场景：
 
-- Ruoyi-Vue-Plus后台管理系统：可替换SpringSecurity繁琐的认证过程——单拦截器「SaInterceptor」替换冗长过滤器链「DefaultSecurityFilterChain」；全局异常捕获「@RestControllerAdvice」替换专门的「AuthenticationEntryPoint」、「AccessDeniedHandler」对象；S
+- Ruoyi-Vue-Plus后台管理系统：可替换SpringSecurity繁琐的认证过程——单拦截器「**SaInterceptor**」替换冗长过滤器链「**DefaultSecurityFilterChain**」；全局异常捕获「**@RestControllerAdvice**」替换专门的「**AuthenticationEntryPoint**」、「**AccessDeniedHandler**」对象；「**StpUtil**」轻量代码替换「**SecurityContextHolder**」等众多接口类
