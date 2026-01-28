@@ -40,7 +40,7 @@ source:
 🔴 阶段四：权限异常处理
 - 封装NotPermissionException、NotRoleException、NotLoginException：统一捕获输出异常信息「403」
 
-
+[SaToken业务流程图](../../excalidraw/SaToken业务流程图.md)
 
 ## 三、底层工具与思想：
 
