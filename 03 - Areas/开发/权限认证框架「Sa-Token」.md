@@ -1,10 +1,11 @@
 ---
 tags:
   - Areas/开发/基础原理
+  - Areas/开发/javaWeb
 category: 技术或思维
 status: 加工
-project:
-application:
+project: "[[../../02 - Projects/后台管理系统「Ruoyi-Vue-Plus」|后台管理系统「Ruoyi-Vue-Plus」]]"
+application: 权限验证
 source:
 ---
 
@@ -38,6 +39,8 @@ source:
 
 🔴 阶段四：权限异常处理
 - 封装NotPermissionException、NotRoleException、NotLoginException：统一捕获输出异常信息「403」
+
+
 
 ## 三、底层工具与思想：
 
