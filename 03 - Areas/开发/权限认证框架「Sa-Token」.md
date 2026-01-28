@@ -11,7 +11,8 @@ source:
 ## 一、基础概念：
 
 🔴 是一个轻量级权限认证框架
-🔴 「Sa-Token」 VS 「」
+🔴 「Sa-Token」 VS 「Spring-Security」
+	- Sa-Token的优势汇总：
 
 ## 二、整合准备：
 
