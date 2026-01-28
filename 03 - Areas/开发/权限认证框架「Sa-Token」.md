@@ -12,9 +12,11 @@
 ## 二、流程应用：
 
 🔴 阶段一：登录
+- 构建用户信息
 - StpUtil.login(id)：密码校验后生成Token「**StpLogic**」
-- StpUtil.getTokenSession().set(...)：将用户信息保存到Redis
+- StpUtil.getTokenSession().set(...)：将用户信息Session保存到Redis
 - 调用**SaTokenDao**层：触发保存逻辑（写入Redis、同步写入redis&本地缓存）
+- 返回Token给客户端
 
 🔴 阶段二：认证
 - 拦截器「**SaInterceptor**」拦截请求：捕获请求头「header」并提取令牌（Authorization：Bearer XXXX）
