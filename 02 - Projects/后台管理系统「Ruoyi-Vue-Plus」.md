@@ -23,7 +23,7 @@ address: https://gitee.com/dromara/RuoYi-Vue-Plus
     
 - **行动逻辑：** 尝试阅读源码 -> 失败 -> 询问 AI 核心元模型 -> 动手复现关键代码（里程碑） -> 撰写技术复盘（知识库）
     
-[Claude拆解复杂业务项目方法论](../Claude拆解复杂业务项目方法论.md)
+[Claude Code拆解复杂业务项目方法论](../Claude%20Code拆解复杂业务项目方法论.md)
 
 [ruoyi-vue-plus项目拆解](../ruoyi-vue-plus项目拆解.md)
 
