@@ -50,7 +50,7 @@ source:
 - 封装NotPermissionException、NotRoleException、NotLoginException：统一捕获输出异常信息「403」
 
 >[!note] 
-[「SaToken数据流转」流程图](../../excalidraw/「SaToken数据流转」流程图.md)
+[「SaToken」数据流转图](../../excalidraw/「SaToken」数据流转图.md)
 
 ## 四、底层工具与思想：
 
