@@ -28,7 +28,7 @@ source:
 - SaInterceptor：拦截所有请求，匹配controller路径
 
 >[!success]
->[SaToken组件极简流程图](../../excalidraw/SaToken组件极简流程图.md)
+>[「SaToken」流程概览图](../../excalidraw/「SaToken」流程概览图.md)
 
 ## 三、流程应用：
 
@@ -50,7 +50,7 @@ source:
 - 封装NotPermissionException、NotRoleException、NotLoginException：统一捕获输出异常信息「403」
 
 >[!note] 
-[SaToken业务流程图](../../excalidraw/SaToken业务流程图.md)
+[「SaToken数据流转」流程图](../../excalidraw/「SaToken数据流转」流程图.md)
 
 ## 四、底层工具与思想：
 
