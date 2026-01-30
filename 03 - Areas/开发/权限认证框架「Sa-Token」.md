@@ -105,6 +105,6 @@ satoken (Root Prefix)
 >	3. **统计在线时长=session记录的startTime+累加值； 累加值=(当前时间戳-写入时时间戳)&&<30分钟**
 
 
-## 五、应用场景：
+## 五、最小化实践：
 
 - Ruoyi-Vue-Plus后台管理系统：可替换SpringSecurity繁琐的认证过程——单拦截器「**SaInterceptor**」替换冗长过滤器链「**DefaultSecurityFilterChain**」；全局异常捕获「**@RestControllerAdvice**」替换专门的「**AuthenticationEntryPoint**」、「**AccessDeniedHandler**」对象；「**StpUtil**」轻量代码替换「**SecurityContextHolder**」等众多接口类
