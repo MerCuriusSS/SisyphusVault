@@ -24,7 +24,7 @@ source:
 
 🔴 「数据流转」流程图：[「数据权限SQL拼接」数据流转图](excalidraw/「数据权限SQL拼接」数据流转图.md)
 
-🔴 底层逻辑：拦截器拦截+ThreadLocal保存用户信息+JSQLParser解析
+🔴 底层逻辑：注解+拦截器拦截+ThreadLocal保存用户信息+JSQLParser解析
 
 
 ## ⛪ 最小化实践
@@ -49,6 +49,26 @@ public class MyBatisConfig {
         //     .addInterceptor(new JsqlParserDataPermissionInterceptor());  
         return "DataPermissionInterceptor registered";  
     }
+}
+```
+
+🔴 数据权限注解
+```java
+@Target(ElementType.METHOD)  
+@Retention(RetentionPolicy.RUNTIME)  
+@Documented  
+public @interface DataPermission {  
+  
+    /**  
+     * 需要过滤的字段名  
+     * 例如：dept_id、create_by等  
+     */  
+    String column() default "dept_id";  
+  
+    /**  
+     * 表别名（可选）  
+     * 例如：u.dept_id 中的 "u"  
+     */    String tableAlias() default "";  
 }
 ```
 
