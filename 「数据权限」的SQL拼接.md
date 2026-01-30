@@ -30,3 +30,27 @@ source:
 
 ## ⛪ 最小化实践
 
+🔴 注册拦截器
+```java
+public class MyBatisConfig {  
+  
+    /**  
+     * 注册数据权限拦截器  
+     *  
+     * 方式1：通过代码注册（推荐）  
+     */  
+    @Bean  
+    public String registerDataPermissionInterceptor(SqlSessionFactory sqlSessionFactory) {  
+        // 注册简化版拦截器  
+        sqlSessionFactory.getConfiguration()  
+            .addInterceptor(new SimpleDataPermissionInterceptor());  
+  
+        // 或者注册JSQLParser版拦截器  
+        // sqlSessionFactory.getConfiguration()  
+        //     .addInterceptor(new JsqlParserDataPermissionInterceptor());  
+        return "DataPermissionInterceptor registered";  
+    }
+}
+```
+
+🔴 注册拦截器
