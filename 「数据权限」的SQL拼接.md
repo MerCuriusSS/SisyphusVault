@@ -102,9 +102,8 @@ private String buildPermissionSql(DataPermission annotation, LoginUser user) {
 ```
 
 🔴 SQL拼接逻辑（使用JSQLParser）
- -  能够正确解析复杂SQL结构
- - 支持子查询、JOIN、UNION等
- - 更安全，不会破坏SQL语法
+ -  能够正确解析复杂SQL结构、支持子查询、JOIN、UNION等
+ - 本质：将完整的SQL结构拆解成不同对象
 ```java  
 private String appendPermissionSql(String originalSql, String permissionSql) {  
     if (originalSql.toUpperCase().contains("WHERE")) {        // 已有WHERE，使用AND连接  
