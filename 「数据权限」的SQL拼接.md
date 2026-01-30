@@ -24,7 +24,7 @@ source:
 
 🔴 「数据流转」流程图：[「数据权限SQL拼接」数据流转图](excalidraw/「数据权限SQL拼接」数据流转图.md)
 
-🔴 底层逻辑：
+🔴 底层逻辑：拦截器拦截+ThreadLocal保存用户信息+JSQLParser解析
 
 
 ## ⛪ 最小化实践
