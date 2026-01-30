@@ -89,3 +89,22 @@ return invocation.proceed();
     }  
 }
 ```
+
+🔴 权限SQL生成逻辑
+```java  
+private String buildPermissionSql(DataPermission annotation, LoginUser user) {  
+    String column = annotation.column();    String tableAlias = annotation.tableAlias();    String fullColumn = tableAlias.isEmpty() ? column : tableAlias + "." + column;  
+    switch (user.getRoleType()) {        case 1: // 超级管理员  
+            return null;        case 2: // 部门管理员  
+            return fullColumn + " = " + user.getDeptId();        case 3: // 普通用户  
+            return fullColumn + " = " + user.getUserId();        default:            return "1 = 0"; // 无权限  
+    }}  
+```
+
+🔴 SQL拼接逻辑（简单）
+```java  
+private String appendPermissionSql(String originalSql, String permissionSql) {  
+    if (originalSql.toUpperCase().contains("WHERE")) {        // 已有WHERE，使用AND连接  
+        return originalSql + " AND (" + permissionSql + ")";    } else {        // 没有WHERE，添加WHERE子句  
+        return originalSql + " WHERE " + permissionSql;    }}  
+```
