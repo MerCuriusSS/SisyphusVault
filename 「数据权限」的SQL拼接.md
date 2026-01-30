@@ -65,28 +65,54 @@ public class MyBatisConfig {
 public class SimpleDataPermissionInterceptor implements Interceptor {  
     @Override  
     public Object intercept(Invocation invocation) throws Throwable {  
-        // 1. 获取原始SQL    
-MappedStatement ms = (MappedStatement) invocation.getArgs()[0];  
-        BoundSql boundSql = ms.getBoundSql(parameter);  
-        String originalSql = boundSql.getSql();  
-        // 2. 检查是否需要数据权限    
-DataPermission annotation = getDataPermission(ms);  
-        if (annotation == null) {  
-            return invocation.proceed(); // 没有注解，直接执行    
-}  
-        // 3. 获取当前用户    
-LoginUser user = UserContext.getUser();  
-        if (user == null || user.isSuperAdmin()) {  
-            return invocation.proceed(); // 超级管理员，直接执行    
-}  
-        // 4. 生成权限SQL    
-String permissionSql = buildPermissionSql(annotation, user);  
-        // 5. 拼接SQL    
-String newSql = appendPermissionSql(originalSql, permissionSql);  
-        // 6. 替换SQL并执行    
-// ... 创建新的BoundSql和MappedStatement    
-return invocation.proceed();  
+    Object[] args = invocation.getArgs();  
+    MappedStatement ms = (MappedStatement) args[0];  
+    Object parameter = args[1];  
+  
+    BoundSql boundSql = ms.getBoundSql(parameter);  
+    String originalSql = boundSql.getSql();  
+  
+    // 检查是否需要数据权限控制  
+    DataPermission dataPermission = getDataPermission(ms);  
+    if (dataPermission == null) {  
+        return invocation.proceed();  
     }  
+  
+    LoginUser currentUser = UserContext.getUser();  
+    if (currentUser == null || currentUser.isSuperAdmin()) {  
+        return invocation.proceed();  
+    }  
+  
+    // 使用JSQLParser解析和修改SQL  
+    try {  
+        Statement statement = CCJSqlParserUtil.parse(originalSql);  
+  
+        if (statement instanceof Select) {  
+            Select select = (Select) statement; 
+            //拼接SQL 
+            processSelect(select, dataPermission, currentUser);  
+  
+            String newSql = select.toString();  
+  
+            // 创建新的BoundSql  
+            BoundSql newBoundSql = new BoundSql(  
+                ms.getConfiguration(),  
+                newSql,  
+                boundSql.getParameterMappings(),  
+                parameter  
+            );  
+  
+            // 创建新的MappedStatement  
+            MappedStatement newMs = copyMappedStatement(ms, new BoundSqlSqlSource(newBoundSql));  
+            args[0] = newMs;  
+        }  
+    } catch (Exception e) {  
+        // SQL解析失败，记录日志但不影响原SQL执行  
+        System.err.println("数据权限SQL解析失败: " + e.getMessage());  
+    }  
+  
+    return invocation.proceed();  
+}  
 }
 ```
 
@@ -105,8 +131,27 @@ private String buildPermissionSql(DataPermission annotation, LoginUser user) {
  -  能够正确解析复杂SQL结构、支持子查询、JOIN、UNION等
  - 本质：将完整的SQL结构拆解成不同对象
 ```java  
-private String appendPermissionSql(String originalSql, String permissionSql) {  
-    if (originalSql.toUpperCase().contains("WHERE")) {        // 已有WHERE，使用AND连接  
-        return originalSql + " AND (" + permissionSql + ")";    } else {        // 没有WHERE，添加WHERE子句  
-        return originalSql + " WHERE " + permissionSql;    }}  
+/**  
+ * 处理SELECT语句  
+ */  
+private void processSelect(Select select, DataPermission dataPermission, LoginUser user) {  
+  
+    if (select.getSelectBody() instanceof PlainSelect) {  
+        PlainSelect plainSelect = (PlainSelect) select.getSelectBody();  
+        Expression where = plainSelect.getWhere();  
+  
+        // 构建权限条件  
+        Expression permissionCondition = buildPermissionCondition(dataPermission, user);  
+        if (permissionCondition != null) {  
+            if (where != null) {  
+                // 已有WHERE条件，使用AND连接  
+                AndExpression andExpression = new AndExpression(where, permissionCondition);  
+                plainSelect.setWhere(andExpression);  
+            } else {  
+                // 没有WHERE条件，直接设置  
+                plainSelect.setWhere(permissionCondition);  
+            }  
+        }  
+    }  
+}
 ```
