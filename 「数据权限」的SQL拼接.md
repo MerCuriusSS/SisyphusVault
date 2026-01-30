@@ -62,24 +62,30 @@ public class MyBatisConfig {
         args = {MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class}  
     )  
 })  
-public class SimpleDataPermissionInterceptor implements Interceptor {
-	@Override  
-public Object intercept(Invocation invocation) throws Throwable {  
-    // 1. 获取原始SQL  
-    MappedStatement ms = (MappedStatement) invocation.getArgs()[0];    BoundSql boundSql = ms.getBoundSql(parameter);    String originalSql = boundSql.getSql();  
-    // 2. 检查是否需要数据权限  
-    DataPermission annotation = getDataPermission(ms);    if (annotation == null) {        return invocation.proceed(); // 没有注解，直接执行  
+public class SimpleDataPermissionInterceptor implements Interceptor {  
+    @Override  
+    public Object intercept(Invocation invocation) throws Throwable {  
+        // 1. 获取原始SQL    
+MappedStatement ms = (MappedStatement) invocation.getArgs()[0];  
+        BoundSql boundSql = ms.getBoundSql(parameter);  
+        String originalSql = boundSql.getSql();  
+        // 2. 检查是否需要数据权限    
+DataPermission annotation = getDataPermission(ms);  
+        if (annotation == null) {  
+            return invocation.proceed(); // 没有注解，直接执行    
+}  
+        // 3. 获取当前用户    
+LoginUser user = UserContext.getUser();  
+        if (user == null || user.isSuperAdmin()) {  
+            return invocation.proceed(); // 超级管理员，直接执行    
+}  
+        // 4. 生成权限SQL    
+String permissionSql = buildPermissionSql(annotation, user);  
+        // 5. 拼接SQL    
+String newSql = appendPermissionSql(originalSql, permissionSql);  
+        // 6. 替换SQL并执行    
+// ... 创建新的BoundSql和MappedStatement    
+return invocation.proceed();  
     }  
-    // 3. 获取当前用户  
-    LoginUser user = UserContext.getUser();    if (user == null || user.isSuperAdmin()) {        return invocation.proceed(); // 超级管理员，直接执行  
-    }  
-    // 4. 生成权限SQL  
-    String permissionSql = buildPermissionSql(annotation, user);  
-    // 5. 拼接SQL  
-    String newSql = appendPermissionSql(originalSql, permissionSql);  
-    // 6. 替换SQL并执行  
-    // ... 创建新的BoundSql和MappedStatement  
-    return invocation.proceed();
-    }
 }
 ```
