@@ -35,9 +35,12 @@ source:
    └─ 比较(>)
       ├─ 左边: 年龄(age)
       └─ 右边: 18
- ##################################################################     
+ ##################################################################
+ 
+     
 含有子查询
 [SELECT name FROM user WHERE age > (select age from user1)]
+
 查询(Select)
 ├─ 要查的东西: 名字(name)
 ├─ 从哪查: 用户表(user)
@@ -49,9 +52,27 @@ source:
                 ├─ 从哪查: 用户表(user1)
                 
  ##################################################################
+ 
+ 
  集合操作：
  [SELECT name FROM student UNION SELECT name FROM teacher;]
  
+ 集合操作(UNION)
+├─ 查询1 (student表)
+│   └─ 查name列
+└─ 查询2 (teacher表)
+    └─ 查name列
+
+ ##################################################################
+ 
+ 
+ JOIN 多表：
+ [SELECT o.id, u.name FROM order o JOIN user u ON o.user_id = u.id WHERE o.status = 1;]
+ 查询
+├─ 查列: o.id, u.name
+├─ 主表: order (别名 o)
+├─ 连接表: user (别名 u) ON o.user_id = u.id
+└─ 条件: o.status = 1
 ```
 - 再按照实际插入目标比如`where`在树中找到对应的位置并加入进去。
 ## ⛪ 场景设想
