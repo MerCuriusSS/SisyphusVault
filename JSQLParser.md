@@ -156,6 +156,7 @@ private void processPlainSelect(PlainSelect plainSelect, DataPermission dataPerm
     }
 }
 
+//添加where条件
 private void injectPermission(PlainSelect plainSelect, DataPermission dataPermission, LoginUser user) {
     Expression permissionCondition = buildPermissionCondition(dataPermission, user);
     if (permissionCondition != null) {
