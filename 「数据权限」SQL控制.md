@@ -138,3 +138,5 @@ public class SimpleDataPermissionInterceptor implements Interceptor {
         return originalSql + " AND (" + permissionSql + ")";    } else {        // 没有WHERE，添加WHERE子句  
         return originalSql + " WHERE " + permissionSql;    }}
 	```
+
+🔴 
