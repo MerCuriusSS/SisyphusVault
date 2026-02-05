@@ -77,6 +77,7 @@ source:
 ```
 - 再按照实际插入目标比如`where`在树中找到对应的位置并加入进去。
 ## ⛪ 场景设想
+
 - **场景 A**：简单实现外层SQL查询
 ```java
 public void simpleParser(){
@@ -91,7 +92,7 @@ public void simpleParser(){
 	}
 }
 
-//
+//解析Select内容
 private void processSelect(Select select, DataPermission dataPermission, LoginUser user) {  
   
     if (select.getSelectBody() instanceof PlainSelect) {  
@@ -114,4 +115,4 @@ private void processSelect(Select select, DataPermission dataPermission, LoginUs
 }
 
 ```
-- 
+- **场景 B：** 
