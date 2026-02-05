@@ -117,5 +117,40 @@ private void processSelect(Select select, DataPermission dataPermission, LoginUs
 ```
 - **场景 B：** 实现复杂SQL查询
 ```java
+private void processSelect(Select select, DataPermission dataPermission, LoginUser user) {
+    processSelectBody(select.getSelectBody(), dataPermission, user);
+}
 
+private void processSelectBody(SelectBody selectBody, DataPermission dataPermission, LoginUser user) {
+    if (selectBody instanceof PlainSelect) {
+        // 处理标准的 SELECT 语句
+        processPlainSelect((PlainSelect) selectBody, dataPermission, user);
+    } else if (selectBody instanceof SetOperationList) {
+        // 处理 UNION / INTERSECT 等情况
+        SetOperationList operationList = (SetOperationList) selectBody;
+        if (operationList.getSelects() != null) {
+            // 递归处理每一个 UNION 的部分
+            operationList.getSelects().forEach(body -> processSelectBody(body, dataPermission, user));
+        }
+    }
+}
+
+private void processPlainSelect(PlainSelect plainSelect, DataPermission dataPermission, LoginUser user) {
+    // 1. 处理 WHERE 部分（注入权限条件）
+    injectPermission(plainSelect, dataPermission, user);
+
+    // 2. 递归处理 FROM 项中的子查询
+    if (plainSelect.getFromItem() instanceof SubSelect) {
+        processSelectBody(((SubSelect) plainSelect.getFromItem()).getSelectBody(), dataPermission, user);
+    }
+
+    // 3. 递归处理 JOIN 项中的子查询
+    if (plainSelect.getJoins() != null) {
+        plainSelect.getJoins().forEach(join -> {
+            if (join.getRightItem() instanceof SubSelect) {
+                processSelectBody(((SubSelect) join.getRightItem()).getSelectBody(), dataPermission, user);
+            }
+        });
+    }
+}
 ```
