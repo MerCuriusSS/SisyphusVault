@@ -41,11 +41,6 @@ source:
 - 核心代码：
 	1. 注册拦截器：
 	   ```java
-	   ```
-🔴 
-
-🔴 注册拦截器
-```java
 public class MyBatisConfig {  
   
     /**  
@@ -65,6 +60,10 @@ public class MyBatisConfig {
         return "DataPermissionInterceptor registered";  
     }
 }
+	   ```
+	2. 
+
+
 ```
 
 🔴 数据权限注解
