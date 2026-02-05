@@ -1,0 +1,79 @@
+{
+  "cascadeColors": true,
+  "colorBackground": false,
+  "palette": [
+    {
+      "id": "xWToU4K8b5EibLxFJ2S0l",
+      "name": "",
+      "value": "#d85f5f"
+    },
+    {
+      "id": "qivN2y2sOEGkS3fdQsx02",
+      "name": "",
+      "value": "#29a008"
+    },
+    {
+      "id": "zVEHV1xxMF-wqtD5JrjYA",
+      "name": "",
+      "value": "#c7c233"
+    },
+    {
+      "id": "oXMKdckpYROZ6Y6I0nbzu",
+      "name": "",
+      "value": "#720cb6"
+    },
+    {
+      "id": "LasBOXEE48zoPKZRa731u",
+      "name": "",
+      "value": "#1d9f8a"
+    },
+    {
+      "id": "BH23nUTXAJWLk62MgF8Vd",
+      "name": "",
+      "value": "#c9086f"
+    },
+    {
+      "id": "fdZa2lrPpFywXVm9Etist",
+      "name": "",
+      "value": "#0515f5"
+    }
+  ],
+  "fileColors": [
+    {
+      "path": "00 - Dashboard",
+      "color": "xWToU4K8b5EibLxFJ2S0l"
+    },
+    {
+      "path": "00 - Meta",
+      "color": "zVEHV1xxMF-wqtD5JrjYA"
+    },
+    {
+      "path": "01 - Inbox",
+      "color": "fdZa2lrPpFywXVm9Etist"
+    },
+    {
+      "path": "02 - Projects",
+      "color": "qivN2y2sOEGkS3fdQsx02"
+    },
+    {
+      "path": "03 - Areas",
+      "color": "LasBOXEE48zoPKZRa731u"
+    },
+    {
+      "path": "04 - Resources",
+      "color": "BH23nUTXAJWLk62MgF8Vd"
+    },
+    {
+      "path": "05 - Review",
+      "color": "oXMKdckpYROZ6Y6I0nbzu"
+    },
+    {
+      "path": "excalidraw",
+      "color": "qivN2y2sOEGkS3fdQsx02"
+    },
+    {
+      "path": "/",
+      "color": "LasBOXEE48zoPKZRa731u"
+    }
+  ]
+}

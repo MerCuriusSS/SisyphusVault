@@ -9,5 +9,7 @@
   "obsidian-custom-attachment-location",
   "homepage",
   "tag-wrangler",
-  "templater-obsidian"
+  "templater-obsidian",
+  "obsidian-file-color",
+  "file-explorer-note-count"
 ]
