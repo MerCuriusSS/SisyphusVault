@@ -36,9 +36,16 @@ source:
       ├─ 左边: 年龄(age)
       └─ 右边: 18
       
-`SELECT name FROM user WHERE age > (select age from user1)`
+含有子查询
+[SELECT name FROM user WHERE age > (select age from user1)]
 
-
+查询(Select)
+├─ 要查的东西: 名字(name)
+├─ 从哪查: 用户表(user)
+└─ 条件(Where)
+   └─ 比较(>)
+      ├─ 左边: 年龄(age)
+      └─ 右边: 18
 ```
 - 再按照实际插入目标比如`where`在树中找到对应的位置并加入进去。
 ## ⛪ 场景设想
