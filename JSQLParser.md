@@ -40,26 +40,26 @@ source:
 
 ```mermaid
 graph TD
-    A[整个SQL查询<br/>Select (大树)] --> B[查询体<br/>PlainSelect]
-    B --> C1[查询列<br/>*]
-    B --> C2[数据源<br/>Table: order]
-    B --> C3[查询条件<br/>Where (关键节点)]
+    A["整个SQL查询<br/>Select 大树"] --> B["查询体<br/>PlainSelect"]
+    B --> C1["查询列<br/>*"]
+    B --> C2["数据源<br/>Table: order"]
+    B --> C3["查询条件<br/>Where 关键节点"]
     
-    %% 这里是核心：Where节点下面挂着一个表达式
-    C3 --> D[IN 表达式<br/>user_id IN (?)]
-    D --> D1[左值: user_id]
+    %% 核心：Where 节点下挂 IN 表达式
+    C3 --> D["IN 表达式<br/>user_id IN (?)"]
+    D --> D1["左值: user_id"]
     
-    %% 重点：IN表达式的右值，不是一个数字，而是另一棵完整的树！
-    D --> E[右值: 子查询<br/>SubSelect (内层小树)]
+    %% 重点：IN 右值是子查询（内层小树）
+    D --> E["右值: 子查询<br/>SubSelect 内层小树"]
     
-    %% 内层小树的结构，和外层几乎一模一样，这就是递归
-    E --> F[子查询体<br/>PlainSelect]
-    F --> G1[查询列<br/>id]
-    F --> G2[数据源<br/>Table: user]
-    F --> G3[查询条件<br/>Where]
-    G3 --> H[条件表达式<br/>dept_id = 101]
+    %% 内层小树完整结构（递归）
+    E --> F["子查询体<br/>PlainSelect"]
+    F --> G1["查询列<br/>id"]
+    F --> G2["数据源<br/>Table: user"]
+    F --> G3["查询条件<br/>Where"]
+    G3 --> H["条件表达式<br/>dept_id = 101"]
 
-    %% 样式辅助
+    %% 样式区分外层/内层
     classDef bigTree fill:#f9f,stroke:#333,stroke-width:2px;
     classDef smallTree fill:#9ff,stroke:#333,stroke-width:2px;
     class A,B,C1,C2,C3,D,D1 bigTree;
