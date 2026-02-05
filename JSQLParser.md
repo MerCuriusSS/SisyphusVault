@@ -38,8 +38,8 @@ source:
  ##################################################################
  
      
-含有子查询
-[SELECT name FROM user WHERE age > (select age from user1)]
+含有子查询:[SELECT name FROM user WHERE age > (select age from user1)]
+
 
 查询(Select)
 ├─ 要查的东西: 名字(name)
@@ -54,8 +54,8 @@ source:
  ##################################################################
  
  
- 集合操作：
- [SELECT name FROM student UNION SELECT name FROM teacher;]
+ 集合操作：[SELECT name FROM student UNION SELECT name FROM teacher;]
+ 
  
  集合操作(UNION)
 ├─ 查询1 (student表)
@@ -66,8 +66,9 @@ source:
  ##################################################################
  
  
- JOIN 多表：
- [SELECT o.id, u.name FROM order o JOIN user u ON o.user_id = u.id WHERE o.status = 1;]
+ JOIN 多表：[SELECT o.id, u.name FROM order o JOIN user u ON o.user_id = u.id WHERE o.status = 1;]
+ 
+ 
  查询
 ├─ 查列: o.id, u.name
 ├─ 主表: order (别名 o)
