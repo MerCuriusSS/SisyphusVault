@@ -35,36 +35,12 @@ source:
    └─ 比较(>)
       ├─ 左边: 年龄(age)
       └─ 右边: 18
+      
+`SELECT name FROM user WHERE age > (select age from user1)`
+
+
 ```
 - 再按照实际插入目标比如`where`在树中找到对应的位置并加入进去。
-
-```mermaid
-graph TD
-    A["整个SQL查询<br/>Select 大树"] --> B["查询体<br/>PlainSelect"]
-    B --> C1["查询列<br/>*"]
-    B --> C2["数据源<br/>Table: order"]
-    B --> C3["查询条件<br/>Where 关键节点"]
-    
-    %% 核心：Where 节点下挂 IN 表达式
-    C3 --> D["IN 表达式<br/>user_id IN (?)"]
-    D --> D1["左值: user_id"]
-    
-    %% 重点：IN 右值是子查询（内层小树）
-    D --> E["右值: 子查询<br/>SubSelect 内层小树"]
-    
-    %% 内层小树完整结构（递归）
-    E --> F["子查询体<br/>PlainSelect"]
-    F --> G1["查询列<br/>id"]
-    F --> G2["数据源<br/>Table: user"]
-    F --> G3["查询条件<br/>Where"]
-    G3 --> H["条件表达式<br/>dept_id = 101"]
-
-    %% 样式区分外层/内层
-    classDef bigTree fill:#f9f,stroke:#333,stroke-width:2px;
-    classDef smallTree fill:#9ff,stroke:#333,stroke-width:2px;
-    class A,B,C1,C2,C3,D,D1 bigTree;
-    class E,F,G1,G2,G3,H smallTree;
-```
 ## ⛪ 场景设想
 - **场景 A**：在处理 [XXX] 代码逻辑时可以替代原有的 [YYY] 方法。
 - **场景 B**：在进行 [ZZZ] 决策时，用来规避逻辑谬误。
