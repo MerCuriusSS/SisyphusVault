@@ -25,6 +25,7 @@ source:
 2. 朴素的SQL字符串拼接方式难以处理复杂查询（join、子查询等）；**JSQLParser**则可以通过树的递归遍历实现复杂查询的拼接。
 
 🔴 底层逻辑：
+
 - 将完整SQL拆解一个个「词语」。如`SELECT name FROM user WHERE age > 18` 会被拆成`SELECT`、`name`、`FROM`、`user`、`WHERE`、`age`、`>`、`18`。
 - 按照「SQL语法规则」搭成一棵树
 ```
