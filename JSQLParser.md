@@ -79,9 +79,39 @@ source:
 ## ⛪ 场景设想
 - **场景 A**：简单实现外层SQL查询
 ```java
-// 使用JSQLParser解析和修改SQL
-Statement statement = CCJSqlParserUtil.parse(originalSql);
+public void simpleParser(){
+	// 使用JSQLParser解析和修改SQL
+	Statement statement = CCJSqlParserUtil.parse(originalSql);
+	
+	if (statement instanceof Select) {  
+	    Select select = (Select) statement;  
+	    processSelect(select, dataPermission, currentUser);  
+	  
+	    String newSql = select.toString();
+	}
+}
 
+//
+private void processSelect(Select select, DataPermission dataPermission, LoginUser user) {  
+  
+    if (select.getSelectBody() instanceof PlainSelect) {  
+        PlainSelect plainSelect = (PlainSelect) select.getSelectBody();  
+        Expression where = plainSelect.getWhere();  
+  
+        // 构建权限条件  
+        Expression permissionCondition = buildPermissionCondition(dataPermission, user);  
+        if (permissionCondition != null) {  
+            if (where != null) {  
+                // 已有WHERE条件，使用AND连接  
+                AndExpression andExpression = new AndExpression(where, permissionCondition);  
+                plainSelect.setWhere(andExpression);  
+            } else {  
+                // 没有WHERE条件，直接设置  
+                plainSelect.setWhere(permissionCondition);  
+            }  
+        }  
+    }  
+}
 
 ```
 - 
