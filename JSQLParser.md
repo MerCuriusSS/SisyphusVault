@@ -117,16 +117,18 @@ private void processSelect(Select select, DataPermission dataPermission, LoginUs
 ```
 - **场景 B：** 实现复杂SQL查询
 ```java
+
+//解析Select内容
 private void processSelect(Select select, DataPermission dataPermission, LoginUser user) {
     processSelectBody(select.getSelectBody(), dataPermission, user);
 }
 
 private void processSelectBody(SelectBody selectBody, DataPermission dataPermission, LoginUser user) {
     if (selectBody instanceof PlainSelect) {
-        // 处理标准的 SELECT 语句
+        // 1.处理标准的 SELECT 语句
         processPlainSelect((PlainSelect) selectBody, dataPermission, user);
     } else if (selectBody instanceof SetOperationList) {
-        // 处理 UNION / INTERSECT 等情况
+        // 2.处理 UNION / INTERSECT 等情况
         SetOperationList operationList = (SetOperationList) selectBody;
         if (operationList.getSelects() != null) {
             // 递归处理每一个 UNION 的部分
@@ -151,6 +153,17 @@ private void processPlainSelect(PlainSelect plainSelect, DataPermission dataPerm
                 processSelectBody(((SubSelect) join.getRightItem()).getSelectBody(), dataPermission, user);
             }
         });
+    }
+}
+
+private void injectPermission(PlainSelect plainSelect, DataPermission dataPermission, LoginUser user) {
+    Expression permissionCondition = buildPermissionCondition(dataPermission, user);
+    if (permissionCondition != null) {
+        if (plainSelect.getWhere() != null) {
+            plainSelect.setWhere(new AndExpression(plainSelect.getWhere(), permissionCondition));
+        } else {
+            plainSelect.setWhere(permissionCondition);
+        }
     }
 }
 ```
