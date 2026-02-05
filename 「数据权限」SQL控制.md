@@ -61,7 +61,7 @@ public class MyBatisConfig {
     }
 }
 	   ```
-	2. 
+	1. 
 
 
 ```
