@@ -61,7 +61,68 @@ public class MyBatisConfig {
     }
 }
 	   ```
-	1. 
+	2. 定义拦截器规则：
+```java
+	   @Intercepts({  
+    @Signature(  
+        type = Executor.class,  
+        method = "query",  
+        args = {MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class}  
+    )  
+})  
+public class SimpleDataPermissionInterceptor implements Interceptor {  
+    @Override  
+    public Object intercept(Invocation invocation) throws Throwable {  
+    Object[] args = invocation.getArgs();  
+    MappedStatement ms = (MappedStatement) args[0];  
+    Object parameter = args[1];  
+  
+    BoundSql boundSql = ms.getBoundSql(parameter);  
+    String originalSql = boundSql.getSql();  
+  
+    // 检查是否需要数据权限控制  
+    DataPermission dataPermission = getDataPermission(ms);  
+    if (dataPermission == null) {  
+        return invocation.proceed();  
+    }  
+  
+    LoginUser currentUser = UserContext.getUser();  
+    if (currentUser == null || currentUser.isSuperAdmin()) {  
+        return invocation.proceed();  
+    }  
+  
+    // 使用JSQLParser解析和修改SQL  
+    try {  
+        Statement statement = CCJSqlParserUtil.parse(originalSql);  
+  
+        if (statement instanceof Select) {  
+            Select select = (Select) statement; 
+            //拼接SQL 
+            processSelect(select, dataPermission, currentUser);  
+  
+            String newSql = select.toString();  
+  
+            // 创建新的BoundSql  
+            BoundSql newBoundSql = new BoundSql(  
+                ms.getConfiguration(),  
+                newSql,  
+                boundSql.getParameterMappings(),  
+                parameter  
+            );  
+  
+            // 创建新的MappedStatement  
+            MappedStatement newMs = copyMappedStatement(ms, new BoundSqlSqlSource(newBoundSql));  
+            args[0] = newMs;  
+        }  
+    } catch (Exception e) {  
+        // SQL解析失败，记录日志但不影响原SQL执行  
+        System.err.println("数据权限SQL解析失败: " + e.getMessage());  
+    }  
+  
+    return invocation.proceed();  
+}  
+}
+	   ```
 
 
 ```
