@@ -37,7 +37,30 @@ source:
 ## ⛪ 应用场景
 
 🔴 最小化实践：
-- 步骤：注册拦截器->自定义`interceptor`->实现`intercet`方法->获取用户信息上下文->解析并拼接权限SQL->
+- 步骤：注册拦截器->自定义`interceptor`->实现`intercet`方法->获取用户信息上下文->解析并拼接权限SQL->修改后SQL执行
+- 核心代码：
+```java
+//1.注册拦截器
+public class MyBatisConfig {  
+  
+    /**  
+     * 注册数据权限拦截器  
+     *  
+     * 方式1：通过代码注册（推荐）  
+     */  
+    @Bean  
+    public String registerDataPermissionInterceptor(SqlSessionFactory sqlSessionFactory) {  
+        // 注册简化版拦截器  
+        sqlSessionFactory.getConfiguration()  
+            .addInterceptor(new SimpleDataPermissionInterceptor());  
+  
+        // 或者注册JSQLParser版拦截器  
+        // sqlSessionFactory.getConfiguration()  
+        //     .addInterceptor(new JsqlParserDataPermissionInterceptor());  
+        return "DataPermissionInterceptor registered";  
+    }
+}
+```
 🔴 
 
 🔴 注册拦截器
