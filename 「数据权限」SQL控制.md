@@ -140,6 +140,4 @@ public class SimpleDataPermissionInterceptor implements Interceptor {
 	```
 
 🔴 RuoYi-Vue-Plus 源码深度解析
-- 步骤：
-- 核心代码：
-- 
+- 步骤：继承
