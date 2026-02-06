@@ -327,7 +327,7 @@ public @interface DataPermission {
 }
 =========================================================
  //dataColumn内容描述映射哪个权限列
- //dataColumn个数描述 
+ //dataColumn个数描述单角色多维度 or 多角色多维度 的权限条件 
 @@DataPermission({  
     @DataColumn(key = "deptName", value = "dept_id"),  
     @DataColumn(key = "userName", value = "create_by")  
@@ -392,4 +392,7 @@ private String buildDataFilter(DataPermission dataPermission, boolean isSelect) 
     return StreamUtils.join(conditions, Function.identity(), "").substring(joinStr.length());
 }
 	  ```
-	- 角色权限
+	- 角色权限SQL替换（SpEL表达式）
+	- ```java
+	  
+	  ```
