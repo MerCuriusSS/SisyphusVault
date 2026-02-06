@@ -4,7 +4,7 @@ tags:
   - Areas/Coder/基础原理
 category: 技术
 status: 加工
-project: "[[02 - Projects/后台管理系统「Ruoyi-Vue-Plus」|后台管理系统「Ruoyi-Vue-Plus」]]"
+project: "[[../02 - Projects/后台管理系统「Ruoyi-Vue-Plus」|后台管理系统「Ruoyi-Vue-Plus」]]"
 application: 数据权限划分
 source:
 ---
@@ -28,9 +28,9 @@ source:
 - 核心组件
 	- 拦截器（interceptor）
 	- 用户上下文（threadLocal）
-	- SQL解析器（[JSQLParser](JSQLParser.md)）
-- 「组件」流程概览图：[「数据权限SQL拼接」流程概览图](excalidraw/「数据权限SQL拼接」流程概览图.md)
-- 「数据流转」流程图：[「数据权限SQL拼接」数据流转图](excalidraw/「数据权限SQL拼接」数据流转图.md)
+	- SQL解析器（[JSQLParser](../JSQLParser.md)）
+- 「组件」流程概览图：[「数据权限SQL拼接」流程概览图](../excalidraw/「数据权限SQL拼接」流程概览图.md)
+- 「数据流转」流程图：[「数据权限SQL拼接」数据流转图](../excalidraw/「数据权限SQL拼接」数据流转图.md)
 
 
 
