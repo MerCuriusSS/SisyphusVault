@@ -290,10 +290,7 @@ public class SimpleDataPermissionInterceptor implements Interceptor {
         DataPermission dataPermission = getDataPermission();  
         // 获取当前登录用户信息  
         LoginUser currentUser = DataPermissionHelper.getVariable("user");  
-        if (ObjectUtil.isNull(currentUser)) {  
-            currentUser = LoginHelper.getLoginUser();  
-            DataPermissionHelper.setVariable("user", currentUser);  
-        }  
+
         // 如果是超级管理员或租户管理员，则不过滤数据  
         if (LoginHelper.isSuperAdmin() || LoginHelper.isTenantAdmin()) {  
             return where;  
