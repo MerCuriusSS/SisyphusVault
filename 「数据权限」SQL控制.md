@@ -284,6 +284,38 @@ public class SimpleDataPermissionInterceptor implements Interceptor {
 	  ```
 	- SQL加工处理
 	- ```java
-	  
+	  public Expression getSqlSegment(Expression where, boolean isSelect) {  
+    try {  
+        // 获取数据权限配置  
+        DataPermission dataPermission = getDataPermission();  
+        // 获取当前登录用户信息  
+        LoginUser currentUser = DataPermissionHelper.getVariable("user");  
+        if (ObjectUtil.isNull(currentUser)) {  
+            currentUser = LoginHelper.getLoginUser();  
+            DataPermissionHelper.setVariable("user", currentUser);  
+        }  
+        // 如果是超级管理员或租户管理员，则不过滤数据  
+        if (LoginHelper.isSuperAdmin() || LoginHelper.isTenantAdmin()) {  
+            return where;  
+        }  
+        // 构造数据过滤条件的 SQL 片段  
+        String dataFilterSql = buildDataFilter(dataPermission, isSelect);  
+        if (StringUtils.isBlank(dataFilterSql)) {  
+            return where;  
+        }  
+        Expression expression = CCJSqlParserUtil.parseExpression(dataFilterSql);  
+        // 数据权限使用单独的括号 防止与其他条件冲突  
+        ParenthesedExpressionList<Expression> parenthesis = new ParenthesedExpressionList<>(expression);  
+        if (ObjectUtil.isNotNull(where)) {  
+            return new AndExpression(where, parenthesis);  
+        } else {  
+            return parenthesis;  
+        }  
+    } catch (JSQLParserException e) {  
+        throw new ServiceException("数据权限解析异常 => " + e.getMessage());  
+    } finally {  
+        DataPermissionHelper.removePermission();  
+    }  
+}
 	  ```
 	- 
