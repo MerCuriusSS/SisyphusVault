@@ -140,9 +140,9 @@ public class SimpleDataPermissionInterceptor implements Interceptor {
 	```
 
 🔴 RuoYi-Vue-Plus 源码深度解析
-- 步骤：继承Plus拦截器->实现不同SQL类型拦截逻辑->检查数据权限->获取当前用户->跳过超级管理员->获取用户角色->解析并拼接权限SQL->执行修改后SQL
+- 步骤：继承Plus拦截器->实现不同SQL类型拦截逻辑->SQL加工处理->检查数据权限->获取当前用户->跳过超级管理员->获取用户角色->解析并拼接权限SQL->执行修改后SQL
 - 核心代码：
-	- 继承Plus拦截器：
+	- 继承Plus拦截器+拦截逻辑：
 	- ```java
 	  public class PlusDataPermissionInterceptor extends BaseMultiTableInnerInterceptor implements InnerInterceptor {  
   
@@ -281,5 +281,9 @@ public class SimpleDataPermissionInterceptor implements Interceptor {
         return handler.getSqlSegment(table, where, whereSegment);  
     }  
 }
+	  ```
+	- SQL加工处理
+	- ```java
+	  
 	  ```
 	- 
