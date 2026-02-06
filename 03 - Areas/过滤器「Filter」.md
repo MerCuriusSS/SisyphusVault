@@ -4,7 +4,7 @@ tags:
   - Areas/开发/基础原理
 category: 基础原理
 status: 加工
-project: "[[../../02 - Projects/后台管理系统「Ruoyi-Vue-Plus」|后台管理系统「Ruoyi-Vue-Plus」]]"
+project: "[[../02 - Projects/后台管理系统「Ruoyi-Vue-Plus」|后台管理系统「Ruoyi-Vue-Plus」]]"
 application: 通用规则、基础业务控制
 source:
 ---

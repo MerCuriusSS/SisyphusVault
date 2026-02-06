@@ -4,7 +4,7 @@ tags:
   - Areas/开发/javaWeb
 category: 技术或思维
 status: 加工
-project: "[[../../02 - Projects/后台管理系统「Ruoyi-Vue-Plus」|后台管理系统「Ruoyi-Vue-Plus」]]"
+project: "[[../02 - Projects/后台管理系统「Ruoyi-Vue-Plus」|后台管理系统「Ruoyi-Vue-Plus」]]"
 application: 权限验证
 source:
 ---
@@ -28,7 +28,7 @@ source:
 - SaInterceptor：拦截所有请求，匹配controller路径
 
 >[!success]
->[「SaToken」流程概览图](../../excalidraw/「SaToken」流程概览图.md)
+>[「SaToken」流程概览图](../excalidraw/「SaToken」流程概览图.md)
 
 ## 三、流程应用：
 
@@ -50,7 +50,7 @@ source:
 - 封装NotPermissionException、NotRoleException、NotLoginException：统一捕获输出异常信息「403」
 
 >[!note] 
-[「SaToken」数据流转图](../../excalidraw/「SaToken」数据流转图.md)
+[「SaToken」数据流转图](../excalidraw/「SaToken」数据流转图.md)
 
 ## 四、底层工具与思想：
 

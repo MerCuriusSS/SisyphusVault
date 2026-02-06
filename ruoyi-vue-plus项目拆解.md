@@ -478,7 +478,7 @@
 
 
 知识点：
-- Filter知识：[过滤器「Filter」](03%20-%20Areas/开发/过滤器「Filter」.md)
+- Filter知识：[过滤器「Filter」](03%20-%20Areas/过滤器「Filter」.md)
 - 拦截器知识体系
 - sa-Token
 - 租户
