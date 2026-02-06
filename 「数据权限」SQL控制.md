@@ -41,44 +41,33 @@ source:
 - 核心代码：
 	-  注册拦截器：
 	```java
-	@Intercepts({  
-    @Signature(  
-        type = Executor.class,  
-        method = "query",  
-        args = {MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class}  
-    )  
-})  
-public class SimpleDataPermissionInterceptor implements Interceptor {  
-    @Override  
-    public Object intercept(Invocation invocation) throws Throwable {  
-	      // 1. 获取原始SQL  
-		MappedStatement ms = (MappedStatement) invocation.getArgs()[0];  
-		BoundSql boundSql = ms.getBoundSql(parameter);  
-		String originalSql = boundSql.getSql();  
-		  
-		// 2. 检查是否需要数据权限  
-		//DataPermission annotation = getDataPermission(ms);  
-		//if (annotation == null) {  
-		//    return invocation.proceed(); // 没有注解，直接执行  
-		//}  
-		  
-		// 3. 获取当前用户  
-		LoginUser user = UserContext.getUser();  
-		if (user == null || user.isSuperAdmin()) {  
-		    return invocation.proceed(); // 超级管理员，直接执行  
-		}  
-		  
-		// 4. 生成权限SQL  
-		String permissionSql = buildPermissionSql(annotation, user);  
-		  
-		// 5. 拼接SQL  
-		String newSql = appendPermissionSql(originalSql, permissionSql);  
-		  
-		// 6. 替换SQL并执行  
-		// ... 创建新的BoundSql和MappedStatement  
-		return invocation.proceed();
-	}  
-}
+	@Configuration  
+public class MyBatisConfig {  
+  
+    /**  
+     * 注册数据权限拦截器  
+     *  
+     * 方式1：通过代码注册（推荐）  
+     */  
+    @Bean  
+    public String registerDataPermissionInterceptor(SqlSessionFactory sqlSessionFactory) {  
+        // 注册简化版拦截器  
+        sqlSessionFactory.getConfiguration()  
+            .addInterceptor(new SimpleDataPermissionInterceptor());  
+  
+        // 或者注册JSQLParser版拦截器  
+        // sqlSessionFactory.getConfiguration()  
+        //     .addInterceptor(new JsqlParserDataPermissionInterceptor());  
+        return "DataPermissionInterceptor registered";  
+    }  
+  
+    /**  
+     * 方式2：通过配置文件注册  
+     *  
+     * 在application.yml中配置：  
+     *  
+     * mybatis:     *   configuration:     *     interceptors:     *       - com.example.datapermission.interceptor.SimpleDataPermissionInterceptor     */
+       }
 	```
 	- 拦截器规则：
 	```java
@@ -516,3 +505,11 @@ public class SysDataScopeServiceImpl implements ISysDataScopeService {
 	  ```
 
 🔴 「RuoYi-Vue-Plus 源码」与「最小化实践 源码」比对
+
+| 特性    | JSQLParser版                         | RuoYi原实现                         |
+| ----- | ----------------------------------- | -------------------------------- |
+| 拦截器使用 | mybatis配置文件注册                       | 继承mybatis-plus拦截基类，内封装JSQLParser |
+| SQL拼接 | 只支持外层Select、不支持子查询、union、join复杂查询操作 | 自带递归调用，支持复杂查询                    |
+| 权限规则  | 硬编码                                 | SpEL表达式替换                        |
+| 角色权限  | 只支持一种角色的判定                          | 支持多个角色取并集（or 连接）                 |
+| 自定义权限 | 不能                                  |                                  |
