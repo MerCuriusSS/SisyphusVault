@@ -394,5 +394,123 @@ private String buildDataFilter(DataPermission dataPermission, boolean isSelect) 
 	  ```
 	- 角色权限SQL替换（SpEL表达式）
 	- ```java
-	  
+  
+ public enum DataScopeType {  
+  
+    /**  
+     * 全部数据权限  
+     */  
+    ALL("1", "", ""),  
+  
+    /**  
+     * 自定数据权限  
+     */  
+    CUSTOM("2", " #{#deptName} IN ( #{@sdss.getRoleCustom( #user.roleId )} ) ", " 1 = 0 "),  
+  
+    /**  
+     * 部门数据权限  
+     */  
+    DEPT("3", " #{#deptName} = #{#user.deptId} ", " 1 = 0 "),  
+  
+    /**  
+     * 部门及以下数据权限  
+     */  
+    DEPT_AND_CHILD("4", " #{#deptName} IN ( #{@sdss.getDeptAndChild( #user.deptId )} )", " 1 = 0 "),  
+  
+    /**  
+     * 仅本人数据权限  
+     */  
+    SELF("5", " #{#userName} = #{#user.userId} ", " 1 = 0 "),  
+  
+    /**  
+     * 部门及以下或本人数据权限  
+     */  
+    DEPT_AND_CHILD_OR_SELF("6", " #{#deptName} IN ( #{@sdss.getDeptAndChild( #user.deptId )} ) OR #{#userName} = #{#user.userId} ", " 1 = 0 ");  
+  
+    private final String code;  
+  
+    /**  
+     * SpEL 模板表达式，用于构建 SQL 查询条件  
+     */  
+    private final String sqlTemplate;  
+  
+    /**  
+     * 如果不满足 {@code sqlTemplate} 的条件，则使用此默认 SQL 表达式  
+     */  
+    private final String elseSql;  
+  
+    /**  
+     * 根据枚举代码查找对应的枚举值  
+     *  
+     * @param code 枚举代码  
+     * @return 对应的枚举值，如果未找到则返回 null  
+     */    public static DataScopeType findCode(String code) {  
+        if (StringUtils.isBlank(code)) {  
+            return null;  
+        }  
+        for (DataScopeType type : values()) {  
+            if (type.getCode().equals(code)) {  
+                return type;  
+            }  
+        }  
+        return null;  
+    }  
+}
+
+======================================================================
+@RequiredArgsConstructor  
+@Service("sdss")  
+public class SysDataScopeServiceImpl implements ISysDataScopeService {  
+  
+    private final SysRoleDeptMapper roleDeptMapper;  
+    private final SysDeptMapper deptMapper;  
+  
+    /**  
+     * 获取角色自定义权限  
+     *  
+     * @param roleId 角色Id  
+     * @return 部门Id组  
+     */  
+    @Cacheable(cacheNames = CacheNames.SYS_ROLE_CUSTOM, key = "#roleId", condition = "#roleId != null")  
+    @Override  
+    public String getRoleCustom(Long roleId) {  
+        if (ObjectUtil.isNull(roleId)) {  
+            return "-1";  
+        }  
+        List<SysRoleDept> list = roleDeptMapper.selectList(  
+            new LambdaQueryWrapper<SysRoleDept>()  
+                .select(SysRoleDept::getDeptId)  
+                .eq(SysRoleDept::getRoleId, roleId));  
+        if (CollUtil.isNotEmpty(list)) {  
+            return StreamUtils.join(list, rd -> Convert.toStr(rd.getDeptId()));  
+        }  
+        return "-1";  
+    }  
+  
+    /**  
+     * 获取部门及以下权限  
+     *  
+     * @param deptId 部门Id  
+     * @return 部门Id组  
+     */  
+    @Cacheable(cacheNames = CacheNames.SYS_DEPT_AND_CHILD, key = "#deptId", condition = "#deptId != null")  
+    @Override  
+    public String getDeptAndChild(Long deptId) {  
+        if (ObjectUtil.isNull(deptId)) {  
+            return "-1";  
+        }  
+        List<Long> deptIds = deptMapper.selectDeptAndChildById(deptId);  
+        return CollUtil.isNotEmpty(deptIds) ? StreamUtils.join(deptIds, Convert::toStr) : "-1";  
+    }  
+  
+}
+
+=============================================================
+	  //底层逻辑：
+	  //将#{dataColumn.key} 替换成 DataColumn.value
+	  //将#{user.xx} 替换成 用户信息(SysUser)具体变量
+	  //将#{@sdss.getDeptAndChild()} 替换成对应@service("sdss")的方法调用
+	  parser.parseExpression(type.getSqlTemplate(), parserContext).getValue(context, String.class)
+====================================================================	
+
 	  ```
