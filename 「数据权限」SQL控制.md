@@ -304,8 +304,92 @@ public class SimpleDataPermissionInterceptor implements Interceptor {
 }
 }
 	  ```
-	- 解析并拼接权限SQL
+	- 获取权限注解
 	- ```java
-	  
+	  @Target({ElementType.METHOD, ElementType.TYPE})  
+@Retention(RetentionPolicy.RUNTIME)  
+@Documented  
+public @interface DataPermission {  
+  
+    /**  
+     * 数据权限配置数组，用于指定数据权限的占位符关键字和替换值  
+     *  
+     * @return 数据权限配置数组  
+     */  
+    DataColumn[] value();  
+  
+    /**  
+     * 权限拼接标识符(用于指定连接语句的sql符号)  
+     * 如不填 默认 select 用 OR 其他语句用 AND  
+     * 内容 OR 或者 AND  
+     */    String joinStr() default "";  
+  
+}
+=========================================================
+ //dataColumn内容描述映射哪个权限列
+ //dataColumn个数描述 
+@@DataPermission({  
+    @DataColumn(key = "deptName", value = "dept_id"),  
+    @DataColumn(key = "userName", value = "create_by")  
+})  
+default Page<SysUserVo> selectPageUserList(Page<SysUser> page, Wrapper<SysUser> queryWrapper) {  
+    return this.selectVoPage(page, queryWrapper);  
+}
 	  ```
-	- 
+	- 解析并拼接权限SQL
+	- 步骤：拼接符→上下文→权限列过滤→角色 SQL 解析→结果拼接
+	- ```java
+	  /**
+* 使用select时 默认通过 or 连接多个角色权限SQL
+**/
+private String buildDataFilter(DataPermission dataPermission, boolean isSelect) {
+    // 拼接符
+    String joinStr = " " + (dataPermission.joinStr() != null ? dataPermission.joinStr() : (isSelect ? "OR" : "AND")) + " ";
+    LoginUser user = DataPermissionHelper.getVariable("user");
+    // 初始化上下文
+    NullSafeStandardEvaluationContext context = new NullSafeStandardEvaluationContext("-1");
+    context.addPropertyAccessor(new NullSafePropertyAccessor(context.getPropertyAccessors().get(0), "-1"));
+    context.setBeanResolver(beanResolver);
+    DataPermissionHelper.getContext().forEach(context::setVariable);
+
+    Set<String> conditions = new HashSet<>();
+    List<String> keys = new ArrayList<>();
+    Map<DataColumn, Boolean> ignoreMap = new HashMap<>();
+
+    // 权限列处理
+    for (DataColumn col : dataPermission.value()) {
+        if (CollUtil.contains(user.getMenuPermission(), col.permission())) {
+            ignoreMap.put(col, true);
+            continue;
+        }
+        for (int i = 0; i < col.key().length; i++) context.setVariable(col.key()[i], col.value()[i]);
+        keys.addAll(Arrays.stream(col.key()).map(k -> "#" + k).toList());
+    }
+
+    // 角色权限处理
+    for (RoleDTO role : user.getRoles()) {
+        user.setRoleId(role.getRoleId());
+        DataScopeType type = DataScopeType.findCode(role.getDataScope());
+        if (type == DataScopeType.ALL) return "";
+
+        boolean isSuccess = false;
+        for (DataColumn col : dataPermission.value()) {
+            if (ignoreMap.containsKey(col)) {
+                conditions.add(joinStr + "1=1");
+                isSuccess = true;
+                continue;
+            }
+            if (!StringUtils.containsAny(type.getSqlTemplate(), keys.toArray(String[]::new)) || !StringUtils.containsAny(type.getSqlTemplate(), col.key())) continue;
+            // 解析SQL
+            String sql = DataPermissionHelper.ignore(() -> parser.parseExpression(type.getSqlTemplate(), parserContext).getValue(context, String.class));
+            conditions.add(joinStr + sql);
+            isSuccess = true;
+        }
+        if (!isSuccess) conditions.add(joinStr + type.getElseSql());
+    }
+
+    // 拼接结果
+    return StreamUtils.join(conditions, Function.identity(), "").substring(joinStr.length());
+}
+	  ```
+	- 角色权限
