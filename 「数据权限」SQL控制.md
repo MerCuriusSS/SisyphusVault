@@ -506,10 +506,11 @@ public class SysDataScopeServiceImpl implements ISysDataScopeService {
 
 🔴 「RuoYi-Vue-Plus 源码」与「最小化实践 源码」比对
 
-| 特性    | JSQLParser版                         | RuoYi原实现                         |
-| ----- | ----------------------------------- | -------------------------------- |
-| 拦截器使用 | mybatis配置文件注册                       | 继承mybatis-plus拦截基类，内封装JSQLParser |
-| SQL拼接 | 只支持外层Select、不支持子查询、union、join复杂查询操作 | 自带递归调用，支持复杂查询                    |
-| 权限规则  | 硬编码                                 | SpEL表达式替换                        |
-| 角色权限  | 只支持一种角色的判定                          | 支持多个角色取并集（or 连接）                 |
-| 自定义权限 | 不能                                  |                                  |
+| 特性        | JSQLParser版                         | RuoYi原实现                         |
+| --------- | ----------------------------------- | -------------------------------- |
+| 拦截器使用     | mybatis配置文件注册                       | 继承mybatis-plus拦截基类，内封装JSQLParser |
+| SQL拼接     | 只支持外层Select、不支持子查询、union、join复杂查询操作 | 自带递归调用，支持复杂查询                    |
+| 权限规则      | 硬编码                                 | SpEL表达式替换                        |
+| 角色权限      | 只支持一种角色的判定                          | 支持多个角色取并集（or 连接）                 |
+| 自定义权限（函数） | 不能                                  | 支持                               |
+|           |                                     |                                  |
