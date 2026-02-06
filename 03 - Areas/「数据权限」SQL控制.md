@@ -514,3 +514,4 @@ public class SysDataScopeServiceImpl implements ISysDataScopeService {
 | 角色权限      | 只支持一种角色的判定                          | 支持多个角色取并集（or 连接）                 |
 | 自定义权限（函数） | 不能                                  | 支持                               |
 |           |                                     |                                  |
+🔴 实战演练——
