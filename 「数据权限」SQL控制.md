@@ -140,7 +140,7 @@ public class SimpleDataPermissionInterceptor implements Interceptor {
 	```
 
 🔴 RuoYi-Vue-Plus 源码深度解析
-- 步骤：继承Plus拦截器->实现不同SQL类型拦截逻辑->SQL加工处理->检查数据权限->获取当前用户->跳过超级管理员->获取用户角色->解析并拼接权限SQL->执行修改后SQL
+- 步骤：继承Plus拦截器->实现不同SQL类型拦截逻辑->SQL加工处理【检查数据权限->获取当前用户->跳过超级管理员->获取用户角色->解析并拼接权限SQL->执行修改后SQL】
 - 核心代码：
 	- 继承Plus拦截器+拦截逻辑：
 	- ```java
@@ -285,31 +285,26 @@ public class SimpleDataPermissionInterceptor implements Interceptor {
 	- SQL加工处理
 	- ```java
 	  public Expression getSqlSegment(Expression where, boolean isSelect) {
-    try {
-        // 1. 获取权限配置与当前用户
-        DataPermission dataPermission = getDataPermission();
-        LoginUser currentUser = DataPermissionHelper.getVariable("user");
-        if (currentUser == null) {
-            currentUser = LoginHelper.getLoginUser();
-            DataPermissionHelper.setVariable("user", currentUser);
-        }
+    // 1.获取权限与用户
+    DataPermission dataPermission = getDataPermission();
+    LoginUser currentUser = DataPermissionHelper.getVariable("user");
+    currentUser = LoginHelper.getLoginUser();
+    DataPermissionHelper.setVariable("user", currentUser);
 
-        // 2. 管理员直接放行
-        if (LoginHelper.isSuperAdmin() || LoginHelper.isTenantAdmin()) return where;
-
-        // 3. 构建并校验过滤SQL
-        String dataFilterSql = buildDataFilter(dataPermission, isSelect);
-        if (dataFilterSql == null || dataFilterSql.isBlank()) return where;
-
-        // 4. 解析SQL并拼接条件
-        ParenthesedExpressionList<Expression> parenthesis = new ParenthesedExpressionList<>(CCJSqlParserUtil.parseExpression(dataFilterSql));
-        return where == null ? parenthesis : new AndExpression(where, parenthesis);
-
-    } catch (JSQLParserException e) {
-        throw new ServiceException("数据权限解析异常 => " + e.getMessage());
-    } finally {
-        DataPermissionHelper.removePermission();
+    // 2.管理员放行
+    if (LoginHelper.isSuperAdmin() || LoginHelper.isTenantAdmin()) {
+        return where;
     }
+
+    // 3.构建并拼接数据权限SQL
+    String dataFilterSql = buildDataFilter(dataPermission, isSelect);
+    Expression expression = CCJSqlParserUtil.parseExpression(dataFilterSql);
+    ParenthesedExpressionList<Expression> parenthesis = new ParenthesedExpressionList<>(expression);
+    return new AndExpression(where, parenthesis);
+}
 }
 	  ```
-	- 
+	- 解析并拼接权限SQL
+	- ```java
+	  
+	  ```
