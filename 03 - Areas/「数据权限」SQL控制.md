@@ -34,7 +34,7 @@ source:
 - 核心组件
 	-  拦截器（interceptor）：在 SQL 执行前进行拦截
 	- 用户上下文（threadLocal）：从当前登录用户中获取其角色、部门、数据范围等权限信息
-	- SQL解析器（[JSQLParser](../JSQLParser.md)）
+	- SQL解析器（[JSQLParser](JSQLParser.md)）
 - 「组件」流程概览图：[「数据权限SQL拼接」流程概览图](../excalidraw/「数据权限SQL拼接」流程概览图.md)
 - 「数据流转」流程图：[「数据权限SQL拼接」数据流转图](../excalidraw/「数据权限SQL拼接」数据流转图.md)
 

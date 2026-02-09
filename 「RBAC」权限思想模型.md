@@ -176,7 +176,7 @@ public Set<String> getMenuPermission(Long userId) {
 ### 4.鉴权验证(@SaCheckPermission)
 ```java
 /**  
- * 获取菜单下拉树列表  
+ * 拦截后比较 SaCheckPermission的权限标识，存在则放行，否则抛出403错误 
  */  
 @SaCheckPermission("system:menu:query")  
 @GetMapping("/treeselect")  

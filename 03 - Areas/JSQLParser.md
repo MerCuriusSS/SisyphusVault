@@ -4,7 +4,7 @@ tags:
   - Areas/Coder/javaWeb
 category: 技术或思维
 status: 加工
-project: "[[../../02 - Projects/后台管理系统「Ruoyi-Vue-Plus」|后台管理系统「Ruoyi-Vue-Plus」]]"
+project: "[[../02 - Projects/后台管理系统「Ruoyi-Vue-Plus」|后台管理系统「Ruoyi-Vue-Plus」]]"
 application: SQL解析与拼接
 source:
 ---
@@ -117,7 +117,7 @@ private void processSelect(Select select, DataPermission dataPermission, LoginUs
 
 ```
 - **场景 B：** 实现复杂SQL查询
-- 流程图：[「JSQLParser」复杂结构解析流程图](excalidraw/「JSQLParser」复杂结构解析流程图.md)
+- 流程图：[「JSQLParser」复杂结构解析流程图](../excalidraw/「JSQLParser」复杂结构解析流程图.md)
 ```java
 
 //解析Select内容
