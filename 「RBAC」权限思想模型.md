@@ -114,7 +114,10 @@ private int insertRoleMenu(SysRoleBo role) {
 }
 ```
 
-### 3. 鉴权
+### 3. 登录时查询权限集合
+```java
+
+```
 
 
 ## ⛪ 场景设想
