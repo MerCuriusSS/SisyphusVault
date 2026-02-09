@@ -531,4 +531,67 @@ public class SysDataScopeServiceImpl implements ISysDataScopeService {
                                                     ↓                                          执行带权限过滤的SQL  
 ```
 
+### Controller权限校验
+```java
+/**  
+ * 获取项目详细信息  
+ *  
+ * 说明：只能查看有权限的项目详情，否则返回null  
+ */@SaCheckPermission("demo:project:query")  
+@GetMapping("/{id}")  
+public R<ProjectVo> getInfo(@NotNull(message = "主键不能为空")  
+                             @PathVariable Long id) {  
+    return R.ok(projectService.queryById(id));  
+}  
+  
+/**  
+ * 新增项目  
+ */  
+@SaCheckPermission("demo:project:add")  
+@Log(title = "项目管理", businessType = BusinessType.INSERT)  
+@PostMapping()  
+public R<Void> add(@Validated(AddGroup.class) @RequestBody ProjectBo bo) {  
+    return toAjax(projectService.insertByBo(bo));  
+}  
+  
+/**  
+ * 修改项目  
+ *  
+ * 说明：数据权限会限制只能修改有权限的项目  
+ * 如果尝试修改无权限的项目，更新操作会返回0（影响行数为0）  
+ */  
+@SaCheckPermission("demo:project:edit")  
+@Log(title = "项目管理", businessType = BusinessType.UPDATE)  
+@PutMapping()  
+public R<Void> edit(@Validated(EditGroup.class) @RequestBody ProjectBo bo) {  
+    return toAjax(projectService.updateByBo(bo));  
+}  
+  
+/**  
+ * 删除项目  
+ *  
+ * 说明：数据权限会限制只能删除有权限的项目  
+ */  
+@SaCheckPermission("demo:project:remove")  
+@Log(title = "项目管理", businessType = BusinessType.DELETE)  
+@DeleteMapping("/{ids}")  
+public R<Void> remove(@NotEmpty(message = "主键不能为空")  
+                      @PathVariable Long[] ids) {  
+    return toAjax(projectService.deleteWithValidByIds(List.of(ids), true));  
+}  
+  
+/**  
+ * 查询即将到期的项目  
+ *  
+ * 说明：返回N天内到期的项目，受数据权限限制  
+ */  
+@SaCheckPermission("demo:project:list")  
+@GetMapping("/expiring/{days}")  
+public R<List<ProjectVo>> getExpiringSoonProjects(  
+    @PathVariable Integer days) {  
+    return R.ok(projectService.queryExpiringSoonProjects(days));  
+}
+```
+
+
 ### 
