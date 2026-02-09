@@ -645,5 +645,43 @@ public List<ProjectVo> queryExpiringSoonProjects(Integer days) {
 
 ### mapper（数据权限注解）
 ```java
+/**  
+ * 更新项目（带数据权限）  
+ *  
+ * 数据权限规则：使用 AND 连接，确保用户只能更新自己部门且自己负责的项目  
+ * 这比查询更严格，防止越权修改  
+ */  
+@Override  
+@DataPermission(value = {  
+    @DataColumn(key = "deptName", value = "dept_id"),  
+    @DataColumn(key = "userName", value = "owner_id")  
+}, joinStr = "AND")  
+int updateById(@Param(Constants.ENTITY) Project entity);
+
+/**  
+ * 删除项目（带数据权限）  
+ *  
+ * 数据权限规则：使用 AND 连接，确保用户只能删除自己部门且自己负责的项目  
+ */  
+@Override  
+@DataPermission(value = {  
+    @DataColumn(key = "deptName", value = "dept_id"),  
+    @DataColumn(key = "userName", value = "owner_id")  
+}, joinStr = "AND")  
+int deleteById(Long id);
+
+/**  
+ * 自定义查询：查询即将到期的项目（带数据权限）  
+ *  
+ * 演示：自定义SQL也可以应用数据权限  
+ */  
+@DataPermission({  
+    @DataColumn(key = "deptName", value = "dept_id"),  
+    @DataColumn(key = "userName", value = "owner_id")  
+})  
+List<ProjectVo> selectExpiringSoonProjects(@Param("days") Integer days);
+```
+
+```xml
 
 ```
