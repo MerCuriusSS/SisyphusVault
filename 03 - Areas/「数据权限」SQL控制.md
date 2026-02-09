@@ -707,5 +707,19 @@ List<ProjectVo> selectExpiringSoonProjects(@Param("days") Integer days);
 
 ### 数据权限处理器生成过滤条件
 ```java
-
+public Expression getSqlSegment(){
+	// 获取当前登录用户信息  
+	Long userId = LoginHelper.getUserId();  
+	Long deptId = LoginHelper.getDeptId();  
+	String roleKey = LoginHelper.getUserType(); // 获取用户角色  
+	  
+	// 获取数据权限配置  
+	String[] keys = dataColumn.key();  
+	String[] values = dataColumn.value();  
+	  
+	// 构建SQL过滤条件  
+	Expression expression = 。。。
+	
+	return expression;
+}
 ```
