@@ -594,4 +594,56 @@ public R<List<ProjectVo>> getExpiringSoonProjects(
 ```
 
 
-### 
+### service实现
+```java
+/**  
+ * 查询项目详情  
+ */  
+@Override  
+public ProjectVo queryById(Long id) {  
+    // 此方法会自动应用数据权限，用户只能查看有权限的项目  
+    return baseMapper.selectVoById(id);  
+}
+
+/**  
+ * 新增项目  
+ */  
+@Override  
+public Boolean insertByBo(ProjectBo bo) {  
+    Project add = MapstructUtils.convert(bo, Project.class);  
+    validEntityBeforeSave(add);  
+    boolean flag = baseMapper.insert(add) > 0;  
+    if (flag) {  
+        bo.setId(add.getId());  
+    }  
+    return flag;  
+}
+
+/**  
+ * 修改项目  
+ */  
+@Override  
+public Boolean updateByBo(ProjectBo bo) {  
+    Project update = MapstructUtils.convert(bo, Project.class);  
+    validEntityBeforeSave(update);  
+    // 更新操作会自动应用数据权限（使用AND连接）  
+    // 用户只能更新自己部门且自己负责的项目  
+    return baseMapper.updateById(update) > 0;  
+}
+
+/**  
+ * 查询即将到期的项目  
+ */  
+@Override  
+public List<ProjectVo> queryExpiringSoonProjects(Integer days) {  
+    // 自定义SQL查询也会自动应用数据权限  
+    return baseMapper.selectExpiringSoonProjects(days);  
+}
+
+
+```
+
+### mapper（数据权限注解）
+```java
+
+```
