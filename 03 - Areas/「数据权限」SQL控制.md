@@ -683,5 +683,24 @@ List<ProjectVo> selectExpiringSoonProjects(@Param("days") Integer days);
 ```
 
 ```xml
-
+<!-- 通用查询结果列 -->  
+<sql id="selectProjectVo">  
+    select p.id, p.project_name, p.project_code, p.dept_id, p.owner_id,  
+           p.status, p.budget, p.start_date, p.end_date, p.description,  
+           p.create_time, p.update_time,  
+           d.dept_name,  
+           u.nick_name as owner_name  
+    from project p  
+    left join sys_dept d on p.dept_id = d.dept_id  
+    left join sys_user u on p.owner_id = u.user_id  
+</sql>  
+  
+<!-- 查询即将到期的项目 -->  
+<select id="selectExpiringSoonProjects" resultType="org.dromara.demo.domain.vo.ProjectVo">  
+    <include refid="selectProjectVo"/>  
+    where p.del_flag = '0'  
+      and p.status = '0'  
+      and p.end_date between CURDATE() and DATE_ADD(CURDATE(), INTERVAL #{days} DAY)  
+    order by p.end_date asc  
+</select>
 ```
