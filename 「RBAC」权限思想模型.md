@@ -90,10 +90,32 @@ userRoleMapper.insertBatch(list)
 }
 ```
 
-### 2.角色分配权限
+### 2. 角色分配权限
 ```java
-
+/**  
+ * 新增角色菜单信息  
+ *  
+ * @param role 角色对象  
+ */  
+private int insertRoleMenu(SysRoleBo role) {  
+    int rows = 1;  
+    // 新增用户与角色管理  
+    List<SysRoleMenu> list = new ArrayList<>();  
+    for (Long menuId : role.getMenuIds()) {  
+        SysRoleMenu rm = new SysRoleMenu();  
+        rm.setRoleId(role.getRoleId());  
+        rm.setMenuId(menuId);  
+        list.add(rm);  
+    }  
+    if (CollUtil.isNotEmpty(list)) {  
+        rows = roleMenuMapper.insertBatch(list) ? list.size() : 0;  
+    }  
+    return rows;  
+}
 ```
+
+### 3. 鉴权
+
 
 ## ⛪ 场景设想
 - **场景 A**：在处理 [XXX] 代码逻辑时可以替代原有的 [YYY] 方法。
