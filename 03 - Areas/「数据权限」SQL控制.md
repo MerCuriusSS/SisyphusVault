@@ -705,7 +705,7 @@ List<ProjectVo> selectExpiringSoonProjects(@Param("days") Integer days);
 </select>
 ```
 
-### mybatis拦截器
+### 数据权限处理器生成过滤条件
 ```java
 
 ```
