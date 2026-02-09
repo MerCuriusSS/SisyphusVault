@@ -116,9 +116,74 @@ private int insertRoleMenu(SysRoleBo role) {
 
 ### 3. 登录时查询权限集合
 ```java
+public class SaPermissionImpl implements StpInterface{
+/**  
+ * 获取菜单权限列表  
+ */
+@Override  
+public List<String> getPermissionList(Object loginId, String loginType){
+	permissionService.getMenuPermission();
+}
 
+/**  
+ * 获取角色权限列表  
+ */  
+@Override  
+public List<String> getRoleList(Object loginId, String loginType) {
+	permissionService.getRolePermission();
+}
+}
 ```
 
+```java
+/**  
+ * 获取角色数据权限  
+ *  
+ * @param userId  用户id  
+ * @return 角色权限信息  
+ */  
+@Override  
+public Set<String> getRolePermission(Long userId) {  
+    Set<String> roles = new HashSet<>();  
+    // 管理员拥有所有权限  
+    if (LoginHelper.isSuperAdmin(userId)) {  
+        roles.add(TenantConstants.SUPER_ADMIN_ROLE_KEY);  
+    } else {  
+        roles.addAll(roleService.selectRolePermissionByUserId(userId));  
+    }  
+    return roles;  
+}  
+  
+/**  
+ * 获取菜单数据权限  
+ *  
+ * @param userId  用户id  
+ * @return 菜单权限信息  
+ */  
+@Override  
+public Set<String> getMenuPermission(Long userId) {  
+    Set<String> perms = new HashSet<>();  
+    // 管理员拥有所有权限  
+    if (LoginHelper.isSuperAdmin(userId)) {  
+        perms.add("*:*:*");  
+    } else {  
+        perms.addAll(menuService.selectMenuPermsByUserId(userId));  
+    }  
+    return perms;  
+}
+```
+
+### 4.鉴权验证(@SaCheckPermission)
+```java
+/**  
+ * 获取菜单下拉树列表  
+ */  
+@SaCheckPermission("system:menu:query")  
+@GetMapping("/treeselect")  
+public R<List<Tree<Long>>> treeselect(SysMenuBo menu) {  
+ 
+}
+```
 
 ## ⛪ 场景设想
 - **场景 A**：在处理 [XXX] 代码逻辑时可以替代原有的 [YYY] 方法。
