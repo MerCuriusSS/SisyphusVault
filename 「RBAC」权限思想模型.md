@@ -67,7 +67,33 @@ source:
 
 ## ⌚️ 实践应用
 
+### 1. 为用户分配角色：
+```java
+private void insertUserRole(Long userId, Long[] roleIds, boolean clear){
+	//roleId判空校验
+	
+	//超级管理员角色非法勾选校验
+	
+	//清除原有绑定
+	if (clear) {  
+    userRoleMapper.delete(new LambdaQueryWrapper<SysUserRole>().eq(SysUserRole::getUserId, userId));  
+}
+	//批量插入用户-角色关联
+	List<SysUserRole> list = StreamUtils.toList(roleList,  
+    roleId -> {  
+        SysUserRole ur = new SysUserRole();  
+        ur.setUserId(userId);  
+        ur.setRoleId(roleId);  
+        return ur;  
+    });  
+userRoleMapper.insertBatch(list)
+}
+```
 
+### 2.角色分配权限
+```java
+
+```
 
 ## ⛪ 场景设想
 - **场景 A**：在处理 [XXX] 代码逻辑时可以替代原有的 [YYY] 方法。
