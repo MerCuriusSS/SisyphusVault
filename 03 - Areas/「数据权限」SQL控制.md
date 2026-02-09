@@ -522,3 +522,13 @@ public class SysDataScopeServiceImpl implements ISysDataScopeService {
 | 自定义权限（函数） | 不能                                  | 支持                               |
 |           |                                     |                                  |
 🔴 实战演练——通过完整CRUD体现数据权限
+### 流程
+```  
+用户请求 → Controller（功能权限校验） → Service → Mapper（数据权限注解）  
+                                                    ↓                                          MyBatis拦截器拦截SQL  
+                                                    ↓                                          数据权限处理器生成过滤条件  
+                                                    ↓                                          自动拼接到原始SQL  
+                                                    ↓                                          执行带权限过滤的SQL  
+```
+
+### 
