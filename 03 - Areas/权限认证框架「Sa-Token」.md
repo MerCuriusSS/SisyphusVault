@@ -11,6 +11,7 @@ source:
 ## 一、基础概念：
 
 🔴 是一个轻量级权限认证框架
+
 🔴 「Sa-Token」 VS 「Spring-Security」的优势汇总：
 - 1.**配置方便，组件简单，代码实现量少**，聚焦于核心登录认证、权限校验的高频需求；SpringSecurity配置繁杂，组件众多，涵盖从认证到CSRF、CORS等功能，代码实现量多
 - **2.单拦截器实现拦截逻辑，直观易修改**；SpringSecurity需认识涵盖15个过滤器的过滤器链，还要了解执行顺序和逻辑，上手难。
@@ -19,6 +20,7 @@ source:
 ## 二、整合准备：
 
 🔴 依赖引入（pom文件）与资源文件（yml）配置：提供环境准备
+
 🔴 自动装配注入（Config）：
 - Token「StpLogic」：定义Token类型（Session、纯JWT、session&jwt混合）
 - 自定义权限接口「StpInterface」：定义角色、权限的存取
