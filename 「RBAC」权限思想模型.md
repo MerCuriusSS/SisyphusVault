@@ -58,7 +58,26 @@ source:
 | menu_type | 菜单类型    | 定义权限分配类型（M:目录；C:菜单；F：按钮） |
 | perm      | 权限标识字符串 | 控制能否访问标识：前端路由守卫以及后端校验    |
 ```sql
+-- 一级菜单
+insert into sys_menu (menu_id, menu_name, menu_type, perms) values('1', '系统管理', 'M', '');
+insert into sys_menu (menu_id, menu_name, menu_type, perms) values('6', '租户管理', 'M', '');
+insert into sys_menu (menu_id, menu_name, menu_type, perms) values('2', '系统监控', 'M', '');
+insert into sys_menu (menu_id, menu_name, menu_type, perms) values('3', '系统工具', 'M', '');
+insert into sys_menu (menu_id, menu_name, menu_type, perms) values('4', 'PLUS官网', 'M', '');
+insert into sys_menu (menu_id, menu_name, menu_type, perms) values('5', '测试菜单', 'M', '');
 
+-- 二级菜单
+insert into sys_menu (menu_id, menu_name, menu_type, perms) values('100',  '用户管理',     'C', 'system:user:list');
+insert into sys_menu (menu_id, menu_name, menu_type, perms) values('101',  '角色管理',     'C', 'system:role:list');
+insert into sys_menu (menu_id, menu_name, menu_type, perms) values('102',  '菜单管理',     'C', 'system:menu:list');
+insert into sys_menu (menu_id, menu_name, menu_type, perms) values('103',  '部门管理',     'C', 'system:dept:list');
+insert into sys_menu (menu_id, menu_name, menu_type, perms) values('104',  '岗位管理',     'C', 'system:post:list');
+
+-- 按钮权限（F类型）
+insert into sys_menu (menu_id, menu_name, menu_type, perms) values('1001', '用户查询', 'F', 'system:user:query');
+insert into sys_menu (menu_id, menu_name, menu_type, perms) values('1002', '用户新增', 'F', 'system:user:add');
+insert into sys_menu (menu_id, menu_name, menu_type, perms) values('1003', '用户修改', 'F', 'system:user:edit');
+insert into sys_menu (menu_id, menu_name, menu_type, perms) values('1004', '用户删除', 'F', 'system:user:remove');
 ```
 - **sys_user_role（用户-角色关联表）**
 - **sys_menu_role（权限-角色关联表）**
