@@ -49,6 +49,81 @@ source:
 ## 🚀 实践应用：
 
 ### 🟣 最小化实践：
+#### 1.租户上下文（tenantContext）
+```java
+public class TenantContext {
+    private static ThreadLocal<String> tenantId = new ThreadLocal<>();
+    private static ThreadLocal<Boolean> ignore = new ThreadLocal<>();
+
+    public static void setTenantId(String id) {
+        tenantId.set(id);
+    }
+
+    public static String getTenantId() {
+        return tenantId.get();
+    }
+
+    public static void setIgnore(Boolean flag) {
+        ignore.set(flag);
+    }
+
+    public static Boolean isIgnore() {
+        return Boolean.TRUE.equals(ignore.get());
+    }
+
+    public static void clear() {
+        tenantId.remove();
+        ignore.remove();
+    }
+}
+```
+
+#### 2. 租户拦截器（tenantInterceptor）
+```java
+@Intercepts({@Signature(type = Executor.class, method = "query", ...)})
+public class TenantInterceptor implements Interceptor {
+
+    private List<String> excludeTables = Arrays.asList("sys_tenant");
+
+    @Override
+    public Object intercept(Invocation invocation) throws Throwable {
+        // 1. 获取原始SQL
+        String originalSql = boundSql.getSql();
+
+        // 2. 检查是否需要租户隔离
+        if (TenantContext.isIgnore()) {
+            return invocation.proceed(); // 忽略模式
+        }
+
+        String tenantId = TenantContext.getTenantId();
+        if (tenantId == null) {
+            return invocation.proceed(); // 没有租户ID
+        }
+
+        // 3. 检查表是否在排除列表中
+        if (isExcludeTable(originalSql)) {
+            return invocation.proceed();
+        }
+
+        // 4. 拼接租户条件
+        String newSql = appendTenantCondition(originalSql, tenantId);
+
+        // 5. 执行新SQL
+        return executeNewSql(newSql);
+    }
+
+    private String appendTenantCondition(String sql, String tenantId) {
+        if (sql.toUpperCase().contains("WHERE")) {
+            return sql + " AND tenant_id = '" + tenantId + "'";
+        } else {
+            return sql + " WHERE tenant_id = '" + tenantId + "'";
+        }
+    }
+}
+```
+
+#### 3. 
+
 
 ## ⛪ 场景设想
 - **场景 A**：在处理 [XXX] 代码逻辑时可以替代原有的 [YYY] 方法。
