@@ -122,8 +122,7 @@ public class TenantInterceptor implements Interceptor {
 }
 ```
 
-#### 3. 
-
+### 🟣 ruoyi 租户原实现
 
 ## ⛪ 场景设想
 - **场景 A**：在处理 [XXX] 代码逻辑时可以替代原有的 [YYY] 方法。
