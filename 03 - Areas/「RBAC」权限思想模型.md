@@ -4,7 +4,7 @@ tags:
   - Areas/Coder/javaWeb
 category: 技术
 status: 加工
-project: "[[02 - Projects/后台管理系统「Ruoyi-Vue-Plus」|后台管理系统「Ruoyi-Vue-Plus」]]"
+project: "[[../02 - Projects/后台管理系统「Ruoyi-Vue-Plus」|后台管理系统「Ruoyi-Vue-Plus」]]"
 application: 权限划分
 source:
 ---
@@ -84,8 +84,8 @@ insert into sys_menu (menu_id, menu_name, menu_type, perms) values('1004', '用�
 - **权限认证框架（Sa-Token）**：用户鉴权
 
 ### 流程图
-- 「组件」流程概览图：[「RABC」流程概览图](excalidraw/「RABC」流程概览图.md)
-- 「数据流转」流程图：[「RABC」数据流转图](excalidraw/「RABC」数据流转图.md)
+- 「组件」流程概览图：[「RABC」流程概览图](../excalidraw/「RABC」流程概览图.md)
+- 「数据流转」流程图：[「RABC」数据流转图](../excalidraw/「RABC」数据流转图.md)
 
 ## ⌚️ 实践应用
 
@@ -211,5 +211,12 @@ public R<List<Tree<Long>>> treeselect(SysMenuBo menu) {
 
 ### 🔴 总结：适用于一切需要多角色、多岗位、多部门、多层级协同工作的系统
 
-- **场景 A**：
-- **场景 B**：
+- **私营企业：**
+	- **后台管理系统（OA、ERP、数据平台、运营平台）**
+	- **审批类系统**：（OA、报销、请假）
+	- **电商后台：（商家、运营、客服、财务）**
+	- **Saas租户系统（租户隔离）**
+- **公营企业：**
+	- **医疗系统：（医生、护士、药师、收费员）**
+	- **金融系统：（柜员、主管、风控、财务、审计）**
+	- **政府/事业单位系统（分级权限）**
