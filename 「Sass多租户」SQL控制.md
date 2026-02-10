@@ -43,11 +43,13 @@ source:
 
 #### 1.核心组件
 - 租户上下文（tenantContext）
-- 
+- 租户拦截器（tenantInterceptor）
+- 租户处理器（tenantHandler）
 
 ## 🚀 实践应用：
 
 ### 🟣 最小化实践：
+
 ## ⛪ 场景设想
 - **场景 A**：在处理 [XXX] 代码逻辑时可以替代原有的 [YYY] 方法。
 - **场景 B**：在进行 [ZZZ] 决策时，用来规避逻辑谬误。
