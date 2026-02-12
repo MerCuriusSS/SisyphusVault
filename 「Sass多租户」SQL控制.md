@@ -123,6 +123,9 @@ public class TenantInterceptor implements Interceptor {
 ```
 
 ### 🟣 ruoyi 租户原实现
+>特点：MyBatis-Plus + Redis隔离 + 缓存隔离
+
+
 
 ## ⛪ 场景设想
 - **场景 A**：在处理 [XXX] 代码逻辑时可以替代原有的 [YYY] 方法。
