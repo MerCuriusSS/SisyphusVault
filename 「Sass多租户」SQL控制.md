@@ -486,6 +486,32 @@ public class PlusTenantLineHandler implements TenantLineHandler {
     }
 }
 ```
+
+#### 6.调用方式
+##### 1.忽略租户调用（定时任务）
+```java
+@Scheduled(cron = "0 0 2 * * ?")
+public void dailyTask() {
+    // 查询所有启用的租户
+    List<SysTenant> tenants = TenantHelper.ignore(() -> {
+        return tenantMapper.selectList(
+            new LambdaQueryWrapper<SysTenant>()
+                .eq(SysTenant::getStatus, "0")
+        );
+    });
+
+    // 遍历每个租户执行任务
+    for (SysTenant tenant : tenants) {
+        TenantHelper.dynamic(tenant.getTenantId(), () -> {
+            // 在当前租户下执行任务
+            log.info("执行租户{}的定时任务", tenant.getTenantName());
+            // ... 业务逻辑
+        });
+    }
+}
+```
+
+
 ## ⛪ 场景设想
 - **场景 A**：在处理 [XXX] 代码逻辑时可以替代原有的 [YYY] 方法。
 - **场景 B**：在进行 [ZZZ] 决策时，用来规避逻辑谬误。
