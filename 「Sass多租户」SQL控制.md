@@ -228,7 +228,24 @@ public Boolean migrateData(String fromTenantId, String toTenantId) {
 }
 ```
 
-##### TenantHelper 工具类
+##### TenantHelper 工具类使用
+```java
+// 获取当前租户ID
+String tenantId = TenantHelper.getTenantId();
+
+// 忽略租户隔离（查询所有租户数据）
+List<Data> all = TenantHelper.ignore(() -> {
+    return mapper.selectList(null);
+});
+
+// 动态切换租户
+List<Data> data = TenantHelper.dynamic("000001", () -> {
+    return mapper.selectList(null);
+});
+
+// 判断多租户是否启用
+boolean enabled = TenantHelper.isEnable();
+```
 
 ## ⛪ 场景设想
 
