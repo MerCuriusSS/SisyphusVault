@@ -26,6 +26,7 @@ source:
 - 自定义权限接口「StpInterface」：定义角色、权限的存取
 - SaTokenDao：Token如何存取（redis or redis+Caffeine本地缓存）
 - 自定义异常：封装框架各类异常，统一异常管理
+
 🔴 拦截器配置（WebMvcConfigurer）：
 - SaInterceptor：拦截所有请求，匹配controller路径
 
