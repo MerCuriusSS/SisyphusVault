@@ -224,7 +224,7 @@ public class TenantSpringCacheManager extends RedisCacheManager {
 }
 ```
 
-#### 4.SaToken 中「用户登录状态KEY」的「global前缀」全局修改
+#### 3.SaToken 中「用户登录状态KEY」的「global前缀」全局修改
 ```java
 public class TenantSaTokenDao extends SaTokenDaoRedis {
 
@@ -251,16 +251,10 @@ public class TenantSaTokenDao extends SaTokenDaoRedis {
 }
 ```
 
-#### 5.TenantHelper租户上下文逻辑：
+#### 4.TenantHelper租户上下文逻辑：
+
+##### 1.获取当前租户ID
 ```java
-public class TenantHelper{
-//保存动态租户ID的redis Key
-private static final String DYNAMIC_TENANT_KEY = GlobalConstants.GLOBAL_REDIS_KEY + "dynamicTenant";
-
-//动态切换用户的上下文【避免多次调用Redis】
-private static final ThreadLocal<String> TEMP_DYNAMIC_TENANT = new ThreadLocal<>();
-
-//获取当前租户ID
 public static String getTenantId() {
     if (!isEnable()) {
         return null;
@@ -275,25 +269,61 @@ public static String getTenantId() {
 
     return tenantId;
 }
+```
 
-//忽略租户筛选
-public static void ignore(Runnable handle) {  
-    enableIgnore();  
-    try {  
-        handle.run();  
-    } finally {  
-        disableIgnore();  
-    }  
+`获取优先级：动态租户（ThreadLocal/Redis） > 登录用户租户ID`
+##### 2. 忽略租户隔离
+```java
+/**
+ * 开启忽略租户（开关）
+ */
+private static final ThreadLocal<Boolean> IGNORE = new ThreadLocal<>();
+
+public static void enableIgnore() {
+    IGNORE.set(true);
 }
 
-public static <T> T ignore(Supplier<T> handle) {  
-    enableIgnore();  
-    try {  
-        return handle.get();  
-    } finally {  
-        disableIgnore();  
-    }  
+public static void disableIgnore() {
+    IGNORE.remove();
 }
+
+public static boolean isIgnore() {
+    return Convert.toBool(IGNORE.get(), false);
+}
+
+/**
+ * 忽略租户隔离执行
+ */
+public static void ignore(Runnable handle) {
+    enableIgnore();
+    try {
+        handle.run();
+    } finally {
+        disableIgnore();
+    }
+}
+
+public static <T> T ignore(Supplier<T> handle) {
+    enableIgnore();
+    try {
+        return handle.get();
+    } finally {
+        disableIgnore();
+    }
+}
+```
+
+##### 3.动态切换租户
+```java
+/**
+ * 临时动态租户（ThreadLocal）
+ */
+private static final ThreadLocal<String> TEMP_DYNAMIC_TENANT = new ThreadLocal<>();
+
+/**
+ * 动态租户Key前缀（Redis）
+ */
+private static final String DYNAMIC_TENANT_KEY = "global:dynamicTenant";
 
 /**
  * 设置动态租户
@@ -398,10 +428,10 @@ public static <T> T dynamic(String tenantId, Supplier<T> handle) {
         clearDynamic();
     }
 }
-}
 ```
 
-#### 6.拦截处理器逻辑：
+`动态租户存储层次：ThreadLocal（临时） > SaToken会话（请求级） > Redis（持久化）`
+#### 5.拦截处理器逻辑：
 ```java
 @Slf4j
 @AllArgsConstructor
