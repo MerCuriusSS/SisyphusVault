@@ -488,7 +488,7 @@ public class PlusTenantLineHandler implements TenantLineHandler {
 ```
 
 #### 6.调用方式
-##### 1.忽略租户调用（定时任务）
+##### 1.忽略租户&动态切换租户（定时任务）
 ```java
 @Scheduled(cron = "0 0 2 * * ?")
 public void dailyTask() {
@@ -511,6 +511,7 @@ public void dailyTask() {
 }
 ```
 
+##### 2.常规
 
 ## ⛪ 场景设想
 - **场景 A**：在处理 [XXX] 代码逻辑时可以替代原有的 [YYY] 方法。
