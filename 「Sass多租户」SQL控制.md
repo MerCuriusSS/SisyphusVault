@@ -131,7 +131,8 @@ public class TenantInterceptor implements Interceptor {
 #### 1.租户配置
 - 自动装配开启「租户过滤」功能
 - 租户拦截器&处理器
-- Redis全局租户ID前缀功能
+- Redis全局key添加「租户ID前缀」
+- Redis获取
 ```java
 @EnableConfigurationProperties(TenantProperties.class)
 @AutoConfiguration(after = {RedisConfig.class})
