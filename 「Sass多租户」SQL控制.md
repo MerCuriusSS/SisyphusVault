@@ -46,7 +46,8 @@ source:
 - 租户拦截器（tenantInterceptor）& 租户处理器（tenantHandler）
 - 用户登录状态上下文（SaToken）
 - 缓存组件（Redis）
-####
+#### 2.「组件」流程概览图：[「多租户隔离」流程概览图](excalidraw/「多租户隔离」流程概览图.md)
+#### 3.「数据流转」流程图：[[]]
 
 ## 🚀 实践应用：
 
