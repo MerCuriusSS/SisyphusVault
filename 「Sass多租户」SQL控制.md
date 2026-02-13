@@ -400,6 +400,62 @@ public static <T> T dynamic(String tenantId, Supplier<T> handle) {
 }
 }
 ```
+
+#### 6.拦截处理器逻辑：
+```java
+@Slf4j
+@AllArgsConstructor
+public class PlusTenantLineHandler implements TenantLineHandler {
+
+    private final TenantProperties tenantProperties;
+
+    /**
+     * 获取租户ID
+     * 返回Expression对象，MyBatis-Plus会自动将其添加到SQL中
+     */
+    @Override
+    public Expression getTenantId() {
+        String tenantId = TenantHelper.getTenantId();
+        if (StringUtils.isBlank(tenantId)) {
+            log.error("无法获取有效的租户id -> Null");
+            return new NullValue();
+        }
+        // ��回租户ID的字符串值
+        return new StringValue(tenantId);
+    }
+
+    /**
+     * 判断表是否需要忽略租户隔离
+     *
+     * @param tableName 表名
+     * @return true-忽略，false-不忽略
+     */
+    @Override
+    public boolean ignoreTable(String tableName) {
+        String tenantId = TenantHelper.getTenantId();
+
+        // 判断是否有租户
+        if (StringUtils.isNotBlank(tenantId)) {
+            // 从配置文件读取排除表列表
+            List<String> excludes = tenantProperties.getExcludes();
+
+            // 内置排除表（代码生成器相关）
+            List<String> tables = ListUtil.toList(
+                "gen_table",
+                "gen_table_column"
+            );
+            tables.addAll(excludes);
+
+            // 判断当前表是否在排除列表中
+            return StringUtils.equalsAnyIgnoreCase(tableName,
+                tables.toArray(new String[0]));
+        }
+
+        // 没有租户ID，忽略所有表
+        return true;
+    }
+}
+```
 ## ⛪ 场景设想
 - **场景 A**：在处理 [XXX] 代码逻辑时可以替代原有的 [YYY] 方法。
 - **场景 B**：在进行 [ZZZ] 决策时，用来规避逻辑谬误。
