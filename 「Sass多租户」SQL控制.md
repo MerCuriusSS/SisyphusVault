@@ -228,7 +228,8 @@ public Boolean migrateData(String fromTenantId, String toTenantId) {
 }
 ```
 
-##### 
+##### 基础类/工具使用
+######
 ```java
 // 获取当前租户ID
 String tenantId = TenantHelper.getTenantId();
@@ -247,6 +248,19 @@ List<Data> data = TenantHelper.dynamic("000001", () -> {
 boolean enabled = TenantHelper.isEnable();
 ```
 
+###### 租户基类
+```java
+@Data  
+@EqualsAndHashCode(callSuper = true)  
+public class TenantEntity extends BaseEntity {  
+  
+    /**  
+     * 租户编号  
+     */  
+    private String tenantId;  
+  
+}
+```
 ## ⛪ 场景设想
 
 ### 🟣 SaaS CRM 系统
