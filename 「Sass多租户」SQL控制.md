@@ -128,7 +128,7 @@ public class TenantInterceptor implements Interceptor {
 ### 🟣 ruoyi 租户原实现
 >特点：MyBatis-Plus + Redis隔离 + 缓存隔离
 
-#### 1.Redis配置
+#### 1.Redis全局新增「租户ID」前缀
 ```java
 
 ```
