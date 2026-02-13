@@ -128,6 +128,10 @@ public class TenantInterceptor implements Interceptor {
 ### 🟣 ruoyi 租户原实现
 >特点：MyBatis-Plus + Redis隔离 + 缓存隔离
 
+#### 1.Redis配置
+```java
+
+```
 
 
 ## ⛪ 场景设想
