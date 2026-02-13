@@ -61,8 +61,33 @@ source:
 | 特定表共享  | 无差别对表进行「租户隔离」，不可区分        | 可对特定表实现「忽略租户ID」      | 查租户表、全局配置这些共享数据时，先开 “忽略租户开关”（ThreadLocal 存个 true），框架查数据库时就不加 tenant_id 条件，查完再关掉开关   |
 
 ### 🟣 实战演示
+#### 1.Controller层
+##### 普通接口（自动租户隔离）
+```java
+@RestController
+@RequestMapping("/demo/product")
+@RequiredArgsConstructor
+public class ProductController extends BaseController {
 
+    private final IProductService productService;
 
+    // 查询列表（只返回当前租户数据）
+    @SaCheckPermission("demo:product:list")
+    @GetMapping("/list")
+    public TableDataInfo<ProductVo> list(ProductBo bo, PageQuery pageQuery) {
+        return productService.queryPageList(bo, pageQuery);
+    }
+
+    // 新增（自动归属当前租户）
+    @SaCheckPermission("demo:product:add")
+    @PostMapping()
+    public R<Void> add(@Validated @RequestBody ProductBo bo) {
+        return toAjax(productService.insert(bo));
+    }
+}
+```
+
+####
 ## ⛪ 场景设想
 
 ### 🟣 SaaS CRM 系统
