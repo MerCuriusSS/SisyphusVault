@@ -112,7 +112,7 @@ public R<Void> copyToTenant(@PathVariable Long id, @PathVariable String tenantId
 ```
 
 #### 2.Service层模式
-##### 基础CRUD
+##### 1. 基础CRUD
 ```java
 @Service
 @RequiredArgsConstructor
@@ -150,8 +150,83 @@ public class ProductServiceImpl implements IProductService {
 
 
 ##### 2.管理员功能（忽略租户）
-··
+```java
+// 查询所有租户的数据
+@Override
+public List<ProductVo> queryAllTenants() {
+    return TenantHelper.ignore(() -> {
+        return baseMapper.selectVoList(Wrappers.lambdaQuery());
+    });
+}
 
+// 统计所有租户的数据量
+@Override
+public Long countAllTenants() {
+    return TenantHelper.ignore(() -> {
+        return baseMapper.selectCount(null);
+    });
+}
+
+// 批量插入系统数据（不注入租户ID）
+@Override
+public Boolean batchInsertSystemData(List<SysConfig> configs) {
+    TenantHelper.ignore(() -> {
+        configMapper.insertBatch(configs);
+    });
+    return true;
+}
+```
+
+##### 3. 跨租户操作（动态切换）
+```java
+// 查询指定租户的数据
+@Override
+public List<ProductVo> queryByTenantId(String tenantId) {
+    return TenantHelper.dynamic(tenantId, () -> {
+        return baseMapper.selectVoList(Wrappers.lambdaQuery());
+    });
+}
+
+// 复制数据到其他租户
+@Override
+public Boolean copyToTenant(Long id, String targetTenantId) {
+    // 步骤1: 查询当前租户的数据
+    Product source = baseMapper.selectById(id);
+    if (source == null) {
+        return false;
+    }
+
+    // 步骤2: 切换到目标租户插入
+    return TenantHelper.dynamic(targetTenantId, () -> {
+        Product target = new Product();
+        BeanUtil.copyProperties(source, target);
+        target.setId(null);
+        target.setTenantId(targetTenantId);
+        return baseMapper.insert(target) > 0;
+    });
+}
+
+// 跨租户数据迁移
+@Override
+public Boolean migrateData(String fromTenantId, String toTenantId) {
+    // 查询源租户数据
+    List<Product> sourceList = TenantHelper.dynamic(fromTenantId, () -> {
+        return baseMapper.selectList(Wrappers.lambdaQuery());
+    });
+
+    // 插入到目标租户
+    return TenantHelper.dynamic(toTenantId, () -> {
+        for (Product source : sourceList) {
+            Product target = new Product();
+            BeanUtil.copyProperties(source, target);
+            target.setId(null);
+            target.setTenantId(toTenantId);
+            baseMapper.insert(target);
+        }
+        return true;
+    });
+}
+```
 ## ⛪ 场景设想
 
 ### 🟣 SaaS CRM 系统
