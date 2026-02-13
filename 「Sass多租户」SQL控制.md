@@ -130,7 +130,50 @@ public class TenantInterceptor implements Interceptor {
 
 #### 1.Redis全局新增「租户ID」前缀
 ```java
+@AllArgsConstructor
+public class TenantKeyPrefixHandler implements NameMapper {
 
+    private final String keyPrefix;
+
+    @Override
+    public String map(String name) {
+        // 全局Key，不添加租户前缀
+        if (StringUtils.contains(name, GlobalConstants.GLOBAL_REDIS_KEY)) {
+            return keyPrefix + name;
+        }
+
+        // 忽略租户模式，不添加租户前缀
+        if (TenantHelper.isIgnore()) {
+            return keyPrefix + name;
+        }
+
+        // 获取租户ID
+        String tenantId = TenantHelper.getTenantId();
+        if (StringUtils.isBlank(tenantId)) {
+            return keyPrefix + name;
+        }
+
+        // 添加租户前缀
+        return keyPrefix + tenantId + ":" + name;
+    }
+
+    @Override
+    public String unmap(String name) {
+        // 移除前缀的逆操作
+        String prefix = keyPrefix;
+        if (StringUtils.isNotBlank(prefix) && name.startsWith(prefix)) {
+            name = name.substring(prefix.length());
+        }
+
+        // 移除租户前缀
+        String tenantId = TenantHelper.getTenantId();
+        if (StringUtils.isNotBlank(tenantId) && name.startsWith(tenantId + ":")) {
+            return name.substring((tenantId + ":").length());
+        }
+
+        return name;
+    }
+}
 ```
 
 
