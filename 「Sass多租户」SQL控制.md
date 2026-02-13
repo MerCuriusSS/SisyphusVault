@@ -228,7 +228,7 @@ public Boolean migrateData(String fromTenantId, String toTenantId) {
 }
 ```
 
-##### TenantHelper 工具类使用
+##### 
 ```java
 // 获取当前租户ID
 String tenantId = TenantHelper.getTenantId();
