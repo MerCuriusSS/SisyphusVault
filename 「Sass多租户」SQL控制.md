@@ -128,7 +128,10 @@ public class TenantInterceptor implements Interceptor {
 ### 🟣 ruoyi 租户原实现
 >特点：MyBatis-Plus + Redis隔离 + 缓存隔离
 
-#### 1.自动装配开启「租户开启」功能
+#### 1.租户配置
+- 自动装配开启「租户过滤」功能
+- 租户拦截器&处理器
+- Redis全局租户ID前缀功能
 ```java
 @EnableConfigurationProperties(TenantProperties.class)
 @AutoConfiguration(after = {RedisConfig.class})
