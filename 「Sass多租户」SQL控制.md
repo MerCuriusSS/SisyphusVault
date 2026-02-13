@@ -131,8 +131,7 @@ public class TenantInterceptor implements Interceptor {
 #### 1.租户配置
 - 自动装配开启「租户过滤」功能
 - 租户拦截器&处理器
-- Redis全局key添加「租户ID前缀」
-- Redis获取
+- Redis全局key添加「租户ID前缀」配置
 ```java
 @EnableConfigurationProperties(TenantProperties.class)
 @AutoConfiguration(after = {RedisConfig.class})
@@ -192,7 +191,67 @@ public class TenantConfig {
 }
 ```
 
+#### 2.Redis缓存全局添加「租户ID前缀」逻辑
+```java
+public class TenantSpringCacheManager extends RedisCacheManager {
 
+    public TenantSpringCacheManager(RedisCacheWriter cacheWriter,
+                                    RedisCacheConfiguration defaultCacheConfiguration) {
+        super(cacheWriter, defaultCacheConfiguration);
+    }
+
+    @Override
+    public Cache getCache(String name) {
+        // 全局缓存，不添加租户前缀
+        if (StringUtils.contains(name, GlobalConstants.GLOBAL_REDIS_KEY)) {
+            return super.getCache(name);
+        }
+
+        // 忽略租户模式，不添加租户前缀
+        if (TenantHelper.isIgnore()) {
+            return super.getCache(name);
+        }
+
+        // 获取租户ID
+        String tenantId = TenantHelper.getTenantId();
+        if (StringUtils.isBlank(tenantId)) {
+            return super.getCache(name);
+        }
+
+        // 添加租户前缀
+        return super.getCache(tenantId + ":" + name);
+    }
+}
+```
+
+#### 4.SaToken中「用户登录状态KEY」的「global前缀」全局修改
+```java
+public class TenantSaTokenDao extends SaTokenDaoRedis {
+
+    /**
+     * 重写所有Key操作方法，添加全局前缀
+     */
+
+    @Override
+    public String get(String key) {
+        return super.get(GlobalConstants.GLOBAL_REDIS_KEY + key);
+    }
+
+    @Override
+    public void set(String key, String value, long timeout) {
+        super.set(GlobalConstants.GLOBAL_REDIS_KEY + key, value, timeout);
+    }
+
+    @Override
+    public void delete(String key) {
+        super.delete(GlobalConstants.GLOBAL_REDIS_KEY + key);
+    }
+
+    // ... 其他方法类似
+}
+```
+
+#### 5.
 ## ⛪ 场景设想
 - **场景 A**：在处理 [XXX] 代码逻辑时可以替代原有的 [YYY] 方法。
 - **场景 B**：在进行 [ZZZ] 决策时，用来规避逻辑谬误。
