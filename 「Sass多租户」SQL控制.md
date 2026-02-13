@@ -43,8 +43,8 @@ source:
 
 #### 1.核心组件
 - 租户上下文（tenantContext）
-- 租户拦截器（tenantInterceptor）
-- 租户处理器（tenantHandler）
+- 租户拦截器（tenantInterceptor）& 租户处理器（tenantHandler）
+- 用户登录
 
 ## 🚀 实践应用：
 
