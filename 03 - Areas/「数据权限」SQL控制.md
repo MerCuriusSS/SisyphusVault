@@ -40,7 +40,7 @@ source:
 
 ## 🧻 实践应用
 
-🔴 最小化实践&RuoYi-Vue-Plus 源码深度解析：[数据权限SQL控制源码](../04%20-%20Resources/数据权限SQL控制源码.md)
+🔴 最小化实践&RuoYi-Vue-Plus 源码深度解析：[数据权限SQL控制核心源码](../04%20-%20Resources/数据权限SQL控制核心源码.md)
 
 🔴 「RuoYi-Vue-Plus 源码」与「最小化实践 源码」比对
 
