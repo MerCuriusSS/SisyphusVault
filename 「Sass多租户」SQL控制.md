@@ -87,7 +87,33 @@ public class ProductController extends BaseController {
 }
 ```
 
-####
+##### 管理员接口
+```java
+// 查询所有租户数据（需要超级管理员权限）
+@SaCheckPermission("demo:product:listAll")
+@GetMapping("/listAll")
+public R<List<ProductVo>> listAll() {
+    return R.ok(productService.queryAllTenants());
+}
+
+// 查询指定租户数据
+@SaCheckPermission("demo:product:queryByTenant")
+@GetMapping("/tenant/{tenantId}")
+public R<List<ProductVo>> queryByTenant(@PathVariable String tenantId) {
+    return R.ok(productService.queryByTenantId(tenantId));
+}
+
+// 跨租户复制
+@SaCheckPermission("demo:product:copy")
+@PostMapping("/copy/{id}/to/{tenantId}")
+public R<Void> copyToTenant(@PathVariable Long id, @PathVariable String tenantId) {
+    return toAjax(productService.copyToTenant(id, tenantId));
+}
+```
+
+#### 2.Service层模式
+
+
 ## ⛪ 场景设想
 
 ### 🟣 SaaS CRM 系统
