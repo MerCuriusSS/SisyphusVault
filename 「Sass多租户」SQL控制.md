@@ -224,7 +224,7 @@ public class TenantSpringCacheManager extends RedisCacheManager {
 }
 ```
 
-#### 4.SaToken中「用户登录状态KEY」的「global前缀」全局修改
+#### 4.SaToken 中「用户登录状态KEY」的「global前缀」全局修改
 ```java
 public class TenantSaTokenDao extends SaTokenDaoRedis {
 
@@ -251,7 +251,27 @@ public class TenantSaTokenDao extends SaTokenDaoRedis {
 }
 ```
 
-#### 5.
+#### 5.TenantHelper租户上下文逻辑：
+```java
+public class TenantHelper{
+//保存动态租户ID的redis Key
+private static final String DYNAMIC_TENANT_KEY = GlobalConstants.GLOBAL_REDIS_KEY + "dynamicTenant";
+
+//动态切换用户的上下文【避免多次调用Redis】
+private static final ThreadLocal<String> TEMP_DYNAMIC_TENANT = new ThreadLocal<>();
+
+//忽略租户筛选
+public static void ignore(Runnable handle) {  
+    enableIgnore();  
+    try {  
+        handle.run();  
+    } finally {  
+        disableIgnore();  
+    }  
+}
+
+}
+```
 ## ⛪ 场景设想
 - **场景 A**：在处理 [XXX] 代码逻辑时可以替代原有的 [YYY] 方法。
 - **场景 B**：在进行 [ZZZ] 决策时，用来规避逻辑谬误。
