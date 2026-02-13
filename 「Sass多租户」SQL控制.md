@@ -112,7 +112,45 @@ public R<Void> copyToTenant(@PathVariable Long id, @PathVariable String tenantId
 ```
 
 #### 2.Service层模式
+##### 基础CRUD
+```java
+@Service
+@RequiredArgsConstructor
+public class ProductServiceImpl implements IProductService {
 
+    private final ProductMapper baseMapper;
+
+    // 查询（自动过滤当前租户）
+    @Override
+    public ProductVo queryById(Long id) {
+        return baseMapper.selectVoById(id);
+    }
+
+    // 新增（自动注入租户ID）
+    @Override
+    public Boolean insert(ProductBo bo) {
+        Product product = MapstructUtils.convert(bo, Product.class);
+        return baseMapper.insert(product) > 0;
+    }
+
+    // 更新（自动应用租户条件）
+    @Override
+    public Boolean update(ProductBo bo) {
+        Product product = MapstructUtils.convert(bo, Product.class);
+        return baseMapper.updateById(product) > 0;
+    }
+
+    // 删除（自动应用租户条件）
+    @Override
+    public Boolean delete(Long id) {
+        return baseMapper.deleteById(id) > 0;
+    }
+}
+```
+
+
+##### 2.管理员功能（忽略租户）
+··
 
 ## ⛪ 场景设想
 
