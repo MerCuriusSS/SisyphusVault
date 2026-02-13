@@ -128,9 +128,64 @@ public class TenantInterceptor implements Interceptor {
 ### 🟣 ruoyi 租户原实现
 >特点：MyBatis-Plus + Redis隔离 + 缓存隔离
 
-#### 1.动态控制租户开启功能
+#### 1.自动装配开启「租户开启」功能
 ```java
+@EnableConfigurationProperties(TenantProperties.class)
+@AutoConfiguration(after = {RedisConfig.class})
+@ConditionalOnProperty(value = "tenant.enable", havingValue = "true")
+public class TenantConfig {
 
+    /**
+     * 多租户插件
+     */
+    @Bean
+    public TenantLineInnerInterceptor tenantLineInnerInterceptor(
+            TenantProperties tenantProperties) {
+        return new TenantLineInnerInterceptor(
+            new PlusTenantLineHandler(tenantProperties)
+        );
+    }
+
+    /**
+     * 多租户 Redis Key 前缀处理器
+     */
+    @Bean
+    public RedissonAutoConfigurationCustomizer tenantRedissonCustomizer(
+            RedissonProperties redissonProperties) {
+        return config -> {
+            TenantKeyPrefixHandler nameMapper =
+                new TenantKeyPrefixHandler(redissonProperties.getKeyPrefix());
+
+            SingleServerConfig singleServerConfig = config.useSingleServer();
+            if (ObjectUtil.isNotNull(singleServerConfig)) {
+                singleServerConfig.setNameMapper(nameMapper);
+            }
+
+            ClusterServersConfig clusterServersConfig = config.useClusterServers();
+            if (ObjectUtil.isNotNull(clusterServersConfig)) {
+                clusterServersConfig.setNameMapper(nameMapper);
+            }
+        };
+    }
+
+    /**
+     * 多租户缓存管理器
+     */
+    @Primary
+    @Bean
+    public CacheManager tenantCacheManager() {
+        return new TenantSpringCacheManager();
+    }
+
+    /**
+     * 多租户鉴权 DAO 实现
+     */
+    @Primary
+    @Bean
+    public SaTokenDao tenantSaTokenDao() {
+        return new TenantSaTokenDao();
+    }
+}
 ```
 
 
