@@ -227,6 +227,9 @@ public Boolean migrateData(String fromTenantId, String toTenantId) {
     });
 }
 ```
+
+##### TenantHelper 工具类
+
 ## ⛪ 场景设想
 
 ### 🟣 SaaS CRM 系统
