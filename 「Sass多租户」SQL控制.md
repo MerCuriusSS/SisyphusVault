@@ -260,6 +260,22 @@ private static final String DYNAMIC_TENANT_KEY = GlobalConstants.GLOBAL_REDIS_KE
 //动态切换用户的上下文【避免多次调用Redis】
 private static final ThreadLocal<String> TEMP_DYNAMIC_TENANT = new ThreadLocal<>();
 
+//获取当前租户ID
+public static String getTenantId() {
+    if (!isEnable()) {
+        return null;
+    }
+
+    // 优先获取动态租户ID
+    String tenantId = TenantHelper.getDynamic();
+    if (StringUtils.isBlank(tenantId)) {
+        // 其次从登录用户获取
+        tenantId = LoginHelper.getTenantId();
+    }
+
+    return tenantId;
+}
+
 //忽略租户筛选
 public static void ignore(Runnable handle) {  
     enableIgnore();  
@@ -270,6 +286,118 @@ public static void ignore(Runnable handle) {
     }  
 }
 
+public static <T> T ignore(Supplier<T> handle) {  
+    enableIgnore();  
+    try {  
+        return handle.get();  
+    } finally {  
+        disableIgnore();  
+    }  
+}
+
+/**
+ * 设置动态租户
+ *
+ * @param tenantId 租户ID
+ * @param global   是否全局（true-存储到Redis，false-仅ThreadLocal）
+ */
+public static void setDynamic(String tenantId, boolean global) {
+    if (!isEnable()) {
+        return;
+    }
+
+    // 未登录或非全局模式，使用ThreadLocal
+    if (!LoginHelper.isLogin() || !global) {
+        TEMP_DYNAMIC_TENANT.set(tenantId);
+        return;
+    }
+
+    // 全局模式，存储到Redis
+    String cacheKey = DYNAMIC_TENANT_KEY + ":" + LoginHelper.getUserId();
+    RedisUtils.setCacheObject(cacheKey, tenantId);
+
+    // 同时存储到SaToken会话中（避免重复查询Redis）
+    SaHolder.getStorage().set(cacheKey, tenantId);
+}
+
+/**
+ * 获取动态租户
+ */
+public static String getDynamic() {
+    if (!isEnable()) {
+        return null;
+    }
+
+    // 1. 优先从ThreadLocal获取
+    String tenantId = TEMP_DYNAMIC_TENANT.get();
+    if (StringUtils.isNotBlank(tenantId)) {
+        return tenantId;
+    }
+
+    // 2. 未登录，返回null
+    if (!LoginHelper.isLogin()) {
+        return null;
+    }
+
+    // 3. 从SaToken会话获取（请求级缓存）
+    String cacheKey = DYNAMIC_TENANT_KEY + ":" + LoginHelper.getUserId();
+    tenantId = (String) SaHolder.getStorage().get(cacheKey);
+    if (StringUtils.isNotBlank(tenantId)) {
+        return tenantId;
+    }
+
+    // 4. 从Redis获取（持久化存储）
+    tenantId = RedisUtils.getCacheObject(cacheKey);
+    if (StringUtils.isNotBlank(tenantId)) {
+        // 缓存到SaToken会话
+        SaHolder.getStorage().set(cacheKey, tenantId);
+        return tenantId;
+    }
+
+    return null;
+}
+
+/**
+ * 清除动态租户
+ */
+public static void clearDynamic() {
+    if (!isEnable()) {
+        return;
+    }
+
+    // 清除ThreadLocal
+    TEMP_DYNAMIC_TENANT.remove();
+
+    if (!LoginHelper.isLogin()) {
+        return;
+    }
+
+    // 清除Redis和SaToken会话
+    String cacheKey = DYNAMIC_TENANT_KEY + ":" + LoginHelper.getUserId();
+    RedisUtils.deleteObject(cacheKey);
+    SaHolder.getStorage().delete(cacheKey);
+}
+
+/**
+ * 在动态租户中执行
+ */
+public static void dynamic(String tenantId, Runnable handle) {
+    setDynamic(tenantId);
+    try {
+        handle.run();
+    } finally {
+        clearDynamic();
+    }
+}
+
+public static <T> T dynamic(String tenantId, Supplier<T> handle) {
+    setDynamic(tenantId);
+    try {
+        return handle.get();
+    } finally {
+        clearDynamic();
+    }
+}
 }
 ```
 ## ⛪ 场景设想
