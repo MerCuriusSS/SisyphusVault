@@ -37,7 +37,7 @@ address: https://gitee.com/dromara/RuoYi-Vue-Plus
 ## 🍎关键成果——「实现里程碑」
 
 - [ ] ⚠️ 拆解「Ruoyi-Vue-Plus」项目构造以及模块划分
-- [ ] ⚠️ 掌握「Ruoyi-Vue-Plus」的功能模块设计思想
+- [ ] ⚠️ 掌握「Ruoyi-Vue-Plus」的功能模块「按需加载」设计思想
 - [ ] ⚠️ 
 
 
