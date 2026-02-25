@@ -38,7 +38,8 @@ address: https://gitee.com/dromara/RuoYi-Vue-Plus
 
 - [ ] ⚠️ 拆解「Ruoyi-Vue-Plus」项目构造以及模块划分
 - [ ] ⚠️ 掌握「Ruoyi-Vue-Plus」的功能模块「按需加载」设计思想
-- [ ] ⚠️ 
+- [ ] ⚠️ 厘清「过滤器」与「拦截器」概念与应用场景
+- [ ] 
 
 
 
