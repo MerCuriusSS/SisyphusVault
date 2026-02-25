@@ -16,7 +16,7 @@ source:
 > 🔴 **应用场景**：“通用规则”控制（跨域、解密、XSS）
 
 
->[!important] 控制权演变——「传统web应用」 VS 「Springboot应用」
+>[!success] 控制权演变——「传统web应用」 VS 「Springboot应用」
 >🔴 **servlet**是web应用**底座**——准备web运行的一切基础组件，包括过滤器，**spring**容器是用户创建实例的**代工厂**——准备一切非web组件的业务Bean（Service）。**springMVC**则是spring容器内**专精**处理**Web** 相关的Bean（Controller）
 >
 >🔴 **传统应用**中启动顺序是**servlet->spring容器**，因此spring容器**无法**干涉过滤器，filter由servlet创建。
