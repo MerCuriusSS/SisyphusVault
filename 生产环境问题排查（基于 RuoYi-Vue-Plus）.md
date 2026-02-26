@@ -61,10 +61,10 @@ source: "[[生产环境问题排查完全指南]]"
 	- 应用指标（连接池、GC、线程）
 	- 业务指标（QPS、请求耗时）
 - **使用方法论（怎么记）**
-	- 请求耗时：设置「**拦截器**」在请求前后记录时间统计总耗时
+	- 请求耗时：用「**拦截器**」工具在请求前后记录时间统计总耗时
 	- 数据库监控：
 		- **慢SQL监控**：开启数据库慢查询日志（/var/log/mysql/slow.log），从日志中统计执行时间长的SQL。
-		- **连接池（HikariCP）连接情况**：Actuator采集指标数据、 Prometheus+Grafana实现可视化和趋势展示
+		- **连接池（HikariCP）连接情况**：**Actuator**采集指标数据、 Prometheus+Grafana实现可视化和趋势展示
 			- 查看活跃连接数（hikaricp.connections.active）
 			- 查看等待连接的线程数（hikaricp.connections.pending）
 	- JVM监控：（**Actuator** 通过 JMX自动采集 + 接口访问）
