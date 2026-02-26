@@ -76,7 +76,7 @@ address: https://gitee.com/dromara/RuoYi-Vue-Plus
 
 ## 📝 推进日志
 
-### {{date}}
+### 2026/02/26
 
 **任务区：**
 
