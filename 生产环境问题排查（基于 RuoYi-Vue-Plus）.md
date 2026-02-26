@@ -67,7 +67,7 @@ source: "[[生产环境问题排查完全指南]]"
 		- **连接池（HikariCP）连接情况**：Actuator采集指标数据、 Prometheus+Grafana实现可视化和趋势展示
 			- 查看活跃连接数（hikaricp.connections.active）
 			- 查看等待连接的线程数（hikaricp.connections.pending）
-	- JVM监控：（**Actuator** 通过 JMX自动采集）
+	- JVM监控：（**Actuator** 通过 JMX自动采集 + 接口访问）
 		- **JVM内存**（/actuator/metrics/jvm.memory.used）
 		- **GC垃圾回收**
 			- YoungGC/FullGC 次数（/actuator/metrics/jvm.gc.collection.count）
@@ -75,7 +75,7 @@ source: "[[生产环境问题排查完全指南]]"
 		- **线程**
 			- 活跃线程数（/actuator/metrics/jvm.threads.live）
 			- 阻塞线程数（/actuator/metrics/jvm.threads.blocked）
-	- 系统指标：（**Actuator** 通过 操作系统接口自动采集）
+	- 系统指标：（**Actuator** 通过 操作系统接口自动采集 + 接口访问）
 		- **CPU 使用率**（/actuator/metrics/system.cpu.usage）
 		- **系统内存使用**（/actuator/metrics/system.memory.used）
 		- **磁盘使用率**（/actuator/metrics/disk.usage）
