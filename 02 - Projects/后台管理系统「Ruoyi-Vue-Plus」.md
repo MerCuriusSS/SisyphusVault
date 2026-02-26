@@ -44,4 +44,54 @@ address: https://gitee.com/dromara/RuoYi-Vue-Plus
 - [ ] ⚠️ 建立「生产环境排查」所需的认知
 
 
+## ✅ 待办任务
 
+>[!note] tasks
+> ```tasks
+> not done
+> path includes {{query.file.path}}
+> group by priority
+> description does not include ⚠️
+> ```
+
+
+## 🧠 关联知识 
+
+>[!example] Areas
+> ```dataview
+> LIST 
+> FROM "03 - Areas"
+> WHERE project=this.file.link
+> ```
+
+
+## 📚 参考资源
+
+>[!question] resources
+>```dataview
+>LIST FROM "04 - Resources"
+>WHERE project = this.file.link
+>```
+
+
+## 📝 推进日志
+
+### {{date}}
+
+**任务区：**
+
+- [ ] 待办任务1... ⏫
+- [ ] 待办任务2:..
+
+**记录区：**
+
+踩坑记录。。。。
+
+---
+
+
+
+🏁 项目收口
+
+- [ ] ⚠️归档前清理：所有 Task 是否已完成？
+- [ ] ⚠️沉淀：是否有 Areas 笔记需要转化为永久知识？
