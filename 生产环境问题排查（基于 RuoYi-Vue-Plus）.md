@@ -63,9 +63,10 @@ source: "[[生产环境问题排查完全指南]]"
 	- 请求耗时：设置「**拦截器**」在请求前后记录时间统计总耗时
 	- 数据库监控：
 		- **慢SQL监控**：开启数据库慢查询日志（/var/log/mysql/slow.log），从日志中统计执行时间长的SQL。
-		- **连接池（HikariCP）连接情况**：Actuator采集指标数据、 Prometheus+Grafana
+		- **连接池（HikariCP）连接情况**：Actuator采集指标数据、 Prometheus+Grafana实现可视化和趋势展示
 			- 查看活跃连接数（hikaricp.connections.active）
 			- 查看等待连接的线程数（hikaricp.connections.pending）
+	- JVM监控：
 #### 3. 追踪（Traces）
 - **定义**：记录一个请求在分布式系统中的完整调用链路
 - **意义**：理解不同服务依赖关系、性能瓶颈分析
