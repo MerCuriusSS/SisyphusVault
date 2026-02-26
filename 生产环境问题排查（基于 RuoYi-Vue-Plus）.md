@@ -6,7 +6,7 @@ category: 技术
 status: 加工
 project: "[[02 - Projects/后台管理系统「Ruoyi-Vue-Plus」|后台管理系统「Ruoyi-Vue-Plus」]]"
 application: 生产问题排查
-source: "[[生产环境问题排查完全指南]]"
+source: "[[04 - Resources/生产环境问题排查完全指南]]"
 ---
 >**笔记不是为了复述书本，而是为了**“存档当下的自己”。如果你的笔记里没有你的思考痕迹、痛苦经历和选择理由**，它就只是一份毫无生命力的说明书，自然无法在未来唤醒你的认知***
 
