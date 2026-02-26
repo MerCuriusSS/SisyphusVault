@@ -68,18 +68,18 @@ source: "[[生产环境问题排查完全指南]]"
 			- 查看活跃连接数（hikaricp.connections.active）
 			- 查看等待连接的线程数（hikaricp.connections.pending）
 	- JVM监控：（**Actuator** 通过 JMX自动采集）
-		- JVM内存（/actuator/metrics/jvm.memory.used）
-		- GC垃圾回收
+		- **JVM内存**（/actuator/metrics/jvm.memory.used）
+		- **GC垃圾回收**
 			- YoungGC/FullGC 次数（/actuator/metrics/jvm.gc.collection.count）
 			- GC 单次耗时 / 总耗时（/actuator/metrics/jvm.gc.pause）
-		- 线程
+		- **线程**
 			- 活跃线程数（/actuator/metrics/jvm.threads.live）
 			- 阻塞线程数（/actuator/metrics/jvm.threads.blocked）
 	- 系统指标：（**Actuator** 通过 操作系统接口自动采集）
-		- CPU 使用率（/actuator/metrics/system.cpu.usage）
-		- 系统内存使用（/actuator/metrics/system.memory.used）
-		- 磁盘使用率（/actuator/metrics/disk.usage）
-		- 网络入 / 出流量（/actuator/metrics/net.bytes）
+		- **CPU 使用率**（/actuator/metrics/system.cpu.usage）
+		- **系统内存使用**（/actuator/metrics/system.memory.used）
+		- **磁盘使用率**（/actuator/metrics/disk.usage）
+		- **网络入 / 出流量**（/actuator/metrics/net.bytes）
 #### 3. 追踪（Traces）
 - **定义**：记录一个请求在分布式系统中的完整调用链路
 - **意义**：理解不同服务依赖关系、性能瓶颈分析
