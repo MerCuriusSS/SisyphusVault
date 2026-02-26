@@ -76,7 +76,10 @@ source: "[[生产环境问题排查完全指南]]"
 			- 活跃线程数（/actuator/metrics/jvm.threads.live）
 			- 阻塞线程数（/actuator/metrics/jvm.threads.blocked）
 	- 系统指标：（**Actuator** 通过 操作系统接口自动采集）
-	- 
+		- CPU 使用率（/actuator/metrics/system.cpu.usage）
+		- 系统内存使用（/actuator/metrics/system.memory.used）
+		- 磁盘使用率（/actuator/metrics/disk.usage）
+		- 网络入 / 出流量（）
 #### 3. 追踪（Traces）
 - **定义**：记录一个请求在分布式系统中的完整调用链路
 - **意义**：理解不同服务依赖关系、性能瓶颈分析
