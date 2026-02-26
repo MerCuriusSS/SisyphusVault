@@ -68,7 +68,8 @@ source: "[[生产环境问题排查完全指南]]"
 			- 查看活跃连接数（hikaricp.connections.active）
 			- 查看等待连接的线程数（hikaricp.connections.pending）
 	- JVM监控：（Actuator 通过 JMX自动采集）
-	- 系统指标：
+		- 
+	- 系统指标：（Actuator 通过 操作系统接口自动采集）
 #### 3. 追踪（Traces）
 - **定义**：记录一个请求在分布式系统中的完整调用链路
 - **意义**：理解不同服务依赖关系、性能瓶颈分析
