@@ -68,10 +68,10 @@ source: "[[生产环境问题排查完全指南]]"
 			- 查看活跃连接数（hikaricp.connections.active）
 			- 查看等待连接的线程数（hikaricp.connections.pending）
 	- JVM监控：（Actuator 通过 JMX自动采集）
-		- JVM内存
-			- 堆内存使用（/actuator/metrics/jvm.memory.used）
-			- 非堆内存使用（）
+		- JVM内存（/actuator/metrics/jvm.memory.used）
 		- GC垃圾回收
+			- YoungGC/FullGC 次数
+			- GC 单次耗时 / 总耗时
 		- 线程
 	- 系统指标：（Actuator 通过 操作系统接口自动采集）
 #### 3. 追踪（Traces）
