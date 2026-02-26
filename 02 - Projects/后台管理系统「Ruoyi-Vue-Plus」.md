@@ -87,7 +87,7 @@ address: https://gitee.com/dromara/RuoYi-Vue-Plus
 - [x] 如何应用到实际应用场景。 ✅ 2026-02-26
 
 **记录区：**
-1. 问题排查
+1. 问题排查不只依赖于「日志」，还需要「指标」
 
 ---
 
