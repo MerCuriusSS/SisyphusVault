@@ -80,8 +80,8 @@ address: https://gitee.com/dromara/RuoYi-Vue-Plus
 
 **任务区：**
 
-- [ ] 待办任务1... ⏫
-- [ ] 待办任务2:..
+- [ ]  
+- [ ] 
 
 **记录区：**
 
