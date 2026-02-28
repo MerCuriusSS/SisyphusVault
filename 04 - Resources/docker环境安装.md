@@ -1,4 +1,5 @@
 #Areas/Coder/环境配置 
+
 ```bash
 # 1. 卸载旧版本（如果有）
 sudo yum remove docker \
@@ -51,3 +52,4 @@ EOF
 sudo systemctl daemon-reload
 sudo systemctl restart docker
 ```
+
