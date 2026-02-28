@@ -54,3 +54,14 @@ sudo systemctl restart docker
 ```
 
 ### docker-compose安装
+
+#### 它解决了什么问题？
+- 将多容器的启动配置命令集中到一个文件，告别多段冗长的`docker run`命令，省事。
+- 多容器能分配到同一个网络中，告别记住各个容器可能变化的`IP`地址。
+- 一键启停 / 重启 / 查看所有容器，管理效率提升数倍。
+
+```bash
+# 以 Linux 为例安装 Docker Compose V2
+sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+```
