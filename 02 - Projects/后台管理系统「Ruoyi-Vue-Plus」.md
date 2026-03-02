@@ -132,7 +132,7 @@ address: https://gitee.com/dromara/RuoYi-Vue-Plus
 
 **记录区**
 1. RBAC模型的核心定义表示①基于角色的权限控制②一种解决用户权限分配爆炸的设计思想。
-2. 记录RBAC的提问钩子——
+2. 记录RBAC的问题钩子——权限意识薄弱，被面试官吊打；系统
 
 
 🏁 项目收口
