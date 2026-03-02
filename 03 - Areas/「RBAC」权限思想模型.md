@@ -43,7 +43,7 @@ source:
 | role_name | 角色名 |
 
 -  **sys_menu（权限表）**
-- 权限规则：模块:子模块:操作
+- 权限标识符**命名规则**：模块:子模块:操作
 	- system:user:list（菜单/列表查询）
 	- system:user:query（查询详情）
 	- system:user:edit（编辑）
