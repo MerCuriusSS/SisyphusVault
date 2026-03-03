@@ -42,7 +42,7 @@ address: https://gitee.com/dromara/RuoYi-Vue-Plus
 - [ ] ⚠️ 厘清「过滤器」与「拦截器」概念与应用场景
 - [ ] ⚠️ 掌握「RBAC」权限设计思想以及「Sa-Token」认证框架
 - [ ] ⚠️ 建立「生产环境排查」所需的认知
-- [ ] ⚠️ 建立「接口开发全生命周期」规范指南
+- [ ] ⚠️ 建立「接口开发」规范指南
 
 
 ## ✅ 待办任务
@@ -150,6 +150,7 @@ address: https://gitee.com/dromara/RuoYi-Vue-Plus
 ### 2026/03/03
 
 **任务区**
+- [ ] 总结系统
 
 **记录区**
 
