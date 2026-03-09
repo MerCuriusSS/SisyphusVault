@@ -97,7 +97,9 @@ public interface SysUserMapper extends BaseMapper<SysUser> {
 > 
 > **范围**：过滤器（filter）是规则控制是「**URL**」级别，无法感知业务方法，拿不到Spring中的service【springboot项目中filter的自建权被移交到spring容器中，允许注入】；拦截器（interceptor）是「**Method**」级别，通过`handler`感知controller方法**注解**，并能与注入**Spring Bean**协同工作；控制更精细——涵盖`preHandle`（拦截）、`postHandle`（结果加工）、`afterCompletion`（清理）**三阶段。**
 > 
-> **应用场景**：过滤器（filter）控制“**通用规则**”（跨域、解密、XSS）；拦截器（interceptor）控制“**业务规则**”（权限、日志等）
+> **应用场景**：
+> - 过滤器（filter）控制“**通用规则**”（跨域、解密、XSS）；[过滤器「Filter」](过滤器「Filter」.md)
+> - 拦截器（interceptor）控制“**业务规则**”（权限、日志等）[「Sass多租户」SQL控制](「Sass多租户」SQL控制.md) 、[「数据权限」SQL控制](「数据权限」SQL控制.md)
 
 
 >[!important] 拦截器&过滤器应用——业务执行链
