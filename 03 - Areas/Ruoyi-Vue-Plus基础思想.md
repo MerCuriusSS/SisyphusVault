@@ -93,7 +93,7 @@ public interface SysUserMapper extends BaseMapper<SysUser> {
 ## 3.非侵入的链式增强思想
 
 >[!important] **概念厘清**：「拦截器」VS 「过滤器」
-> **身份**：过滤器（filter）是**servlet**组件；拦截器（dispatchServlet-interceptor）是**spring容器**组件。
+> **身份**：过滤器（filter）是**servlet**组件；拦截器（MVC-interceptor）是**spring容器**组件。
 > 
 > **范围**：过滤器（filter）是规则控制是「**URL**」级别，无法感知业务方法，拿不到Spring中的service【springboot项目中filter的自建权被移交到spring容器中，允许注入】；拦截器（interceptor）是「**Method**」级别，通过`handler`感知controller方法**注解**，并能与注入**Spring Bean**协同工作；控制更精细——涵盖`preHandle`（拦截）、`postHandle`（结果加工）、`afterCompletion`（清理）**三阶段。**
 > 
