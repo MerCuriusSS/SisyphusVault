@@ -29,9 +29,59 @@ source:
 >
 >**拓展服务（extended）**：监控、分布式定时任务
 
+# 🟡 架构设计思想
+## 1. 三层架构 + BO/VO分离
 
-# 🟢 重点模块拆解 ：
-## 一、功能模块（common）
+```
+Controller层 (接收请求)
+    ↓
+Service层 (业务逻辑)
+    ↓
+Mapper层 (数据访问)
+    ↓
+Database (数据存储)
+
+数据传输对象：
+- BO (Business Object): 业务对象，用于接收前端参数
+- VO (View Object): 视图对象，用于返回给前端
+- Entity: 实体对象，对应数据库表
+```
+
+```java
+// Controller层：只负责接收请求和返回响应
+@RestController
+@RequestMapping("/system/user")
+public class SysUserController {
+    @Autowired
+    private ISysUserService userService;
+
+    @PostMapping()
+    public R<Void> add(@RequestBody SysUserBo bo) {
+        return toAjax(userService.insertByBo(bo));
+    }
+}
+
+// Service层：处理业务逻辑
+@Service
+public class SysUserServiceImpl implements ISysUserService {
+    @Autowired
+    private SysUserMapper userMapper;
+
+    public boolean insertByBo(SysUserBo bo) {
+        SysUser user = BeanUtil.toBean(bo, SysUser.class);
+        return userMapper.insert(user) > 0;
+    }
+}
+
+// Mapper层：只负责数据访问
+@Mapper
+public interface SysUserMapper extends BaseMapper<SysUser> {
+    // MyBatis-Plus提供基础CRUD，无需编写SQL
+}
+```
+
+## 2.自动装配的「starter」式思想
+
 >[!important] 自动装配的「starter」式思想
 >**目标**：1.将通用模块拆解成可复用starter，实现按需加载（用则加载、不用则不加载），精简程序包；2.控制配置类加载顺序，避免容器加载混乱。
 >
@@ -40,7 +90,6 @@ source:
 >**规则**：没有加@AutoConfiguration注解的类会被跳过，不报错，不影响启动；@AutoConfiguration默认优先级低于用户自定义配置类；使用@AutoConfigureBefore/After可强制控制加载顺序，优先级高于容器默认（无规则随机）顺序；
 
 
-## 二、业务模块（system）
 
 
 >[!warning] **概念厘清**：「拦截器」VS 「过滤器」
