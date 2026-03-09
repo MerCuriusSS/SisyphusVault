@@ -25,7 +25,7 @@ address: https://gitee.com/dromara/RuoYi-Vue-Plus
     
 [Claude Code拆解复杂业务项目方法论](../04%20-%20Resources/Claude%20Code拆解复杂业务项目方法论.md)
 
-[Ruoyi-Vue-Plus构建基础以及模块划分](../Ruoyi-Vue-Plus构建基础以及模块划分.md)
+[Ruoyi-Vue-Plus构建规范以及模块划分](../Ruoyi-Vue-Plus构建规范以及模块划分.md)
 
 ---
 
