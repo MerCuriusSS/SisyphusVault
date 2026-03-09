@@ -90,9 +90,9 @@ public interface SysUserMapper extends BaseMapper<SysUser> {
 >**规则**：没有加@AutoConfiguration注解的类会被跳过，不报错，不影响启动；@AutoConfiguration默认优先级低于用户自定义配置类；使用@AutoConfigureBefore/After可强制控制加载顺序，优先级高于容器默认（无规则随机）顺序；
 
 
+## 3.非侵入的链式增强思想
 
-
->[!warning] **概念厘清**：「拦截器」VS 「过滤器」
+>[!important] **概念厘清**：「拦截器」VS 「过滤器」
 > **身份**：过滤器（filter）是**servlet**组件；拦截器（dispatchServlet-interceptor）是**spring容器**组件。
 > 
 > **范围**：过滤器（filter）是规则控制是「**URL**」级别，无法感知业务方法，拿不到Spring中的service【springboot项目中filter的自建权被移交到spring容器中，允许注入】；拦截器（interceptor）是「**Method**」级别，通过`handler`感知controller方法**注解**，并能与注入**Spring Bean**协同工作；控制更精细——涵盖`preHandle`（拦截）、`postHandle`（结果加工）、`afterCompletion`（清理）**三阶段。**
@@ -100,7 +100,7 @@ public interface SysUserMapper extends BaseMapper<SysUser> {
 > **应用场景**：过滤器（filter）控制“**通用规则**”（跨域、解密、XSS）；拦截器（interceptor）控制“**业务规则**”（权限、日志等）
 
 
->[!bug] 拦截器&过滤器应用——业务执行链
+>[!important] 拦截器&过滤器应用——业务执行链
 >
 ├─ ==***第一层：Servlet Filter 链（请求前置过滤）***==
 │  ├─ 🔴 **CryptoFilter**（order=-2147483648，ApiDecryptAutoConfiguration.java:27）：请求/响应加密解密
