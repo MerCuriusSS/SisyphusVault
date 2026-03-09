@@ -3,7 +3,7 @@ tags:
   - Areas/Coder/javaWeb
 category: 技术
 status: 加工
-project: "[[后台管理系统「Ruoyi-Vue-Plus」]]"
+project: "[[../02 - Projects/后台管理系统「Ruoyi-Vue-Plus」]]"
 application: 工业级项目构建规范
 source:
 ---
