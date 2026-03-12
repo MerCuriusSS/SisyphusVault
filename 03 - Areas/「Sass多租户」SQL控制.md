@@ -4,7 +4,7 @@ tags:
   - Areas/Coder/基础原理
 category: 技术
 status: 加工
-project: "[[02 - Projects/后台管理系统「Ruoyi-Vue-Plus」|后台管理系统「Ruoyi-Vue-Plus」]]"
+project: "[[../02 - Projects/后台管理系统「Ruoyi-Vue-Plus」|后台管理系统「Ruoyi-Vue-Plus」]]"
 application: 租户逻辑隔离
 source:
 ---
@@ -46,12 +46,12 @@ source:
 - 租户拦截器（tenantInterceptor）& 租户处理器（tenantHandler）
 - 用户登录状态上下文（SaToken）
 - 缓存组件（Redis）
-#### 2.「组件」流程概览图：[「多租户隔离」流程概览图](excalidraw/「多租户隔离」流程概览图.md)
-#### 3.「数据流转」流程图：[「多租户隔离」数据流转图](excalidraw/「多租户隔离」数据流转图.md)
+#### 2.「组件」流程概览图：[「多租户隔离」流程概览图](../excalidraw/「多租户隔离」流程概览图.md)
+#### 3.「数据流转」流程图：[「多租户隔离」数据流转图](../excalidraw/「多租户隔离」数据流转图.md)
 
 ## 🚀 实践应用：
 
-### 🟣 最小化实践&ruoyi原实现： [Saas多租户核心源码](Saas多租户核心源码.md)
+### 🟣 最小化实践&ruoyi原实现： [Saas多租户核心源码](../04%20-%20Resources/Saas多租户核心源码.md)
 ### 🟣 「最小实践」与「ruoyi实现」比对
 
 | 特性     | 最小化实践                     | ruoyi实现              | 核心逻辑                                                                                |
