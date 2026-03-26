@@ -42,7 +42,8 @@ source:
 
 ### 🟣CPU查询操作
 - 查询CPU核数 `grep -c processor /proc/cpuinfo`
-- 查询CPU当前负载（LOAD）
+- 查询CPU当前任务处理负载（LOAD）情况（与COU核数对齐）
+
 - 查询CPU使用情况 `top`：
 1. 整机CPU使用情况（%）
 ```bash
