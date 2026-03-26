@@ -42,9 +42,12 @@ source:
 
 ### 🟣CPU查询操作
 - 查询CPU核数 `grep -c processor /proc/cpuinfo`
-- 查询CPU当前任务处理负载（LOAD）情况（与CPU核数对齐）`uptime`
+- 查询CPU负载（LOAD）情况（与CPU核数对齐）`uptime`
 ```bash
-
+load average: 0.98, 1.03, 0.87
+----------------------------------
+0.98：一分钟平均负载
+1.03:
 ```
 - 查询CPU使用情况 `top`：
 1. 整机CPU使用情况（%）
