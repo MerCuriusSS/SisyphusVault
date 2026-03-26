@@ -30,7 +30,14 @@ source:
 - 方法中存在大量重复代码，只有某段代码存在变化，变化的代码因无法抽象出来，只能改源码/生成新方法再重复编写新代码
 
 ### 🟣类型
-- Supplier：有
+- Supplier：无入有出
+- Consumer：有入无出
+- Function：有入有出
+- Predicate：有入布尔出
+- 自定义接口
+```java
+public interface myFunction
+```
 
 ## 🚀 实践应用：
 
