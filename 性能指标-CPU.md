@@ -1,6 +1,8 @@
 ---
 tags:
-category: 技术或思维
+  - Areas/基础概念
+  - Areas/Coder/javaWeb
+category: 思维
 status: 加工
 project:
 application:
