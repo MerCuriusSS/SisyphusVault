@@ -41,6 +41,7 @@ source:
 ## 🚀 实践应用：
 
 ### 🟣CPU查询操作
+- 查询CPU
 `top`：
 整机CPU使用情况（%）
 ```bash
@@ -54,7 +55,8 @@ id（idle）：CPU空闲情况（92.5%）
 ```bash
 PID USER      PR  NI    VIRT    RES  SHR S  %CPU  %MEM     TIME+ COMMAND
 1234 root      20   0  212344  56672  8224 S  185.7  1.4   123:45 java
--------------------
+---------------------------------------
+java单程序使用的核数情况
 ```
 
 
