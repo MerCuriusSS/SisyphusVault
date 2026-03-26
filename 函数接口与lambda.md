@@ -13,7 +13,10 @@ source:
 ## 💥 核心结论
 >核心定义是什么? 核心价值在哪里?
 
-### 🟣 核心定义：函数接口是只有一个抽象方法的接口；lambda是一段可传递的「行为」，是函数接口的具体实现。
+### 🟣 核心定义：
+- 函数接口是只有一个抽象方法的接口；
+- lambda是一段可传递的「行为」，是函数接口的具体实现。
+`()->{//方法体}`
 
 ### 🟣 核心价值：能够传递「行为」（一段代码），并控制其「何时使用」，而非已经执行的「死结果」
 
@@ -36,7 +39,10 @@ source:
 - Predicate：有入布尔出
 - 自定义接口
 ```java
-public interface myFunction
+@FunctionalInterface
+public interface myFunction{
+	int calculate(int a,int b);
+}
 ```
 
 ## 🚀 实践应用：
