@@ -42,16 +42,19 @@ source:
 
 ### 🟣CPU查询操作
 - 查询CPU核数 `grep -c processor /proc/cpuinfo`
-- 查询CPU使用情况 `top`：
-整机CPU使用情况（%）
-```bash
+- 查询CPU使用情况 ：
+	- `top`
+	1. 整机CPU使用情况（%）
+	```bash
 %Cpu(s): 5.8 us, 1.2 sy, 0.0 ni, 92.5 id, 0.0 wa, 0.0 hi, 0.0 si, 0.0 st
 ----------------------------------------
 us：用户态CPU使用情况（5.8%）
 sy：系统态CPU使用情况（1.2%）
 id（idle）：CPU空闲情况（92.5%）
 ```
-进程CPU使用情况
+	1. 
+
+2. 进程CPU使用情况
 ```bash
 PID USER      PR  NI    VIRT    RES  SHR S  %CPU  %MEM     TIME+ COMMAND
 1234 root      20   0  212344  56672  8224 S  185.7  1.4   123:45 java
