@@ -41,8 +41,8 @@ source:
 ## 🚀 实践应用：
 
 ### 🟣CPU查询操作
-- 查询CPU
-`top`：
+- 查询CPU核数 `grep -c processor /proc/cpuinfo`
+- 查询CPU使用情况 `top`：
 整机CPU使用情况（%）
 ```bash
 %Cpu(s): 5.8 us, 1.2 sy, 0.0 ni, 92.5 id, 0.0 wa, 0.0 hi, 0.0 si, 0.0 st
@@ -58,8 +58,3 @@ PID USER      PR  NI    VIRT    RES  SHR S  %CPU  %MEM     TIME+ COMMAND
 ---------------------------------------
 java单程序使用的核数情况
 ```
-
-
-## ⛪ 场景设想
-- **场景 A**：在处理 [XXX] 代码逻辑时可以替代原有的 [YYY] 方法。
-- **场景 B**：在进行 [ZZZ] 决策时，用来规避逻辑谬误。
