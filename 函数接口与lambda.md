@@ -26,15 +26,84 @@ source:
 - 一直弄不懂函数接口的核心价值，不知道使用场景，为什么用？
 
 ### 解决痛点
-- 无法控制某段代码的
+- 无法控制某段代码的执行顺序，传统方式只能传执行结果，相当于代码在方法中先执行
+- 方法中存在大量重复代码，只有某段代码存在变化，变化的代码因无法抽象出来，只能改源码/生成新方法再重复编写新代码
 
 ## ⚡️ 我的重构
 >它的底层逻辑是什么？（尝试用最简单的类比解释给外行听）它的结构是什么?
 
+
+
 ## 🚀 实践应用：
 
-### 🟣 最小化实践：
+### 🟣 最佳实践：
+当多个方法**大部分代码一模一样，只有一小段逻辑不同**时，把**变化的那部分逻辑**抽象成函数式接口，作为参数传入，实现**一个通用方法适配所有场景**，消除重复代码
 
 ## ⛪ 场景设想
-- **场景 A**：在处理 [XXX] 代码逻辑时可以替代原有的 [YYY] 方法。
-- **场景 B**：在进行 [ZZZ] 决策时，用来规避逻辑谬误。
+- 传统重复代码：
+```java
+// 筛选成年人
+public static List<User> filterAdult(List<User> users) {
+    List<User> result = new ArrayList<>();
+    for (User user : users) {
+        // 只有这里不一样
+        if (user.getAge() >= 18) { 
+            result.add(user);
+        }
+    }
+    return result;
+}
+
+// 筛选男性
+public static List<User> filterMale(List<User> users) {
+    List<User> result = new ArrayList<>();
+    for (User user : users) {
+        // 只有这里不一样
+        if (user.getSex().equals("男")) {
+            result.add(user);
+        }
+    }
+    return result;
+}
+
+// 筛选余额>100
+public static List<User> filterMoney(List<User> users) {
+    List<User> result = new ArrayList<>();
+    for (User user : users) {
+        // 只有这里不一样
+        if (user.getMoney() > 100) {
+            result.add(user);
+        }
+    }
+    return result;
+}
+```
+
+- 函数接口式方法
+```java
+// 通用筛选方法
+public static List<User> filter(
+    List<User> users,
+    Predicate<User> predicate  // 变化的逻辑，外部传入
+) {
+    // 以下全是不变的代码
+    List<User> result = new ArrayList<>();
+    for (User user : users) {
+        // 使用传入的逻辑
+        if (predicate.test(user)) { 
+            result.add(user);
+        }
+    }
+    return result;
+}
+//=====================调用时===========================
+
+// 筛选成年
+filter(users, user -> user.getAge() >= 18);
+
+// 筛选男性
+filter(users, user -> user.getSex().equals("男"));
+
+// 筛选余额>100
+filter(users, user -> user.getMoney() > 100);
+```
