@@ -8,3 +8,5 @@ project:
 application:
 source:
 ---
+### 定义
+程序 与 磁盘 之间「读数据、写数据」的过程
