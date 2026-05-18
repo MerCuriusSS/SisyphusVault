@@ -73,6 +73,8 @@ prometheus --config.file=D:\workspace\MyProject\monitorProject\prometheus\promet
 	- 指标名称：`http_requests_total、order_create_total`等
 	- 标签匹配：用`{}`包裹，用来筛选维度（job、status、path等）
 	- 时间范围：用于增量函数，表示取多久内的数据，如：`rate(http_requests_total[1m])`
+
+#### 🔴定义prometheus可视化
 ### 三、Grafana可视化prometheus采集的数据
 
 #### 🔴
