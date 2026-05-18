@@ -68,9 +68,10 @@ prometheus --config.file=D:\workspace\MyProject\monitorProject\prometheus\promet
 ```
 
 #### 🔴promql实现采集验证
-- promql
-	- **定义**：查询prometheus采集数据的语法(http_server_requests_seconds_count)
-	- **语法结构**：`<聚合函数>( <内置函数>( 指标名{标签过滤} [时间区间] ) ) <运算> <条件>`
+- **定义**：查询prometheus采集数据的语法(http_server_requests_seconds_count)
+- **语法结构**：`函数( 指标名称{标签匹配} [时间范围] )`
+	- 指标名称：http_requests_total、order_create_total等
+	- 标签匹配：用`{}`包裹，
 
 
 ### 三、
