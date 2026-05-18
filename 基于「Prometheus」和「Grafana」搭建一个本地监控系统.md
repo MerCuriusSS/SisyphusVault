@@ -123,5 +123,260 @@ groups:
 - 把 JSON 放进项目仓库。
 - 通过 dashboard.yml 自动加载，实现「可观测性配置代码化」
 
+```json
+// 仪表盘导出json样式
+{  
+  "annotations": {  
+    "list": [  
+      {  
+        "name": "告警事件",  
+        "datasource": "Prometheus",  
+        "expr": "ALERTS{alertstate=\"firing\"}",  
+        "step": "60s",  
+        "titleFormat": "{{alertname}} — {{summary}}",  
+        "textFormat": "{{description}}",  
+        "iconColor": "red",  
+        "enable": true  
+      }  
+    ]  
+  },  
+  "editable": true,  
+  "fiscalYearStartMonth": 0,  
+  "graphTooltip": 1,  
+  "id": null,  
+  "links": [],  
+  "panels": [  
+    {  
+      "title": "告警概览",  
+      "type": "row",  
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 0 },  
+      "collapsed": false  
+    },  
+    {  
+      "title": "Firing Alerts",  
+      "type": "stat",  
+      "gridPos": { "h": 3, "w": 4, "x": 0, "y": 1 },  
+      "targets": [  
+        {  
+          "expr": "count(ALERTS{alertstate=\"firing\"})",  
+          "legendFormat": ""  
+        }  
+      ],  
+      "fieldConfig": {  
+        "defaults": { "unit": "short", "thresholds": { "mode": "absolute", "steps": [{ "value": 0, "color": "green" }, { "value": 1, "color": "red" }] } }  
+      }  
+    },  
+    {  
+      "title": "HighJvmHeapUsage",  
+      "type": "stat",  
+      "gridPos": { "h": 3, "w": 6, "x": 4, "y": 1 },  
+      "targets": [  
+        {  
+          "expr": "ALERTS{alertname=\"HighJvmHeapUsage\", alertstate=\"firing\"}",  
+          "legendFormat": ""  
+        }  
+      ],  
+      "fieldConfig": {  
+        "defaults": {  
+          "unit": "string",  
+          "mappings": [  
+            { "type": "value", "value": "1", "text": "FIRING — 堆内存 > 80%" },  
+            { "type": "value", "value": "null", "text": "OK" }  
+          ],  
+          "thresholds": { "mode": "absolute", "steps": [{ "value": 0, "color": "green" }, { "value": 1, "color": "red" }] }  
+        }  
+      }  
+    },  
+    {  
+      "title": "HighRequestLatency",  
+      "type": "stat",  
+      "gridPos": { "h": 3, "w": 6, "x": 10, "y": 1 },  
+      "targets": [  
+        {  
+          "expr": "ALERTS{alertname=\"HighRequestLatency\", alertstate=\"firing\"}",  
+          "legendFormat": ""  
+        }  
+      ],  
+      "fieldConfig": {  
+        "defaults": {  
+          "unit": "string",  
+          "mappings": [  
+            { "type": "value", "value": "1", "text": "FIRING — P99 > 1s" },  
+            { "type": "value", "value": "null", "text": "OK" }  
+          ],  
+          "thresholds": { "mode": "absolute", "steps": [{ "value": 0, "color": "green" }, { "value": 1, "color": "red" }] }  
+        }  
+      }  
+    },  
+    {  
+      "title": "HighErrorRate",  
+      "type": "stat",  
+      "gridPos": { "h": 3, "w": 8, "x": 16, "y": 1 },  
+      "targets": [  
+        {  
+          "expr": "ALERTS{alertname=\"HighErrorRate\", alertstate=\"firing\"}",  
+          "legendFormat": ""  
+        }  
+      ],  
+      "fieldConfig": {  
+        "defaults": {  
+          "unit": "string",  
+          "mappings": [  
+            { "type": "value", "value": "1", "text": "FIRING — 错误率 > 5%" },  
+            { "type": "value", "value": "null", "text": "OK" }  
+          ],  
+          "thresholds": { "mode": "absolute", "steps": [{ "value": 0, "color": "green" }, { "value": 1, "color": "red" }] }  
+        }  
+      }  
+    },  
+    {  
+      "title": "QPS (requests/sec)",  
+      "type": "timeseries",  
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 4 },  
+      "targets": [  
+        {  
+          "expr": "rate(http_server_requests_seconds_count{application=\"order-service\"}[1m])",  
+          "legendFormat": "{{method}} {{uri}}"  
+        }  
+      ],  
+      "fieldConfig": {  
+        "defaults": { "unit": "reqps", "custom": { "lineWidth": 2, "fillOpacity": 15 } }  
+      }  
+    },  
+    {  
+      "title": "P50 / P95 / P99 Latency",  
+      "type": "timeseries",  
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 4 },  
+      "targets": [  
+        {  
+          "expr": "histogram_quantile(0.50, rate(http_server_requests_seconds_bucket{application=\"order-service\"}[1m]))",  
+          "legendFormat": "P50"  
+        },  
+        {  
+          "expr": "histogram_quantile(0.95, rate(http_server_requests_seconds_bucket{application=\"order-service\"}[1m]))",  
+          "legendFormat": "P95"  
+        },  
+        {  
+          "expr": "histogram_quantile(0.99, rate(http_server_requests_seconds_bucket{application=\"order-service\"}[1m]))",  
+          "legendFormat": "P99"  
+        }  
+      ],  
+      "fieldConfig": {  
+        "defaults": { "unit": "s", "custom": { "lineWidth": 2 } }  
+      }  
+    },  
+    {  
+      "title": "Error Rate (5xx %)",  
+      "type": "timeseries",  
+      "gridPos": { "h": 8, "w": 8, "x": 0, "y": 12 },  
+      "targets": [  
+        {  
+          "expr": "(sum(rate(http_server_requests_seconds_count{application=\"order-service\", status=~\"5..\"}[1m])) / sum(rate(http_server_requests_seconds_count{application=\"order-service\"}[1m]))) * 100",  
+          "legendFormat": "5xx Error %"  
+        }  
+      ],  
+      "fieldConfig": {  
+        "defaults": { "unit": "percent", "min": 0, "max": 100, "custom": { "lineWidth": 2 } }  
+      }  
+    },  
+    {  
+      "title": "Total Requests (1m rate)",  
+      "type": "stat",  
+      "gridPos": { "h": 4, "w": 4, "x": 8, "y": 12 },  
+      "targets": [  
+        {  
+          "expr": "round(sum(rate(http_server_requests_seconds_count{application=\"order-service\"}[1m])))",  
+          "legendFormat": "QPS"  
+        }  
+      ],  
+      "fieldConfig": { "defaults": { "unit": "reqps" } }  
+    },  
+    {  
+      "title": "Active Connections",  
+      "type": "stat",  
+      "gridPos": { "h": 4, "w": 4, "x": 12, "y": 12 },  
+      "targets": [  
+        {  
+          "expr": "tomcat_threads_busy_threads{application=\"order-service\"}",  
+          "legendFormat": "Busy"  
+        }  
+      ],  
+      "fieldConfig": { "defaults": { "unit": "short" } }  
+    },  
+    {  
+      "title": "Orders Created (per min)",  
+      "type": "timeseries",  
+      "gridPos": { "h": 8, "w": 8, "x": 16, "y": 12 },  
+      "targets": [  
+        {  
+          "expr": "rate(orders_created_total[1m]) * 60",  
+          "legendFormat": "orders/min"  
+        }  
+      ],  
+      "fieldConfig": {  
+        "defaults": { "unit": "short", "custom": { "lineWidth": 2 } }  
+      }  
+    },  
+    {  
+      "title": "Order Creation Duration",  
+      "type": "timeseries",  
+      "gridPos": { "h": 8, "w": 8, "x": 0, "y": 20 },  
+      "targets": [  
+        {  
+          "expr": "rate(orders_create_duration_seconds_sum[1m]) / rate(orders_create_duration_seconds_count[1m])",  
+          "legendFormat": "Avg create time"  
+        }  
+      ],  
+      "fieldConfig": {  
+        "defaults": { "unit": "s", "custom": { "lineWidth": 2 } }  
+      }  
+    },  
+    {  
+      "title": "Top Endpoints by QPS",  
+      "type": "table",  
+      "gridPos": { "h": 8, "w": 8, "x": 8, "y": 20 },  
+      "targets": [  
+        {  
+          "expr": "topk(5, sum(rate(http_server_requests_seconds_count{application=\"order-service\"}[1m])) by (method, uri))",  
+          "format": "table",  
+          "instant": true  
+        }  
+      ],  
+      "fieldConfig": {  
+        "defaults": { "custom": { "align": "center" } },  
+        "overrides": [  
+          { "matcher": { "id": "byName", "options": "Value" }, "properties": [{ "id": "unit", "value": "reqps" }] }  
+        ]  
+      }  
+    },  
+    {  
+      "title": "Top Endpoints by P99 Latency",  
+      "type": "table",  
+      "gridPos": { "h": 8, "w": 8, "x": 16, "y": 20 },  
+      "targets": [  
+        {  
+          "expr": "topk(5, histogram_quantile(0.99, rate(http_server_requests_seconds_bucket{application=\"order-service\"}[5m])) by (method, uri))",  
+          "format": "table",  
+          "instant": true  
+        }  
+      ],  
+      "fieldConfig": {  
+        "defaults": { "custom": { "align": "center" } },  
+        "overrides": [  
+          { "matcher": { "id": "byName", "options": "Value" }, "properties": [{ "id": "unit", "value": "s" }] }  
+        ]  
+      }  
+    }  
+  ],  
+  "refresh": "10s",  
+  "schemaVersion": 39,  
+  "tags": ["business", "order-service"],  
+  "time": { "from": "now-15m", "to": "now" },  
+  "title": "业务监控大盘",  
+  "uid": "business-dashboard",  
+  "version": 2  
+}
 ```
-```
+
+
+#### 🔴 常用
