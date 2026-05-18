@@ -19,7 +19,7 @@
 ```
 
 ```yml
-# 开放监控端点
+# 开放监控端点（现成）
 management:  
   endpoints:  
     web:  
@@ -31,4 +31,15 @@ management:
 	    prometheus:  
 	      enabled: true
 ```
+
+```java
+//自定义「业务采集」
+this.ordersCreatedCounter = Counter.builder("orders.created.total")  
+        .description("Total number of orders created")  
+        .register(meterRegistry);  
+this.createOrderTimer = Timer.builder("orders.create.duration")  
+        .description("Order creation duration")  
+        .register(meterRegistry);
+```
+
 ### 二、使用prometheus采集暴露出来的指标
