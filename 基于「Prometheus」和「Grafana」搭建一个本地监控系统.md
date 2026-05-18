@@ -33,7 +33,7 @@ management:
 ```
 
 ```java
-//自定义「业务采集」
+//自定义「业务采集指标」
 this.ordersCreatedCounter = Counter.builder("orders.created.total")  
         .description("Total number of orders created")  
         .register(meterRegistry);  
