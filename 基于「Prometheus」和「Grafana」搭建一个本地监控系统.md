@@ -111,5 +111,11 @@ groups:
 ### 三、Grafana可视化prometheus采集的数据
 
 流程：
+- 先在 Grafana UI 的 Explore 里试 PromQL，确认查询结果是对的。
+- 在 UI 里创建面板。
+- 调整图表、单位、标题、布局。
+- 导出 dashboard JSON。
+- 把 JSON 放进项目仓库。
+- 通过 dashboard.yml 自动加载，实现「可观测性配置代码化」
 
-#### 🔴
+#### 🔴下载grafana服务器并本地启动
