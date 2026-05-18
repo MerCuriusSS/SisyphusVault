@@ -379,8 +379,8 @@ groups:
 ```
 
 
-#### 🔴 常用grafana 使用已有仪表盘：
+#### 🔴 常用grafana 使用已有仪表盘（dashboardID）：
 - 仪表市场：https://grafana.com/grafana/dashboards
-- JVM：
-- 数据库连接池：
+- JVM：4701
+- 数据库连接池：15588
 - 
