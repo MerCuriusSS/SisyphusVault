@@ -67,3 +67,6 @@ scrape_configs:
 prometheus --config.file=D:\workspace\MyProject\monitorProject\prometheus\prometheus.yml
 ```
 
+#### 🔴promql实现采集验证(http_server_requests_seconds_count)
+
+### 三、
