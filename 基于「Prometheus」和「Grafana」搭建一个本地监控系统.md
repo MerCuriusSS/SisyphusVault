@@ -55,6 +55,8 @@ scrape_configs:
   - job_name: 'order-service'
     metrics_path: '/actuator/prometheus'
     static_configs:
-      - targets: ['order-service:8080']
+      - targets: ['localhost:8080']
 
 ```
+
+#### 🔴 启动prometheus服务器进行
