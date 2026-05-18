@@ -18,3 +18,7 @@
 </dependency>
 ```
 
+```yml
+
+```
+### 二、使用prometheus采集暴露出来的指标
