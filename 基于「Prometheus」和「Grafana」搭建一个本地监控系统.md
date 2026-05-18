@@ -19,6 +19,8 @@
 ```
 
 ```yml
+# application.yml
+
 # 开放监控端点（现成）
 management:  
   endpoints:  
@@ -47,6 +49,7 @@ this.createOrderTimer = Timer.builder("orders.create.duration")
 #### 🔴 定义prometheus拉取指标的对象、频率
 
 ```yaml
+# prometheus.yml
 global:
   scrape_interval: 15s
   evaluation_interval: 15s
