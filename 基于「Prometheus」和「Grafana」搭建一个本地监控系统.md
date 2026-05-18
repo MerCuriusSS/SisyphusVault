@@ -43,3 +43,18 @@ this.createOrderTimer = Timer.builder("orders.create.duration")
 ```
 
 ### 二、使用prometheus采集暴露出来的指标
+
+#### 🔴 定义prometheus拉取指标的对象、频率
+
+```yaml
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: 'order-service'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: ['order-service:8080']
+
+```
