@@ -74,7 +74,40 @@ prometheus --config.file=D:\workspace\MyProject\monitorProject\prometheus\promet
 	- 标签匹配：用`{}`包裹，用来筛选维度（job、status、path等）
 	- 时间范围：用于增量函数，表示取多久内的数据，如：`rate(http_requests_total[1m])`
 
-#### 🔴定义prometheus可视化
+#### 🔴定义prometheus 预警规则
+```yaml
+# alert-rules.yml
+groups:  
+  - name: order-service-alerts  
+    rules:  
+      - alert: HighJvmHeapUsage  
+        expr: avg_over_time(jvm_memory_used_bytes{area="heap"}[5m]) / avg_over_time(jvm_memory_max_bytes{area="heap"}[5m]) > 0.8  
+        for: 2m  
+        labels:  
+          severity: warning  
+        annotations:  
+          summary: "JVM heap usage > 80% (instance {{ $labels.instance }})"  
+          description: "Heap usage is {{ $value | humanizePercentage }}. Check for memory leak or increase -Xmx."  
+  
+      - alert: HighRequestLatency  
+        expr: histogram_quantile(0.99, rate(http_server_requests_seconds_bucket[5m])) > 1  
+        for: 3m  
+        labels:  
+          severity: warning  
+        annotations:  
+          summary: "P99 latency > 1s (instance {{ $labels.instance }})"  
+          description: "P99 latency is {{ $value }}s. Check downstream dependencies (DB, cache) or GC pauses."  
+  
+      - alert: HighErrorRate  
+        expr: rate(http_server_requests_seconds_count{status=~"5.."}[5m]) / rate(http_server_requests_seconds_count[5m]) > 0.05  
+        for: 2m  
+        labels:  
+          severity: critical  
+        annotations:  
+          summary: "Error rate > 5% (instance {{ $labels.instance }})"  
+          description: "5xx error rate is {{ $value | humanizePercentage }}. Check logs and traces for root cause."
+```
+
 ### 三、Grafana可视化prometheus采集的数据
 
 #### 🔴
