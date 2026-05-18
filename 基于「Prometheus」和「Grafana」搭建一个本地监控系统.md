@@ -62,4 +62,8 @@ scrape_configs:
 
 ```
 
-#### 🔴 启动prometheus服务器进行
+#### 🔴 按配置 启动prometheus服务器拉取数据
+
+1）下载prometheus本地服务器
+
+2）
