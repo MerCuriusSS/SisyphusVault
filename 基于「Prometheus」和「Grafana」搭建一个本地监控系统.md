@@ -19,6 +19,10 @@
 ```
 
 ```yml
-
+management:  
+  endpoints:  
+    web:  
+      exposure:  
+        include: health,info,prometheus,metrics
 ```
 ### 二、使用prometheus采集暴露出来的指标
