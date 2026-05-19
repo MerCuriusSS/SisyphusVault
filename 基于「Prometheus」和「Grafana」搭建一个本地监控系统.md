@@ -419,4 +419,16 @@ datasources:
     editable: true
 ```
 
-##### 2）定义
+##### 2）定义grafana需要扫描的dashborad目录
+```yaml
+apiVersion: 1  
+  
+providers:  
+  - name: 'default'  
+    folder: ''  
+    type: file  
+    options:  
+      path: D:\workspace\MyProject\monitorProject\grafana\dashboards
+```
+
+##### 3）
