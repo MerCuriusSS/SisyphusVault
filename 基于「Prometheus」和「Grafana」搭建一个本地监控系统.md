@@ -125,8 +125,6 @@ groups:
 
 ### 三、Grafana可视化prometheus采集的数据
 
-
-
 #### 🔴下载grafana服务器并本地启动
 ```cmd
 > cd D:\workspace\devTool\grafana\grafana\bin
