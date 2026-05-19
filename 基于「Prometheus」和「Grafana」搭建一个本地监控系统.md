@@ -78,9 +78,7 @@ scrape_configs:
 ```bash
 cd D:\workspace\MyProject\monitorProject
 
-prometheus.exe `
-  --config.file=D:\workspace\MyProject\monitorProject\prometheus\prometheus.local.yml `
-  --web.enable-lifecycle
+prometheus.exe `--config.file=D:\workspace\MyProject\monitorProject\prometheus\prometheus.local.yml ` --web.enable-lifecycle
 ```
 
 #### 🔴promql实现采集验证
