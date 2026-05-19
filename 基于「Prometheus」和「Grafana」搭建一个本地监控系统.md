@@ -113,7 +113,10 @@ groups:
 
 
 #### 🔴下载grafana服务器并本地启动
-
+```cmd
+> cd D:\workspace\devTool\grafana\grafana\bin
+> grafana.exe
+```
 
 #### 🔴 流程：
 - 先在 Grafana UI 的 Explore 里试 PromQL，确认查询结果是对的。
