@@ -399,4 +399,9 @@ groups:
 - 仪表市场：https://grafana.com/grafana/dashboards
 - JVM：4701
 - 数据库连接池：15588
-- 
+- 主机 / 服务器监控：1860（搭配 node_exporter）
+- Redis：12776（搭配 redis_exporter）
+- Nginx 监控（网关 / 反向代理）：9614（搭配 nginx_exporter）
+
+#### 🔴可观测性配置代码化（初始化 数据源、dashborad）
+
