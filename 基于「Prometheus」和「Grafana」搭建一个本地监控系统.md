@@ -405,7 +405,18 @@ groups:
 
 #### 🔴可观测性配置代码化（自动加载数据源和大盘）
 
-##### 1）定义数据源配置文件
+##### 1）定义数据源配置文件()
 ```yaml
-
+# grafana/datasources/prometheus.yaml
+apiVersion: 1  
+  
+datasources:  
+  - name: Prometheus  
+    type: prometheus  
+    access: proxy  
+    url: http://localhost:9090  
+    isDefault: true  
+    editable: true
 ```
+
+##### 2）
