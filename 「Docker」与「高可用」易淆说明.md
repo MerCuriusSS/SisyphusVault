@@ -55,7 +55,7 @@ source:
 - 无状态组件：
 - 有状态组件：依赖组件本身的主从机制（mysql复制机制、redis哨兵机制）
 
-🔴K8S+云平台托管
+🔴**K8S+云平台托管**
 结构：
 ```
 用户
@@ -74,5 +74,4 @@ Redis 高可用版
 
 组件描述：
 - 无状态组件：Kubernetes 管
-- 有状态组件：交由云服务厂商管理（mysql：RDS；redis：云Redis）
-- 
+- 有状态组件：交由云服务厂商管理（mysql：RDS；redis：云Redis）——无需
