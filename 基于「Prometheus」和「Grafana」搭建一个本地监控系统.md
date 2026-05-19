@@ -73,7 +73,7 @@ scrape_configs:
 
 ```
 
-#### 🔴 按配置 启动prometheus服务器拉取数据
+#### 🔴 按配置 启动prometheus服务器拉取数据（localhost:9090）
 
 ```bash
 cd D:\workspace\MyProject\monitorProject
@@ -125,7 +125,7 @@ groups:
 
 ### 三、Grafana可视化prometheus采集的数据
 
-#### 🔴下载grafana服务器并本地启动
+#### 🔴下载grafana服务器并本地启动【localhost:3000】
 ```cmd
 > cd D:\workspace\devTool\grafana\grafana\bin
 > grafana.exe
@@ -437,4 +437,4 @@ providers:
 Grafana安装目录\conf\provisioning
 ```
 
-##### 4）启动Grafana
+##### 4）重新启动Grafana
