@@ -421,6 +421,7 @@ datasources:
 
 ##### 2）定义grafana需要扫描的dashborad目录
 ```yaml
+# grafana\dashboards\dashboard.yml
 apiVersion: 1  
   
 providers:  
@@ -431,4 +432,4 @@ providers:
       path: D:\workspace\MyProject\monitorProject\grafana\dashboards
 ```
 
-##### 3）
+##### 3）将dashborad目录挂载/复制到 Grafana
