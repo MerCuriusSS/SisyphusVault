@@ -46,28 +46,41 @@ this.createOrderTimer = Timer.builder("orders.create.duration")
 
 ### 二、使用prometheus采集暴露出来的指标
 
-#### 🔴 定义prometheus拉取指标的对象、频率
+#### 🔴 启动时配置文件——定义prometheus拉取指标的对象、频率
 
 ```yaml
 # prometheus.yml
-global:
-  scrape_interval: 15s
-  evaluation_interval: 15s
+global:  
+  scrape_interval: 15s  
+  evaluation_interval: 15s  
+  
+rule_files:  
+  - D:\workspace\MyProject\monitorProject\prometheus\alert-rules.yml  
 
-scrape_configs:
-  - job_name: 'order-service'
-    metrics_path: '/actuator/prometheus'
-    static_configs:
-      - targets: ['localhost:8080']
+# 采集不同服务的数据
+scrape_configs:  
+  - job_name: 'order-service'  
+    metrics_path: '/actuator/prometheus'  
+    static_configs:  
+      - targets: ['localhost:8080']  
+        labels:  
+          application: 'order-service'  
+          env: 'local'  
+  
+  - job_name: 'prometheus'  
+    static_configs:  
+      - targets: ['localhost:9090']
 
 ```
 
 #### 🔴 按配置 启动prometheus服务器拉取数据
+
 ```bash
 prometheus --config.file=D:\workspace\MyProject\monitorProject\prometheus\prometheus.yml
 ```
 
 #### 🔴promql实现采集验证
+
 - **定义**：查询prometheus采集数据的语法(http_server_requests_seconds_count)
 - **语法结构**：`函数( 指标名称{标签匹配} [时间范围] )`
 	- 指标名称：`http_requests_total、order_create_total`等
