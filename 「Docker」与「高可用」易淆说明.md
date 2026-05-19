@@ -35,6 +35,24 @@ source:
 
 ### 高可用方案：
 
+🔴**Docker Compose 多机各自部署 + 外部负载均衡/HA 组件**
+结构：
+```
+                ┌────────────┐
+用户 ─────────▶ │ SLB / VIP   │
+                └─────┬──────┘
+                      │
+          ┌───────────┴───────────┐
+          │                       │
+      server-1                server-2
+   order-service-1         order-service-2
+   redis-primary           redis-replica
+   mysql-primary           mysql-replica
+
+```
+组件描述：
+- SLB / VIP：
+- 无状态组件：
+- 有状态组件：依赖组件本身的主从机制（mysql复制机制、redis哨兵机制）
+
 🔴
-
-
