@@ -1,7 +1,7 @@
 ---
 tags:
-  - Areas
-category: 技术或思维
+  - Areas/Coder/基础原理
+category: 技术
 status: 加工
 project:
 application:
