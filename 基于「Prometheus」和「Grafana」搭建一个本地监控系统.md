@@ -432,4 +432,9 @@ providers:
       path: D:\workspace\MyProject\monitorProject\grafana\dashboards
 ```
 
-##### 3）将dashborad目录挂载/复制到 Grafana
+##### 3）将dashborad目录挂载/复制到 Grafana 启动时自动读取配置文件的目录
+```cmd
+Grafana安装目录\conf\provisioning
+```
+
+##### 4）启动Grafana
