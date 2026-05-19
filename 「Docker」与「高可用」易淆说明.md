@@ -74,4 +74,4 @@ Redis 高可用版
 
 组件描述：
 - 无状态组件：Kubernetes 管
-- 有状态组件：交由云服务厂商管理（mysql：RDS；redis：云Redis）——无需
+- 有状态组件：交由云服务厂商管理（mysql：RDS；redis：云Redis）——无需自建备份、故障转移
