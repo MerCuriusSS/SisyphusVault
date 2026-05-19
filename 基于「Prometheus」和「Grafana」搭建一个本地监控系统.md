@@ -76,7 +76,11 @@ scrape_configs:
 #### 🔴 按配置 启动prometheus服务器拉取数据
 
 ```bash
-prometheus --config.file=D:\workspace\MyProject\monitorProject\prometheus\prometheus.yml
+cd D:\workspace\MyProject\monitorProject
+
+prometheus.exe `
+  --config.file=D:\workspace\MyProject\monitorProject\prometheus\prometheus.local.yml `
+  --web.enable-lifecycle
 ```
 
 #### 🔴promql实现采集验证
