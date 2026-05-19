@@ -55,5 +55,21 @@ source:
 - 无状态组件：
 - 有状态组件：依赖组件本身的主从机制（mysql复制机制、redis哨兵机制）
 
-🔴云服务托管
+🔴K8S+云平台托管
+结构：
+```
+用户
+  ↓
+云负载均衡 SLB
+  ↓
+Ingress / Gateway
+  ↓
+order-service Deployment 多副本
+  ↓
+RDS MySQL 高可用版
+  ↓
+Redis 高可用版
 
+```
+
+组件描述：
