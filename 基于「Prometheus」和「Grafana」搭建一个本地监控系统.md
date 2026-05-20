@@ -27,7 +27,7 @@ management:
     web:  
       exposure:  
         include: health,info,prometheus,metrics
-# 将指标数据转为prometheus格式
+# 允许输出prometheus格式数据
 	metrics:  
 	  export:  
 	    prometheus:  
