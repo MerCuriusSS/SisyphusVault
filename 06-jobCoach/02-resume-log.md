@@ -101,7 +101,7 @@ JD 高频关键词：SpringCloud+Spring Boot+Vue 微服务技术栈
 ```markdown
 公司：药师帮
 岗位：Java开发工程师-商家后台
-JD 高频关键词：
+JD 高频关键词：SpringBoot、SpringCloud、SpringMVC、MyBatis、JVM、elasticSearch
 必须技能：
 加分技能：
 我的简历已覆盖：
