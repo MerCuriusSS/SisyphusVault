@@ -4,7 +4,7 @@
 
 #### 🔴actuator 组件：开放各类可受监控的端点（info、health、metrics等）
 
-#### 🔴 micrometer 组件：JAVA版的 prometheus SDK，生成各种符合prometheus格式的指标数据。
+#### 🔴 micrometer 组件：JAVA版的 prometheus SDK，产生各种符合prometheus格式的指标数据。
 
 ```xml
 <dependency>  
