@@ -141,10 +141,14 @@ JD 高频关键词：SpringBoot、SpringCloud、SpringMVC、设计模式、分�
 岗位：高级Java工程师（AI经验）
 JD 高频关键词：
 必须技能：
-- Spring/Spring Boot、MyBatis、Hibernate
+- Spring/Spring Boot、Spring Cloud、Dubbo、MyBatis、Hibernate
 - Java 基础语法、JVM 原理、多线程、集合等核心技术
-- 
+- MySQL/PostgreSQL
+- DevOps 流程，有 CI/CD、容器化 (Docker/K8s)
 加分技能：
+- DDD、领域建模、事件驱动架构
+- 主导系统重构、性能压测、架构评估
+- 
 我的简历已覆盖：
 我的简历缺口：
 是否适合投递：高 / 中 / 低
