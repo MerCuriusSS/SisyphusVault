@@ -91,7 +91,13 @@ JD 高频关键词：SpringCloud+Spring Boot+Vue 微服务技术栈
 - 前后端分离架构、全栈开发经验
 - AI应用开发
 我的简历已覆盖：SpringBoot、SpringCloud、MyBatis、MySQL、Redis、Nginx
-我的简历缺口：AI应用开发、前端开发经验、
-是否适合投递：高 / 中 / 低
+我的简历缺口：AI应用开发、前端开发经验、医疗行业背景、Linux命令
+是否适合投递：中
+
+```
+
+
+#### JD2:
+```markdown
 
 ```
