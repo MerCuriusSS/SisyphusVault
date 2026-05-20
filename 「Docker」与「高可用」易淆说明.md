@@ -62,7 +62,7 @@ source:
 		- 简易自建——双机Nginx（SLB）+KeepAlive（VIP）
 - 无状态组件：
 	- 「Nginx」： 只负责**本机**内部的流量转发。
-	- 应用服务（order-service）：
+	- 应用服务（order-service）：多副本负载均衡。
 - 有状态组件：依赖组件本身的主从机制（mysql复制机制、redis哨兵机制）
 
 🔴**K8S+云平台托管**
