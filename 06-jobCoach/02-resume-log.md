@@ -79,8 +79,11 @@ xxxx | 软件工程 | 本科
 ```markdown
 公司：康臣药业集团
 岗位：Java全栈开发工程师
-JD 高频关键词：
+JD 高频关键词：SpringCloud+Spring Boot+Vue 微服务技术栈
 必须技能：
+- SpringBoot、SpringCloud、MyBatis
+- Vue3+Vite+Element Plus
+- 
 加分技能：
 我的简历已覆盖：
 我的简历缺口：
