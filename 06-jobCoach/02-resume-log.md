@@ -83,8 +83,11 @@ JD 高频关键词：SpringCloud+Spring Boot+Vue 微服务技术栈
 必须技能：
 - SpringBoot、SpringCloud、MyBatis
 - Vue3+Vite+Element Plus
-- 
+- AI 编码工具（如 Cursor、Claude Code等）
+- Linux命令、Nginx、Docker工具
+- PgSQL、MySQL、Redis
 加分技能：
+- CRM系统/营销系统开发经验 (有医疗行业背景优先)
 我的简历已覆盖：
 我的简历缺口：
 是否适合投递：高 / 中 / 低
