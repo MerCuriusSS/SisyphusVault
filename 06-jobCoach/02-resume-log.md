@@ -90,8 +90,8 @@ JD 高频关键词：SpringCloud+Spring Boot+Vue 微服务技术栈
 - CRM系统/营销系统开发经验 (有医疗行业背景优先)；完整的项目从开发到上线全流程经验
 - 前后端分离架构、全栈开发经验
 - AI应用开发
-我的简历已覆盖：
-我的简历缺口：
+我的简历已覆盖：SpringBoot、SpringCloud、MyBatis、MySQL、Redis、Nginx
+我的简历缺口：AI应用开发、前端开发经验、
 是否适合投递：高 / 中 / 低
 
 ```
