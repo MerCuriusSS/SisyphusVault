@@ -114,3 +114,24 @@ JD 高频关键词：SpringBoot、SpringCloud、SpringMVC、MyBatis、JVM、elas
 是否适合投递：中
 
 ```
+
+
+#### JD3:
+```markdown
+公司：遇见小面
+岗位：java高级后端工程师
+JD 高频关键词：SpringBoot、SpringCloud、SpringMVC、设计模式、分布式、缓存、MySQL、Oracle、PGSQL、MQ、Redis、ElasticSearch、Linux、容器化技术（Docker/K8S）
+必须技能：
+- Spring全家桶
+- 设计模式、分布式、缓存
+- 数据库（分库分表、性能调优）
+- MQ（RocketMQ、Kafka）
+- Linux、容器化基础
+加分技能：
+- DDD设计
+我的简历已覆盖：SpringBoot、SpringCloud、MyBatis、MySQL、Redis、Nginx
+我的简历缺口：elasticSearch、容器化技术（K8S）、分库分表
+是否适合投递：中偏低
+
+```
+
