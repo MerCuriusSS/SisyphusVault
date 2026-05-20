@@ -148,9 +148,10 @@ JD 高频关键词：
 加分技能：
 - DDD、领域建模、事件驱动架构
 - 主导系统重构、性能压测、架构评估
-- 
-我的简历已覆盖：
-我的简历缺口：
-是否适合投递：高 / 中 / 低
+- AI 生成工具 (如 ComfyUI、Stable Diffusion)经验
+- 熟悉大模型 Prompt 调试，熟练使用各种 AI 开发工具，具备 Agent 开发相关经验
+我的简历已覆盖：SpringBoot、SpringCloud、MyBatis、MySQL
+我的简历缺口：DevOps 流程、DDD、系统重构、性能压测、
+是否适合投递：低
 
 ```
