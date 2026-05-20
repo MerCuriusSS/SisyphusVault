@@ -135,3 +135,18 @@ JD 高频关键词：SpringBoot、SpringCloud、SpringMVC、设计模式、分�
 
 ```
 
+#### JD4:
+```markdown
+公司：飞的科技
+岗位：高级Java工程师（AI经验）
+JD 高频关键词：
+必须技能：
+- Spring/Spring Boot、MyBatis、Hibernate
+- Java 基础语法、JVM 原理、多线程、集合等核心技术
+- 
+加分技能：
+我的简历已覆盖：
+我的简历缺口：
+是否适合投递：高 / 中 / 低
+
+```
