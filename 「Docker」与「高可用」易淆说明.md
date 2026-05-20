@@ -45,9 +45,11 @@ source:
           ┌───────────┴───────────┐
           │                       │
       server-1                server-2
+	  nginx-1				 nginx-2
    order-service-1         order-service-2
    redis-primary           redis-replica
    mysql-primary           mysql-replica
+   
 
 ```
 组件描述：
