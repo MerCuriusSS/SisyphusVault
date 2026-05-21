@@ -79,20 +79,27 @@ xxxx | 软件工程 | 本科
 ```markdown
 公司：康臣药业集团
 岗位：Java全栈开发工程师
-JD 高频关键词：SpringCloud+Spring Boot+Vue 微服务技术栈
-必须技能：
-- SpringBoot、SpringCloud、MyBatis
-- Vue3+Vite+Element Plus
-- AI 编码工具（如 Cursor、Claude Code等）
-- Linux命令、Nginx、Docker工具
-- PgSQL、MySQL、Redis
-加分技能：
-- CRM系统/营销系统开发经验 (有医疗行业背景优先)；完整的项目从开发到上线全流程经验
-- 前后端分离架构、全栈开发经验
-- AI应用开发
-我的简历已覆盖：SpringBoot、SpringCloud、MyBatis、MySQL、Redis、Nginx
-我的简历缺口：AI应用开发、前端开发经验、医疗行业背景、Linux命令
-是否适合投递：中
+JD：
+一. 岗位职责：
+1. 参与公司核心业务系统的全栈开发工作，使用 SpringCloud+Spring Boot+Vue 微服务技术栈；
+2. 根据业务需求进行系统设计、功能开发及持续优化，确保高质量交付；
+3. 熟练运用 AI 编码工具提升研发效率，完成代码编写、调试、重构、问题排查等工作；
+4. 负责项目打包、测试环境 / 生产环境部署、服务器配置、服务启动与运维监控；
+5. 参与需求评审、技术方案设计，保障项目开发进度与代码质量。
+
+二. 任职要求:
+1. 本科及以上学历，计算机相关专业，2年及以上 Java+Vue 全栈开发经验；
+2. 精通 Java 后端开发，熟悉 SpringBoot、SpringCloud、MyBatis 等主流开发框架；
+3. 熟练使用 Vue3+Vite+Element Plus 等技术栈，具备独立开发前端项目能力；
+4. 熟练使用 AI 编码工具（如 Cursor、Claude Code等）进行高效开发；
+5. 掌握 Linux 基础操作，熟悉 Nginx、Docker 等工具，能独立完成项目部署与上线；
+6. 熟悉 PgSQL、MySQL、Redis 等数据库使用，具备一定的 SQL 优化能力；
+7. 具备良好的代码规范、逻辑思维与问题排查能力，责任心强，能高效完成开发与交付任务。
+
+三. 加分项:
+1. 有CRM系统/营销系统开发经验 (有医疗行业背景优先)，有完整的项目从开发到上线全流程经验；
+2. 前后端分离架构设计，全栈开发经验；
+3. 对AI应用开发有一定了解，自驱力强，紧跟技术前沿，对技术发展有一定的敏锐度
 
 ```
 
@@ -101,17 +108,7 @@ JD 高频关键词：SpringCloud+Spring Boot+Vue 微服务技术栈
 ```markdown
 公司：药师帮
 岗位：Java开发工程师-商家后台
-JD 高频关键词：SpringBoot、SpringCloud、SpringMVC、MyBatis、JVM、elasticSearch、高并发、分布式、Nginx、MysqL、Tidb、OceanBase、MQ、Redis、Docker、Python、AI工程化
-必须技能：
-- Springboot、SpringCloud
-- MySQL、JVM、elasticSearch
-- MQ、Redis、Docker
-加分技能：
-- AI工程化、python
-- 高并发、分布式开发设计经验
-我的简历已覆盖：SpringBoot、SpringCloud、MyBatis、MySQL、Redis、Nginx
-我的简历缺口：AI工程化、elasticSearch、JVM
-是否适合投递：中
+JD：
 
 ```
 
@@ -120,18 +117,7 @@ JD 高频关键词：SpringBoot、SpringCloud、SpringMVC、MyBatis、JVM、elas
 ```markdown
 公司：遇见小面
 岗位：java高级后端工程师
-JD 高频关键词：SpringBoot、SpringCloud、SpringMVC、设计模式、分布式、缓存、MySQL、Oracle、PGSQL、MQ、Redis、ElasticSearch、Linux、容器化技术（Docker/K8S）
-必须技能：
-- Spring全家桶
-- 设计模式、分布式、缓存
-- 数据库（分库分表、性能调优）
-- MQ（RocketMQ、Kafka）
-- Linux、容器化基础
-加分技能：
-- DDD设计
-我的简历已覆盖：SpringBoot、SpringCloud、MyBatis、MySQL、Redis、Nginx
-我的简历缺口：elasticSearch、容器化技术（K8S）、分库分表
-是否适合投递：中偏低
+JD:
 
 ```
 
@@ -139,19 +125,6 @@ JD 高频关键词：SpringBoot、SpringCloud、SpringMVC、设计模式、分�
 ```markdown
 公司：飞的科技
 岗位：高级Java工程师（AI经验）
-JD 高频关键词：
-必须技能：
-- Spring/Spring Boot、Spring Cloud、Dubbo、MyBatis、Hibernate
-- Java 基础语法、JVM 原理、多线程、集合等核心技术
-- MySQL/PostgreSQL
-- DevOps 流程，有 CI/CD、容器化 (Docker/K8s)
-加分技能：
-- DDD、领域建模、事件驱动架构
-- 主导系统重构、性能压测、架构评估
-- AI 生成工具 (如 ComfyUI、Stable Diffusion)经验
-- 熟悉大模型 Prompt 调试，熟练使用各种 AI 开发工具，具备 Agent 开发相关经验
-我的简历已覆盖：SpringBoot、SpringCloud、MyBatis、MySQL
-我的简历缺口：DevOps 流程、DDD、系统重构、性能压测、AI 生成工具、大模型 Prompt调试
-是否适合投递：低
+JD：
 
 ```
