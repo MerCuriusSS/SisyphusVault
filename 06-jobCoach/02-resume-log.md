@@ -235,6 +235,6 @@ JD：
 		- JD3:算法能力表达、`TCP/IP`、`HTTP`、网络编程、`Linux`表达能力、`K8s/CI/CD`
 		- JD4:`Elasticsearch`、`Python`、`Javascript`表达
 		- JD5：Maven/Git/Linux 自动构建部署
-		- JD6：
+		- JD6：Spring 源码分析、定制化开发、Nacos/Eureka/Ribbon/Hystrix 等组件没明确写
 	- 工作经历须适当补充“需求分析、方案设计、上线、协作”等工程化工作，不要只凸显“实现技术”
 	- 「项目经历」需体现业务价值，如涉及“解决”、“提高”、“支撑”等关键字
