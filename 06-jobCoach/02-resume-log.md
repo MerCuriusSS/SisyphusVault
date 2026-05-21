@@ -151,7 +151,7 @@ JD 高频关键词：
 - AI 生成工具 (如 ComfyUI、Stable Diffusion)经验
 - 熟悉大模型 Prompt 调试，熟练使用各种 AI 开发工具，具备 Agent 开发相关经验
 我的简历已覆盖：SpringBoot、SpringCloud、MyBatis、MySQL
-我的简历缺口：DevOps 流程、DDD、系统重构、性能压测、
+我的简历缺口：DevOps 流程、DDD、系统重构、性能压测、AI 生成工具、大模型 Prompt调试
 是否适合投递：低
 
 ```
