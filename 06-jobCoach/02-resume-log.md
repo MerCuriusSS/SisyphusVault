@@ -135,8 +135,20 @@ JD:
 
 #### JD4:
 ```markdown
-公司：飞的科技
-岗位：高级Java工程师（AI经验）
+公司：药师帮
+岗位：Java开发工程师
 JD：
+Java开发：
+职位描述：
+1、负责公司Java相关软件产品的开发，及时快速解决线上问题；
+2、按照项目需求与进度要求，完成设计、编码、单元测试、技术支持、等工作；
+3、编写技术设计文档，技术选型，及时解决开发中所遇到的各项技术难题；
 
+任职资格：
+1、统招本科以上学历，计算机相关专业；
+2、1年以上Java实际开发经验；
+3、熟悉Spring Boot、Spring Cloud、Spring MVC、Spring、MyBatis等相关框架，并熟练应用；
+4、熟悉MySQL、Redis、MQ、Elasticsearch和其他NoSQL；
+5、了解微服务、容器、Kubernetes、分布式系统开发优先；
+6、有一定的Python、Javascript开发经验；有AI辅助编程经验；
 ```
