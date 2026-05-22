@@ -16,4 +16,4 @@ source:
 ### 🔴构建模式
 #### ReAct模式（推理+行动）
 
-#### Plan&Execute
+#### Plan&Execute模式
