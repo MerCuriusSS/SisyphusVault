@@ -17,7 +17,8 @@ source:
 #### ReAct模式（推理+行动）
 
 - 基本原理：
-- 
+	- 通过系统提示词让LLM扮演一个分任务执行的角色
+	- 每个任务执行按照「思考(thought)->行动(action)->中间结果(observation)」模式进行
 - 时序图：[Agent-ReAct模式时序图](excalidraw/Agent-ReAct模式时序图.md)
 
 #### Plan&Execute模式
