@@ -8,3 +8,5 @@ application:
 source:
 ---
 ### 🔴概念
+
+LLM（Large-Language-Model）表示
