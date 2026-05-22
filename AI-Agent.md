@@ -16,6 +16,8 @@ source:
 ### 🔴构建模式
 #### ReAct模式（推理+行动）
 
-基本原理：
+- 基本原理：
+- 
+- 时序图：[Agent-ReAct模式时序图](excalidraw/Agent-ReAct模式时序图.md)
 
 #### Plan&Execute模式
