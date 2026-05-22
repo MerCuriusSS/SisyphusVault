@@ -21,9 +21,6 @@ source:
 	- 每个任务执行按照「思考(**thought**)->行动(**action**)->中间结果(**observation**)」模式进行，循环往复。
 	- 多个中间结果叠加形成最终结果(**finalAnswer**)时完成整个过程，流程结束。
 - ReAct模式提示词模板
-```
-
-```
 - 时序图：[Agent-ReAct模式时序图](excalidraw/Agent-ReAct模式时序图.md)
 
 #### Plan&Execute模式
