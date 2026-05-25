@@ -3,12 +3,14 @@
 ### LLM(Large Language Model)
 - 定义：大语言模型，基于「Transformer」，决策大脑，通过词语接龙方式输出内容
 
-### Prompt：输入到LLM的指令
-- #### User Prompt：对话开始前
-- #### System Prompt：用户输入的内容
+### Prompt：
+- 定义：输入到LLM的指令
+	- #### User Prompt：对话开始前由开发者/系统设置的**指令**，用于设定 LLM 的行为、风格、角色、规则等
+	- #### System Prompt：用户输入的内容。
 
 
 ### Context
+- 定义：
 
 ### AI-Agent
 - 定义：[AI-Agent](03%20-%20Areas/AI-Agent.md)
