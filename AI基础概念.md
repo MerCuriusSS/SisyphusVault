@@ -21,5 +21,6 @@
 
 ### MCP（Model Context Protocol）
 - 定义：面向LLM、方便Agent执行工具发现与调用的格式规范
-- 调用流程
+- Agent调用流程
+	- 建立所需 MCP Server连接
 	- 
