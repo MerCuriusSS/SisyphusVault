@@ -3,7 +3,7 @@
 ### LLM(Large Language Model)
 - 定义：大语言模型，基于「Transformer」，决策大脑，通过词语接龙方式输出内容
 
-### Prompt：用户输入的指令
+### Prompt：输入到LLM的指令
 - #### User Prompt：
 - #### System Prompt：
 
