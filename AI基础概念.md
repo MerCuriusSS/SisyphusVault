@@ -20,6 +20,7 @@
 
 ### Function Calling
 - 定义：Agent与LLM之间关于「工具调用」所约定的对话格式
+- 目的：让LLM回答符合一定格式，方便程序解析
 
 ### MCP（Model Context Protocol）
 - 定义：面向LLM、方便Agent执行「远端工具发现与调用」的格式规范
