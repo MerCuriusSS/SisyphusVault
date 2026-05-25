@@ -20,4 +20,4 @@
 - 定义：Agent与LLM之间关于「工具调用」所约定的对话格式
 
 ### MCP（Model Context Protocol）
-- 定义：服务于LLM、
+- 定义：服务于LLM、方便Agent实现工具发现与调用
