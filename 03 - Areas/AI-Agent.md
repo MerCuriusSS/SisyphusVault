@@ -20,8 +20,8 @@ source:
 	- 通过系统提示词让LLM扮演一个「**能使用工具**」、「**分任务执行**」的角色
 	- 每个任务执行按照「思考(**thought**)->行动(**action**)->中间结果(**observation**)」模式进行，循环往复。
 	- 多个中间结果叠加形成最终结果(**finalAnswer**)时完成整个过程，流程结束。
-- ReAct模式提示词：[ReAct模式 系统提示词](ReAct模式%20系统提示词.md)
-- 时序图：[Agent-ReAct模式时序图](excalidraw/Agent-ReAct模式时序图.md)
+- ReAct模式提示词：[ReAct模式 系统提示词](../ReAct模式%20系统提示词.md)
+- 时序图：[Agent-ReAct模式时序图](../excalidraw/Agent-ReAct模式时序图.md)
 
 #### Plan&Execute模式
 - 基本原理：
@@ -29,7 +29,7 @@ source:
 	- Agent按顺序执行计划中的每一步并调用可用的工具
 	- 模型结合已完成的步骤、中间结果，修改或重建剩余计划，循环往复。
 	- 多个中间结果叠加形成最终结果时完成整个过程，流程结束
-- 时序图：[Agent-Plan&Execute时序图](excalidraw/Agent-Plan&Execute时序图.md)
+- 时序图：[Agent-Plan&Execute时序图](../excalidraw/Agent-Plan&Execute时序图.md)
 
 #### Plan&Execute模式与ReAct模式对比：
 - ReAct模式：任务的“分步”只是一段写进上下文的推理文本，只有**软性约束**，后续的新信息很容易将它冲淡或带偏。
