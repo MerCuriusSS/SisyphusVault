@@ -20,7 +20,7 @@
 - 定义：Agent与LLM之间关于「工具调用」所约定的对话格式
 
 ### MCP（Model Context Protocol）
-- 定义：面向LLM、方便Agent执行远端工具发现与调用的格式规范
+- 定义：面向LLM、方便Agent执行「远端工具发现与调用」的格式规范
 - Agent调用流程
 	- 建立所需 MCP Server连接
 	- 动态发现获取可用工具：`tools/list`
@@ -29,4 +29,5 @@
 	- 调用MCP工具执行
 	- 将 LLM之前的回复+工具结果 返回给LLM，生成最终回答
 
-### 
+### LangChain
+- 将多个相互独立的操作步骤，串联并抽象出
