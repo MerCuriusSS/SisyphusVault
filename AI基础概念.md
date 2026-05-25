@@ -24,4 +24,4 @@
 - Agent调用流程
 	- 建立所需 MCP Server连接
 	- 动态发现获取可用工具：`tools/list`
-	- 
+	- 携带 `userPrompt`与`tool_result`
