@@ -25,4 +25,6 @@
 	- 建立所需 MCP Server连接
 	- 动态发现获取可用工具：`tools/list`
 	- 携带 `userPrompt`与 function call格式的`tool_result`，交由LLM决策
-	- 
+	- 返回不使用 或 使用 MCP工具的function call
+	- 调用MCP工具执行
+	- 将
