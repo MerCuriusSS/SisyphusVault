@@ -104,7 +104,7 @@
   先按消费者人均一个ackQueue->拉取的消息携带引用->写入消息时按引用分组并取offset最大值合并->offer到专属队列->消费者ACK
   
 - 消费位点重置实现原理？
-  封装的消息体携带offset，
+  封装的消息体携带offset，启动时扫描文件尾部16kb【randomAccessFile.seek()】方法，得到各
 - 幂等方案：
 - pub/sub的延迟发布订阅实现原理？
 
