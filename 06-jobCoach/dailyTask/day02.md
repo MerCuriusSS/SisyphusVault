@@ -143,12 +143,16 @@
 
 ### 补 AI 应用开发到简历：专业技能 + 项目描述草稿
 ```
-
+- 熟悉 LangChain4j、LangGraph4j等 AI开发框架，能够基于 AI Agent 编排自然语言需求解析、代码生成等多步骤工作流。
+- 掌握 Prompt 工程和优化技巧，结合 RAG 检索增强、Function Calling 完成 AI 应用落地。
+- 熟悉 Vibe Coding、SDD、Harness Engineering等多种 AI 编程模式，能利用 Claude Code / CodeX等AI编程工具开发全栈项目。
 ```
 
 
 ### Spring 事务 + MySQL 事务一致性
 ```
+
+
 ```
 
 
