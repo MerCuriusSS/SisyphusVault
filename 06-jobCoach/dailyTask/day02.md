@@ -186,7 +186,7 @@
 		a.当前数据行的事务id (trx_id)
 		b.下个事务id (m_low_limit_id)
 		c.进行时事务集合 (m_ids)
-		d.进行时最小事务id (m)
+		d.进行时最小事务id (m_up_limit_id)
 ```
 
 
