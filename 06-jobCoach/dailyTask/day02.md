@@ -145,6 +145,7 @@
 
 ### Spring 事务 + MySQL 事务一致性
 ```
+【一、Spring事务】
 1.Spring 事务的本质？AOP框架生成的代理对象，会对添加了@Transactional注解的方法执行前后，分别执行开启/提交事务的操作，并在方法返回异常时回滚事务。调用链【调用代理对象 -> 调用事务拦截器 -> 开启事务 -> 执行业务方法 ->根据方法结果提交事务或者回滚】
 
 2.@Transactional的核心属性：事务传播特性（propagation）、事务隔离级别（isolation）、回滚触发异常（rollbackFor）
@@ -158,7 +159,15 @@
 	
 3.Spring事务失效场景
 1）同类方法被内部调用=>本质是this.method(),没有经过代理对象
-2）
+2）方法非public
+3）类没有被Spring管理，自创建
+4）异常被吞
+5）异常类型不匹配（非Error、RuntimeException）
+
+
+【二、MySQL事务】
+1.事务特性：ACID
+	1）
 
 ```
 
