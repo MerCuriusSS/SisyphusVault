@@ -1,6 +1,6 @@
 {
   "collapse-filter": false,
-  "search": "vue",
+  "search": "",
   "showTags": true,
   "showAttachments": false,
   "hideUnresolved": false,
@@ -8,31 +8,38 @@
   "collapse-color-groups": false,
   "colorGroups": [
     {
-      "query": "tag:#Areas/模式库  ",
+      "query": "tag:#Areas  ",
       "color": {
         "a": 1,
         "rgb": 14048348
       }
     },
     {
-      "query": "tag:#Areas/思维框架  ",
+      "query": "tag:#excalidraw  ",
       "color": {
         "a": 1,
         "rgb": 14069084
       }
     },
     {
-      "query": "tag:#project  ",
+      "query": "tag:#Resources  ",
       "color": {
         "a": 1,
         "rgb": 11392604
       }
     },
     {
-      "query": "tag:#Resources/master-notebook  ",
+      "query": "tag:#review  ",
       "color": {
         "a": 1,
-        "rgb": 13700089
+        "rgb": 6084188
+      }
+    },
+    {
+      "query": "tag:#project  ",
+      "color": {
+        "a": 1,
+        "rgb": 6084269
       }
     }
   ],
@@ -46,6 +53,6 @@
   "repelStrength": 8.75035460992908,
   "linkStrength": 1,
   "linkDistance": 250,
-  "scale": 1.9655560456566654,
+  "scale": 0.5087618855792537,
   "close": true
 }
