@@ -146,14 +146,16 @@
 ### Spring 事务 + MySQL 事务一致性
 ```
 1.Spring 事务的本质？AOP框架生成的代理对象，会对添加了@Transactional注解的方法执行前后，分别执行开启/提交事务的操作，并在方法返回异常时回滚事务。调用链【调用代理对象 -> 调用事务拦截器 -> 开启事务 -> 执行业务方法 ->根据方法结果提交事务或者回滚】
-2.@Transactional的核心属性：事务传播特性、事务隔离级别、回滚触发异常
+2.@Transactional的核心属性：事务传播特性（propagation）、事务隔离级别（isolation）、回滚触发异常（rollbackFor）
 	1）事务传播特性：REQUIRED(默认、最多只有一个当前事务)、REQUIRES_NEW（每次新建事务，提交方式是先内后外）
 	2）事务隔离级别：
 	读未提交(ru)——读到别人未提交事务的数据
 	读已提交(rc)——读到别人已提交事务的数据
 	可重复读(rr)——只读到老数据、多/少出来的数据
 	串行化(s)
-	3）异常回滚机制：只针对Error与R
+	3）异常回滚机制：只针对Error与RuntimeException，其他异常抛出时需转化为RuntimeException 或在RollbackFor注明Exception.class
+
+3.
 
 ```
 
