@@ -69,6 +69,11 @@
 ```
 
 ```java
+回答三个问题：
+1.何时扩大窗口
+2.何时缩小窗口
+3.什么时候改变结果
+
 public void solution(String s){
 	//当前窗口的结果（各字符个数、取值结果）
 	Object window=...
