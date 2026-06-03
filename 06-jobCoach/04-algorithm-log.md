@@ -77,11 +77,11 @@ public void solution(String s){
 	//1.默认左开右闭
 	int left=0;int right=0;
 	while(right<s.length()){
-	//扩大窗口
+	//扩大窗口（找可行解）
 	
 	right++;
 	
-	//缩小窗口（）
+	//缩小窗口（找最优解）
 	while()
 	}
 }
