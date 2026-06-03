@@ -76,7 +76,7 @@ public void solution(String s,String request){
 	//窗口滑动逻辑
 	//1.默认左开右闭
 	int left=0;int right=0;
-	//扩大窗口（找可行解）
+	//扩大窗口
 	while(right<s.length()){
 		//往窗口塞元素
 		char c= s.charAt(right);
@@ -86,7 +86,7 @@ public void solution(String s,String request){
 		//窗口内元素更新...
 		
 	
-		//缩小窗口（找最优解）
+		//缩小窗口
 		while(left<right&&window need shrink){
 			char c=s.charAt(left);
 			window.remove(c);
