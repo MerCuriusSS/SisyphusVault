@@ -94,7 +94,7 @@ public void solution(String s,String request){
 			left++;
 			
 			//窗口内元素更新...
-			
+			if()
 		}
 	}
 }
