@@ -69,20 +69,31 @@
 ```
 
 ```java
-public void solution(String s){
+public void solution(String s,String request){
 	//当前窗口的结果（各字符个数、结果）
 	Object window=...
 	
 	//窗口滑动逻辑
 	//1.默认左开右闭
 	int left=0;int right=0;
-	while(right<s.length()){
 	//扩大窗口（找可行解）
+	while(right<s.length()){
+		//往窗口塞元素
+		char c= s.charAt(right);
+		window.add(c);
+		right++;
+		//窗口内元素更新...
+		
 	
-	right++;
-	
-	//缩小窗口（找最优解）
-	while()
+		//缩小窗口（找最优解）
+		while(left<right&&window need shrink){
+			char c=s.charAt(left);
+			window.remove(c);
+			left++;
+			
+			//窗口内元素更新...
+			
+		}
 	}
 }
 ```
