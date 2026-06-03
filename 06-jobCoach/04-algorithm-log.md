@@ -71,6 +71,8 @@
 ```java
 public void solution(String s){
 	//当前窗口的结果（各字符个数、结果）
-	Object window
+	Object window=...
+	
+	//
 }
 ```
