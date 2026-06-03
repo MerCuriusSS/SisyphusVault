@@ -92,7 +92,7 @@ public void solution(String s,String request){
 			window.remove(c);
 			left++;
 			
-			//收缩
+			//收缩比对..
 		}
 	}
 }
