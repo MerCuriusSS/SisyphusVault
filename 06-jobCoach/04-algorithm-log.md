@@ -64,7 +64,7 @@
 正确思路：
 模板/套路：
 ---
-public void 
+public void solution()
 ---
 
 下次遇到类似题的识别信号：符合某条件的子数组/字符串
