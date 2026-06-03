@@ -81,11 +81,10 @@ public void solution(String s,String request){
 		//往窗口塞元素
 		char c= s.charAt(right);
 		right++;
+		
+		window.add(c);
 		//窗口内元素更新...
-		if(c in request){
-			window.add(c);
-			//...
-		}
+		
 	
 		//缩小窗口（找最优解）
 		while(left<right&&window need shrink){
@@ -93,8 +92,7 @@ public void solution(String s,String request){
 			window.remove(c);
 			left++;
 			
-			//窗口内元素更新...
-			if()
+			//收缩
 		}
 	}
 }
