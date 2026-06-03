@@ -81,6 +81,7 @@ public void solution(String s){
 	
 	right++;
 	
+	//缩小窗口（）
 	while()
 	}
 }
