@@ -69,7 +69,7 @@
 ```
 
 ```java
-public void solution(String s,String request){
+public void solution(String s){
 	//当前窗口的结果（各字符个数、结果）
 	Object window=...
 	
@@ -92,7 +92,7 @@ public void solution(String s,String request){
 			window.remove(c);
 			left++;
 			
-			//收缩比对..
+			//窗口内元素更新...
 		}
 	}
 }
