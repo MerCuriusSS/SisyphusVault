@@ -76,7 +76,8 @@ public void solution(String s){
 	//窗口滑动逻辑
 	//1.默认左开右闭
 	int left=0;int right=0;
-	//先滑动
-	while()
+	while(){
+	//窗口扩大逻辑
+	}
 }
 ```
