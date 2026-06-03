@@ -64,7 +64,9 @@
 正确思路：
 模板/套路：
 ---
-public void solution()
+public void solution(String s){
+	
+}
 ---
 
 下次遇到类似题的识别信号：符合某条件的子数组/字符串
