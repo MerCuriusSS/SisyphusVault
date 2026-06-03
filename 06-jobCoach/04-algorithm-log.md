@@ -80,10 +80,12 @@ public void solution(String s,String request){
 	while(right<s.length()){
 		//往窗口塞元素
 		char c= s.charAt(right);
-		window.add(c);
 		right++;
 		//窗口内元素更新...
-		
+		if(c in request){
+			window.add(c);
+			//...
+		}
 	
 		//缩小窗口（找最优解）
 		while(left<right&&window need shrink){
