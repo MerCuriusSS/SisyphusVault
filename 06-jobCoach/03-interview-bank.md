@@ -96,7 +96,7 @@
   队列满载、消费者长时间阻塞时，超过指定时间后，消费者集体停止，触发rebalance，加剧delay现象；代码中用超时阻塞替代put，超时后把本轮拉取的消息直接扔掉，等待下轮重新拉取。
   
 - 跨线程ackQueue回传机制实现原理？
-  先按消费者人均一个ackQueue->拉取的消息携带引用->写入消息时按引用分组并取offset最大值合并->offer会ackQueue->消费者ACK
+  先按消费者人均一个ackQueue->拉取的消息携带引用->写入消息时按引用分组并取offset最大值合并->offer回ackQueue->消费者ACK
   
 - 消费位点重置实现原理？
   【封装的消息体携带offset】启动时扫描文件尾部16kb【randomAccessFile.seek()】方法，得到各分区最新offset，待消费者分配完分区后，跳转到最新分区offset继续消费。
