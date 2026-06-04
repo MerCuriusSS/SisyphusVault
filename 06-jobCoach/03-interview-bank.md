@@ -529,3 +529,5 @@ public void markPaid(Long orderId, String paymentNo) {
 
 
 **🔴 消息顺序性**
+- 现象：
+- 
