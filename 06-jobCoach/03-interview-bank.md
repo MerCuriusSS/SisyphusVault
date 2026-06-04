@@ -498,8 +498,17 @@ public void consume(PaymentMessage message) {
 ```
 
 - **方案2：状态机幂等**
+```sql
+-- 核心思想：只允许状态从合法前置状态流转到目标状态
+
+UPDATE orders
+SET status = 'PAID',
+    paid_at = NOW()
+WHERE id = ?
+  AND status = 'CREATED';
+```
+
 ```java
-核心思想：只允许状态从合法前置状态流转到目标状态
 
 @Transactional
 public void markPaid(Long orderId, String paymentNo) {
@@ -518,10 +527,3 @@ public void markPaid(Long orderId, String paymentNo) {
 }
 ```
 
-```sql
-UPDATE orders
-SET status = 'PAID',
-    paid_at = NOW()
-WHERE id = ?
-  AND status = 'CREATED';
-```
