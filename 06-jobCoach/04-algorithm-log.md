@@ -105,3 +105,7 @@ public void solution(String s){
 
 
 ### day04
+
+### 合并2个链表
+
+- 核心点
