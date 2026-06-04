@@ -171,10 +171,10 @@ public void reverseList(ListNode l){
 	ListNode cur=l;
 	ListNode nxt=cur.next;
 	
-	while(nxt!=null){
+	while(cur!=null){
 		cur.next=pre;
 		pre=cur;
-		cur=next;
+		cur=nxt;
 		if(nxt.next!=null)
 		nxt=nxt.next;
 	}
