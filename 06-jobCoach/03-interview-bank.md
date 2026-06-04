@@ -459,5 +459,5 @@ CREATE TABLE outbox_message (
 
 【消息语义】：
 最多一次（At Most Once）：先ACK，再处理业务 -> 消息最多被消费一次，不会重复，会丢消息
-至少一次（At Least Once）：先处理业务
+至少一次（At Least Once）：先处理业务，再ACK-> 消息最少被消费一次，
 ```
