@@ -393,17 +393,18 @@ Redis 未命中查数据库
 3.消息发出去了，但生产者不知道是否成功
 
 【常见方案】：
-「方案1」：失败后记录日志，定时扫描补偿
+「方案1」：失败后记录日志，定时扫描补偿；缺陷：3-4步出现宕机仍会出现丢失问题
 1. 开启本地事务
 2. 写入业务表
 3. 提交本地事务
 4. 写MQ
 5. 失败后记录日志
 6. 定时任务重发
+   
 
-「方案2」：事务消息
+「方案2」：MQ事务消息
 
-「方案3」：本地消息表
+「方案3」：本地消息表；
 1. 开启本地数据库事务
 2. 写业务表
 3. 写本地消息表 outbox_message
@@ -415,6 +416,22 @@ Redis 未命中查数据库
 
 ```
 
+```SQL
+-- 本地消息表内容
+CREATE TABLE outbox_message (
+    id BIGINT PRIMARY KEY,
+    message_id VARCHAR(64) NOT NULL UNIQUE,
+    aggregate_type VARCHAR(64) NOT NULL,
+    aggregate_id VARCHAR(64) NOT NULL,
+    topic VARCHAR(128) NOT NULL,
+    payload JSON NOT NULL,
+    status VARCHAR(32) NOT NULL,
+    retry_count INT NOT NULL DEFAULT 0,
+    next_retry_time DATETIME NOT NULL,
+    created_at DATETIME NOT NULL,
+    updated_at DATETIME NOT NULL
+);
+```
 
 - Broker可靠存储
 ```
