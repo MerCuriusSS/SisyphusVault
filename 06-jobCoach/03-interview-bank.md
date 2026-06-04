@@ -479,3 +479,25 @@ CREATE TABLE outbox_message (
 ```
 
 
+**🔴 幂等设计方案**
+
+- **方案1：唯一业务单号去重；** 
+```java
+
+核心思想：添加数据库唯一约束，并依赖唯一键捕获冲突
+@Transactional
+public void consume(PaymentMessage message) {
+    try {
+        paymentRecordRepository.insert(message.paymentNo(), message.orderId(), message.amount());
+    } catch (DuplicateKeyException duplicate) {
+        return;
+    }
+
+    orderRepository.markPaid(message.orderId());
+}
+```
+
+- **方案2：状态机幂等**
+```
+
+```
