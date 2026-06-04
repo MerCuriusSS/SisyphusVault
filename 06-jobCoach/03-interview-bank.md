@@ -462,6 +462,7 @@ CREATE TABLE outbox_message (
 至少一次（At Least Once）：先处理业务，再ACK-> 消息最少被消费一次，会重复，不丢消息
 恰好一次（Exactly Once）：单MQ做不到，需要结合业务幂等实现
 
-
-
 ```
+
+**🔴 幂等性**
+- 定义：
