@@ -102,3 +102,6 @@ public void solution(String s){
 	}
 }
 ```
+
+
+### day04
