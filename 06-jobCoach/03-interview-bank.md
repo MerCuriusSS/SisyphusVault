@@ -439,6 +439,12 @@ CREATE TABLE outbox_message (
 
 - Broker可靠存储
 ```
+【解决问题】：
+1.消息是否持久化
+2.Broker 宕机是否丢消息
+3.主从复制是否可靠
+4.消息是否已经刷盘
+
 
 ```
 
