@@ -460,5 +460,8 @@ CREATE TABLE outbox_message (
 【消息语义】：
 最多一次（At Most Once）：先ACK，再处理业务 -> 消息最多被消费一次，不会重复，会丢消息
 至少一次（At Least Once）：先处理业务，再ACK-> 消息最少被消费一次，会重复，不丢消息
-恰好一次（Exactly Once）：单MQ做不到，需要结合业务
+恰好一次（Exactly Once）：单MQ做不到，需要结合业务幂等实现
+
+
+
 ```
