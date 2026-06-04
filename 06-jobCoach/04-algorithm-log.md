@@ -156,11 +156,28 @@ public void template(ListNode l1,ListNode l2){
 题型：双指针
 是否独立完成：是
 耗时：10min
-卡点：
-错因分类：
-正确思路：
+卡点：没有
+错因分类：没有
+正确思路：cur充当反转后的头节点，pre充当前反转链表头节点，next充当未反转链表头节点
 模板/套路：
 下次遇到类似题的识别信号：
 复习日期：
 
+```
+
+```java
+public void reverseList(ListNode l){
+	ListNode pre=null;
+	ListNode cur=l;
+	ListNode nxt=cur.next;
+	
+	while(nxt!=null){
+		cur.next=pre;
+		pre=cur;
+		cur=next;
+		if(nxt.next!=null)
+		nxt=nxt.next;
+	}
+
+}
 ```
