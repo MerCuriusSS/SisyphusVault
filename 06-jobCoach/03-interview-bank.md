@@ -529,5 +529,5 @@ public void markPaid(Long orderId, String paymentNo) {
 
 
 **🔴 消息顺序性**
-- 现象：
+- 现象：生产者默认 **轮询发送** 到不同队列（分区），全局完全无法保证顺序
 - 
