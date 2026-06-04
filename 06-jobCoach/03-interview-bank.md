@@ -404,7 +404,7 @@ Redis 未命中查数据库
 
 「方案2」：MQ事务消息
 
-「方案3」：本地消息表；
+「方案3」：本地消息表；核心优势：保证消息与业务是原子操作
 1. 开启本地数据库事务
 2. 写业务表
 3. 写本地消息表 outbox_message
@@ -419,17 +419,17 @@ Redis 未命中查数据库
 ```SQL
 -- 本地消息表内容
 CREATE TABLE outbox_message (
-    id BIGINT PRIMARY KEY,
-    message_id VARCHAR(64) NOT NULL UNIQUE,
-    aggregate_type VARCHAR(64) NOT NULL,
-    aggregate_id VARCHAR(64) NOT NULL,
-    topic VARCHAR(128) NOT NULL,
-    payload JSON NOT NULL,
-    status VARCHAR(32) NOT NULL,
-    retry_count INT NOT NULL DEFAULT 0,
-    next_retry_time DATETIME NOT NULL,
-    created_at DATETIME NOT NULL,
-    updated_at DATETIME NOT NULL
+    id BIGINT PRIMARY KEY,                -- 物理主键，无业务意义
+    message_id VARCHAR(64) NOT NULL UNIQUE,-- 全局唯一消息ID（幂等核心）
+    aggregate_type VARCHAR(64) NOT NULL,  -- 业务模块（如：order、user）
+    aggregate_id VARCHAR(64) NOT NULL,    -- 业务ID（订单号、用户ID）
+    topic VARCHAR(128) NOT NULL,           -- MQ Topic
+    payload JSON NOT NULL,                 -- 消息内容（JSON格式最佳）
+    status VARCHAR(32) NOT NULL,           -- 消息状态（PENDING、SENT）
+    retry_count INT NOT NULL DEFAULT 0,    -- 重试次数
+    next_retry_time DATETIME NOT NULL,     -- 下次重试时间（实现指数退避）
+    created_at DATETIME NOT NULL,          -- 创建时间
+    updated_at DATETIME NOT NULL           -- 更新时间
 );
 ```
 
