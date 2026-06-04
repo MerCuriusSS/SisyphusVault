@@ -166,18 +166,16 @@ public void template(ListNode l1,ListNode l2){
 ```
 
 ```java
-public void reverseList(ListNode l){
-	ListNode pre=null;
-	ListNode cur=l;
-	ListNode nxt=cur.next;
-	
-	while(cur!=null){
-		cur.next=pre;
-		pre=cur;
-		cur=nxt;
-		if(nxt.next!=null)
-		nxt=nxt.next;
-	}
+public ListNode reverseList(ListNode head) {
+    ListNode pre = null;
+    ListNode cur = head;
 
+    while (cur != null) {
+        ListNode nxt = cur.next; // 🔥 每一步都保存 next
+        cur.next = pre;          // 反转
+        pre = cur;               // 前驱前移
+        cur = nxt;               // 当前节点前移
+    }
+    return pre; // 返回新头
 }
 ```
