@@ -68,7 +68,7 @@
 2. 追问点：
 ```
 1.TPS：推导结果、本地250MB/s、NAS 50MB/s、5折后 25MB/S > 2.4万TPS/S
-2.rebalance：队满消费者阻塞->时间长触发rebalance->
+2.rebalance：队满消费者阻塞->时间长触发rebalance->加剧消息积压->超时阻塞->继续运行->抛掉本轮消息仍继续
 3.ackqueue
 4.发布订阅
 5.消费点位重置
