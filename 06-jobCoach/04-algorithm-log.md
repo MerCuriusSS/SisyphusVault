@@ -113,20 +113,54 @@ public void solution(String s){
 是否独立完成：是
 耗时：10min
 卡点：思维重点放在“如何将一个链表的元素放到另一个链表，且维护前驱后继关系”
-错因分类：
-正确思路：
+错因分类：“链表操作要原地修改”的定式思维
+正确思路：新建链表，双指针移动比较。
 模板/套路：
-下次遇到类似题的识别信号：
+下次遇到类似题的识别信号： 合并有序
 复习日期：
 
-### 题目 2：
-题型：
-是否独立完成：
-耗时：
+```
+
+
+```java
+public void template(ListNode l1,ListNode l2){
+	//新建dummyNode
+	ListNode dummy=new ListNode();
+	while(l1!=null&&l2!=null){
+	//每次取链表的最小值
+		if(l1.val<l2.val){
+			p.next=l1;
+			l1=l1.next;
+		}else{
+			p.next=l2;
+			l2=l2.next;
+		}
+		p=p.next;
+	}
+	
+	//拼接剩下的链表
+	if(l1==null){
+		p.next=l2;
+	}
+	if(l2==null){
+		p.next=l1;
+	}
+}
+```
+
+
+
+```
+
+### 题目 2：反转链表
+题型：双指针
+是否独立完成：是
+耗时：10min
 卡点：
 错因分类：
 正确思路：
 模板/套路：
 下次遇到类似题的识别信号：
 复习日期：
+
 ```
