@@ -458,5 +458,6 @@ CREATE TABLE outbox_message (
 【基本原则】：手动ACK、且先处理业务，后确认消息、业务幂等
 
 【消息语义】：
-最多一次（At Most Once）：先ACK，再处理业务->
+最多一次（At Most Once）：先ACK，再处理业务 -> 消息最多被消费一次，不会重复，会丢消息
+
 ```
