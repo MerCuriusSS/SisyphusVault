@@ -703,5 +703,6 @@ Heap
 	- 年轻代 GC：Parallel Scavenge
 	- 老年代 GC：Parallel Old
 	- 参数：`-XX:+UseParallelGC`
-- 
+- CMS GC
+	- 
 
