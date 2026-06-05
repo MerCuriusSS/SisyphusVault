@@ -704,5 +704,7 @@ Heap
 	- 老年代 GC：Parallel Old
 	- 参数：`-XX:+UseParallelGC`
 - CMS GC
-	- 特点：
+	- 特点：并发标记清除、停顿短；内存碎片、
+	- 性质：老年代 GC
+	- 
 
