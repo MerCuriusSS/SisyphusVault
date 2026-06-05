@@ -798,9 +798,23 @@ GC 日志配置
 
 第一步：先恢复服务
 
+|     |     |
+| --- | --- |
+|     |     |
+
+
+
 第二步：确认OOM类型
 
+```
+Java heap space
+GC overhead limit exceeded
+Metaspace
+```
+
 第三步：分析GC日志（动态过程，了解趋势）
+
+[GC日志指标指导](../GC日志指标指导.md)
 
 第四步：分析DUMP日志（静态瞬间，定位）
 
