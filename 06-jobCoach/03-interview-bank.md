@@ -607,7 +607,7 @@ Heap
 
 ```
 1.新对象优先分配到Eden区
-2.Eden区空间不足触发Minior GC
+2.Eden区空间不足触发Minor GC
 3.存活对象进入到 Survivor区
 4.多轮存活的对象晋升到 Old区
 5.大对象直接进入到 Old区
