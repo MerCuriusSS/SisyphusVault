@@ -823,11 +823,11 @@ Metaspace
 
 - MAT 分析路径：
 	1. 打开 heap dump
-	2. 看 Leak Suspects （快速定位疑似泄露）
-	3. 看 Dominator Tree （看谁占用最多内存）
-	4. 按 Retained Heap 排序 （对象释放后可释放内存）
-	5. 找最大对象
-	6. 查看 Path to GC Roots （）
+	2. 看 Leak Suspects （**快速定位疑似泄露**）
+	3. 看 Dominator Tree （**看谁占用最多内存**）
+	4. 按 Retained Heap 排序 （**对象释放后可释放内存**）
+	5. 找最大对象 
+	6. 查看 Path to GC Roots （**为什么对象没被释放**）
 	7. 判断是谁持有引用
 	8. 改代码
 
