@@ -667,5 +667,9 @@ Heap
 	- 内存不够才回收
 - 弱引用：
 	- `WeakReference<Object> ref = new WeakReference<>(new Object());`
-	- 只要GC即
+	- 只要GC即回收
+- 虚引用：
+	- 拿不到对象，用于监听释放
+
+
 
