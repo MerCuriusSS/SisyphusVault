@@ -747,6 +747,7 @@ G1              →  自己管新老年代（不需要搭配）
 **🔴 GC日志**
 
 GC 日志配置
+
 ```bash
 # JAVA9
 # 记录所有gc、安全点日志
@@ -761,5 +762,27 @@ GC 日志配置
 -XX:+PrintGCDateStamps
 -XX:+PrintTenuringDistribution
 -Xloggc:/logs/gc.log
+```
+
+关注点：
+
+- GC频率
+```
+
+```
+
+- GC耗时
+```
+
+```
+
+- 回收前后内存
+```
+
+```
+
+- Old区趋势
+```
+
 ```
 
