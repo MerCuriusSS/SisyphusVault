@@ -693,4 +693,5 @@ Heap
 
 **🔴GC收集器**
 
-Serial GC系列（）
+Serial GC 系列（Serial + Serial Old）
+
