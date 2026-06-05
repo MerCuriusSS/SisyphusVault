@@ -785,3 +785,22 @@ GC 日志配置
 ```
 
 ```
+
+
+🔴 **OOM 排查案例**
+
+1. Java Heap OOM
+
+```
+有一次服务出现 Java heap space。我首先确认 JVM 已经配置了 HeapDumpOnOutOfMemoryError，保留了 heap dump 和 GC 日志。GC 日志显示 OOM 前 Full GC 非常频繁，而且 Full GC 后 Old 区几乎不下降，说明不是单纯堆太小，而是大量对象长期存活。
+
+然后用 MAT 打开 dump，看 Dominator Tree，发现一个静态 Map 的 Retained Heap 占比最高。通过 Path to GC Roots 看到它被某个缓存单例持有，业务上这个缓存按用户维度存储结果，但没有最大容量和过期时间。修复方案是改成 Caffeine，增加 maximumSize、expireAfterWrite，并暴露缓存命中率和 size 指标。上线后 Old 区使用趋于稳定，Full GC 消失。
+```
+
+2. 线程池队列导致 OOM
+
+```
+某个服务 OOM 前接口 RT 升高，线程池任务队列持续增长。GC 日志显示 Young GC 和 Full GC 都变频繁，dump 中大量业务请求对象被 LinkedBlockingQueue 引用。根因是下游接口变慢，而本服务线程池使用无界队列，导致任务堆积。
+
+解决上先限流和降级恢复服务，然后把线程池改成有界队列，配置拒绝策略，并对下游调用增加超时、熔断和队列长度监控。这个问题本质不是对象泄漏，而是资源堆积。
+```
