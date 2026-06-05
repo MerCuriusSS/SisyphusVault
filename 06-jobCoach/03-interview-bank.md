@@ -701,5 +701,7 @@ Heap
 - Parallel GC 系列（Parallel Scavenge +Parallel Old ）
 	- 特点：吞吐量
 	- 年轻代 GC：Parallel Scavenge
-	- 老年代 GC：
+	- 老年代 GC：Parallel Old
+	- 参数：`-XX:+UseParallelGC`
+- 
 
