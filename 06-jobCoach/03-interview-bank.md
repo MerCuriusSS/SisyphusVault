@@ -693,8 +693,9 @@ Heap
 
 **🔴GC收集器**
 
-- Serial GC 系列（Serial + Serial Old）
+- Serial GC 系列（ + Serial Old）
 	- 特点：单线程
+	- 年轻代GC：Serial
 	- 参数：`-XX:+UseSerialGC`
-- Parallel GC 系列（）
+- Parallel GC 系列（Parallel Scavenge + ）
 
