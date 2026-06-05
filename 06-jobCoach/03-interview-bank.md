@@ -659,6 +659,13 @@ Heap
 
 **可达的引用类型**
 
-- 强引用：`Object obj = new Object()` 常规对象引用，可达不回收
-- 软引用：`SoftReference<Object> ref = new SoftReference<>(new Object()) 
+- 强引用：
+	- `Object obj = new Object()` 
+	- 常规对象引用，可达不回收
+- 软引用：
+	- `SoftReference<Object> ref = new SoftReference<>(new Object())`
+	- 内存不够才回收
+- 弱引用：
+	- `WeakReference<Object> ref = new WeakReference<>(new Object());`
+	- 只要GC即
 
