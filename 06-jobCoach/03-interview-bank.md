@@ -704,5 +704,5 @@ Heap
 	- 老年代 GC：Parallel Old
 	- 参数：`-XX:+UseParallelGC`
 - CMS GC
-	- 
+	- 特点：
 
