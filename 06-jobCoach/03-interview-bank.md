@@ -696,5 +696,5 @@ Heap
 - Serial GC 系列（Serial + Serial Old）
 	- 特点：单线程
 	- 参数：`-XX:+UseSerialGC`
-- Parallel GC 
+- Parallel GC 系列（）
 
