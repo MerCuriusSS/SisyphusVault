@@ -584,4 +584,27 @@ exactly-once 必须由业务幂等、事务边界、去重表、状态机和补�
 **🔴JVM运行时内存区域**
 
 
+| 区域      | 线程私有 | 存放内容              | 常见异常                         |
+| ------- | ---- | ----------------- | ---------------------------- |
+| 程序计数器   | 是    | 线程执行的下条字节码指令      | 无OOM                         |
+| 虚拟机栈    | 是    | 局部变量、操作数栈、动态链接、栈帧 | StackOverFlow Exception      |
+| 本地方法栈   | 是    | Native 方法调用       | native相关错误                   |
+| 堆       | 否    | 对象实例、数组           | OutOfMemory Error            |
+| 方法区/元空间 | 否    | 类元数据、方法元信息、常量池    | OutOfMemory Error：Meta Space |
 
+**🔴堆内存结构：分代模型**
+```
+Heap
+├── Young Generation
+│   ├── Eden
+│   ├── Survivor 0
+│   └── Survivor 1
+└── Old Generation
+```
+
+对象分配过程
+```
+1.新对象优先分配到Eden区
+2.Eden区空间不足触发Minior GC
+3.
+```
