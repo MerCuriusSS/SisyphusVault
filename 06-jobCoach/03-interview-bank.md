@@ -751,5 +751,7 @@ GC 日志配置
 # 记录所有gc、安全点日志
 # 输出到文件gc.log
 # 打印内容：真实时间、JVM启动了多久、日志级别、日志标签
+# 滚动切割大小、最多保留文件个数
+
 -Xlog:gc*,safepoint:file=/logs/gc.log:time,uptime,level,tags:filecount=10,filesize=100M
 ```
