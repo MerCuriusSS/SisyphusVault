@@ -696,7 +696,10 @@ Heap
 - Serial GC 系列（Serial + Serial Old）
 	- 特点：单线程
 	- 年轻代 GC：Serial
-	- 老年代 GC：
+	- 老年代 GC：Serial Old
 	- 参数：`-XX:+UseSerialGC`
-- Parallel GC 系列（Parallel Scavenge + ）
+- Parallel GC 系列（Parallel Scavenge +Parallel Old ）
+	- 特点：吞吐量
+	- 年轻代 GC：Parallel Scavenge
+	- 老年代 GC：
 
