@@ -747,6 +747,7 @@ G1              →  自己管新老年代（不需要搭配）
 **🔴 GC日志**
 
 GC 日志配置
-```
+```bash
+# 记录
 -Xlog:gc*,safepoint:file=/logs/gc.log:time,uptime,level,tags:filecount=10,filesize=100M
 ```
