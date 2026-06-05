@@ -707,5 +707,17 @@ Heap
 	- 特点：并发标记清除、停顿短；内存碎片、浮动垃圾
 	- 性质：老年代 GC
 - G1 GC
-	- 
+
+
+**垃圾收集器搭配**
+
+```
+新生代收集器        可搭配的老年代收集器
+--------------------------------------------------
+Serial          →  Serial Old、CMS
+ParNew          →  Serial Old、CMS
+Parallel Scavenge →  Parallel Old
+CMS             →  只能配 ParNew 或 Serial
+G1              →  自己管新老年代（不需要搭配）
+```
 
