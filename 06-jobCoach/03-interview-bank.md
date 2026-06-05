@@ -593,6 +593,7 @@ exactly-once 必须由业务幂等、事务边界、去重表、状态机和补�
 | 方法区/元空间 | 否    | 类元数据、方法元信息、常量池    | OutOfMemory Error：Meta Space |
 
 **🔴堆内存结构：分代模型**
+
 ```
 Heap
 ├── Young Generation
@@ -672,5 +673,5 @@ Heap
 - 虚引用：
 	- 拿不到对象，用于监听释放
 
-**🔴GC算法**
+**🔴GC 算法**
 
