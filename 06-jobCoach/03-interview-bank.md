@@ -771,8 +771,6 @@ GC 日志配置
 
 1. 堆OOM`java.lang.OutOfMemoryError: Java heap space`
 
-现象：
-
 | 原因     | 示例                  |
 | ------ | ------------------- |
 | 内存泄漏   | 集合、缓存无上限            |
@@ -780,11 +778,41 @@ GC 日志配置
 | 流量激增   | 请求堆积、批量任务过大         |
 | 堆设置太小  | -Xmx不合理             |
 | 查询结果过大 | select `*` 全量加载     |
-排查路径：
+2. Metaspace OOM
 
-```
+| 原因          | 示例                      |
+| ----------- | ----------------------- |
+| 动态生成类太多     | CGLIB                   |
+| 类加载器泄露      | 热部署、插件化                 |
+| Metaspace太小 | -XX:MaxMetaspaceSize 太小 |
 
-```
+3. StackOverflowError
+
+
+| 原因   | 示例     |
+| ---- | ------ |
+| 无线递归 | 方法互相调用 |
+| 栈帧太大 | 大量局部变量 |
+
+**🔴 线上OOM排查标准流程**
+
+第一步：先恢复服务
+
+第二步：确认OOM类型
+
+第三步：分析GC日志
+
+第四步：分析DUMP日志
+
+- MAT 分析路径：
+	1. 打开 heap dump
+	2. 看 Leak Suspects
+	3. 看 Dominator Tree
+	4. 按 Retained Heap 排序
+	5. 找最大对象
+	6. 查看 Path to GC Roots
+	7. 判断是谁持有引用
+	8. 改代码
 
 
 🔴 **OOM 排查案例**
