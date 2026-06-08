@@ -770,7 +770,7 @@ GC 日志配置
 关注点： [GC日志指标指导](../GC日志指标指导.md)
 
 
-**🔴OOM类型与排查路径**
+**🔴OOM类型与可能原因**
 
 1. 堆OOM`java.lang.OutOfMemoryError: Java heap space`
 
