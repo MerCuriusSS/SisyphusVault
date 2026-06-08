@@ -758,6 +758,9 @@ GC 日志配置
 -Xlog:gc*,safepoint:file=/logs/gc.log:time,uptime,level,tags:filecount=10,filesize=100M
 
 # JAVA8
+# 打印GC详细信息
+# 打印GC发生事件
+# 打印对象年龄分布
 -XX:+PrintGCDetails
 -XX:+PrintGCDateStamps
 -XX:+PrintTenuringDistribution
