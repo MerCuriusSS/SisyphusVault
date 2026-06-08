@@ -691,7 +691,7 @@ Heap
 	- 缺陷：需要处理跨代引用
 
 
-**🔴GC收集器**
+**🔴GC 收集器**
 
 - Serial GC 系列（Serial + Serial Old）
 	- 特点：单线程
