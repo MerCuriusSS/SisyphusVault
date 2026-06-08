@@ -1251,18 +1251,18 @@ MaxMetaspaceSize 设置过小
 
 ## 七、常见问题与指标组合
 
-| 问题现象 | 关键指标组合 | 初步判断 | 优先动作 |
-|---|---|---|---|
-| 接口偶发超时 | GC最大耗时高、Full GC耗时长 | 长暂停影响业务 | 对齐时间点，分析 Full GC 原因 |
-| Young GC 很频繁 | GC频率高、分配速率高 | 对象创建压力大 | 查 allocation hot spots |
-| Young GC 频繁但 Old 稳定 | 分配速率高、晋升速率低 | 短命对象多 | 优化临时对象或调 Young |
-| Young GC 频繁且 Old 上涨 | 分配速率高、晋升速率高 | 中长期对象多 | 查缓存、队列、批处理 |
-| Full GC 频繁 | Full GC次数高、耗时高 | 严重 GC 问题 | 看原因和 Old 回收效果 |
-| Full GC 后 Old 降不下来 | Old趋势上涨、Full GC回收差 | 泄漏或长期对象过多 | 抓 heap dump |
-| Full GC 后 Old 能下降 | Full GC回收有效 | 周期性积压或堆偏小 | 结合业务峰值，调堆或控制批量 |
-| Metaspace 持续上涨 | Metaspace趋势上涨、Metadata GC Threshold | 类加载问题 | 查 ClassLoader、动态代理 |
-| G1 Mixed GC 后 Old 不下降 | Old regions 下降少、Mixed GC频繁 | Old存活率高 | 查长期对象、大对象、堆余量 |
-| System.gc 触发 Full GC | Full GC原因是 System.gc() | 显式 GC | 定位调用方或禁用显式 GC |
+| 问题现象                  | 关键指标组合                              | 初步判断      | 优先动作                   |
+| --------------------- | ----------------------------------- | --------- | ---------------------- |
+| 接口偶发超时                | GC最大耗时高、Full GC耗时长                  | 长暂停影响业务   | 对齐时间点，分析 Full GC 原因    |
+| Young GC 很频繁          | GC频率高、分配速率高                         | 对象创建压力大   | 查 allocation hot spots |
+| Young GC 频繁但 Old 稳定   | 分配速率高、晋升速率低                         | 短命对象多     | 优化临时对象或调 Young         |
+| Young GC 频繁且 Old 上涨   | 分配速率高、晋升速率高                         | 中长期对象多    | 查缓存、队列、批处理             |
+| Full GC 频繁            | Full GC次数高、耗时高                      | 严重 GC 问题  | 看原因和 Old 回收效果          |
+| Full GC 后 Old 降不下来    | Old趋势上涨、Full GC回收差                  | 泄漏或长期对象过多 | 抓 heap dump            |
+| Full GC 后 Old 能下降     | Full GC回收有效                         | 周期性积压或堆偏小 | 结合业务峰值，调堆或控制批量         |
+| Metaspace 持续上涨        | Metaspace趋势上涨、Metadata GC Threshold | 类加载问题     | 查 ClassLoader、动态代理     |
+| G1 Mixed GC 后 Old 不下降 | Old regions 下降少、Mixed GC频繁          | Old存活率高   | 查长期对象、大对象、堆余量          |
+| System.gc 触发 Full GC  | Full GC原因是 System.gc()              | 显式 GC     | 定位调用方或禁用显式 GC          |
 
 ---
 
