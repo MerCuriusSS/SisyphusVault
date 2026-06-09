@@ -744,7 +744,6 @@ header:
 ##### JD1
 ```text
 日期：2026-06-09
-公司：XXX
 岗位：Java后端开发工程师 / 医药电商OFC方向
 JD关键词：
 Java、Spring Boot、Spring Cloud、Spring Cloud Alibaba、Nacos、Sentinel、Seata、MySQL、Redis、RabbitMQ、RocketMQ、分布式事务、高并发、微服务、订单履约、OFC、订单创建、支付回调、处方审核、库存预占、分仓拆单、拣货出库、物流调度、售后逆向、熔断降级、流量削峰、缓存一致性、超卖、漏发、状态一致性、Docker、K8s、AI辅助编程、Claude Code、Codex、Prompt设计、代码生成、单元测试、Bug排查、技术文档、GSP、药品追溯
@@ -764,7 +763,6 @@ Java、Spring Boot、Spring Cloud、Spring Cloud Alibaba、Nacos、Sentinel、Se
 ##### JD2
 ```text
 日期：2026-06-09
-公司：XXX
 岗位：高级Java工程师
 JD关键词：
 Java、Spring、SSM、Spring Boot、Socket、NIO、多线程、团队管理、技术小组培训、技术文档、需求分析、功能设计、任务分配、编码、测试、故障诊断、调试优化、高性能、高稳定性、Redis、MongoDB、消息队列、Tomcat、Apache、Nginx、Linux、PostgreSQL、Doris、StarRocks、MPP数据库、SQL优化、数据建模、Vue、AngularJS、React、JavaScript、HTML、产品对接、运营对接、项目进度管理
@@ -785,7 +783,6 @@ Java、Spring、SSM、Spring Boot、Socket、NIO、多线程、团队管理、�
 ##### JD3
 ```text
 日期：2026-06-09
-公司：XXX
 岗位：海外1v1社交产品Java后端工程师
 JD关键词：
 Java、Spring Boot、Spring Cloud、微服务、分布式开发、海外社交、1v1直播、语聊、用户匹配、实时互动、支付、打赏、管理后台、风控系统、数据看板、全球化运营、数据复盘、生产环境稳定性、性能调优、线上问题排查、跨地区高并发、App后端API、第三方服务对接、海外支付、音视频、推送、MySQL、Redis、MongoDB、数据模型设计、数据库优化
@@ -806,7 +803,6 @@ Java、Spring Boot、Spring Cloud、微服务、分布式开发、海外社交�
 ##### JD4
 ```text
 日期：2026-06-09
-公司：XXX
 岗位：广告投放工具Java后端工程师
 JD关键词：
 Java、Spring Boot、MyBatis、MySQL、Redis、多线程、高并发、分布式系统、性能优化、后端开发、接口对接、字节、腾讯、快手、百度、媒体平台API、广告投放、批量创建广告、自动扩量、自动止损、互联网营销工具、系统稳定性、安全性、前端协作、产品协作、快速迭代、编码习惯、技术文档、团队协作
@@ -819,7 +815,6 @@ Java、Spring Boot、MyBatis、MySQL、Redis、多线程、高并发、分布式
 ##### JD5
 ```text
 日期：2026-06-09
-公司：XXX
 岗位：Java全栈开发工程师
 JD关键词：
 Java、全栈开发、Web应用、移动端应用、前后端开发、系统架构设计、代码编写、性能优化、前后端交互、用户体验、技术文档、上线部署、后期维护、Spring Boot、Spring Cloud、Vue.js、组件化开发、Flutter、跨平台移动端、前后端分离、Web安全、MySQL、Redis、数据库设计、代码规范、团队协作
@@ -840,7 +835,6 @@ Java、全栈开发、Web应用、移动端应用、前后端开发、系统架�
 ##### JD6
 ```text
 日期：2026-06-09
-公司：XXX
 岗位：Java后端开发工程师
 JD关键词：
 Java、Spring、Spring Boot、MyBatis、MyBatis-Plus、系统功能设计、开发、联调、上线维护、方案设计、编码实现、接口开发、自测、问题排查、架构优化、性能优化、代码重构、安全性、稳定性、可维护性、可扩展性、业务理解、流程优化、产品协作、前端协作、测试协作、运维协作、线上问题响应、集合、多线程、IO、反射、异常处理、JUC、MySQL、数据库设计、SQL优化、索引优化、慢查询分析、Redis、缓存穿透、缓存击穿、缓存雪崩、JVM、JVM参数调优、内存分析、RabbitMQ、Kafka、RocketMQ、生成式AI、需求理解、代码生成、问题排查、单元测试、技术方案整理
