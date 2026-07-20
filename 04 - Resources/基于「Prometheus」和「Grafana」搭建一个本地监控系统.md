@@ -438,3 +438,102 @@ Grafana安装目录\conf\provisioning
 ```
 
 ##### 4）重新启动Grafana
+
+
+### 四、prometheus采集的数据设置告警通知
+
+#### 🔴AlertManager 服务开启 与 通知渠道配置
+
+- 地址：[https://prometheus.io/download/](https://link.wtturl.cn/?target=https%3A%2F%2Fprometheus.io%2Fdownload%2F&scene=im&aid=582478&lang=zh "autolink")
+- 渠道配置：邮件
+	- 登录 QQ 邮箱 → 设置 → 账户
+	- 开启 `POP3/IMAP/SMTP服务`
+	- 短信验证，获取**授权码**
+- 为`alertmanager.yml` 配置 通知渠道
+
+```yaml
+# alertManager.yml
+
+# 用什么渠道通知
+global:
+  resolve_timeout: 5m
+  # SMTP全局配置（发件邮箱）
+  smtp_smarthost: 'smtp.qq.com:465'
+  smtp_from: '408848645@qq.com'
+  smtp_auth_username: '408848645@qq.com'
+  # SMTP授权码
+  smtp_auth_password: 'cisgdjxljkidcaaa'
+  smtp_require_tls: false
+
+# 用什么频率通知、内容合并
+route:
+  group_by: ['alertname', 'instance']  # 按告警名、实例分组合并告警
+  group_wait: 10s      # 收到告警后等待10s，合并同批告警再发送
+  group_interval: 1m   # 同组告警间隔1分钟发一次
+  repeat_interval: 10m # 持续故障每10分钟重复推送
+  receiver: 'email-receiver' # 默认接收者
+
+# 邮件标题
+receivers:
+  - name: 'email-receiver'
+    email_configs:
+      - to: '408848645@qq.com' # 多人逗号分隔
+        send_resolved: true # 告警恢复时也发邮件通知
+        headers:
+          Subject: "[监控告警] {{ .Status | toUpper }} - {{ .CommonAnnotations.summary }}"
+```
+
+#### 🔴为 prometheus 配置 预警规则
+
+```yaml
+# alert.yml
+
+groups: # 通知类型（紧急、警告、一般）
+- name: ai_code_gen_critical # 紧急类通知名称
+  rules: # 具体规则
+    - alert: AI生成错误率飙升 # 告警名字（与alert.yml alertname 对应）
+      expr: | # 触发规则
+        (
+          sum(rate(ai_gen_errors_total[5m]))
+          /
+          sum(rate(ai_gen_requests_total{status=~"success|error"}[5m]))
+        ) > 0.10
+      for: 5m # 塞到邮箱前的等待时间
+      labels: # 邮箱正文
+        severity: critical
+        category: ai-generation
+      annotations: # 邮箱正文
+        summary: "AI 代码生成错误率超过 10%"
+        description: "当前 5 分钟错误率 {{ $value | humanizePercentage }}，请检查 DeepSeek API 状态、网络连接和异常日志。"
+
+    - alert: AI生成服务不可用
+      expr: |
+        sum(rate(ai_gen_requests_total{status="success"}[5m])) == 0
+        and
+        sum(rate(ai_gen_requests_total{status="started"}[5m])) > 0
+      for: 3m
+      labels:
+        severity: critical
+        category: ai-generation
+      annotations:
+        summary: "AI 代码生成 5 分钟内零成功请求"
+        description: "有请求发起但无任何成功完成，可能 DeepSeek API 不可用、API Key 过期或配置异常。"
+```
+
+
+#### 🔴 prometheus 配置文件追加通知配置
+
+```yaml
+# prometheus.yml
+
+# 告警管理器配置 (可选)
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+           - 127.0.0.1:9093 # 告警管理器地址
+
+# 规则文件配置
+rule_files:
+ - "alerts.yml"  # 可以添加告警规则
+```

@@ -184,27 +184,76 @@ public ListNode reverseList(ListNode head) {
 
 ```
 ### 题目 1： 前缀和
-题型：
-是否独立完成：
+题型：数组不可变
+是否独立完成：否
 耗时：
-卡点：
-错因分类：
-正确思路：
+卡点：1.res[a..b]的累加和≠ 累加和数组sumArr[b]-sumArr[a];2.无法处理[0,0]边界问题
+错因分类：没有考虑边界问题、没有画图验证
+正确思路：累加数组预留sum[0]=0作为边界处理；做图验证后 res[a..b]=sumArr[b+1]-sumArr[a]
 模板/套路：
-下次遇到类似题的识别信号：
+下次遇到类似题的识别信号：多次重复遍历+计算累计和/差
 复习日期：次日
+```
+
+```java
+前缀和模板
+
+public void solution(int[] nums){
+	//sums[0]=0;方便处理边界条件
+	int[] sums=new int[nums.length+1];
+	//前缀和=上个前缀和+原数组当前元素
+	for(int i=1;i<sums.length;i++){
+		sums[i]=sums[i-1]+nums[i-1];
+	}
+	
+}
+//[a,b]区间的前缀和=sum[a+1]-sums[b]差值
+public int sumRange(int start,int end,int[] sums){
+	return sums[end+1]-sums[start];
+}
 ```
 
 
 ```
-### 题目 2：
-题型：
-是否独立完成：
+### 题目 2：二维前缀和
+题型：矩阵不可变
+是否独立完成：否
 耗时：
-卡点：
-错因分类：
+卡点：二维数组的矩阵和如何表示？目标矩阵和又如何表示？
+错因分类：识别不出题型
 正确思路：
+1.左侧各加一行一列处理矩阵和边界问题；
+2.矩阵和求解规律
+3.认识目标矩阵和求解规律
 模板/套路：
-下次遇到类似题的识别信号：
+下次遇到类似题的识别信号：二维数组求和
 复习日期：次日
+```
+
+```java
+// 构建二维前缀和
+public int[][] build2DPrefix(int[][] matrix) {
+    int m = matrix.length;
+    int n = matrix[0].length;
+    int[][] pre = new int[m + 1][n + 1]; // 行列都+1
+    for (int i = 1; i <= m; i++) {
+        for (int j = 1; j <= n; j++) {
+            pre[i][j] = pre[i - 1][j] + pre[i][j - 1] 
+                      - pre[i - 1][j - 1] + matrix[i - 1][j - 1];
+        }
+    }
+    return pre;
+}
+
+/**
+ * 查询二维矩阵 (i1,j1) 左上 ~ (i2,j2) 右下 闭区间和
+ * @param i1 左上角行
+ * @param j1 左上角列
+ * @param i2 右下角行
+ * @param j2 右下角列
+ * @param pre 二维前缀和数组
+ */
+public int query2D(int i1, int j1, int i2, int j2, int[][] pre) {
+    return pre[i2+1][j2+1] - pre[i1][j2+1] - pre[i2+1][j1] + pre[i1][j1];
+}
 ```

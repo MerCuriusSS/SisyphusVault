@@ -255,3 +255,93 @@
 - [x] 项目：完成 2 个追问轻量复练。 ✅ 2026-06-09
 - [ ] 简历：根据 JD 高频词最多做 3 处小修。
 - [ ] 复盘：明确 Day 7 第一优先级。
+
+## DAY07复盘
+
+### 完成情况
+
+- [x] 完成 8-10 个岗位投递，并记录 JD 关键词、简历版本、匹配度。 ✅ 2026-06-09
+- [x] 根据最近 JD 高频词，对简历做最多 3 处小修。 ✅ 2026-06-10
+- [x] 把 Day 6 的 AI 项目成果沉淀成简历项目描述 V1.0 和 90 秒口述版。 ✅ 2026-06-10
+- [x] 算法补 Day 6 未完成任务：前缀和 2 题（矩阵不可变、数组不可变） ✅ 2026-06-10
+- [x] Java 面试新增 1 个轻主题：**MySQL 索引与慢 SQL 优化**。 ✅ 2026-06-10
+- [ ] 做一次项目表达轻量复练：AI 项目 + 项目一各 1 个追问。
+- [x] 完成 Day 7 复盘，并明确 Day 8 第一优先级。 ✅ 2026-06-11
+
+
+### 知识点回顾
+
+#### **MySQL 索引与慢 SQL 优化**
+- 索引类型与分类
+- B+树作为索引结构原因
+- 三层B+树存储数据的计算方式
+- 联合索引和最左前缀原则
+- 联合索引与索引下推（ICP）
+- 索引有效、失效、可用性差
+- explain 观察指标
+- 索引优化
+- 慢SQL优化执行步骤
+- 慢SQL优化的面试回答
+
+#### 前缀和算法
+
+一维数组前缀和
+```java
+public void solution(int[] arr){
+	//preSums[0]方便处理边界条件
+	int[] preSums=new int[arr.length+1];
+	
+	//前缀和=上个前缀和+原数组当前元素值
+	for(int i=1;i<preSums.length;i++){
+		preSums[i]=preSums[i-1]+arr[i-1];
+	}
+}
+
+//[a,b]区间前缀和=preSums[b+1]-preSums[a];
+public void getRangeSum(int start,int end,int[] preSums){
+	return preSums[end+1]-preSums[start];
+}
+```
+
+
+二维数组前缀和
+```java
+public void solution(int[][] matrix){
+	// 空矩阵容错
+    if(matrix == null || matrix.length == 0 || matrix[0].length == 0){
+        return new int[0][0];
+    }
+
+	int r=matrix.length+1;
+	int c=matrix[0].length+1;
+	int[][] preSums=new int[r][c];
+	
+	for(int i=1;i<preSums.length;i++){
+		for(int j=1;j<preSums[i].length;j++){
+			preSums[i][j]=preSums[i][j-1]+preSums[i-1][j]-preSums[i-1][j-1]+matrix[i-1][j-1];
+		}
+	}
+}
+
+public int getRangeSums(int x1,int y1,int x2,int y2,int[][] preSums){
+	return preSums[x2+1][y2+1]-preSums[x1][y2+1]-preSums[x2+1][y1]+preSums[x1][y1];
+}
+
+
+```
+
+
+
+## Day8复盘
+
+### 完成情况
+- [ ] 跟进 Day 7 投递中最高优先级岗位，尤其 `JD6` 和 `JD1`。
+- [ ] 新增投递 5-8 个岗位，保持投递节奏。
+- [ ] 为 `JD6` 准备一段针对性 BOSS 开场白和 5 个面试重点。
+- [ ] 为 `JD1 医药电商/OFC` 准备一套业务迁移话术：订单状态机、库存预占、支付回调、MQ 最终一致性。
+- [x] Java 面试新增主题：**Java 并发 / JUC / 线程池与线上问题排查**。 ✅ 2026-06-17
+- [x] 算法先修正前缀和模板，再进入 `差分数组` 或 `链表复盘`。 ✅ 2026-06-17
+- [ ] 完成 AI 项目 90 秒口述复练，并补 5 个高频追问。
+- [ ] 完成 Day 8 复盘，明确 Day 9 是否进入“面试冲刺”或继续“投递 + 准备”。
+
+
