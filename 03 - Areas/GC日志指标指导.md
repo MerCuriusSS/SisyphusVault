@@ -878,15 +878,15 @@ Full GC后 Heap 是否下降
 
 Full GC 常见原因：
 
-| Full GC 原因 | 初步含义 |
-|---|---|
-| `Allocation Failure` | 堆空间不足或 Old 区无法分配 |
-| `Promotion failed` | Young 对象晋升 Old 失败 |
-| `Metadata GC Threshold` | Metaspace 达到触发阈值 |
-| `System.gc()` | 代码或第三方库显式触发 GC |
-| `Concurrent mode failure` | CMS 并发回收来不及 |
-| `G1 Compaction Pause` | G1 退化为 Full GC |
-| `to-space exhausted` | G1 疏散空间不足 |
+| Full GC 原因                | 初步含义              |
+| ------------------------- | ----------------- |
+| `Allocation Failure`      | 堆空间不足或 Old 区无法分配  |
+| `Promotion failed`        | Young 对象晋升 Old 失败 |
+| `Metadata GC Threshold`   | Metaspace 达到触发阈值  |
+| `System.gc()`             | 代码或第三方库显式触发 GC    |
+| `Concurrent mode failure` | CMS 并发回收来不及       |
+| `G1 Compaction Pause`     | G1 退化为 Full GC    |
+| `to-space exhausted`      | G1 疏散空间不足         |
 
 ---
 

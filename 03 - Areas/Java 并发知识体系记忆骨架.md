@@ -7,7 +7,7 @@ project:
 application:
 source:
 ---
-[「记忆规律」与「知识体系建设」](../../03%20-%20Areas/「记忆规律」与「知识体系建设」.md)
+[「记忆规律」与「知识体系建设」](「记忆规律」与「知识体系建设」.md)
 
 ```
 L1：核心问题
@@ -55,14 +55,14 @@ L4：机制细节
 	├─ ConcurrentHashMap：JDK 1.7 是 Segment 分段锁；JDK 1.8 是数组 + CAS + synchronized 锁桶头
 	├─ CopyOnWriteArrayList：读不加锁，写时复制，适合读多写少的快照类场景
 ├─ 线程池：
-	├─ ThreadPoolExecutor 核心参数：coreSize、maxSize、aliveTime、unit、workQueue、threadFactory、handler
-	├─ 执行流程：核心线程未满先建核心线程；否则入队；队列满后建非核心线程；最大线程满后拒绝。
-	├─ 拒绝策略：AbortPolicy 抛异常，CallerRunsPolicy 调用方执行，DiscardPolicy 丢新任务，DiscardOldestPolicy 丢最老任务。
-	├─ 生产禁止使用 Executors：Fixed / Single 无限队列；Cached 无限线程；
-	├─ 参数配置：
-		CPU密集型：接近CPU核数；
-		IO密集型：线程数 = CPU 核数 * (1 + IO执行时间 / CPU执行时间)
-	├─ 监控指标：poolSize（池内线程总数）、activeSize（活跃总数）、queueSize（队列长度）、completedTaskCount（已完成任务数）、taskExecutionTime（任务执行时间）、taskWaitTime（任务等待时间）
+	├─ 核心价值：
+	├─ 组成部分：
+	├─ 执行流程：
+	├─ 拒绝策略/生产规范：
+	├─ 线程池创建/生产规范：
+	├─ 线程个数配置：
+	├─ 池化关键指标：
+	├─ 排查手段：
 ├─ 异步编排：
 	├─ 创建任务：runAsync：无返回值；supplyAsync：有返回值
 	├─ 处理"任务结果"：thenApply / thenAccept / thenRun
