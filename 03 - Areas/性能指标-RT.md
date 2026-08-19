@@ -1,7 +1,7 @@
 ---
 tags:
-  - Areas/基础概念
-  - Areas/Coder/javaWeb
+  - 编程/运维
+  - 编程/基础
 category: 思维
 status: 加工
 project:

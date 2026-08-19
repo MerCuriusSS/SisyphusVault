@@ -1,6 +1,6 @@
 ---
 tags:
-  - Areas/Coder/基础原理
+  - 编程/基础
 category: 技术
 status: 加工
 project:

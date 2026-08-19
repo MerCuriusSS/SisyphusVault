@@ -1,6 +1,7 @@
 ---
 tags:
-  - Areas/Coder/javaWeb
+  - AI/应用
+  - 编程/框架
 category: 技术或思维
 status: 加工
 project:

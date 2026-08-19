@@ -1,7 +1,6 @@
 ---
 tags:
-  - Areas/Coder/javaWeb
-  - Areas/Coder/基础原理
+  - 编程/数据库
 category: 技术
 status: 加工
 project: "[[../02 - Projects/后台管理系统「Ruoyi-Vue-Plus」|后台管理系统「Ruoyi-Vue-Plus」]]"

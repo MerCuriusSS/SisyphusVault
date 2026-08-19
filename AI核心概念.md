@@ -1,4 +1,7 @@
-#Resources/AI 
+---
+tags:
+  - AI/基础
+---
 
 ### LLM(Large Language Model)
 - 定义：大语言模型，基于「Transformer」，决策大脑，通过词语接龙方式输出内容

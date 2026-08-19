@@ -1,5 +1,7 @@
-#Resources/coder/核心源码 
-
+---
+tags:
+  - 编程/数据库
+---
 
 ## OOM场景代码
 
@@ -30,7 +32,7 @@ for(TableBasic table : allTableBasic) {
 1.报出OOM异常
 2.下载dump文件
 3.MAT解析
-4.从静态引用链中找到大对象为「全量表对象集合」
+4.从Path to Roots中找到大对象为「全量表对象集合」
 5.分析得出 表数量庞多、与表关联的字段、索引、约束全部保存在内存中不释放
 6.FullGC 失败直接OOM错误
 ```

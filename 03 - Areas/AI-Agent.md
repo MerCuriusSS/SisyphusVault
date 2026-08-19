@@ -1,6 +1,6 @@
 ---
 tags:
-  - Resources/AI
+  - AI/基础
 category: 思维
 status: 加工
 project:
