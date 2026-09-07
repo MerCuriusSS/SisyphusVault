@@ -5,7 +5,11 @@ entity: Task
 version: 1
 schema:
   description: string, what needs to be done
-  status?(enum, current state): [active, blocked, done, abandoned]
+  status?(enum, current state):
+  - active
+  - blocked
+  - done
+  - abandoned
   assigned_to?: string, who is working on this
   steps?(array): string, ordered steps to complete
   current_step?: integer, which step number is current
@@ -16,6 +20,7 @@ schema:
   parent_task?: Task, parent task if this is a subtask
 settings:
   validation: warn
+permalink: main/schemas/task
 ---
 
 # Task
