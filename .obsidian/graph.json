@@ -6,43 +6,7 @@
   "hideUnresolved": false,
   "showOrphans": true,
   "collapse-color-groups": false,
-  "colorGroups": [
-    {
-      "query": "tag:#Areas  ",
-      "color": {
-        "a": 1,
-        "rgb": 14048348
-      }
-    },
-    {
-      "query": "tag:#excalidraw  ",
-      "color": {
-        "a": 1,
-        "rgb": 14069084
-      }
-    },
-    {
-      "query": "tag:#Resources  ",
-      "color": {
-        "a": 1,
-        "rgb": 11392604
-      }
-    },
-    {
-      "query": "tag:#review  ",
-      "color": {
-        "a": 1,
-        "rgb": 6084188
-      }
-    },
-    {
-      "query": "tag:#project  ",
-      "color": {
-        "a": 1,
-        "rgb": 6084269
-      }
-    }
-  ],
+  "colorGroups": [],
   "collapse-display": true,
   "showArrow": true,
   "textFadeMultiplier": 0,
@@ -53,6 +17,6 @@
   "repelStrength": 8.75035460992908,
   "linkStrength": 1,
   "linkDistance": 250,
-  "scale": 0.7132754626224325,
+  "scale": 0.46106787908314867,
   "close": true
 }

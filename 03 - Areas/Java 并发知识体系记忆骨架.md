@@ -19,7 +19,7 @@ L2：方案
 ├─ 选择并发容器：减少手写锁、使用成熟并发数据结构
 ├─ 管理任务执行：用线程池控制资源和流量
 ├─ 编排异步任务：CompletableFuture 和 @Async 组织依赖关系
-├─ 传递线程上下文：解决异步线程traceId、用户上下文丢失问题
+├─ 传递线程上下文：核心机制ThreadLocal，线程跨上下文方案
 ├─ 定位线上故障：用监控、线程栈、链路解决线上问题
 
 L3：机制
@@ -28,7 +28,7 @@ L3：机制
 ├─ 选择并发容器：BlockingQueue / ConcurrentHashMap / CopyOnWriteArrayList
 ├─ 管理任务执行：ThreadPoolExecutor 参数、队列、拒绝策略、监控、关闭
 ├─ 编排异步任务：CompletableFuture 编排方法 + 自定义线程池 + 异常处理
-├─ 传递线程上下文：显式传参 / Runnable 包装 / TaskDecorator / MDC
+├─ 传递线程上下文：ThreadLocal / 显式传参 / Runnable 包装 / TaskDecorator / MDC
 ├─ 定位线上故障：top + jstack + jcmd + jstat + GC 日志 + 链路追踪 + 池化指标
 
 L4：机制细节
@@ -83,8 +83,6 @@ L4：机制细节
 	├─ MDC：日志上下文，常用来把 traceId 打进日志；异步线程中要复制并清理 MDC。
 ├─ 线上问题排查:
 	├─ top -Hp 找线程；jstack找线程死锁、细节
-	├─ jstat -gc 找GC当前动态日志；GC dump 找线程任务细节
-	├─ 池化指标监控线程池状态，结合 GC dump 找线程任务细节
 	
 L5：应用场景
 

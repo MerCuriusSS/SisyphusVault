@@ -1,6 +1,5 @@
 [
   "dataview",
-  "obsidian-excalidraw-plugin",
   "obsidian-git",
   "obsidian-tasks-plugin",
   "multi-column-markdown",
@@ -11,5 +10,7 @@
   "tag-wrangler",
   "templater-obsidian",
   "obsidian-file-color",
-  "file-explorer-note-count"
+  "file-explorer-note-count",
+  "obsidian-excalidraw-plugin",
+  "cli-rest-mcp"
 ]

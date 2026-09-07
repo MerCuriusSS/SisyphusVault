@@ -10,13 +10,22 @@ source:
 ---
 ### 核心流程：
 
-[AI对话请求核心流程](../excalidraw/AI对话请求核心流程.md)
+[AI对话请求核心流程](../Excalidraw/AI对话请求核心流程.md)
 
-系统提示词设计规范：
+```
+1.请求AI对话接口——LangChain接入LLM、定义系统提示词、接收用户输入提示词
+2.接收LLM结果输出
+3.内容解析&文件保存
+4.前端显示输出内容
+```
 
-- **角色扮演表目的**
+
+系统提示词设计规范：**（一次性 Prompt 工程标准模板）**
+
+- **角色扮演
+- **实现目标**
 - **环境、背景信息**
-- **思维链提示**：要求模型分步骤解答问题，还要求其展示其推理过程的每个步骤
+- **思维链提示**：（复杂问题）要求模型分步骤解答问题，还要求其展示其推理过程的每个步骤
 - **样本示例**
 - **输出格式**
 - **额外限制条件**：特别注意...
@@ -151,7 +160,7 @@ const router = createRouter({
 ##### 痛点
 - 结构化输出只看到结果，过程要等待，用户体验不友好。
 ##### 优势：
-- 流式输出能实时展示生成过程，用户体验拉满。
+- 流式输出能实时展示生成过程，优化用户体验。
 ##### 代价：
 - 流式输出会忽略空格，需要额外转化。
 
@@ -199,19 +208,19 @@ return codeStream
 // AiCodeGeneratorFacade 中将 TokenStream 转换为结构化 Flux<String>
         tokenStream
             .onPartialResponse(partialResponse -> {
-                // AI 文本响应 → AiResponseMessage JSON
+                // AI 文本响应 → AiResponseMessage JSON（分片流式输出）
             })
             .onPartialToolCall(partialToolCall -> {
-                // 工具调用 → ToolRequestMessage JSON
+                // 工具调用 → ToolRequestMessage JSON（分片流式输出，且设置只输出一次分片，所以视觉上像完整对象输出）
             })
             .onToolExecuted(toolExecution -> {
-                // 工具执行结果 → ToolExecutedMessage JSON
+                // 工具执行结果 → ToolExecutedMessage JSON（事件完成后才回调一次，拿到完整对象，不是分片）
             })
             .onCompleteResponse(response -> {
-	            // 响应内容
+	            // 响应内容（事件完成后才回调一次，拿到完整对象，不是分片）
             })
             .onError(error -> {
-	            // 异常内容
+	            // 异常内容（事件完成后才回调一次，拿到完整对象，不是分片）
             })
             .start();
 ```
@@ -251,7 +260,7 @@ public Flux<ServerSentEvent<String>> chatToGenCode() {
     // 转换为 SSE 格式
     return contentFlux
         .map(chunk -> {
-            Map<String, String> wrapper = Map.of("d", chunk); // 包装为 {"d": "chunk"} ；防止空格丢失问题
+            Map<String, String> wrapper = Map.of("d", chunk); // 封装为 {"d": "chunk"} ；防止空格丢失问题
             String jsonData = JSONUtil.toJsonStr(wrapper);
             return ServerSentEvent.<String>builder()
                 .data(jsonData)
@@ -323,13 +332,25 @@ public int loadChatHistoryToMemory(Long appId, MessageWindowChatMemory chatMemor
 
 #### Tool Calling 构建工程化项目（Vue）
 
+- **Tool Calling：工具声明（工具使用的json格式说明）**
+- **LangChain：作为LLM与工具的中间层，实现「向LLM声明工具」以及「工具运行」的串联工作**
+
 ##### 痛点
 - 工程化项目文件类型多，手动解析逻辑复杂
 - 直接引入 Agent智能体协助会使得架构复杂
 
 ##### 优势：
-- LangChain4J 本身支持工具调用功能；
-- 允许多次工具调用提供了基础的 Agent 多步骤执行能力。
+- LangChain4J 本身支持工具调用功能，
+- 无需人工解析&写入代码，由 LLM 指导 LangChain 完成工具调用
+
+```
+原来：
+LLM输出内容 ---> 人工解析文件内容 ---> 人工写入文件 ---> 前端展示
+
+Tool Calling：
+提供工具+工具说明 ---> LangChain向LLM传递声明 ---> LLM指导 ---> LangChain完成工具调用 ---> 前端展示
+
+```
 
 ##### 代价：
 - 工具调用结果展示是一次性调用，缺失打字机效果。
@@ -359,13 +380,13 @@ public String modifyFile(
 
 工具调用类型：
 
-|工具|方法名|核心能力|安全设计|
-|---|---|---|---|
-|`FileWriteTool`|`writeFile`|创建/覆写文件|限制在项目根目录内|
-|`FileReadTool`|`readFile`|读取文件内容|仅读取文件，不做修改|
-|`FileModifyTool`|`modifyFile`|查找替换文件内容|先匹配再替换，未匹配不写|
-|`FileDeleteTool`|`deleteFile`|删除指定文件|保护 package.json/vite.config.ts 等重要文件|
-|`FileDirReadTool`|`readDir`|列出目录结构|自动过滤 node_modules/.git/dist|
+| 工具                | 方法名          | 核心能力     | 安全设计                                 |
+| ----------------- | ------------ | -------- | ------------------------------------ |
+| `FileWriteTool`   | `writeFile`  | 创建/覆写文件  | 限制在项目根目录内                            |
+| `FileReadTool`    | `readFile`   | 读取文件内容   | 仅读取文件，不做修改                           |
+| `FileModifyTool`  | `modifyFile` | 查找替换文件内容 | 先匹配再替换，未匹配不写                         |
+| `FileDeleteTool`  | `deleteFile` | 删除指定文件   | 保护 package.json/vite.config.ts 等重要文件 |
+| `FileDirReadTool` | `readDir`    | 列出目录结构   | 自动过滤 node_modules/.git/dist          |
 
 为 LangChain4J 注入工具：
 
@@ -413,7 +434,7 @@ tokenStream.onPartialResponse((String partialResponse) -> {
             sink.next(JSONUtil.toJsonStr(msg));  
         })  
         .onToolExecuted((ToolExecution toolExecution) -> {  
-	        //监听工具调用完整结果（一次性返回）  
+	        //监）  
             ToolExecutedMessage msg = new ToolExecutedMessage(toolExecution);  
             sink.next(JSONUtil.toJsonStr(msg));  
         })  
@@ -615,7 +636,7 @@ private boolean isWindows() {
 //4.复制文件到部署目录
 ```
 
-#### 语义解析选择生成类型
+#### 生成类型动态路由
 
 ##### 痛点：
 - 项目多种生成模式，常规代码判断难以从语义识别采用何种模式
@@ -639,6 +660,8 @@ private boolean isWindows() {
 
 ##### 优势：
 - 护轨（Guardrail）机制能检测并拦截非法输入，有效预防提示词攻击、越狱攻击等，**类似于拦截器**。
+- 维度涵盖：指令覆盖、系统提示词窃取、身份切换等
+- 方式：正则
 
 ```java
 //1.实现 LangChain4j InputGuardrail 接口，检测并拦截敏感词
@@ -657,13 +680,39 @@ public class PromptSafetyInputGuardrail implements InputGuardrail{
 HtmlCodeResult generateHtmlCode(String userMessage);
 ```
 
-#### RAG 语义解析增强提示词
+#### 四维度网页模板 RAG 提示词增强
 
 ##### 痛点：
-- 用户输入提示词需求不明确，LLM 生成随机性大，生成质量不一。
+- 用户提示词输入模糊，需求不明确。
 
 ##### 优势：
-- 构建向量数据库，以`网页目的、数据交互、用户体验、项目用途` 四种维度制定适配关键字，向量匹配输入提示词，补充相应提示词描述，提高生成质量
+- 将模糊输入翻译成可执行的通用规范，更贴合代码生成场景。
+
+设计
+- 资料库：不同页面模板描述
+- 分片依据：整体`网页目的、数据交互、用户体验、项目用途` 四个正交维度划分，每个维度提供多种具体的通用页面表达，自由组合。
+
+```
+网页目的：
+- 表单类
+- 列表类
+- 仪表盘类
+
+数据交互：
+- 搜索查询类
+- 文件上传类
+- 图表可视化类
+
+用户体验：
+- 响应式
+- 空状态和错误处理
+- 动画效果
+- 视觉风格
+
+项目用途：
+- 后台管理
+- 文档站点
+```
 
 
 数据源模板设计示例：

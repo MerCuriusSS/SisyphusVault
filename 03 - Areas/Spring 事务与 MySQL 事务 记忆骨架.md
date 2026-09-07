@@ -27,8 +27,8 @@ L3：关键机制
 Spring 事务可能没有经过代理 -> 必须通过 Spring 代理对象调用 @Transactional 方法
 异常回滚规则容易误判 -> rollbackFor + 抛出可感知异常
 方法之间需要不同事务关系 -> propagation 传播行为
-事务失败需要撤销已执行修改 -> undolog
 事务提交后需要崩溃可恢复 -> redolog
+事务失败需要撤销已执行修改 -> undolog
 多事务读写并发数据不一致 -> MySQL 隔离级别 / MVCC(ReadView + undolog) / 行锁 / 间隙锁 / 临键锁
 
 L4: 机制细节

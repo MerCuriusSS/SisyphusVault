@@ -25,7 +25,7 @@ CPU、内存、磁盘（资源）
 
 L3：每层对应命令
 位置 -> pwd / ls / cd / find
-内容 -> less / tail / grep
+内容 -> cat / less / tail / grep
 权限 -> chmod / chown
 进程 -> ps / top / kill
 资源 -> top / free / jstat / jmap / df / du / lsof

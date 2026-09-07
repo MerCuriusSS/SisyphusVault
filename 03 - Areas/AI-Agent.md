@@ -8,9 +8,8 @@ application:
 source:
 ---
 ### 🔴概念
-
-- LLM（Large-Language-Model）表示**大脑**，本质上是「**文字进，文字出**」
-- Agent表示**有四肢的大脑**（会调用工具），本质上是「**文字进->使用工具改变外部环境->反馈结果**」
+- Agent表示**有四肢的大脑**（会调用工具）
+- 更进一步地说：就是把 LLM + 工具放进一个循环里，让模型不断「思考 → 调用工具 → 观察结果 → 再思考」，直到任务完成。
 
 
 ### 🔴构建模式
@@ -21,7 +20,7 @@ source:
 	- 每个任务执行按照「思考(**thought**)->行动(**action**)->中间结果(**observation**)」模式进行，循环往复。
 	- 多个中间结果叠加形成最终结果(**finalAnswer**)时完成整个过程，流程结束。
 - ReAct模式提示词：[ReAct模式 系统提示词](../04%20-%20Resources/ReAct模式%20系统提示词.md)
-- 时序图：[Agent-ReAct模式时序图](../excalidraw/Agent-ReAct模式时序图.md)
+- 时序图：[Agent-ReAct模式时序图](../Excalidraw/Agent-ReAct模式时序图.md)
 
 #### Plan&Execute模式
 - 基本原理：
